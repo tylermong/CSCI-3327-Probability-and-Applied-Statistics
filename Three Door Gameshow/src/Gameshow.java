@@ -42,15 +42,14 @@ public class Gameshow
         // Play the game for N rounds.
         for (int roundNumber = 0; roundNumber < numberOfRounds; roundNumber++)
         {
-            // Create the three doors and put a goat behind each.
+            // Create the three doors with a goat behind each.
             Door[] doors = new Door[3];
             for (int i = 0; i < doors.length; i++)
             {
-                doors[i] = new Door();
-                doors[i].contents = "goat";
+                doors[i] = new Door("goat");
             }
 
-            // Pick the winning door and put a goat behind it.
+            // Pick the winning door and put a car behind it.
             int winningDoorNumber = (int) (Math.random() * 3);
             doors[winningDoorNumber].contents = "car";
 
