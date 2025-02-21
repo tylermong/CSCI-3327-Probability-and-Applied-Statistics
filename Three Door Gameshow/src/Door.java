@@ -8,12 +8,6 @@ public class Door
 {
     public String contents;
 
-    // TODO: Remove this constructor
-    public Door()
-    {
-        contents = "placeholder";
-    }
-
     /**
      * Constructs a door object with the contents set to the input.
      * 
