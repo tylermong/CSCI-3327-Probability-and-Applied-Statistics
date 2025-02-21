@@ -42,7 +42,9 @@ public class Class
             for (int j = i + 1; j < people.length; j++)
             {
                 if (people[i] == people[j])
+                {
                     counter++;
+                }
             }
         }
         return counter;
