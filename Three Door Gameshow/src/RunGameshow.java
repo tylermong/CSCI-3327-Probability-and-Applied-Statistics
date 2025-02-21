@@ -1,20 +1,37 @@
+/**
+ * Monty Hall problem simulation: Given three doors, one with a car behind it and the other two with goats, the player
+ * picks the initial door. Then the host opens one of the goat doors, leaving the player with two remaining doors. Now
+ * the player has the option to either stick with their initial choice, or switch to the other door.
+ * 
+ * This class calls the Gameshow class to run the simulation with both strategies, and prints the results.
+ * 
+ * @author Tyler Mong
+ * @version 1.0
+ */
 public class RunGameshow
 {
+    /**
+     * Runs the simulation and prints the results to the console.
+     * @param args  Command line arguments
+     */
     public static void main(String[] args)
     {
         int numberOfRounds = 10000;
 
         Gameshow someShow = new Gameshow();
 
+        // Runs the simulation for N rounds, with the player sticking with their initial choice, and prints the results.
         int stickWithChoiceWinNumber = someShow.playGameStickWithChoice(numberOfRounds);
         System.out.println("Stick with choice win #: " + stickWithChoiceWinNumber + "/" + numberOfRounds);
         System.out.printf("Stick with choice win %%: %.2f%%\n", (double) stickWithChoiceWinNumber / numberOfRounds * 100);
 
+        // Runs the simulation for N rounds, with the player switching from their initial choice, and prints the results.
         int switchChoiceWinNumber = someShow.playGameSwitchChoice(numberOfRounds);
         System.out.println("\nSwitch choice win #: " + switchChoiceWinNumber + "/" + numberOfRounds);
         System.out.printf("Switch choice win %%: %.2f%%\n", (double) switchChoiceWinNumber / numberOfRounds * 100);
 
         /*
+         * Questions:
          * A: If the contestant has no idea which curtains hide the various prizes and selects a curtain at
          * random, assign reasonable probabilities to the simple events and calculate the probability
          * that the contestant selects the curtain hiding the nice prize.

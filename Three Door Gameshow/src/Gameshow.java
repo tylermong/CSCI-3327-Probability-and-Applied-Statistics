@@ -1,8 +1,4 @@
 /**
- * Monty Hall problem simulation: Given three doors, one with a car behind it and the other two with goats, the player
- * picks the initial door. Then the host opens one of the goat doors, leaving the player with two remaining doors. Now
- * the player has the option to either stick with their initial choice, or switch to the other door.
- * 
  * This class simulates the game show for N rounds and returns the number of wins based on the player's choice.
  *
  * @author  Tyler Mong
@@ -13,8 +9,8 @@ public class Gameshow
     /**
      * Simulates the player sticking with their initial choice for N rounds.
      * 
-     * @param numberOfRounds    the number of rounds to simulate
-     * @return                  the number of wins
+     * @param numberOfRounds    The number of rounds to simulate.
+     * @return                  The number of wins.
      */
     public int playGameStickWithChoice(int numberOfRounds)
     {
@@ -24,8 +20,8 @@ public class Gameshow
     /**
      * Simulates the player switching from their initial choice for N rounds.
      * 
-     * @param numberOfRounds    the number of rounds to simulate
-     * @return                  the number of wins
+     * @param numberOfRounds    The number of rounds to simulate.
+     * @return                  The number of wins.
      */
     public int playGameSwitchChoice(int numberOfRounds)
     {
@@ -35,9 +31,9 @@ public class Gameshow
     /**
      * Simulates playing the game for N rounds.
      * 
-     * @param numberOfRounds    the number of rounds to simulate
-     * @param switchChoice      player's decision to switch doors
-     * @return                  the number of wins
+     * @param numberOfRounds    The number of rounds to simulate.
+     * @param switchChoice      Player's decision to switch doors.
+     * @return                  The number of wins.
      */
     private int playGame(int numberOfRounds, boolean switchChoice)
     {
@@ -82,10 +78,10 @@ public class Gameshow
     /**
      * Eliminates a goat door that the player did not select.
      * 
-     * @param doors                 the three doors
-     * @param selectedDoorNumber    the door the player selected
-     * @param winningDoorNumber     the door with the car behind it
-     * @return                      the eliminated door number
+     * @param doors                 The three doors.
+     * @param selectedDoorNumber    The door the player selected.
+     * @param winningDoorNumber     The door with the car behind it.
+     * @return                      The eliminated door number.
      */
     private int eliminateGoatDoor(Door[] doors, int selectedDoorNumber, int winningDoorNumber)
     {
@@ -104,12 +100,12 @@ public class Gameshow
     }
 
     /**
-     * Switches the player's selected door (if they want to switch)
+     * Switches the player's selected door (if they want to switch).
      * 
-     * @param doors                 the three doors (two remaining + one eliminated)
-     * @param selectedDoorNumber    the door the player selected
-     * @param eliminatedDoorNumber  the door that was eliminated
-     * @return                      the switched door number
+     * @param doors                 The three doors (two remaining + one eliminated).
+     * @param selectedDoorNumber    The door the player selected.
+     * @param eliminatedDoorNumber  The door that was eliminated.
+     * @return                      The switched door number.
      */
     private int switchDoor(Door[] doors, int selectedDoorNumber, int eliminatedDoorNumber)
     {
