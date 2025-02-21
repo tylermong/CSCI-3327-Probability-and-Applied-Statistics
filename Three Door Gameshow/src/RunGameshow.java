@@ -6,7 +6,7 @@
  * This class calls the Gameshow class to run the simulation with both strategies, and prints the results. It also
  * contains the answers to questions A and B.
  * 
- * @author Tyler Mong
+ * @author  Tyler Mong
  * @version 1.0
  */
 public class RunGameshow
