@@ -3,7 +3,8 @@
  * picks the initial door. Then the host opens one of the goat doors, leaving the player with two remaining doors. Now
  * the player has the option to either stick with their initial choice, or switch to the other door.
  * 
- * This class calls the Gameshow class to run the simulation with both strategies, and prints the results.
+ * This class calls the Gameshow class to run the simulation with both strategies, and prints the results. It also
+ * contains the answers to questions A and B.
  * 
  * @author Tyler Mong
  * @version 1.0
