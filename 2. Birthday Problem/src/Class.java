@@ -55,12 +55,18 @@ public class Class
     public int printSharedBirthdays()
     {
         int counter = 0;
+        
+        // Loops through the entire class, comparing each student's birthday to the rest of the class.
         for (int i = 0; i < people.length; i++)
         {
             for (int j = i + 1; j < people.length; j++)
             {
+                // If two students share a birthday, print the students and the shared day, and increment the counter.
                 if (people[i] == people[j])
-                    System.out.println(people[i]);
+                {
+                    System.out.println("Students " + i + " and " + j + " share day: " + people[i]);
+                    counter++;
+                }
             }
         }
         return counter;
