@@ -6,6 +6,6 @@ This project simulates the birthday problem using a class of N students. It prin
 students who share this birthday, and the day itself. The results show how the probability increases as the number of people in the room increase.
 
 ## TODO
-- [ ] Refactor code
+- [ ] Refactor code.
 
 [^1]: [Birthday problem - Wikipedia](https://en.wikipedia.org/wiki/Birthday_problem)
