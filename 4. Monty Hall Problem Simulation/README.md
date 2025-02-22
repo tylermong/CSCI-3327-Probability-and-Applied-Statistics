@@ -15,6 +15,6 @@ In probability theory, the birthday problem asks for the probability that, in a 
 This project simulates the Monty Hall problem with a set of three doors, one winner (containing a car) and two losers (containing goats). The player picks a door, the host eliminates a losing door, then the player can either stick with or switch from their original choice, and finally the winning door is revealed.
 
 ## TODO
-- [ ] Refactor code
+- [ ] Refactor code.
 
 [^1]: [Monty Hall problem - Wikipedia](https://en.wikipedia.org/wiki/Monty_Hall_problem)
