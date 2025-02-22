@@ -7,7 +7,7 @@ Statistics is the discipline that concerns the collection, organization, analysi
 This project contains various statistical methods including: mean, median, mode, population/sample standard deviation. These methods are tested and the results are printed to the console.
 
 ## TODO
-- [ ] Extract standard deviation logic to shared method
+- [ ] Extract standard deviation logic to shared method.
 
 [^1]: [Probability - Wikipedia](https://en.wikipedia.org/wiki/Probability)
 [^2]: [Statistics - Wikipedia](https://en.wikipedia.org/wiki/Statistics)
