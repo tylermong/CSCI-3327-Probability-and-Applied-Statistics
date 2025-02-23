@@ -28,5 +28,10 @@ bin/
 ### Mac OS ###
 .DS_Store
 
+### Project Specific ###
+/src/OptimizedSetOperations.java
+/src/TestOptimizedSetOperations.java
+/src/CompareRunTimes.java
+
 ### TEMPOARY UNTIL REFACTORED ###
 /src/
