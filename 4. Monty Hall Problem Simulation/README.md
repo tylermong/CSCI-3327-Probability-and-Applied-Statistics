@@ -5,9 +5,6 @@ The Monty Hall problem is a brain teaser, in the form of a probability puzzle, b
 
 [^1]
 
-# Birthday Problem
-In probability theory, the birthday problem asks for the probability that, in a set of n randomly chosen people, at least two will share the same birthday. The birthday paradox is the counterintuitive fact that only 23 people are needed for that probability to exceed 50%.
-
 ## Summary
 This project simulates the Monty Hall problem with a set of three doors, one winner (containing a car) and two losers (containing goats). The player picks a door, the host eliminates a losing door, then the player can either stick with or switch from their original choice, and finally the winning door is revealed.
 
