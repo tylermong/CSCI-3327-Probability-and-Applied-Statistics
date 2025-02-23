@@ -32,6 +32,3 @@ bin/
 /src/OptimizedSetOperations.java
 /src/TestOptimizedSetOperations.java
 /src/CompareRunTimes.java
-
-### TEMPOARY UNTIL REFACTORED ###
-/src/
