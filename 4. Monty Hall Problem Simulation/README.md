@@ -5,9 +5,6 @@ The Monty Hall problem is a brain teaser, in the form of a probability puzzle, b
 
 [^1]
 
-
-
-
 # Birthday Problem
 In probability theory, the birthday problem asks for the probability that, in a set of n randomly chosen people, at least two will share the same birthday. The birthday paradox is the counterintuitive fact that only 23 people are needed for that probability to exceed 50%.
 
