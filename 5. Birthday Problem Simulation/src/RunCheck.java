@@ -22,6 +22,7 @@ public class RunCheck
         Scanner in = new Scanner(System.in);
         System.out.print("Enter class size: ");
         int classSize = in.nextInt();
+        in.close();
 
         // Creates a class object and set random birthdays for all students.
         Class class1 = new Class(classSize);
