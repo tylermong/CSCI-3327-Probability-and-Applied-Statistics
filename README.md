@@ -29,3 +29,6 @@ Implements calculations for:
 - Permutations (nPr).
 - Combinations (nCr).
 - Factorial operations (helper method for nPr and nCr).
+
+### 7. Pokemon Mulligan Probability Simulation
+Computes the probability of a deck resulting in a mulligan for the initial hand, for each number of Pokemon in the deck (0 to 60), by simulating drawing the hand N times.
