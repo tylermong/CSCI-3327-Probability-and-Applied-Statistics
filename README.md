@@ -32,3 +32,6 @@ Implements calculations for:
 
 ### 7. Pokemon Mulligan Probability Simulation
 Computes the probability of a deck resulting in a mulligan for the initial hand, for each number of Pokemon in the deck (0 to 60), by simulating drawing the hand N times.
+
+### 8. Pokemon Rare Candy Brick Probability Simulation
+Computes the probability of a deck resulting in a Rare Candy brick, for each number of Rare Candies in the deck (1 to 4), by simulating the initial game state N times.
