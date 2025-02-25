@@ -6,10 +6,6 @@ In the Pokémon Trading Card Game, each player needs at least one Basic Pokémon
 ## Summary
 This project computes the probability of a player's initial hand resulting in a mulligan, for each number of Pokemon in the deck (from 0/60 to 60/60). It runs this simulation N times (specified in the Main class) allowing for a more accurate probability. The results for each deck configuration are printed to the console.
 
-This project computes the probability of a player's initial hand requiring a mulligan in the Pokémon Trading Card Game. It simulates drawing hands from a deck and determines if each hand contains at least one Basic Pokémon card. The simulation runs multiple trials to estimate the probability of needing to mulligan based on deck composition.
-
-This project demonstrates set operations by implementing union, intersection, and complement functions. These functions are applied to integer, floating point, and string sets, with the results printed to the console.
-
 ## TODO
 - [x] Improve comments to enhance clarity.
 
