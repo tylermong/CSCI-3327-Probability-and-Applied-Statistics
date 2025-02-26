@@ -1,7 +1,9 @@
 package card.trainer;
 
 import card.TrainerCard;
+import card.trainer.helper.TrainerEffect;
 
+// TODO: Add deck and hand to support drawing cards
 public class Bill extends TrainerCard
 {
     public Bill()
@@ -13,6 +15,6 @@ public class Bill extends TrainerCard
     public void useEffect()
     {
         System.out.println("Using effect: Draw 2 cards.");
-        // TODO: Add draw card helper
+        TrainerEffect.drawCards(2);
     }
 }
