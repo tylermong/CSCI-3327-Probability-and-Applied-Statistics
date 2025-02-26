@@ -1,6 +1,6 @@
-package card.trainer;
+package card.trainer.trainercards;
 
-import card.TrainerCard;
+import card.trainer.TrainerCard;
 import card.trainer.helper.TrainerEffect;
 
 // TODO: Add deck and hand to support drawing cards

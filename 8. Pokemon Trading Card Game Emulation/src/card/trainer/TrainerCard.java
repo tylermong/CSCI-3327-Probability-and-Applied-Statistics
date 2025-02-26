@@ -1,4 +1,6 @@
-package card;
+package card.trainer;
+
+import card.Card;
 
 public abstract class TrainerCard extends Card
 {
