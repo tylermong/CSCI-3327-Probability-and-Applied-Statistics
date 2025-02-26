@@ -1,6 +1,11 @@
 package card.energy;
 
-public class LightningEnergy
+import card.EnergyCard;
+
+public class LightningEnergy extends EnergyCard
 {
-    
+    public LightningEnergy()
+    {
+        super("Lightning Energy", "Lightning");
+    }
 }
