@@ -20,6 +20,6 @@ public abstract class Pile
 
     public void removeCard(Card card)
     {
-        cards.remove(0);
+        cards.remove(card);
     }
 }
