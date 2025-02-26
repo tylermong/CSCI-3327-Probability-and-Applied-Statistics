@@ -6,6 +6,6 @@ public class WaterEnergy extends EnergyCard
 {
     public WaterEnergy()
     {
-        super("Water Energy", "Water");
+        super("Water Energy", "Water", 1);
     }
 }

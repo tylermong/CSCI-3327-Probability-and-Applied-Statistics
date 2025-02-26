@@ -6,6 +6,6 @@ public class LightningEnergy extends EnergyCard
 {
     public LightningEnergy()
     {
-        super("Lightning Energy", "Lightning");
+        super("Lightning Energy", "Lightning", 1);
     }
 }

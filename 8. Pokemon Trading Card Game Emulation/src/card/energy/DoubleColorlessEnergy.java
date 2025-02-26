@@ -6,6 +6,6 @@ public class DoubleColorlessEnergy extends EnergyCard
 {
     public DoubleColorlessEnergy()
     {
-        super("Double Colorless Energy", "Colorless");
+        super("Double Colorless Energy", "Colorless", 2);
     }
 }

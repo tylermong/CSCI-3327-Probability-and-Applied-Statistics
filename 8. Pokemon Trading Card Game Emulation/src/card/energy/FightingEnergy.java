@@ -6,6 +6,6 @@ public class FightingEnergy extends EnergyCard
 {
     public FightingEnergy()
     {
-        super("Fighting Energy", "Fighting");
+        super("Fighting Energy", "Fighting", 1);
     }
 }

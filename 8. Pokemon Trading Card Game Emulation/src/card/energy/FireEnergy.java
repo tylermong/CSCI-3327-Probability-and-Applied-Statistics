@@ -6,6 +6,6 @@ public class FireEnergy extends EnergyCard
 {
     public FireEnergy()
     {
-        super("Fire Energy", "Fire");
+        super("Fire Energy", "Fire", 1);
     }
 }

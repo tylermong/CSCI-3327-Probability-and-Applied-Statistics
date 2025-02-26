@@ -6,6 +6,6 @@ public class GrassEnergy extends EnergyCard
 {
     public GrassEnergy()
     {
-        super("Grass Energy", "Grass");
+        super("Grass Energy", "Grass", 1);
     }
 }
