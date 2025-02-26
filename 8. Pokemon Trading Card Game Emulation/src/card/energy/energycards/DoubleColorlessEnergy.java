@@ -1,6 +1,6 @@
-package card.energy;
+package card.energy.energycards;
 
-import card.EnergyCard;
+import card.energy.EnergyCard;
 
 public class DoubleColorlessEnergy extends EnergyCard
 {

@@ -1,4 +1,6 @@
-package card;
+package card.energy;
+
+import card.Card;
 
 public class EnergyCard extends Card
 {
