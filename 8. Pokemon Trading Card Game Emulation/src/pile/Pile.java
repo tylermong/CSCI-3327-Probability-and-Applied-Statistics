@@ -27,4 +27,9 @@ public abstract class Pile
     {
         return cards;
     }
+
+    public boolean isEmpty()
+    {
+        return cards.isEmpty();
+    }
 }
