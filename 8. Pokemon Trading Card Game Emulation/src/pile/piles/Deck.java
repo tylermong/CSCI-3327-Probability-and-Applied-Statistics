@@ -6,19 +6,15 @@ import java.util.Collections;
 
 public class Deck extends Pile
 {
-
-
     public Deck()
     {
         super();
     }
 
-
     public void shuffle()
     {
         Collections.shuffle(cards);
     }
-
 
     public Card drawCard()
     {
