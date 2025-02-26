@@ -1,8 +1,8 @@
-package card.pokemon;
+package card.pokemon.species;
 
 import java.util.Map;
 
-import card.PokemonCard;
+import card.pokemon.PokemonCard;
 import card.pokemon.helper.Move;
 
 public class Zapdos extends PokemonCard

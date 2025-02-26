@@ -1,5 +1,6 @@
-package card;
+package card.pokemon;
 
+import card.Card;
 import card.pokemon.helper.Move;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,7 @@
 package game;
 import card.pokemon.*;
+import card.pokemon.species.Pikachu;
+import card.pokemon.species.Zapdos;
 import card.energy.*;
 
 public class Main
