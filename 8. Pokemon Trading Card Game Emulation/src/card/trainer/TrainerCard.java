@@ -1,6 +1,8 @@
 package card.trainer;
 
 import card.Card;
+import pile.piles.Deck;
+import pile.piles.Hand;
 
 public abstract class TrainerCard extends Card
 {
@@ -17,5 +19,5 @@ public abstract class TrainerCard extends Card
         return description;
     }
 
-    public abstract void useEffect();
+    public abstract void useEffect(Deck deck, Hand hand);
 }
