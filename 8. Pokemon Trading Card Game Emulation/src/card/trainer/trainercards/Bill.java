@@ -17,5 +17,6 @@ public class Bill extends TrainerCard
     {
         System.out.println("Using effect: Draw 2 cards.");
         TrainerEffect.drawCards(deck, hand, 2);
+        System.out.println("Bill effect used.");
     }
 }

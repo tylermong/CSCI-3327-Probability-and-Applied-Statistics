@@ -20,4 +20,12 @@ public class TrainerEffect
             }
         }
     }
+
+    public static void discardHand(Hand hand)
+    {
+        while (!hand.isEmpty())
+        {
+            hand.removeCard(hand.getCards().get(0));
+        }
+    }
 }

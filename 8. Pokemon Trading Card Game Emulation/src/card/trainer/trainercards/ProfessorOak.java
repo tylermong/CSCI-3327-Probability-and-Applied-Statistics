@@ -2,6 +2,8 @@ package card.trainer.trainercards;
 
 import card.trainer.TrainerCard;
 import card.trainer.helper.TrainerEffect;
+import pile.piles.Deck;
+import pile.piles.Hand;
 
 // TODO: Add deck and hand to support drawing cards
 public class ProfessorOak extends TrainerCard
@@ -12,10 +14,11 @@ public class ProfessorOak extends TrainerCard
     }
 
     @Override
-    public void useEffect()
+    public void useEffect(Deck deck, Hand hand)
     {
         System.out.println("Using effect: Discard your hand, then draw 7 cards.");
-        //TODO: TrainerEffect.discardHand();
-        TrainerEffect.drawCards(7);
+        TrainerEffect.discardHand(hand);
+        TrainerEffect.drawCards(deck, hand, 7);
+        System.out.println("Professor Oak effect used.");
     }
 }
