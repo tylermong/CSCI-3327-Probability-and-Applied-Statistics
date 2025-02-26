@@ -1,6 +1,17 @@
 package card.trainer;
 
-public class Bill
+import card.TrainerCard;
+
+public class Bill extends TrainerCard
 {
-    
+    public Bill()
+    {
+        super("Bill", "Draw 2 cards.");
+    }
+
+    public void useEffect()
+    {
+        System.out.println("Using effect: Draw 2 cards.");
+        // TODO: Add draw card helper
+    }
 }
