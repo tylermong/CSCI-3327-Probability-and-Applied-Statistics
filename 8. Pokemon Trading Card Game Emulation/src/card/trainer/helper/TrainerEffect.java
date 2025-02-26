@@ -1,6 +1,8 @@
 package card.trainer.helper;
 
+import card.Card;
 import pile.piles.Deck;
+import pile.piles.DiscardPile;
 import pile.piles.Hand;
 
 public class TrainerEffect
@@ -21,11 +23,14 @@ public class TrainerEffect
         }
     }
 
-    public static void discardHand(Hand hand)
+    public static void discardHand(Hand hand, DiscardPile discardPile)
     {
         while (!hand.isEmpty())
         {
-            hand.removeCard(hand.getCards().get(0));
+            Card card = hand.getCards().get(0);
+            
+            hand.removeCard(card);
+            discardPile.addCard(card);
         }
     }
 }
