@@ -22,4 +22,9 @@ public abstract class Pile
     {
         cards.remove(card);
     }
+
+    public List<Card> getCards()
+    {
+        return cards;
+    }
 }
