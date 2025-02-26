@@ -1,4 +1,4 @@
-package card.pokemon.species;
+package card.pokemon.pokemoncards;
 
 import java.util.Map;
 
