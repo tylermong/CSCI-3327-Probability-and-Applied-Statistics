@@ -9,6 +9,7 @@ public class Bill extends TrainerCard
         super("Bill", "Draw 2 cards.");
     }
 
+    @Override
     public void useEffect()
     {
         System.out.println("Using effect: Draw 2 cards.");
