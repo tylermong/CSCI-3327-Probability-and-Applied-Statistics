@@ -20,10 +20,13 @@ public class Deck
         Collections.shuffle(cards);
     }
 
+    /**
+     * Draws a card from the top of the deck.
+     * @return  The card from the top of the deck.
+     */
     public Card draw()
     {
-        Card card = cards.get(0);
-        cards.remove(0);
-        return card;
+        // List.remove returns the element previously at the specified position, in this case the card on top.
+        return cards.remove(0);
     }
 }
