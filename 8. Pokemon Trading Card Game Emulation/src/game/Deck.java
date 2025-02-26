@@ -26,7 +26,7 @@ public class Deck
      */
     public Card draw()
     {
-        // List.remove returns the element previously at the specified position, in this case the card on top.
+        // List.remove removes the element at the specified index and returns it.
         return cards.remove(0);
     }
 }
