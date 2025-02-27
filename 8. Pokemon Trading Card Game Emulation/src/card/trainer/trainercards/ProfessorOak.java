@@ -15,7 +15,7 @@ public class ProfessorOak extends TrainerCard
     }
 
     @Override
-    public void useEffect(Deck deck, Hand hand)
+    public void useEffect(Deck deck, Hand hand, DiscardPile discardPile)
     {
         System.out.println("Using effect: Discard your hand, then draw 7 cards.");
         TrainerEffect.discardHand(hand, discardPile);
