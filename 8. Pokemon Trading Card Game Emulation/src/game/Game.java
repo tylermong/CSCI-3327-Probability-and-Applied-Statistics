@@ -19,7 +19,7 @@ public class Game
 
         player1Prize = new Prize();
         player2Prize = new Prize();
-        
+
         player1DiscardPile = new DiscardPile();
         player2DiscardPile = new DiscardPile();
     }
@@ -28,5 +28,19 @@ public class Game
     {
         player1Deck.shuffle();
         player2Deck.shuffle();
+
+        // Draw initial hand
+        for (int i = 0; i < 7; i++)
+        {
+            player1Hand.addCard(player1Deck.drawCard());
+            player2Hand.addCard(player2Deck.drawCard());
+        }
+
+        // Place prize cards
+        for (int i = 0; i < 6; i++)
+        {
+            player1Prize.addCard(player1Deck.drawCard());
+            player2Prize.addCard(player2Deck.drawCard());
+        }
     }
 }
