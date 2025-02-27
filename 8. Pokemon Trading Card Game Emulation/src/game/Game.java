@@ -13,10 +13,13 @@ public class Game
     {
         player1Deck = new Deck();
         player2Deck = new Deck();
+
         player1Hand = new Hand();
         player2Hand = new Hand();
+
         player1Prize = new Prize();
         player2Prize = new Prize();
+        
         player1DiscardPile = new DiscardPile();
         player2DiscardPile = new DiscardPile();
     }
