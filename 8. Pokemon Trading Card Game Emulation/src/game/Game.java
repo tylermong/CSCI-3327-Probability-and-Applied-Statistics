@@ -26,10 +26,14 @@ public class Game
 
     public void startGame()
     {
+        // Shuffles the decks
+        System.out.println("[System] Starting game...");
+        System.out.println("[System] Shuffling decks...");
         player1Deck.shuffle();
         player2Deck.shuffle();
 
         // Draw initial hand
+        System.out.println("[System] Drawing initial hands...");
         for (int i = 0; i < 7; i++)
         {
             player1Hand.addCard(player1Deck.drawCard());
@@ -37,10 +41,12 @@ public class Game
         }
 
         // Place prize cards
+        System.out.println("[System] Placing prize cards...");
         for (int i = 0; i < 6; i++)
         {
             player1Prize.addCard(player1Deck.drawCard());
             player2Prize.addCard(player2Deck.drawCard());
         }
+        System.out.println("[System] Game started successfully.");
     }
 }
