@@ -10,6 +10,7 @@ import card.pokemon.pokemoncards.Pikachu;
 import card.pokemon.pokemoncards.Zapdos;
 import card.trainer.trainercards.Bill;
 import card.trainer.trainercards.ProfessorOak;
+import card.energy.energycards.DoubleColorlessEnergy;
 
 public class DeckBuilder
 {
@@ -24,36 +25,20 @@ public class DeckBuilder
     {
         Deck lightningDeck = new Deck();
 
-        for (int i = 0; i < 7; i++)
-        {
-            lightningDeck.addCard(new Pikachu());
-        }
+        // Add 21 Pokemon cards
+        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Pikachu());
+        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Electabuzz());
+        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Zapdos());
 
-        for (int i = 0; i < 7; i++)
-        {
-            lightningDeck.addCard(new Electabuzz());
-        }
+        // Add 11 Trainer cards
+        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Bill());
+        for (int i = 0; i < 6; i++) lightningDeck.addCard(new ProfessorOak());
 
-        for (int i = 0; i < 7; i++)
-        {
-            lightningDeck.addCard(new Zapdos());
-        }
+        // Add 28 Energy cards
+        for (int i = 0; i < 20; i++) lightningDeck.addCard(new LightningEnergy());
+        for (int i = 0; i < 8; i++) lightningDeck.addCard(new DoubleColorlessEnergy());
 
-        for (int i = 0; i < 21; i++)
-        {
-            lightningDeck.addCard(new LightningEnergy());
-        }
-
-        for (int i = 0; i < 7; i++)
-        {
-            lightningDeck.addCard(new Bill());
-        }
-
-        for (int i = 0; i < 6; i++)
-        {
-            lightningDeck.addCard(new ProfessorOak());
-        }
-
+        // Add all 60 cards to the deck
         prebuiltDecks.put("Lightning", lightningDeck);
     }
 }
