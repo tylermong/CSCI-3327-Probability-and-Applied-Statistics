@@ -22,7 +22,7 @@ public class Game
         DeckBuilder.initializePrebuiltDecks();
         String[] decks = DeckBuilder.getAllPrebuiltDecks();
 
-        System.out.println("Select a deck for " + player.getName() + " :");
+        System.out.println("Select a deck for " + player.getName() + ": ");
         for (int i = 0; i < decks.length; i++)
         {
             System.out.println((i + 1) + ". " + decks[i]);
