@@ -1,6 +1,6 @@
 package game;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import card.energy.energycards.*;
 import card.pokemon.pokemoncards.*;
@@ -9,7 +9,7 @@ import pile.piles.Deck;
 
 public class DeckBuilder
 {
-    private static final Map<String, Deck> prebuiltDecks = new HashMap<>();
+    private static final Map<String, Deck> prebuiltDecks = new LinkedHashMap<>();
 
     public static void initializePrebuiltDecks()
     {
