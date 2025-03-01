@@ -35,8 +35,7 @@ public class DeckBuilder
         for (int i = 0; i < 6; i++) lightningDeck.addCard(new ProfessorOak());
 
         // Add 28 Energy cards
-        for (int i = 0; i < 20; i++) lightningDeck.addCard(new LightningEnergy());
-        for (int i = 0; i < 8; i++) lightningDeck.addCard(new DoubleColorlessEnergy());
+        for (int i = 0; i < 28; i++) lightningDeck.addCard(new LightningEnergy());
 
         // Add all 60 cards to the deck
         prebuiltDecks.put("Lightning", lightningDeck);
