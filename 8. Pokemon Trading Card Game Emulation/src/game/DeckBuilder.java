@@ -83,4 +83,9 @@ public class DeckBuilder
     {
         return prebuiltDecks.keySet().toArray(new String[0]);
     }
+
+    public static Deck getPrebuiltDeck(String deckName)
+    {
+        return prebuiltDecks.get(deckName);
+    }
 }
