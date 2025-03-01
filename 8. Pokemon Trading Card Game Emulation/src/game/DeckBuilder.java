@@ -78,4 +78,9 @@ public class DeckBuilder
         // Add all 60 cards to the deck
         prebuiltDecks.put("Fire", fireDeck);
     }
+
+    public static String getAllPrebuiltDecks()
+    {
+        return prebuiltDecks.keySet().toString();
+    }
 }
