@@ -13,9 +13,30 @@ public class DeckBuilder
 
     public static void initializePrebuiltDecks()
     {
+        initializeFireDeck();
         initializeLightningDeck();
         initializeFightingDeck();
-        initializeFireDeck();
+    }
+
+    private static void initializeFireDeck()
+    {
+        Deck fireDeck = new Deck();
+
+        // Add 21 Pokemon cards
+        for (int i = 0; i < 5; i++) fireDeck.addCard(new Charmander());
+        for (int i = 0; i < 5; i++) fireDeck.addCard(new Growlithe());
+        for (int i = 0; i < 5; i++) fireDeck.addCard(new Magmar());
+        for (int i = 0; i < 6; i++) fireDeck.addCard(new Ponyta());
+
+        // Add 11 Trainer cards
+        for (int i = 0; i < 7; i++) fireDeck.addCard(new Bill());
+        for (int i = 0; i < 6; i++) fireDeck.addCard(new ProfessorOak());
+
+        // Add 28 Energy cards
+        for (int i = 0; i < 28; i++) fireDeck.addCard(new FireEnergy());
+
+        // Add all 60 cards to the deck
+        prebuiltDecks.put("Fire", fireDeck);
     }
 
     private static void initializeLightningDeck()
@@ -56,27 +77,6 @@ public class DeckBuilder
 
         // Add all 60 cards to the deck
         prebuiltDecks.put("Fighting", fightingDeck);
-    }
-
-    private static void initializeFireDeck()
-    {
-        Deck fireDeck = new Deck();
-
-        // Add 21 Pokemon cards
-        for (int i = 0; i < 5; i++) fireDeck.addCard(new Charmander());
-        for (int i = 0; i < 5; i++) fireDeck.addCard(new Growlithe());
-        for (int i = 0; i < 5; i++) fireDeck.addCard(new Magmar());
-        for (int i = 0; i < 6; i++) fireDeck.addCard(new Ponyta());
-
-        // Add 11 Trainer cards
-        for (int i = 0; i < 7; i++) fireDeck.addCard(new Bill());
-        for (int i = 0; i < 6; i++) fireDeck.addCard(new ProfessorOak());
-
-        // Add 28 Energy cards
-        for (int i = 0; i < 28; i++) fireDeck.addCard(new FireEnergy());
-
-        // Add all 60 cards to the deck
-        prebuiltDecks.put("Fire", fireDeck);
     }
 
     public static String[] getAllPrebuiltDecks()
