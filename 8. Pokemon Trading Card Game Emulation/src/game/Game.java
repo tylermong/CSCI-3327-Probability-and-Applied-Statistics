@@ -42,7 +42,7 @@ public class Game
 
         // Step 3: Shuffle your 60-card deck and draw the top 7 cards.
         // Step 4: Check to see if you have any Basic Pokémon in your hand.
-        System.out.println(player1.getName() + " shuffles their deck and draws 7 cards.");
+        System.out.println("\n" + player1.getName() + " shuffles their deck and draws 7 cards.");
         player1.getDeck().shuffle();
         for (int i = 0; i < 7; i++)
         {
@@ -51,7 +51,7 @@ public class Game
         }
         validateHand(player1);
 
-        System.out.println(player2.getName() + " shuffles their deck and draws 7 cards.");
+        System.out.println("\n" + player2.getName() + " shuffles their deck and draws 7 cards.");
         player2.getDeck().shuffle();
         for (int i = 0; i < 7; i++)
         {
