@@ -49,29 +49,7 @@ public class Game
             Card card = player1.getDeck().drawCard();
             player1.getHand().addCard(card);
         }
-
-        // Validate that player1 has at least one Basic Pokémon in their hand
-        while (!player1.getHand().hasBasicPokemon())
-        {
-            System.out.println(player1.getName() + " does not have any Basic Pokémon in their hand."
-            + " They add all cards back to their deck, shuffle it, and draw 7 new cards.");
-
-            // Return all cards in hand to the deck
-            for (int i = 0; i < player1.getHand().getSize(); i++)
-            {
-                Card card = player1.getHand().drawCard();
-                player1.getDeck().addCard(card);
-            }
-
-            // Shuffle the deck and draw 7 new cards
-            System.out.println(player1.getName() + " shuffles their deck again and draws 7 new cards.");
-            player1.getDeck().shuffle();
-            for (int i = 0; i < 7; i++)
-            {
-                Card card = player1.getDeck().drawCard();
-                player1.getHand().addCard(card);
-            }
-        }
+        validateHand(player1);
 
         System.out.println(player2.getName() + " shuffles their deck and draws 7 cards.");
         player2.getDeck().shuffle();
@@ -80,29 +58,7 @@ public class Game
             Card card = player2.getDeck().drawCard();
             player2.getHand().addCard(card);
         }
-
-        // Validate that player2 has at least one Basic Pokémon in their hand
-        while (!player2.getHand().hasBasicPokemon())
-        {
-            System.out.println(player2.getName() + " does not have any Basic Pokémon in their hand."
-            + " They add all cards back to their deck, shuffle it, and draw 7 new cards.");
-
-            // Return all cards in hand to the deck
-            for (int i = 0; i < player2.getHand().getSize(); i++)
-            {
-                Card card = player2.getHand().drawCard();
-                player2.getDeck().addCard(card);
-            }
-
-            // Shuffle the deck and draw 7 new cards
-            System.out.println(player2.getName() + " shuffles their deck again and draws 7 new cards.");
-            player2.getDeck().shuffle();
-            for (int i = 0; i < 7; i++)
-            {
-                Card card = player2.getDeck().drawCard();
-                player2.getHand().addCard(card);
-            }
-        }
+        validateHand(player2);
     }
 
     public String flipCoin()
@@ -114,6 +70,31 @@ public class Game
         else
         {
             return "Tails";
+        }
+    }
+
+    public void validateHand(Player player)
+    {
+        while (!player.getHand().hasBasicPokemon())
+        {
+            System.out.println(player.getName() + " does not have any Basic Pokémon in their hand."
+            + " They add all cards back to their deck, shuffle it, and draw 7 new cards.");
+
+            // Return all cards in hand to the deck
+            for (int i = 0; i < player.getHand().getSize(); i++)
+            {
+                Card card = player.getHand().drawCard();
+                player.getDeck().addCard(card);
+            }
+
+            // Shuffle the deck and draw 7 new cards
+            System.out.println(player.getName() + " shuffles their deck again and draws 7 new cards.");
+            player.getDeck().shuffle();
+            for (int i = 0; i < 7; i++)
+            {
+                Card card = player.getDeck().drawCard();
+                player.getHand().addCard(card);
+            }
         }
     }
 
