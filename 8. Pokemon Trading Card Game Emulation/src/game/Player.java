@@ -1,10 +1,10 @@
 package game;
 
 import pile.piles.*;
-import card.pokemon.PokemonCard;
 
 public class Player
 {
+    private String name;
     private Deck deck;
     private Hand hand;
     private Prize prizeCards;
@@ -12,10 +12,16 @@ public class Player
     
     public Player(String name)
     {
+        this.name = name;
         this.deck = new Deck();
         this.hand = new Hand();
         this.prizeCards = new Prize();
         this.discardPile = new DiscardPile();
+    }
+
+    public String getName()
+    {
+        return name;
     }
   
     public Deck getDeck()
