@@ -11,7 +11,7 @@ public abstract class TrainerCard extends Card
 
     public TrainerCard(String name, String description)
     {
-        super(name);
+        super(name, "Trainer");
         this.description = description;
     }
 

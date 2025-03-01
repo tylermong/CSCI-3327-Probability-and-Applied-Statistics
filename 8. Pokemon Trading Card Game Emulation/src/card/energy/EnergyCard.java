@@ -9,7 +9,7 @@ public class EnergyCard extends Card
 
     public EnergyCard(String name, String energyType, int energyValue)
     {
-        super(name);
+        super(name, "Energy");
         this.energyType = energyType;
         this.energyValue = energyValue;
     }
