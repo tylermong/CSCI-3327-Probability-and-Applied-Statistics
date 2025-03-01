@@ -1,24 +1,11 @@
 package game;
 
-import pile.piles.Deck;
 import java.util.HashMap;
 import java.util.Map;
-
-import card.energy.energycards.LightningEnergy;
-import card.pokemon.pokemoncards.Charmander;
-import card.pokemon.pokemoncards.Diglett;
-import card.pokemon.pokemoncards.Electabuzz;
-import card.pokemon.pokemoncards.Growlithe;
-import card.pokemon.pokemoncards.Hitmonchan;
-import card.pokemon.pokemoncards.Machop;
-import card.pokemon.pokemoncards.Magmar;
-import card.pokemon.pokemoncards.Pikachu;
-import card.pokemon.pokemoncards.Ponyta;
-import card.pokemon.pokemoncards.Zapdos;
-import card.trainer.trainercards.Bill;
-import card.trainer.trainercards.ProfessorOak;
-import card.energy.energycards.FightingEnergy;
-import card.energy.energycards.FireEnergy;
+import card.energy.energycards.*;
+import card.pokemon.pokemoncards.*;
+import card.trainer.trainercards.*;
+import pile.piles.Deck;
 
 public class DeckBuilder
 {
