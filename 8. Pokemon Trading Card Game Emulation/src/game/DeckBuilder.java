@@ -79,8 +79,8 @@ public class DeckBuilder
         prebuiltDecks.put("Fire", fireDeck);
     }
 
-    public static String getAllPrebuiltDecks()
+    public static String[] getAllPrebuiltDecks()
     {
-        return prebuiltDecks.keySet().toString();
+        return prebuiltDecks.keySet().toArray(new String[0]);
     }
 }
