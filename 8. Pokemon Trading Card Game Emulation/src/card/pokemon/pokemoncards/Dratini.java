@@ -9,7 +9,7 @@ public class Dratini extends PokemonCard
 {
     public Dratini()
     {
-        super("Dratini", null, "Psychic", 1);
+        super("Dratini", 40, null, "Psychic", 1);
         addMove(new Move("Pound", 10, Map.of("Colorless", 1), "No additional effect."));
     }
 }

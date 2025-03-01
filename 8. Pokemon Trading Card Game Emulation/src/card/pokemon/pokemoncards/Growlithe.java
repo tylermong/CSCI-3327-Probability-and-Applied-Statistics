@@ -9,7 +9,7 @@ public class Growlithe extends PokemonCard
 {
     public Growlithe()
     {
-        super("Growlithe", "Water", null, 1);
+        super("Growlithe", 60, "Water", null, 1);
         addMove(new Move("Flare", 20, Map.of("Fire", 1, "Colorless", 1), "No additional effect."));
     }
 }
