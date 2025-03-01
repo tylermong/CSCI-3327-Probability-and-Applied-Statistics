@@ -25,6 +25,7 @@ public abstract class Pile
     public void removeCard(Card card)
     {
         cards.remove(card);
+        size--;
     }
 
     public Card drawCard()
