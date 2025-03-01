@@ -13,7 +13,7 @@ public class PokemonCard extends Card
     private int retreatCost;
     private List<Move> moves;
 
-    public PokemonCard(int HP, String name, String weakness, String resistance, int retreatCost)
+    public PokemonCard(String name, int HP, String weakness, String resistance, int retreatCost)
     {
         super(name);
         this.HP = HP;
