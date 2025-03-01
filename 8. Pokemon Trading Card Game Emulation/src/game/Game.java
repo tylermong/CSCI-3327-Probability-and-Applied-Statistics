@@ -13,28 +13,21 @@ public class Game
         player1 = new Player("Player 1");
         player2 = new Player("Player 2");
         
-        selectDecks();
+        selectDeck(player1);
+        selectDeck(player2);
     }
 
-    private void selectDecks()
+    private void selectDeck(Player player)
     {
         DeckBuilder.initializePrebuiltDecks();
         String[] decks = DeckBuilder.getAllPrebuiltDecks();
 
-        System.out.println("Select a deck for Player 1:");
+        System.out.println("Select a deck for " + player.getName() + " :");
         for (int i = 0; i < decks.length; i++)
         {
             System.out.println((i + 1) + ". " + decks[i]);
         }
-        int player1DeckChoice = in.nextInt() - 1;
-        player1.setDeck(DeckBuilder.getPrebuiltDeck(decks[player1DeckChoice]));
-
-        System.out.println("Select a deck for Player 2:");
-        for (int i = 0; i < decks.length; i++)
-        {
-            System.out.println((i + 1) + ". " + decks[i]);
-        }
-        int player2DeckChoice = in.nextInt() - 1;
-        player2.setDeck(DeckBuilder.getPrebuiltDeck(decks[player2DeckChoice]));
+        int deckChoice = in.nextInt() - 1;
+        player.setDeck(DeckBuilder.getPrebuiltDeck(decks[deckChoice]));
     }
 }
