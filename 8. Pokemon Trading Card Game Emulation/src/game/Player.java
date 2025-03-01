@@ -7,6 +7,8 @@ public class Player
     private String name;
     private Deck deck;
     private Hand hand;
+    private Active active;
+    private Bench bench;
     private Prize prizeCards;
     private DiscardPile discardPile;
     
@@ -15,6 +17,8 @@ public class Player
         this.name = name;
         this.deck = new Deck();
         this.hand = new Hand();
+        this.active = new Active();
+        this.bench = new Bench();
         this.prizeCards = new Prize();
         this.discardPile = new DiscardPile();
     }
@@ -47,5 +51,15 @@ public class Player
     public DiscardPile getDiscardPile()
     {
         return discardPile;
+    }
+
+    public Active getActive()
+    {
+        return active;
+    }
+
+    public Bench getBench()
+    {
+        return bench;
     }
 }
