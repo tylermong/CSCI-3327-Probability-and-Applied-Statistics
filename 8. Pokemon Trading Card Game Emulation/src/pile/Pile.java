@@ -23,6 +23,11 @@ public abstract class Pile
         cards.remove(card);
     }
 
+    public Card getCardAtIndex(int index)
+    {
+        return cards.get(index);
+    }
+
     public List<Card> getCards()
     {
         return cards;
