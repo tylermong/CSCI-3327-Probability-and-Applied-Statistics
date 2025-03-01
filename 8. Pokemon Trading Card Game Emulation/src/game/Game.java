@@ -67,10 +67,7 @@ public class Game
         {
             return "Heads";
         }
-        else
-        {
-            return "Tails";
-        }
+        return "Tails";
     }
 
     public void validateHand(Player player)
