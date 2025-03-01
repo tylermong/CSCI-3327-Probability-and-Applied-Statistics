@@ -2,6 +2,7 @@ package pile;
 
 import card.Card;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class Pile
@@ -24,6 +25,11 @@ public abstract class Pile
     public void removeCard(Card card)
     {
         cards.remove(card);
+    }
+
+    public void shuffle()
+    {
+        Collections.shuffle(cards);
     }
 
     public Card getCardAtIndex(int index)
