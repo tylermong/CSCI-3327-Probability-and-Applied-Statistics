@@ -63,4 +63,12 @@ public abstract class Pile
     {
         return cards.isEmpty();
     }
+
+    public void display()
+    {
+        for (int i = 0; i < cards.size(); i++)
+        {
+            System.out.println((i + 1) + ": " + cards.get(i).getName());
+        }
+    }
 }
