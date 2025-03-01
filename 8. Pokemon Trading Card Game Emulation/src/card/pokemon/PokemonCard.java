@@ -15,7 +15,7 @@ public class PokemonCard extends Card
 
     public PokemonCard(String name, int HP, String weakness, String resistance, int retreatCost)
     {
-        super(name);
+        super(name, "Pokémon");
         this.HP = HP;
         this.weakness = weakness;
         this.resistance = resistance;

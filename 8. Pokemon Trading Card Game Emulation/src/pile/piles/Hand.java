@@ -15,4 +15,18 @@ public class Hand extends Pile
         removeCard(card);
         return card;
     }
+
+    public boolean hasBasicPokemon()
+    {
+        for (Card card : cards)
+        {
+            if (card.getType().equals("Pokémon"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }

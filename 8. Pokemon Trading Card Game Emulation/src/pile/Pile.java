@@ -27,6 +27,17 @@ public abstract class Pile
         cards.remove(card);
     }
 
+    public Card drawCard()
+    {
+        if (isEmpty())
+        {
+            return null;
+        }
+        Card card = cards.remove(cards.size() - 1);
+        size--;
+        return card;
+    }
+
     public void shuffle()
     {
         Collections.shuffle(cards);
