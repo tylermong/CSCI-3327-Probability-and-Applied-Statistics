@@ -247,7 +247,7 @@ public class Game
 
     public void startGame()
     {
-        System.out.println("Battle begins!");
+        System.out.println("The battle begins!");
         sleep(1000);
         while (!isGameOver())
         {
