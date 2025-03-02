@@ -188,7 +188,7 @@ public class Game
         while (input.length() > (5 - player.getBench().getSize()) * 2 + 1)
         {
             System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
-            input = in.nextLine();
+            input = in.nextLine().trim();
         }
 
         if (input.equals("0"))
@@ -204,7 +204,7 @@ public class Game
         while (selections.length > (5 - player.getBench().getSize()))
         {
             System.out.print("Invalid selection, too many Pokémon. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
-            input = in.nextLine();
+            input = in.nextLine().trim();
             selections = input.split(",");
         }
         
@@ -215,7 +215,7 @@ public class Game
             while (index < 0 || index >= player.getHand().getSize())
             {
                 System.out.println("Invalid selection, invalid index. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
-                input = in.nextLine();
+                input = in.nextLine().trim();
                 selections = input.split(",");
                 index = Integer.parseInt(selections[0].trim()) - 1;
             }
