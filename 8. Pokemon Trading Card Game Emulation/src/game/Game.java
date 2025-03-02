@@ -82,8 +82,6 @@ public class Game
         // Step 7: Put the top 6 cards of your deck off to the side face down as your Prize cards.
         addPrizePokemon(player1);
         addPrizePokemon(player2);
-
-        startGame();
     }
 
     private void selectDeck(Player player)
@@ -127,7 +125,7 @@ public class Game
     {
         while (!player.getHand().hasBasicPokemon())
         {
-            System.out.println(player.getName() + " does not have any Basic Pokémon in their hand.");
+            System.out.println("\n" + player.getName() + " does not have any Basic Pokémon in their hand.");
             sleep(1000);
             System.out.println("Revealing hand...");
             sleep(1000);
@@ -343,7 +341,6 @@ public class Game
 
         if (checkWinCondition1() || checkWinCondition2() || checkWinCondition3())
         {
-            System.out.println("\nGame Over! " + currentPlayer.getName() + " wins!");
             return true;
         }
         return false;
@@ -354,7 +351,7 @@ public class Game
     {
         if (currentPlayer.getPrizeCards().getSize() == 0)
         {
-            System.out.println(currentPlayer.getName() + " wins by taking all of their Prize cards!");
+            System.out.println("\nGame over, " + opponent.getName() + " wins by taking all of their Prize cards!");
             return true;
         }
         return false;
@@ -363,9 +360,9 @@ public class Game
     // 2. Knock Out all of your opponent’s in-play Pokémon.
     private boolean checkWinCondition2()
     {
-        if (opponent.getActive().getSize() == 0 && opponent.getBench().getSize() == 0)
+        if (currentPlayer.getActive().getSize() == 0 && currentPlayer.getBench().getSize() == 0)
         {
-            System.out.println(currentPlayer.getName() + " wins by knocking out all of their opponent's Pokémon!");
+            System.out.println("\nGame over, " + opponent.getName() + " wins by knocking out all of " + currentPlayer.getName() + "'s Pokémon!");
             return true;
         }
         return false;
@@ -376,7 +373,7 @@ public class Game
     {
         if (opponent.getDeck().getSize() == 0)
         {
-            System.out.println(currentPlayer.getName() + " wins by making their opponent run out of cards!");
+            System.out.println("\nGame over, " + currentPlayer.getName() + " wins by making " + opponent.getName() + " run out of cards!");
             return true;
         }
         return false;
