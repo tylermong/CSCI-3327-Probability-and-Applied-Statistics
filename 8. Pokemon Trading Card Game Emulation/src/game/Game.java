@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Game
 {
-    private Player player1, player2, currentPlayer;
+    private Player player1, player2, currentPlayer, opponent;
     private String coin;
     private static final Scanner in = new Scanner(System.in);
 
@@ -38,11 +38,13 @@ public class Game
         if (coin.equals("Heads"))
         {
             currentPlayer = player1;
+            opponent = player2;
             System.out.println(player1.getName() + " goes first.");
         }
         else
         {
             currentPlayer = player2;
+            opponent = player1;
             System.out.println(player2.getName() + " goes first.");
         }
         sleep(1000);
@@ -108,10 +110,10 @@ public class Game
         // Set the selected deck for the player
         System.out.println(player.getName() + " selected " + decks[deckChoice] + " deck.\n");
         player.setDeck(DeckBuilder.getPrebuiltDeck(decks[deckChoice]));
-        sleep(1000);
+        sleep(250);
     }
 
-    public String flipCoin()
+    private String flipCoin()
     {
         if (Math.random() < 0.5)
         {
@@ -121,11 +123,13 @@ public class Game
     }
 
     // TODO: add draw +1 card if opponent has no basic pokemon
-    public void validateHand(Player player)
+    private void validateHand(Player player)
     {
         while (!player.getHand().hasBasicPokemon())
         {
             System.out.println(player.getName() + " does not have any Basic Pokémon in their hand.");
+            sleep(1000);
+            System.out.println("Revealing hand...");
             sleep(1000);
             player.getHand().display();
             sleep(1000);
@@ -148,7 +152,7 @@ public class Game
     }
 
     // TODO: Validate the card is a basic pokemon
-    public void setActivePokemon(Player player)
+    private void setActivePokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", please select a Basic Pokémon to put in the Active position.");
         player.getHand().display();
@@ -167,7 +171,8 @@ public class Game
     }
 
     // TODO: Validate the cards are basic pokemon
-    public void addBenchPokemon(Player player)
+    // TODO: Fix automatic selection for player1
+    private void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
         player.getHand().display();
@@ -223,7 +228,7 @@ public class Game
         System.out.println(player.getName() + " has " + player.getBench().getSize() + " Pokémon on the Bench.");
     }
 
-    public void addPrizePokemon(Player player)
+    private void addPrizePokemon(Player player)
     {
         System.out.println("\n" + player.getName() + " adds 6 cards to their Prize pile.");
         for (int i = 0; i < 6; i++)
@@ -234,11 +239,11 @@ public class Game
         sleep(1000);
     }
 
-    public void sleep(int ms)
+    private void sleep(int ms)
     {
         try
         {
-            Thread.sleep(ms);
+            Thread.sleep(ms / 1000);
         }
         catch (InterruptedException event)
         {
@@ -252,33 +257,14 @@ public class Game
         sleep(1000);
         while (!isGameOver())
         {
-            // Step 0: Check if the current player has an Active Pokémon. If not, select a new one.
-            // This is used when the current player's Active Pokémon is knocked out, during the opponent's turn.
-            if (currentPlayer.getActive() == null)
-            {
-                System.out.println(currentPlayer.getName() + " has no Active Pokémon. Please select a new Active Pokémon.");
-                currentPlayer.getBench().display();
-                System.out.print(currentPlayer.getName() + " selection: ");
-                int activeIndex = in.nextInt();
-                while (activeIndex < 0 || activeIndex >= currentPlayer.getBench().getSize())
-                {
-                    System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + "): ");
-                    activeIndex = in.nextInt() - 1;
-                }
-                Card activeCard = currentPlayer.getBench().getCardAtIndex(activeIndex);
-                currentPlayer.getActive().addCard(activeCard);
-                currentPlayer.getBench().removeCard(activeCard);
-                System.out.println(currentPlayer.getName() + " put " + activeCard.getName() + " in the Active position.\n");
-                sleep(1000);
-            }
-
             // Step 1: Draw a card.
-            System.out.println(currentPlayer.getName() + "'s turn begins.");
+            System.out.println("\n" + currentPlayer.getName() + "'s turn begins.");
             sleep(1000);
-            System.out.println(currentPlayer.getName() + " draws a card.");
+            System.out.println(currentPlayer.getName() + " draws a card...");
+            sleep(1000);
             Card drawnCard = currentPlayer.getDeck().drawCard();
             currentPlayer.getHand().addCard(drawnCard);
-            System.out.println(currentPlayer.getName() + " drew " + drawnCard.getName() + ".");
+            System.out.println(currentPlayer.getName() + " drew a " + drawnCard.getName() + ".");
             sleep(1000);
 
             /*
@@ -293,11 +279,11 @@ public class Game
              * Step 3: Attack. Then, end your turn.
              */
             System.out.println("\n" + currentPlayer.getName() + ", select an action:");
-            System.out.println("\t1. Put Basic Pokémon on Bench");
-            System.out.println("\t2. Attach Energy card");
-            System.out.println("\t3. Play Trainer card");
-            System.out.println("\t4. Retreat Active Pokémon");
-            System.out.println("\t0. Attack, then end turn");
+            System.out.println("\t1. Put Basic Pokémon on Bench");                      // TODO
+            System.out.println("\t2. Attach Energy card");                              // TOOD
+            System.out.println("\t3. Play Trainer card");                               // TODO
+            System.out.println("\t4. Retreat Active Pokémon");                          // TODO
+            System.out.println("\t0. Attack, then end turn");                           //TOOD
             System.out.print(currentPlayer.getName() + " selection: ");
             int action = in.nextInt();
             while (action < 0 || action > 4)
@@ -322,60 +308,117 @@ public class Game
                 case 0:
                     // 0. Attack, then end turn
                     // <Attack>
-
+                    // call attack method
+                    System.out.println("\n" + currentPlayer.getName() + " attacks " + opponent.getName() + "'s Active Pokémon.");
+                    sleep(1000);
+                    boolean knockoutOccurred = currentPlayer.getActive().attack(opponent.getActive());
+                    if (knockoutOccurred)
+                    {
+                        handleKnockout(currentPlayer, opponent);
+                    }
                     System.out.println(currentPlayer.getName() + " ends their turn.");
                     sleep(1000);
+
+                    // Switch players
                     currentPlayer = (currentPlayer == player1) ? player2 : player1;
+                    opponent = (opponent == player1) ? player2 : player1;
                     break;
+            }
+
+            if (currentPlayer.getActive().getSize() == 0)
+            {
+                handleNoActivePokemon(currentPlayer);
             }
         }
     }
 
-    public boolean isGameOver()
+    private boolean isGameOver()
     {
         /*
          * Win conditions: https://assets.pokemon.com/assets/cms2/pdf/trading-card-game/rulebook/sm7_rulebook_en.pdf
          * 1. Take all of your Prize cards.
          * 2. Knock Out all of your opponent’s in-play Pokémon.
-         * If your opponent has no cards in their deck at the beginning of their turn
+         * 3. If your opponent has no cards in their deck at the beginning of their turn
          */
 
-        if (checkWinCondition1(player1) || checkWinCondition1(player2) ||
-            checkWinCondition2(player1) || checkWinCondition2(player2) ||
-            checkWinCondition3(player1) || checkWinCondition3(player2))
+        if (checkWinCondition1() || checkWinCondition2() || checkWinCondition3())
         {
+            System.out.println("\nGame Over! " + currentPlayer.getName() + " wins!");
             return true;
         }
         return false;
     }
 
-    public boolean checkWinCondition1(Player player)
+    // 1. Take all of your Prize cards.
+    private boolean checkWinCondition1()
     {
-        if (player.getPrizeCards().getSize() == 0)
+        if (currentPlayer.getPrizeCards().getSize() == 0)
         {
-            System.out.println(player.getName() + " wins by taking all of their Prize cards!");
+            System.out.println(currentPlayer.getName() + " wins by taking all of their Prize cards!");
             return true;
         }
         return false;
     }
 
-    public boolean checkWinCondition2(Player player)
+    // 2. Knock Out all of your opponent’s in-play Pokémon.
+    private boolean checkWinCondition2()
     {
-        if (player.getActive().getSize() == 0)
+        if (opponent.getActive().getSize() == 0 && opponent.getBench().getSize() == 0)
         {
-            System.out.println(player.getName() + " wins by knocking out all of their opponent's Pokémon!");
+            System.out.println(currentPlayer.getName() + " wins by knocking out all of their opponent's Pokémon!");
             return true;
         }
         return false;
     }
 
-    public boolean checkWinCondition3(Player player)
+    // 3. If your opponent has no cards in their deck at the beginning of their turn
+    private boolean checkWinCondition3()
     {
-        if (player.getDeck().getSize() == 0)
+        if (opponent.getDeck().getSize() == 0)
         {
-            System.out.println(player.getName() + " wins by making their opponent run out of cards!");
+            System.out.println(currentPlayer.getName() + " wins by making their opponent run out of cards!");
             return true;
         }
         return false;
+    }
+
+    private void handleKnockout(Player currentPlayer, Player opponent)
+    {
+        Card knockedOutCard = opponent.getActive().drawCard();
+        opponent.getDiscardPile().addCard(knockedOutCard);
+        System.out.println("\n" + knockedOutCard.getName() + " was moved to " + opponent.getName() + "'s discard pile.");
+        sleep(1000);
+
+        Card prizeCard = currentPlayer.getPrizeCards().drawCard();
+        currentPlayer.getHand().addCard(prizeCard);
+        System.out.println(currentPlayer.getName() + " drew a prize card: " + prizeCard.getName() + ".");
+        sleep(1000);
+    }
+
+    // If the current player has no Active Pokémon, they must select a new one from their Bench.
+    private void handleNoActivePokemon(Player currentPlayer)
+    {
+        // Check if the current player has any Pokémon on the Bench
+        if (currentPlayer.getBench().getSize() == 0)
+        {
+            System.out.println(currentPlayer.getName() + " has no Pokémon on the Bench.");
+            return;
+        }
+
+        // If they do, prompt them to select one and move it to the Active position
+        System.out.println("\n" + currentPlayer.getName() + " has no Active Pokémon. Please select a new Active Pokémon from your Bench.");
+        currentPlayer.getBench().display();
+        System.out.print(currentPlayer.getName() + " selection: ");
+        int activeIndex = in.nextInt() - 1;
+        while (activeIndex < 0 || activeIndex >= currentPlayer.getBench().getSize())
+        {
+            System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + "): ");
+            activeIndex = in.nextInt() - 1;
+        }
+        Card activeCard = currentPlayer.getBench().getCardAtIndex(activeIndex);
+        currentPlayer.getActive().addCard(activeCard);
+        currentPlayer.getBench().removeCard(activeCard);
+        System.out.println(currentPlayer.getName() + " put " + activeCard.getName() + " in the Active position.");
+        sleep(1000);
     }
 }
