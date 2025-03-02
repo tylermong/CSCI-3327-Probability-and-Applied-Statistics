@@ -68,7 +68,7 @@ public abstract class Pile
     {
         for (int i = 0; i < cards.size(); i++)
         {
-            System.out.println((i + 1) + ": " + cards.get(i).getName());
+            System.out.println("\t" + (i + 1) + ". " + cards.get(i).getName());
         }
     }
 }
