@@ -159,7 +159,7 @@ public class Game
         Card activeCard = player.getHand().getCardAtIndex(activeIndex);
         player.getActive().addCard(activeCard);
         player.getHand().removeCard(activeCard);
-        System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.\n");
+        System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.");
         sleep(1000);
     }
 
@@ -167,7 +167,7 @@ public class Game
     // TODO: Fix bug of automatically adding cards to the bench (for player 2)
     public void addBenchPokemon(Player player)
     {
-        System.out.println(player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
+        System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
         player.getHand().display();
         System.out.print(player.getName() + " selection (comma-separated, e.g., 1, 2, 3): ");
         String input = in.next();
@@ -203,7 +203,7 @@ public class Game
             player.getHand().removeCard(benchCard);
             System.out.println(player.getName() + " put " + benchCard.getName() + " on the Bench.");
         }
-        System.out.println(player.getName() + " has " + player.getBench().getSize() + " Pokémon on the Bench.\n");
+        System.out.println(player.getName() + " has " + player.getBench().getSize() + " Pokémon on the Bench.");
     }
 
     public void addPrizePokemon(Player player)
