@@ -2,6 +2,8 @@ package game;
 
 import pile.piles.*;
 import card.Card;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game
@@ -164,18 +166,27 @@ public class Game
     }
 
     // TODO: Validate the cards are basic pokemon
-    // TODO: Fix bug of automatically adding cards to the bench (for player 2)
     public void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
         player.getHand().display();
-        System.out.print(player.getName() + " selection (comma-separated, e.g., 1, 2, 3): ");
-
-        // Clear any leftover input
-        in.nextLine();
+        System.out.print(player.getName() + " selection (comma-separated, e.g. 1, 2, 3 or 0 to skip): ");
 
         // Get the selections from the player
-        String input = in.next();
+        String input = in.nextLine().trim();
+        while (input.isEmpty())
+        {
+            System.out.print("Invalid selection. Enter at least one selection or '0' to skip: ");
+            input = in.nextLine().trim();
+        }
+
+        if (input.equals("0"))
+        {
+            System.out.println(player.getName() + " does not put any Pokémon on the Bench.");
+            sleep(1000);
+            return;
+        }
+
         String[] selections = input.split(",");
 
         // Validate the selections (by space on bench)
@@ -193,17 +204,17 @@ public class Game
             while (index < 0 || index >= player.getHand().getSize())
             {
                 System.out.println("Invalid selection, invalid index. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
-                input = in.next();
+                input = in.nextLine();
                 selections = input.split(",");
                 index = Integer.parseInt(selections[0].trim()) - 1;
             }
         }
 
         // Add the validated cards to the Bench
-        for (String selection : selections)
+        for (int i = 0; i < selections.length; i++)
         {
-            int index = Integer.parseInt(selection.trim()) - 1;
-            Card benchCard = player.getHand().getCardAtIndex(index);
+            int index = Integer.parseInt(selections[i].trim()) - 1;
+            Card benchCard = player.getHand().getCardAtIndex(index - i);
             player.getBench().addCard(benchCard);
             player.getHand().removeCard(benchCard);
             System.out.println(player.getName() + " put " + benchCard.getName() + " on the Bench.");
@@ -213,12 +224,13 @@ public class Game
 
     public void addPrizePokemon(Player player)
     {
-        System.out.println(player.getName() + " adds 6 cards to their Prize pile.");
+        System.out.println("\n" + player.getName() + " adds 6 cards to their Prize pile.");
         for (int i = 0; i < 6; i++)
         {
             Card prizeCard = player.getDeck().drawCard();
             player.getPrizeCards().addCard(prizeCard);
         }
+        sleep(1000);
     }
 
     public void sleep(int ms)
