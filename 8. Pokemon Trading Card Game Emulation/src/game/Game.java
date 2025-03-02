@@ -78,6 +78,8 @@ public class Game
         // Step 7: Put the top 6 cards of your deck off to the side face down as your Prize cards.
         addPrizePokemon(player1);
         addPrizePokemon(player2);
+
+        startGameLoop();
     }
 
     private void selectDeck(Player player)
@@ -223,5 +225,63 @@ public class Game
         {
             System.out.println("Sleep interrupted: " + event.getMessage());
         }
+    }
+
+    public void startGame()
+    {
+        System.out.println("Battle begins!");
+        sleep(1000);
+        while (!isGameOver())
+        {
+            
+        }
+    }
+
+    public boolean isGameOver()
+    {
+        /*
+         * Win conditions: https://assets.pokemon.com/assets/cms2/pdf/trading-card-game/rulebook/sm7_rulebook_en.pdf
+         * 1. Take all of your Prize cards.
+         * 2. Knock Out all of your opponent’s in-play Pokémon.
+         * If your opponent has no cards in their deck at the beginning of their turn
+         */
+
+        if (checkWinCondition1(player1) || checkWinCondition1(player2) ||
+            checkWinCondition2(player1) || checkWinCondition2(player2) ||
+            checkWinCondition3(player1) || checkWinCondition3(player2))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkWinCondition1(Player player)
+    {
+        if (player.getPrizeCards().getSize() == 0)
+        {
+            System.out.println(player.getName() + " wins by taking all of their Prize cards!");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkWinCondition2(Player player)
+    {
+        if (player.getActive().getSize() == 0)
+        {
+            System.out.println(player.getName() + " wins by knocking out all of their opponent's Pokémon!");
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkWinCondition3(Player player)
+    {
+        if (player.getDeck().getSize() == 0)
+        {
+            System.out.println(player.getName() + " wins by making their opponent run out of cards!");
+            return true;
+        }
+        return false;
     }
 }
