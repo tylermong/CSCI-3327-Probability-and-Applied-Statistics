@@ -161,6 +161,8 @@ public class Game
             System.out.print("Invalid selection. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
             activeIndex = in.nextInt() - 1;
         }
+        in.nextLine(); // Consume the newline character
+
         Card activeCard = player.getHand().getCardAtIndex(activeIndex);
         player.getActive().addCard(activeCard);
         player.getHand().removeCard(activeCard);
@@ -169,7 +171,7 @@ public class Game
     }
 
     // TODO: Validate the cards are basic pokemon
-    // TODO: Fix automatic selection for player1
+    // TODO: Add max bench size
     private void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
@@ -284,15 +286,18 @@ public class Game
             System.out.println("\t0. Attack, then end turn");                           //TOOD
             System.out.print(currentPlayer.getName() + " selection: ");
             int action = in.nextInt();
+
             while (action < 0 || action > 4)
             {
                 System.out.print("Invalid selection. Please choose again (0 - 4): ");
                 action = in.nextInt();
             }
+            in.nextLine(); // Consume the newline character
             switch (action)
             {
                 // 1. Put Basic Pokémon on Bench
                 case 1:
+                    addBenchPokemon(currentPlayer);
                     break;
                 
                 // 2. Attach Energy card
