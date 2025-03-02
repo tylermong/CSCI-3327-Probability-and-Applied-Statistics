@@ -292,7 +292,7 @@ public class Game
              * 
              * Step 3: Attack. Then, end your turn.
              */
-            System.out.println(currentPlayer.getName() + ", select an action:");
+            System.out.println("\n" + currentPlayer.getName() + ", select an action:");
             System.out.println("\t1. Put Basic Pokémon on Bench");
             System.out.println("\t2. Attach Energy card");
             System.out.println("\t3. Play Trainer card");
