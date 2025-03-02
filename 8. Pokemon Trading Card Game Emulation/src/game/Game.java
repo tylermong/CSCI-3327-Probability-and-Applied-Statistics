@@ -233,7 +233,81 @@ public class Game
         sleep(1000);
         while (!isGameOver())
         {
-            
+            // Step 0: Check if the current player has an Active Pokémon. If not, select a new one.
+            if (currentPlayer.getActive() == null)
+            {
+                System.out.println(currentPlayer.getName() + " has no Active Pokémon. Please select a new Active Pokémon.");
+                currentPlayer.getBench().display();
+                System.out.print(currentPlayer.getName() + " selection: ");
+                int activeIndex = in.nextInt();
+                while (activeIndex < 0 || activeIndex >= currentPlayer.getBench().getSize())
+                {
+                    System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + "): ");
+                    activeIndex = in.nextInt() - 1;
+                }
+                Card activeCard = currentPlayer.getBench().getCardAtIndex(activeIndex);
+                currentPlayer.getActive().addCard(activeCard);
+                currentPlayer.getBench().removeCard(activeCard);
+                System.out.println(currentPlayer.getName() + " put " + activeCard.getName() + " in the Active position.\n");
+                sleep(1000);
+            }
+
+            // Step 1: Draw a card.
+            System.out.println(currentPlayer.getName() + "'s turn begins.");
+            sleep(1000);
+            System.out.println(currentPlayer.getName() + " draws a card.");
+            Card drawnCard = currentPlayer.getDeck().drawCard();
+            currentPlayer.getHand().addCard(drawnCard);
+            System.out.println(currentPlayer.getName() + " drew " + drawnCard.getName() + ".");
+            sleep(1000);
+
+            /*
+             * Step 2: Do any of the following actions in any order:
+             * - Put Basic Pokémon cards from your hand onto your Bench (as many times as you want).
+             * - Evolve your Pokémon (as many times as you want).
+             * - Attach an Energy card from your hand to one of your Pokémon (once per turn)
+             * - Play Trainer cards (as many as you want, but only one Supporter card and one Stadium card per turn).
+             * - Retreat your Active Pokémon (only once per turn).
+             * - Use Abilities (as many as you want).
+             * 
+             * Step 3: Attack. Then, end your turn.
+             */
+            System.out.println(currentPlayer.getName() + ", select an action:");
+            System.out.println("\t1. Put Basic Pokémon on Bench");
+            System.out.println("\t2. Attach Energy card");
+            System.out.println("\t3. Play Trainer card");
+            System.out.println("\t4. Retreat Active Pokémon");
+            System.out.println("\t0. Attack, then end turn");
+            System.out.print(currentPlayer.getName() + " selection: ");
+            int action = in.nextInt();
+            while (action < 0 || action > 4)
+            {
+                System.out.print("Invalid selection. Please choose again (0 - 4): ");
+                action = in.nextInt();
+            }
+            switch (action)
+            {
+                case 1:
+                    // 1. Put Basic Pokémon on Bench
+                    break;
+                case 2:
+                    // 2. Attach Energy card
+                    break;
+                case 3:
+                    // 3. Play Trainer card
+                    break;
+                case 4:
+                    // 4. Retreat Active Pokémon
+                    break;
+                case 0:
+                    // 0. Attack, then end turn
+                    // <Attack>
+
+                    System.out.println(currentPlayer.getName() + " ends their turn.");
+                    sleep(1000);
+                    currentPlayer = (currentPlayer == player1) ? player2 : player1;
+                    break;
+            }
         }
     }
 
