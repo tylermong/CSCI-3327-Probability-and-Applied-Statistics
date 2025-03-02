@@ -9,14 +9,4 @@ public class Prize extends Pile
     {
         super();
     }
-
-    public void addCard(Card card)
-    {
-        cards.add(card);
-    }
-
-    public Card drawCard()
-    {
-        return cards.remove(0);
-    }
 }
