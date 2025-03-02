@@ -127,7 +127,8 @@ public class Game
             System.out.println(player.getName() + " adds all cards back to their deck, shuffles it, and draws 7 new cards.");
 
             // Return all cards in hand to the deck, shuffle, and draw 7 new cards
-            for (int i = 0; i < player.getHand().getSize(); i++)
+            int handSize = player.getHand().getSize();
+            for (int i = 0; i < handSize; i++)
             {
                 Card card = player.getHand().drawCard();
                 player.getDeck().addCard(card);
