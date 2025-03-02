@@ -23,16 +23,16 @@ public class Game
     {
         // Step 1: Shake hands with your opponent.
         System.out.println("Shaking hands...");
-        sleep(500);
+        sleep(1000);
         System.out.println(player1.getName() + " and " + player2.getName() + " have shaken hands.\n");
-        sleep(500);
+        sleep(1000);
 
         // Step 2: Flip a coin. The winner of the coin flip decides which player goes first. 
         System.out.println("Flipping a coin to determine who goes first...");
-        sleep(750);
+        sleep(1000);
         coin = flipCoin();
         System.out.println("Coin flip result: " + coin);
-        sleep(500);
+        sleep(1000);
         if (coin.equals("Heads"))
         {
             currentPlayer = player1;
@@ -43,7 +43,7 @@ public class Game
             currentPlayer = player2;
             System.out.println(player2.getName() + " goes first.");
         }
-        sleep(500);
+        sleep(1000);
 
         // Step 3: Shuffle your 60-card deck and draw the top 7 cards.
         // Step 4: Check to see if you have any Basic Pokémon in your hand.
@@ -55,7 +55,7 @@ public class Game
             player1.getHand().addCard(card);
         }
         validateHand(player1);
-        sleep(500);
+        sleep(1000);
 
         System.out.println("\n" + player2.getName() + " shuffles their deck and draws 7 cards.");
         player2.getDeck().shuffle();
@@ -65,7 +65,7 @@ public class Game
             player2.getHand().addCard(card);
         }
         validateHand(player2);
-        sleep(500);
+        sleep(1000);
 
         // Step 5: Put one of your Basic Pokémon face down as your Active Pokémon.
         setActivePokemon(player1);
@@ -75,7 +75,7 @@ public class Game
         addBenchPokemon(player1);
         addBenchPokemon(player2);
 
-        // Put the top 6 cards of your deck off to the side face down as your Prize cards.
+        // Step 7: Put the top 6 cards of your deck off to the side face down as your Prize cards.
         addPrizePokemon(player1);
         addPrizePokemon(player2);
     }
