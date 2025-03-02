@@ -28,6 +28,11 @@ public class PokemonCard extends Card
         return HP;
     }
 
+    public void setHP(int HP)
+    {
+        this.HP = HP;
+    }
+
     public String getWeakness()
     {
         return weakness;
@@ -46,5 +51,10 @@ public class PokemonCard extends Card
     public void addMove(Move move)
     {
         moves.add(move);
+    }
+
+    public Move[] getMoves()
+    {
+        return moves.toArray(new Move[0]);
     }
 }
