@@ -115,22 +115,23 @@ public class Game
         return "Tails";
     }
 
+    // TODO: add draw +1 card if opponent has no basic pokemon
     public void validateHand(Player player)
     {
         while (!player.getHand().hasBasicPokemon())
         {
-            System.out.println(player.getName() + " does not have any Basic Pokémon in their hand."
-            + " They add all cards back to their deck, shuffle it, and draw 7 new cards.");
+            System.out.println(player.getName() + " does not have any Basic Pokémon in their hand.");
+            sleep(1000);
+            player.getHand().display();
+            sleep(1000);
+            System.out.println(player.getName() + " adds all cards back to their deck, shuffles it, and draws 7 new cards.");
 
-            // Return all cards in hand to the deck
+            // Return all cards in hand to the deck, shuffle, and draw 7 new cards
             for (int i = 0; i < player.getHand().getSize(); i++)
             {
                 Card card = player.getHand().drawCard();
                 player.getDeck().addCard(card);
             }
-
-            // Shuffle the deck and draw 7 new cards
-            System.out.println(player.getName() + " shuffles their deck again and draws 7 new cards.");
             player.getDeck().shuffle();
             for (int i = 0; i < 7; i++)
             {
