@@ -79,7 +79,7 @@ public class Game
         addPrizePokemon(player1);
         addPrizePokemon(player2);
 
-        startGameLoop();
+        startGame();
     }
 
     private void selectDeck(Player player)
