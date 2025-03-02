@@ -59,6 +59,18 @@ public class Game
             player2.getHand().addCard(card);
         }
         validateHand(player2);
+
+        // Step 5: Put one of your Basic Pokémon face down as your Active Pokémon.
+        setActivePokemon(player1);
+        setActivePokemon(player2);
+
+        // Step 6: Put up to 5 more Basic Pokémon face down on your Bench.
+        addBenchPokemon(player1);
+        addBenchPokemon(player2);
+
+        // Put the top 6 cards of your deck off to the side face down as your Prize cards.
+        addPrizePokemon(player1);
+        addPrizePokemon(player2);
     }
 
     public String flipCoin()
@@ -92,6 +104,74 @@ public class Game
                 Card card = player.getDeck().drawCard();
                 player.getHand().addCard(card);
             }
+        }
+    }
+
+    public void setActivePokemon(Player player)
+    {
+        System.out.println("\n" + player.getName() + ", please select a Basic Pokémon to put in the Active position.");
+        player.getHand().display();
+        System.out.print(player.getName() + " selection: ");
+        int activeIndex = in.nextInt();
+        while (activeIndex < 0 || activeIndex >= player.getHand().getSize())
+        {
+            System.out.print("Invalid selection. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
+            activeIndex = in.nextInt() - 1;
+        }
+        Card activeCard = player.getHand().getCardAtIndex(activeIndex);
+        player.getActive().addCard(activeCard);
+        player.getHand().removeCard(activeCard);
+        System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.\n");
+    }
+
+    public void addBenchPokemon(Player player)
+    {
+        System.out.println(player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
+        player.getHand().display();
+        System.out.print(player.getName() + " selection (comma-separated, e.g., 1, 2, 3): ");
+        String input = in.next();
+        String[] selections = input.split(",");
+
+        // Validate the selections (by space on bench)
+        while (selections.length > (5 - player.getBench().getSize()))
+        {
+            System.out.print("Invalid selection, too many Pokémon. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
+            input = in.next();
+            selections = input.split(",");
+        }
+        
+        // Validate the selections (by valid index)
+        for (String selection : selections)
+        {
+            int index = Integer.parseInt(selection.trim()) - 1;
+            while (index < 0 || index >= player.getHand().getSize())
+            {
+                System.out.println("Invalid selection, invalid index. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
+                input = in.next();
+                selections = input.split(",");
+                index = Integer.parseInt(selections[0].trim()) - 1;
+            }
+        }
+
+        // Add the validated cards to the Bench
+        for (String selection : selections)
+        {
+            int index = Integer.parseInt(selection.trim()) - 1;
+            Card benchCard = player.getHand().getCardAtIndex(index);
+            player.getBench().addCard(benchCard);
+            player.getHand().removeCard(benchCard);
+            System.out.println(player.getName() + " put " + benchCard.getName() + " on the Bench.");
+        }
+        System.out.println(player.getName() + " has " + player.getBench().getSize() + " Pokémon on the Bench.\n");
+    }
+
+    public void addPrizePokemon(Player player)
+    {
+        System.out.println(player.getName() + " adds 6 cards to their Prize pile.");
+        for (int i = 0; i < 6; i++)
+        {
+            Card prizeCard = player.getDeck().drawCard();
+            player.getPrizeCards().addCard(prizeCard);
         }
     }
 
