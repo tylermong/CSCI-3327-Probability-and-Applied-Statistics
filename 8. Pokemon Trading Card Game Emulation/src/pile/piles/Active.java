@@ -86,7 +86,7 @@ public class Active extends Pile
 
         // Check if defender is knocked out
         System.out.println(attacker.getName() + " dealt " + damage + " damage to " + defender.getName() + ".");
-        System.out.println(defender.getName() + " has " + defender.getHP() + " HP remaining.");
+        System.out.println(defender.getName() + " has " + Math.max(defender.getHP(), 0) + " HP remaining.");
         if (defender.getHP() <= 0)
         {
             System.out.println(defender.getName() + " has been knocked out.");
