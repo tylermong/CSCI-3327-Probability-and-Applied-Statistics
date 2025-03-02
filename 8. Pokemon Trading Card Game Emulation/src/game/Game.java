@@ -291,22 +291,24 @@ public class Game
             }
             switch (action)
             {
+                // 1. Put Basic Pokémon on Bench
                 case 1:
-                    // 1. Put Basic Pokémon on Bench
                     break;
+                
+                // 2. Attach Energy card
                 case 2:
-                    // 2. Attach Energy card
                     break;
+                
+                // 3. Play Trainer card
                 case 3:
-                    // 3. Play Trainer card
                     break;
+                
+                // 4. Retreat Active Pokémon
                 case 4:
-                    // 4. Retreat Active Pokémon
                     break;
+                
+                // 0. Attack, then end turn
                 case 0:
-                    // 0. Attack, then end turn
-                    // <Attack>
-                    // call attack method
                     System.out.println("\n" + currentPlayer.getName() + " attacks " + opponent.getName() + "'s Active Pokémon.");
                     sleep(1000);
                     boolean knockoutOccurred = currentPlayer.getActive().attack(opponent.getActive());
