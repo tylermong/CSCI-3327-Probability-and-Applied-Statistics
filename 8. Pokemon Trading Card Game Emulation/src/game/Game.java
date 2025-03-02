@@ -170,6 +170,11 @@ public class Game
         System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
         player.getHand().display();
         System.out.print(player.getName() + " selection (comma-separated, e.g., 1, 2, 3): ");
+
+        // Clear any leftover input
+        in.nextLine();
+
+        // Get the selections from the player
         String input = in.next();
         String[] selections = input.split(",");
 
@@ -177,7 +182,7 @@ public class Game
         while (selections.length > (5 - player.getBench().getSize()))
         {
             System.out.print("Invalid selection, too many Pokémon. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
-            input = in.next();
+            input = in.nextLine();
             selections = input.split(",");
         }
         
