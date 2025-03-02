@@ -108,6 +108,7 @@ public class Game
         // Set the selected deck for the player
         System.out.println(player.getName() + " selected " + decks[deckChoice] + " deck.\n");
         player.setDeck(DeckBuilder.getPrebuiltDeck(decks[deckChoice]));
+        sleep(1000);
     }
 
     public String flipCoin()
@@ -252,6 +253,7 @@ public class Game
         while (!isGameOver())
         {
             // Step 0: Check if the current player has an Active Pokémon. If not, select a new one.
+            // This is used when the current player's Active Pokémon is knocked out, during the opponent's turn.
             if (currentPlayer.getActive() == null)
             {
                 System.out.println(currentPlayer.getName() + " has no Active Pokémon. Please select a new Active Pokémon.");
