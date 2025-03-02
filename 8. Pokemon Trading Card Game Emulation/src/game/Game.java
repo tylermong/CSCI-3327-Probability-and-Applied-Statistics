@@ -173,7 +173,7 @@ public class Game
     // TODO: Validate the cards are basic pokemon
     private void addBenchPokemon(Player player)
     {
-        System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
+        System.out.println("\n" + player.getName() + ", select up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
         player.getHand().display();
         System.out.print(player.getName() + " selection (comma-separated, e.g. 1, 2, 3 or 0 to skip): ");
 
@@ -185,9 +185,10 @@ public class Game
             input = in.nextLine().trim();
         }
 
-        while (input.length() > (5 - player.getBench().getSize()) * 2 + 1)
+        // Make sure there's enough room on the bench
+        while (input.length() > (player.getBench().getMaxSize() - player.getBench().getSize()) * 2 + 1)
         {
-            System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
+            System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             input = in.nextLine().trim();
         }
 
@@ -201,9 +202,9 @@ public class Game
         String[] selections = input.split(",");
 
         // Validate the selections (by space on bench)
-        while (selections.length > (5 - player.getBench().getSize()))
+        while (selections.length > (player.getBench().getMaxSize() - player.getBench().getSize()))
         {
-            System.out.print("Invalid selection, too many Pokémon. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
+            System.out.print("Invalid selection, too many Pokémon. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             input = in.nextLine().trim();
             selections = input.split(",");
         }
