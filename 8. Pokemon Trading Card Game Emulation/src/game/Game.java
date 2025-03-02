@@ -150,7 +150,7 @@ public class Game
         System.out.println("\n" + player.getName() + ", please select a Basic Pokémon to put in the Active position.");
         player.getHand().display();
         System.out.print(player.getName() + " selection: ");
-        int activeIndex = in.nextInt();
+        int activeIndex = in.nextInt() - 1;
         while (activeIndex < 0 || activeIndex >= player.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
@@ -160,6 +160,7 @@ public class Game
         player.getActive().addCard(activeCard);
         player.getHand().removeCard(activeCard);
         System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.\n");
+        sleep(1000);
     }
 
     // TODO: Validate the cards are basic pokemon
