@@ -23,12 +23,16 @@ public class Game
     {
         // Step 1: Shake hands with your opponent.
         System.out.println("Shaking hands...");
+        sleep(500);
         System.out.println(player1.getName() + " and " + player2.getName() + " have shaken hands.\n");
+        sleep(500);
 
         // Step 2: Flip a coin. The winner of the coin flip decides which player goes first. 
         System.out.println("Flipping a coin to determine who goes first...");
+        sleep(750);
         coin = flipCoin();
         System.out.println("Coin flip result: " + coin);
+        sleep(500);
         if (coin.equals("Heads"))
         {
             currentPlayer = player1;
@@ -39,6 +43,7 @@ public class Game
             currentPlayer = player2;
             System.out.println(player2.getName() + " goes first.");
         }
+        sleep(500);
 
         // Step 3: Shuffle your 60-card deck and draw the top 7 cards.
         // Step 4: Check to see if you have any Basic Pokémon in your hand.
@@ -50,6 +55,7 @@ public class Game
             player1.getHand().addCard(card);
         }
         validateHand(player1);
+        sleep(500);
 
         System.out.println("\n" + player2.getName() + " shuffles their deck and draws 7 cards.");
         player2.getDeck().shuffle();
@@ -59,6 +65,7 @@ public class Game
             player2.getHand().addCard(card);
         }
         validateHand(player2);
+        sleep(500);
 
         // Step 5: Put one of your Basic Pokémon face down as your Active Pokémon.
         setActivePokemon(player1);
@@ -133,6 +140,7 @@ public class Game
         }
     }
 
+    // TODO: Validate the card is a basic pokemon
     public void setActivePokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", please select a Basic Pokémon to put in the Active position.");
@@ -150,6 +158,8 @@ public class Game
         System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.\n");
     }
 
+    // TODO: Validate the cards are basic pokemon
+    // TODO: Fix bug of automatically adding cards to the bench (for player 2)
     public void addBenchPokemon(Player player)
     {
         System.out.println(player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
@@ -198,6 +208,18 @@ public class Game
         {
             Card prizeCard = player.getDeck().drawCard();
             player.getPrizeCards().addCard(prizeCard);
+        }
+    }
+
+    public void sleep(int ms)
+    {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch (InterruptedException event)
+        {
+            System.out.println("Sleep interrupted: " + event.getMessage());
         }
     }
 }
