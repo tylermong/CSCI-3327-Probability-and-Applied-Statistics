@@ -171,7 +171,6 @@ public class Game
     }
 
     // TODO: Validate the cards are basic pokemon
-    // TODO: Add max bench size
     private void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (5 - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
@@ -184,6 +183,12 @@ public class Game
         {
             System.out.print("Invalid selection. Enter at least one selection or '0' to skip: ");
             input = in.nextLine().trim();
+        }
+
+        while (input.length() > (5 - player.getBench().getSize()) * 2 + 1)
+        {
+            System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + (5 - player.getBench().getSize()) + "): ");
+            input = in.nextLine();
         }
 
         if (input.equals("0"))
