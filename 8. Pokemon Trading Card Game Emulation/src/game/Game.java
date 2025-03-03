@@ -1,6 +1,8 @@
 package game;
 
 import card.Card;
+import card.energy.EnergyCard;
+import card.pokemon.PokemonCard;
 import java.util.Scanner;
 
 public class Game
@@ -286,7 +288,7 @@ public class Game
              */
             System.out.println("\n" + currentPlayer.getName() + ", select an action:");
             System.out.println("\t1. Put Basic Pokémon on Bench");
-            System.out.println("\t2. Attach Energy card");                              // TOOD
+            System.out.println("\t2. Attach Energy card");
             System.out.println("\t3. Play Trainer card");                               // TODO
             System.out.println("\t4. Retreat Active Pokémon");                          // TODO
             System.out.println("\t0. Attack, then end turn");
@@ -302,12 +304,14 @@ public class Game
             switch (action)
             {
                 // 1. Put Basic Pokémon on Bench
+                // TODO: only allow this once per turn
                 case 1:
                     addBenchPokemon(currentPlayer);
                     break;
                 
                 // 2. Attach Energy card
                 case 2:
+                    attachEnergy(currentPlayer);
                     break;
                 
                 // 3. Play Trainer card
@@ -429,6 +433,54 @@ public class Game
         currentPlayer.getActive().addCard(activeCard);
         currentPlayer.getBench().removeCard(activeCard);
         System.out.println(currentPlayer.getName() + " put " + activeCard.getName() + " in the Active position.");
+        sleep(1000);
+    }
+
+    private void attachEnergy(Player currentPlayer)
+    {
+        // Player chooses a Pokémon to attach an Energy card to
+        System.out.println("\n" + currentPlayer.getName() + ", select a Pokémon to attach an Energy card to:");
+        currentPlayer.getActive().display();
+        currentPlayer.getBench().display();
+        System.out.print(currentPlayer.getName() + " selection: ");
+        int pokemonIndex = in.nextInt() - 1;
+        while (pokemonIndex < 0 || pokemonIndex >= currentPlayer.getActive().getSize() + currentPlayer.getBench().getSize())
+        {
+            System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getActive().getSize() + currentPlayer.getBench().getSize()) + "): ");
+            pokemonIndex = in.nextInt() - 1;
+        }
+
+        // Player chooses an Energy card from their hand
+        // TODO: validate the card is an Energy card
+        // TODO: validate the pokemon can accept the energy
+        System.out.println("\n" + currentPlayer.getName() + ", select an Energy card to attach:");
+        currentPlayer.getHand().display();
+        System.out.print(currentPlayer.getName() + " selection: ");
+        int energyIndex = in.nextInt() - 1;
+        while (energyIndex < 0 || energyIndex >= currentPlayer.getHand().getSize())
+        {
+            System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getHand().getSize()) + "): ");
+            energyIndex = in.nextInt() - 1;
+        }
+
+        // Attach the Energy card to the selected Pokémon
+        EnergyCard energyCard = (EnergyCard) currentPlayer.getHand().getCardAtIndex(energyIndex);
+        currentPlayer.getHand().removeCard(energyCard);
+
+        // Active Pokémon
+        if (pokemonIndex < currentPlayer.getActive().getSize())
+        {
+            PokemonCard activeCard = (PokemonCard) currentPlayer.getActive().getCardAtIndex(pokemonIndex);
+            activeCard.addEnergy(energyCard);
+            System.out.println(currentPlayer.getName() + " attached " + energyCard.getName() + " to " + activeCard.getName() + ".");
+        }
+        // Bench Pokémon
+        else
+        {
+            PokemonCard benchCard = (PokemonCard) currentPlayer.getBench().getCardAtIndex(pokemonIndex - currentPlayer.getActive().getSize());
+            benchCard.addEnergy(energyCard);
+            System.out.println(currentPlayer.getName() + " attached " + energyCard.getName() + " to " + benchCard.getName() + ".");
+        }
         sleep(1000);
     }
 }
