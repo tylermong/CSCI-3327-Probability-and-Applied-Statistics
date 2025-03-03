@@ -10,6 +10,7 @@ public class Game
     private Player player1, player2, currentPlayer, opponent;
     private String coin;
     private static final Scanner in = new Scanner(System.in);
+    private boolean playerHasCompletedAction2ThisTurn, playerHasCompletedAction4ThisTurn;
 
     public Game()
     {
@@ -182,8 +183,7 @@ public class Game
         sleep(1000);
     }
 
-    // TODO: Validate the cards are basic pokemon
-    // TODO: fix duplicating cards bug
+    // TODO: fix duplicating cards bug (occurs when selecting invalid cards i think -- might be fixed, need to test)
     private void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
@@ -296,6 +296,7 @@ public class Game
             System.out.println(currentPlayer.getName() + " drew a " + drawnCard.getName() + ".");
             sleep(1000);
 
+            playerHasCompletedAction2ThisTurn = false;  // reset action 2 flag
             /*
              * Step 2: Do any of the following actions in any order:
              * - Put Basic Pokémon cards from your hand onto your Bench (as many times as you want).
@@ -325,14 +326,19 @@ public class Game
             switch (action)
             {
                 // 1. Put Basic Pokémon on Bench
-                // TODO: only allow this once per turn
                 case 1:
                     addBenchPokemon(currentPlayer);
                     break;
                 
                 // 2. Attach Energy card
                 case 2:
+                    if (playerHasCompletedAction2ThisTurn)
+                    {
+                        System.out.println("You have already attached an Energy card this turn.");
+                        break;
+                    }
                     attachEnergy(currentPlayer);
+                    playerHasCompletedAction2ThisTurn = true;
                     break;
                 
                 // 3. Play Trainer card
@@ -341,6 +347,11 @@ public class Game
                 
                 // 4. Retreat Active Pokémon
                 case 4:
+                    if (playerHasCompletedAction4ThisTurn)
+                    {
+                        System.out.println("You have already retreated your Active Pokémon this turn.");
+                        break;
+                    }
                     break;
                 
                 // 0. Attack, then end turn
