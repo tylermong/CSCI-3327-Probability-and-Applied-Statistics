@@ -191,6 +191,7 @@ public class Game
             input = in.nextLine().trim();
         }
 
+        // No Pokémon go on the bench
         if (input.equals("0"))
         {
             System.out.println(player.getName() + " does not put any Pokémon on the Bench.");
@@ -284,11 +285,11 @@ public class Game
              * Step 3: Attack. Then, end your turn.
              */
             System.out.println("\n" + currentPlayer.getName() + ", select an action:");
-            System.out.println("\t1. Put Basic Pokémon on Bench");                      // TODO
+            System.out.println("\t1. Put Basic Pokémon on Bench");
             System.out.println("\t2. Attach Energy card");                              // TOOD
             System.out.println("\t3. Play Trainer card");                               // TODO
             System.out.println("\t4. Retreat Active Pokémon");                          // TODO
-            System.out.println("\t0. Attack, then end turn");                           //TOOD
+            System.out.println("\t0. Attack, then end turn");
             System.out.print(currentPlayer.getName() + " selection: ");
             int action = in.nextInt();
 
