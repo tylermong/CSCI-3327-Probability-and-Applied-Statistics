@@ -1,9 +1,12 @@
 package card.pokemon;
 
 import card.Card;
+import card.energy.EnergyCard;
 import card.pokemon.helper.Move;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PokemonCard extends Card
 {
@@ -12,6 +15,7 @@ public class PokemonCard extends Card
     private String resistance;
     private int retreatCost;
     private List<Move> moves;
+    private Map<String, Integer> energyCount;
 
     public PokemonCard(String name, int HP, String weakness, String resistance, int retreatCost)
     {
@@ -21,6 +25,7 @@ public class PokemonCard extends Card
         this.resistance = resistance;
         this.retreatCost = retreatCost;
         this.moves = new ArrayList<>();
+        this.energyCount = new HashMap<>();
     }
 
     public int getHP()
@@ -56,5 +61,26 @@ public class PokemonCard extends Card
     public Move[] getMoves()
     {
         return moves.toArray(new Move[0]);
+    }
+
+    public void addEnergy(EnergyCard energyCard)
+    {
+        String energyType = energyCard.getType();
+        energyCount.put(energyType, energyCount.getOrDefault(energyType, 0) + 1);
+    }
+
+    public int getTypeEnergy(String energyType)
+    {
+        return energyCount.getOrDefault(energyType, 0);
+    }
+
+    public int getTotalEnergy()
+    {
+        int total = 0;
+        for (int count : energyCount.values())
+        {
+            total += count;
+        }
+        return total;
     }
 }
