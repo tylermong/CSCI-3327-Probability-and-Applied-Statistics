@@ -150,21 +150,32 @@ public class Game
         }
     }
 
-    // TODO: Validate the card is a basic pokemon
     private void setActivePokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", please select a Basic Pokémon to put in the Active position.");
         player.getHand().display();
         System.out.print(player.getName() + " selection: ");
         int activeIndex = in.nextInt() - 1;
+
+        // Validate within range
         while (activeIndex < 0 || activeIndex >= player.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
             activeIndex = in.nextInt() - 1;
         }
-        in.nextLine(); // Consume the newline character
 
+        // Validate the selected card is a Basic Pokémon
         Card activeCard = player.getHand().getCardAtIndex(activeIndex);
+        if (!(activeCard instanceof PokemonCard))
+        {
+            System.out.println("Invalid selection. Please select a Basic Pokémon.");
+            setActivePokemon(player);
+            return;
+        }
+
+        in.nextLine(); // Consume the newline character
+        
+        // Add card to active pile and remove from hand
         player.getActive().addCard(activeCard);
         player.getHand().removeCard(activeCard);
         System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.");
@@ -172,6 +183,7 @@ public class Game
     }
 
     // TODO: Validate the cards are basic pokemon
+    // TODO: fix duplicating cards bug
     private void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
