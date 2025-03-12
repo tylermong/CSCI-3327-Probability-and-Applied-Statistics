@@ -201,4 +201,19 @@ public class StatsLibrary
         }
         return true;
     }
+
+    /**
+     * Checks if the probability axiom 2 (P(S) = 1) is satisfied.
+     * @param events    The map of events and their probability.
+     * @return          True if the axiom is satisfied, false otherwise.
+     */
+    public boolean checkAxiom2(Map<String, Double> events)
+    {
+        double sum = 0;
+        for (Map.Entry<String, Double> entry : events.entrySet())
+        {
+            sum += entry.getValue();
+        }
+        return sum == 1;
+    }
 }
