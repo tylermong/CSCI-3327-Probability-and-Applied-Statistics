@@ -159,4 +159,27 @@ public class StatsLibrary
         // Return the square root of the result.
         return Math.sqrt(sample);
     }
+
+    /**
+     * Calculates the variance of an array of numbers.
+     * @param nums  The array of numbers.
+     * @return      The variance of the numbers.
+     */
+    public double getVariance(double[] nums)
+    {
+        // s^2 = 1/(n-1) * sum((y_i - y_bar)^2)
+        // Step 1: Find the sample mean
+        double mean = getMean(nums);
+
+        // Step 2: Subtract the mean from each data point
+        // Step 3: Square each of the deviations
+        // Step 4: Sum the squared deviations
+        // Step 5: Divide the sum of the squared deviations by n - 1
+        double sum = 0;
+        for (double num : nums)
+        {
+            sum += Math.pow(num - mean, 2);
+        }
+        return sum / (nums.length - 1);
+    }
 }
