@@ -233,4 +233,21 @@ public class StatsLibrary
         }
         return sum == 1;
     }
+
+    /**
+     * Calculates the probability of the union of mutually exclusive events.
+     * @param events        The map of events and their probability.
+     * @param eventNames    The names of the events to calculate the union of.
+     * @return              The probability of the union of the events.
+     */
+    // TOOD: Handle edge case where the map is null or empty.
+    public double calculateMutuallyExclusiveUnionProbability(Map<String, Double> events, String[] eventNames)
+    {
+        double sum = 0;
+        for (String eventName : eventNames)
+        {
+            sum += events.get(eventName);
+        }
+        return sum;
+    }
 }
