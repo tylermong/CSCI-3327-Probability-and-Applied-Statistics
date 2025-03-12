@@ -165,6 +165,7 @@ public class StatsLibrary
      * @param nums  The array of numbers.
      * @return      The variance of the numbers.
      */
+    // TODO: Handle edge case where the array is null or empty.
     public double getVariance(double[] nums)
     {
         // s^2 = 1/(n-1) * sum((y_i - y_bar)^2)
@@ -181,5 +182,23 @@ public class StatsLibrary
             sum += Math.pow(num - mean, 2);
         }
         return sum / (nums.length - 1);
+    }
+
+    /**
+     * Checks if the probability axiom 1 (P(A) >= 0) is satisfied.
+     * @param events    The map of events and their probability.
+     * @return          True if the axiom is satisfied, false otherwise.
+     */
+    // TODO: Handle edge case where the map is null or empty.
+    public boolean checkAxiom1(Map<String, Double> events)
+    {
+        for (Map.Entry<String, Double> entry : events.entrySet())
+        {
+            if (entry.getValue() < 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
