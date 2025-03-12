@@ -53,5 +53,6 @@ public class TestStatsLibrary
         System.out.println("\nEvents: " + events);
         System.out.println("Axiom 1: " + stats.checkAxiom1(events));
         System.out.println("Axiom 2: " + stats.checkAxiom2(events));
+        System.out.println("Axiom 3: " + stats.checkAxiom3(events));
     }
 }
