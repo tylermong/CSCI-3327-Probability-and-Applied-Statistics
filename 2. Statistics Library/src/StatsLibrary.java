@@ -207,6 +207,7 @@ public class StatsLibrary
      * @param events    The map of events and their probability.
      * @return          True if the axiom is satisfied, false otherwise.
      */
+    // TODO: Handle edge case where the map is null or empty.
     public boolean checkAxiom2(Map<String, Double> events)
     {
         double sum = 0;
