@@ -52,5 +52,6 @@ public class TestStatsLibrary
         Map<String, Double> events = new HashMap<>() {{ put("A", 0.5); put("B", 0.3); put("C", 0.2); }};
         System.out.println("\nEvents: " + events);
         System.out.println("Axiom 1: " + stats.checkAxiom1(events));
+        System.out.println("Axiom 2: " + stats.checkAxiom2(events));
     }
 }
