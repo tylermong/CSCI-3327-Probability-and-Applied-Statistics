@@ -168,7 +168,6 @@ public class StatsLibrary
     // TODO: Handle edge case where the array is null or empty.
     public double getVariance(double[] nums)
     {
-        // s^2 = 1/(n-1) * sum((y_i - y_bar)^2)
         // Step 1: Find the sample mean
         double mean = getMean(nums);
 
@@ -209,6 +208,23 @@ public class StatsLibrary
      */
     // TODO: Handle edge case where the map is null or empty.
     public boolean checkAxiom2(Map<String, Double> events)
+    {
+        double sum = 0;
+        for (Map.Entry<String, Double> entry : events.entrySet())
+        {
+            sum += entry.getValue();
+        }
+        return sum == 1;
+    }
+
+    /**
+     * Checks if the probability axiom 3 (P(A_1 ∪ A_2 ∪ ... ∪ A_n) = sum(P(A_i))) is satisfied.
+     * @param events    The map of events and their probability.
+     * @return          True if the axiom is satisfied, false otherwise.
+     */
+    // TODO: Handle edge case where the map is null or empty.
+    // TODO: Implement the method.
+    public boolean checkAxiom3(Map<String, Double> events)
     {
         double sum = 0;
         for (Map.Entry<String, Double> entry : events.entrySet())
