@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This class tests the methods in the StatsLibrary class.
@@ -36,7 +38,6 @@ public class TestStatsLibrary
         System.out.println("Sample Standard Deviation: " + stats.getSampleStandardDeviation(emptySet));
         System.out.println("Variance: " + stats.getVariance(emptySet));
 
-
         // Test case with a set of unordered distinct numbers.
         double[] randomSet = { 13, 7, 11, 5 };
         System.out.println("\nSet: " + Arrays.toString(randomSet));
@@ -46,5 +47,10 @@ public class TestStatsLibrary
         System.out.println("Population Standard Deviation: " + stats.getPopulationStandardDeviation(randomSet));
         System.out.println("Sample Standard Deviation: " + stats.getSampleStandardDeviation(randomSet));
         System.out.println("Variance: " + stats.getVariance(randomSet));
+
+        // Check probability axioms 1, 2, and 3.
+        Map<String, Double> events = new HashMap<>() {{ put("A", 0.5); put("B", 0.3); put("C", 0.2); }};
+        System.out.println("\nEvents: " + events);
+        System.out.println("Axiom 1: " + stats.checkAxiom1(events));
     }
 }
