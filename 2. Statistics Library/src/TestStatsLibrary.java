@@ -24,6 +24,7 @@ public class TestStatsLibrary
         System.out.println("Mode: " + stats.getMode(numbers));
         System.out.println("Population Standard Deviation: " + stats.getPopulationStandardDeviation(numbers));
         System.out.println("Sample Standard Deviation: " + stats.getSampleStandardDeviation(numbers));
+        System.out.println("Variance: " + stats.getVariance(numbers));
 
         // Test case with an empty set.
         double[] emptySet = { };
@@ -33,6 +34,8 @@ public class TestStatsLibrary
         System.out.println("Mode: " + stats.getMode(emptySet));
         System.out.println("Population Standard Deviation: " + stats.getPopulationStandardDeviation(emptySet));
         System.out.println("Sample Standard Deviation: " + stats.getSampleStandardDeviation(emptySet));
+        System.out.println("Variance: " + stats.getVariance(emptySet));
+
 
         // Test case with a set of unordered distinct numbers.
         double[] randomSet = { 13, 7, 11, 5 };
@@ -41,6 +44,7 @@ public class TestStatsLibrary
         System.out.println("Median: " + stats.getMedian(randomSet));
         System.out.println("Mode: " + stats.getMode(randomSet));
         System.out.println("Population Standard Deviation: " + stats.getPopulationStandardDeviation(randomSet));
-        System.out.println("Standard Standard Deviation: " + stats.getSampleStandardDeviation(randomSet));
+        System.out.println("Sample Standard Deviation: " + stats.getSampleStandardDeviation(randomSet));
+        System.out.println("Variance: " + stats.getVariance(randomSet));
     }
 }
