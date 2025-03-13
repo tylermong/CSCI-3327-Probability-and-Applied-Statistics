@@ -209,9 +209,14 @@ public class TestStatsLibrary
         System.out.printf("Binomial Distribution Standard Deviation [σ(Y) for n = %d, p = %.2f]: %.2f\n", n, p, stats.getBinomialStandardDeviation(n, p));
 
         // Geometric distribution test
-        System.out.printf("Geometric Distribution [P(Y = %d) for p = %.2f]: %.5f\n", y, p, stats.getGeometricProbability(y, p));
+        System.out.printf("\nGeometric Distribution [P(Y = %d) for p = %.2f]: %.5f\n", y, p, stats.getGeometricProbability(y, p));
         System.out.printf("Geometric Distribution Expected Value [E(Y) for p = %.2f]: %.2f\n", p, stats.getGeometricExpectedValue(p));
         System.out.printf("Geometric Distribution Variance [V(Y) for p = %.2f]: %.2f\n", p, stats.getGeometricVariance(p));
         System.out.printf("Geometric Distribution Standard Deviation [σ(Y) for p = %.2f]: %.2f\n", p, stats.getGeometricStandardDeviation(p));
+
+        System.out.printf("Geometric Distribution CDF [P(X <= n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricCDF(y, p));
+        System.out.printf("Geometric Distribution Shifted CDF [P(X < n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricShiftedCDF(y, p));
+        System.out.printf("Geometric Distribution CCDF [P(X >= n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricCCDF(y, p));
+        System.out.printf("Geometric Distribution Shifted CCDF [P(X > n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricShiftedCCDF(y, p));
     }
 }
