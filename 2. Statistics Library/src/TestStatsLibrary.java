@@ -184,8 +184,17 @@ public class TestStatsLibrary
 
         // Test intersection and union probability for independent and dependent events
         double probabilityOfA = 0.5, probabilityOfB = 0.3, probabilityOfBGivenA = 0.2;
-        System.out.println("\nIndepedent Intersection Probability [P(A) = " + probabilityOfA + ", P(B) = " + probabilityOfB + "]: " + stats.getIndependentIntersectionProbability(probabilityOfA, probabilityOfB));
-        System.out.println("Dependent Intersection Probability [P(A) = " + probabilityOfA + ", P(B|A) = " + probabilityOfBGivenA + "]: " + stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA));
-        System.out.printf("Union Probability [P(A) = %.2f, P(B) = %.2f, P(A ∩ B) = %.2f]: %.2f\n", probabilityOfA, probabilityOfB, stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA), stats.getUnionProbability(probabilityOfA, probabilityOfB, stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA)));
+
+        double independentIntersection = stats.getIndependentIntersectionProbability(probabilityOfA, probabilityOfB);
+        System.out.printf("\nIndependent Intersection Probability [P(A) = %.2f, P(B) = %.2f]: %.2f\n", probabilityOfA, probabilityOfB, independentIntersection);
+
+        double independentUnion = stats.getUnionProbability(probabilityOfA, probabilityOfB, independentIntersection);
+        System.out.printf("Independent Union Probability [P(A) = %.2f, P(B) = %.2f]: %.2f\n", probabilityOfA, probabilityOfB, independentUnion);
+
+        double dependentIntersection = stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA);
+        System.out.printf("Dependent Intersection Probability [P(A) = %.2f, P(B|A) = %.2f]: %.2f\n", probabilityOfA, probabilityOfBGivenA, dependentIntersection);
+
+        double dependentUnion = stats.getUnionProbability(probabilityOfA, probabilityOfB, dependentIntersection);
+        System.out.printf("Dependent Union Probability [P(A) = %.2f, P(B) = %.2f]: %.2f\n", probabilityOfA, probabilityOfB, dependentUnion);
     }
 }
