@@ -338,6 +338,7 @@ public class Game
             System.out.println("\t2. Attach Energy card");
             System.out.println("\t3. Play Trainer card");                               // TODO
             System.out.println("\t4. Retreat Active Pokémon");                          // TODO
+            System.out.println("\t5. Show hand");
             System.out.println("\t0. Attack, then end turn");
             System.out.print(currentPlayer.getName() + " selection: ");
             int action = in.nextInt();
@@ -378,6 +379,12 @@ public class Game
                         System.out.println("You have already retreated your Active Pokémon this turn.");
                         break;
                     }
+                    break;
+
+                // 5. Show hand
+                case 5:
+                    System.out.println("\n" + currentPlayer.getName() + "'s hand:");
+                    currentPlayer.getHand().display();
                     break;
                 
                 // 0. Attack, then end turn
@@ -582,7 +589,7 @@ public class Game
         currentPlayer.getHand().removeCard(trainerCard);
         System.out.println(currentPlayer.getName() + " played " + trainerCard.getName() + ".");
         sleep(1000);
-        
+
         trainerCard.useEffect(currentPlayer.getDeck(), currentPlayer.getHand(), currentPlayer.getDiscardPile());
         sleep(1000);
     }
