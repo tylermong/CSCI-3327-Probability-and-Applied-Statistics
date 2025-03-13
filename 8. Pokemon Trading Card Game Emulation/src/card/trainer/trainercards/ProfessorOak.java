@@ -20,6 +20,5 @@ public class ProfessorOak extends TrainerCard
         System.out.println("Using effect: Discard your hand, then draw 7 cards.");
         TrainerEffect.discardHand(hand, discardPile);
         TrainerEffect.drawCards(deck, hand, 7);
-        System.out.println("Professor Oak effect used.");
     }
 }
