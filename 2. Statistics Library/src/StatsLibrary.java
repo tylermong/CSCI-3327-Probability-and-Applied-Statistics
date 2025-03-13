@@ -489,4 +489,27 @@ public class StatsLibrary
 
         return intersectionSet;
     }
+
+    /**
+     * Creates a set of complementary values given a sample and a subset.
+     * The complement set will contain all values found in the sample, that are not within the subset.
+     * @param sample    The sample set of values.
+     * @param subset    The subset of values.
+     * @return          A list containing the complement of the subset with the given sample.
+     */
+    public <T> ArrayList<T> complement(ArrayList<T> sample, ArrayList<T> subset)
+    {
+        ArrayList<T> complementSet = new ArrayList<>();
+
+        for (T sampleValue : sample)
+        {
+            // Add the value if it's not in subset (complement) and not already in the complementSet
+            if (!subset.contains(sampleValue) && !complementSet.contains(sampleValue))
+            {
+                complementSet.add(sampleValue);
+            }
+        }
+
+        return complementSet;
+    }
 }
