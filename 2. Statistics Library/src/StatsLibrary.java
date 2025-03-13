@@ -625,4 +625,16 @@ public class StatsLibrary
         // Return the total probability of event A
         return totalProbability;
     }
+
+    /**
+     * Calculates the posterior probability of event A given event B using Bayes' theorem (P(A|B)).
+     * @param probabilityOfA        The probability of event A occurring (P(A)).
+     * @param probabilityOfB        The probability of event B occurring (P(B)).
+     * @param probabilityOfBGivenA  The probability of event B given A (P(B|A)).
+     * @return                      The probability of event A given event B (P(A|B)).
+     */
+    public double bayesTheorem(double probabilityOfA, double probabilityOfB, double probabilityOfBGivenA)
+    {
+        return (probabilityOfBGivenA * probabilityOfA) / probabilityOfB;
+    }
 }
