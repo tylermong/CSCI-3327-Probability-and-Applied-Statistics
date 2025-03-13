@@ -512,4 +512,17 @@ public class StatsLibrary
 
         return complementSet;
     }
+
+    /**
+     * Computes nPr (number of permutations of n items taken r at a time).
+     * P(n, r) = n! / (n - r)!.
+     *
+     * @param n The total number of items.
+     * @param r The number of items to choose.
+     * @return  The number of permutations.
+     */
+    public BigInteger permutation(int n, int r)
+    {
+        return factorial(n).divide(factorial(n - r));
+    }
 }
