@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Contains various statistical methods including: mean, median, mode, population/sample standard deviation.
@@ -276,5 +279,42 @@ public class StatsLibrary
     public boolean checkIndependence(double probabilityOfA, double probabilityOfB, double jointProbability)
     {
         return probabilityOfA * probabilityOfB == jointProbability;
+    }
+
+    /**
+     * Checks if the subsets form a partition of the set.
+     * @param set       The set to partition.
+     * @param subsets   The subsets that form the partition.
+     * @return          True if the subsets form a partition of the set, false otherwise.
+     */
+    public boolean checkPartition(Set<Integer> set, Set<Set<Integer>> subsets)
+    {
+        // Step 1: Check if the union of the subsets is equal to the set.
+        Set<Integer> union = new HashSet<>();
+        for (Set<Integer> subset : subsets)
+        {
+            union.addAll(subset);
+        }
+    
+        // If the union of the subsets is not equal to the set, then return false.
+        if (!union.equals(set))
+        {
+            return false;
+        }
+
+        // Step 2: Check if the subsets are disjoint (i.e., their intersection is empty).
+        for (Set<Integer> subset1 : subsets)
+        {
+            for (Set<Integer> subset2 : subsets)
+            {
+                if (subset1 != subset2 && !Collections.disjoint(subset1, subset2))
+                {
+                    return false;
+                }
+            }
+        }
+
+        // At this point, the subsets are a partition of the set, so return true.
+        return true;
     }
 }
