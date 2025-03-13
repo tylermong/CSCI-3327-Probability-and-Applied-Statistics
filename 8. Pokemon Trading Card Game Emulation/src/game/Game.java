@@ -508,7 +508,6 @@ public class Game
         }
 
         // Player chooses an Energy card from their hand
-        // TODO: validate the pokemon can accept the energy
         System.out.println("\n" + currentPlayer.getName() + ", select an Energy card to attach:");
         currentPlayer.getHand().display();
         System.out.print(currentPlayer.getName() + " selection: ");
