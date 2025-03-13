@@ -455,4 +455,38 @@ public class StatsLibrary
 
         return unionSet;
     }
+
+    /**
+     * Creates a set of all distinct overlapping (intersecting) values from two lists.
+     * @param list1 The first list of values.
+     * @param list2 The second list of values.
+     * @return      A list containing all distinct intersecting values from list1 and list2.
+     */
+    public <T> ArrayList<T> intersect(ArrayList<T> list1, ArrayList<T> list2)
+    {
+        ArrayList<T> intersectionSet = new ArrayList<>();
+
+        /**
+         * TODO:
+         * This method is O(n^2), however a faster method could be implemented. If I sorted both lists and used a
+         * two pointer solution, it would drop to O(n/logn + m/logm), with a trade off of less straighforward code.
+         * This is significant for large sets, but given the use case for this course, it's not really needed, it would
+         * be more so just a nice optimization to explore rather than a necessity.
+         */
+
+        // Compare each value in list1 to each value in list2.
+        for (T set1Value : list1)
+        {
+            for (T set2Value : list2)
+            {
+                // Add the value if the two values match (intersect) and it's not already in the intersectionSet
+                if (set1Value.equals(set2Value) && !intersectionSet.contains(set1Value))
+                {
+                    intersectionSet.add(set1Value);
+                }
+            }
+        }
+
+        return intersectionSet;
+    }
 }
