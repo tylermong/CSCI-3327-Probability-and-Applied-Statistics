@@ -453,6 +453,16 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the variance of a geometric distribution.
+     * @param p The probability of success on each trial.
+     * @return  The variance of the geometric distribution (V(Y)).
+     */
+    public double getGeometricVariance(double p)
+    {
+        return (1 - p) / (p * p);
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
