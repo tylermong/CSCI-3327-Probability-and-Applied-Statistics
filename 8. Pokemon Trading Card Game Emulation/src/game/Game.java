@@ -49,8 +49,6 @@ public class Game
         }
         sleep(1000);
 
-        // TODO: "Each time your opponent shuffles their hand back into their deck because they had no Basic Pokémon, you may draw an extra card!"
-
         // Step 3: Shuffle your 60-card deck and draw the top 7 cards.
         // Step 4: Check to see if you have any Basic Pokémon in your hand.
         System.out.println("\n" + player1.getName() + " shuffles their deck and draws 7 cards.");
