@@ -605,4 +605,24 @@ public class StatsLibrary
     {
         return probabilityOfA + probabilityOfB - intersectionProbability;
     }
+
+    /**
+     * Calculates the total probability of an event A using the theorem of total probability.
+     * @param probabilitiesAGivenBi An array of probabilities of event A given each event Bi (P(A|B_i)).
+     * @param probabilitiesBi       An array of probabilities of each event Bi (P(B_i)).
+     * @return                      The total probability of event A.
+     */
+    public double theoremOfTotalProbability(double[] probabilitiesAGivenBi, double[] probabilitiesBi)
+    {
+        double totalProbability = 0;
+
+        // Sum the product of P(A|B_i) * P(B_i) for each I
+        for (int i = 0; i < probabilitiesAGivenBi.length; i++)
+        {
+            totalProbability += probabilitiesAGivenBi[i] * probabilitiesBi[i];
+        }
+
+        // Return the total probability of event A
+        return totalProbability;
+    }
 }
