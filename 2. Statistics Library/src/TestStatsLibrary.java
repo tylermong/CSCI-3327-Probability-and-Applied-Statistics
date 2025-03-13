@@ -48,7 +48,7 @@ public class TestStatsLibrary
         System.out.println("Sample Standard Deviation: " + stats.getSampleStandardDeviation(randomSet));
         System.out.println("Variance: " + stats.getVariance(randomSet));
 
-        // Check probability axioms 1, 2, and 3.
+        // Check probability axioms 1, 2, and 3, find probability of mutually exclusive events, and conditional probability
         Map<String, Double> events = new HashMap<>() {{ put("A", 0.5); put("B", 0.3); put("C", 0.2); }};
         String[] mutuallyExclusiveEvents = { "A", "B" };
         System.out.println("\nEvents: " + events);
@@ -57,5 +57,13 @@ public class TestStatsLibrary
         System.out.println("Axiom 3: " + stats.checkAxiom3(events));
         System.out.println("Mutually Exclusive Event Union Probability " + Arrays.toString(mutuallyExclusiveEvents) + ": " + stats.getMutuallyExclusiveEventUnionProbability(events, mutuallyExclusiveEvents));
         System.out.println("P(A|B): " + stats.getConditionalProbability(0.2, 0.5));
+        
+        // Check independence
+        double P_A = 0.5, P_B = 0.5, P_A_Union_B = 0.25;
+        System.out.println("Independence Check [P(A) = " + P_A + ", P(B) = " + P_B + ", P(A∩B) = " + P_A_Union_B + "]: " + stats.checkIndependence(P_A, P_B, P_A_Union_B));
+        
+        double P_A2 = 0.5, P_B2 = 0.25, P_A_Union_B2 = 0.25;
+        System.out.println("Independence Check [P(A) = " + P_A2 + ", P(B) = " + P_B2 + ", P(A∩B) = " + P_A_Union_B2 + "]: " + stats.checkIndependence(P_A2, P_B2, P_A_Union_B2));
+        
     }
 }
