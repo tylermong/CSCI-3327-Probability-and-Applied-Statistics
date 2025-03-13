@@ -543,4 +543,26 @@ public class StatsLibrary
     {
         return x * y;
     }
+
+    /**
+     * Calculates the multinomial coefficient for a given n and an array of counts.
+     * @param n         The total number of items (n).
+     * @param counts    The array of counts for each category (n_1, n_2, ..., n_r).
+     * @return          The multinomial coefficient (n! / (n_1! * n_2! * ... * n_r!)).
+     */
+    public double getMultinomialCoefficient(int n, int[] counts)
+    {
+        // Calculate the factorial of n
+        BigInteger numerator = factorial(n);
+
+        // Calculate the product of the factorials of the counts
+        BigInteger denominator = BigInteger.ONE;
+        for (int count : counts)
+        {
+            denominator = denominator.multiply(factorial(count));
+        }
+
+        // Return the multinomial coefficient
+        return numerator.divide(denominator).doubleValue();
+    }
 }
