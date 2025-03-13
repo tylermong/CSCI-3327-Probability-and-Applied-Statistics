@@ -89,10 +89,11 @@ public class TestStatsLibrary
         invalidPartition2.add(new HashSet<>(Arrays.asList(5, 6)));
         System.out.println("Is Partition? " + invalidPartition2 + ": " + stats.checkPartition(set, invalidPartition2));
 
-        // Test expected values and variances of random variables
+        // Test expected values, variances, and standard deviation of random variables
         Map<Integer, Double> probabilities = new HashMap<>() {{ put(1, 0.2); put(2, 0.5); put(3, 0.3); }};
         System.out.println("\nProbabilities: " + probabilities);
         System.out.println("Expected Value: " + String.format("%.2f", stats.getExpectedValueOfRandomVariable(probabilities)));
         System.out.println("Variance: " + String.format("%.2f", stats.getVarianceOfRandomVariable(probabilities)));
+        System.out.println("Standard Deviation: " + String.format("%.2f", stats.getStandardDeviationOfRandomVariable(probabilities)));
     }
 }
