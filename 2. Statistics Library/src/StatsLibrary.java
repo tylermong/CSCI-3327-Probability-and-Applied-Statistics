@@ -576,6 +576,22 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the negative binomial distribution probability for given parameters.
+     * @param p The probability of success on each trial.
+     * @param y The number of attempts.
+     * @param r The number of successes.
+     * @return  The negative binomial distribution probability.
+     */
+    public double getNegativeBinomialProbability(int p, int y, int r)
+    {
+        double part1 = combination(y - 1, r - 1).doubleValue();
+        double part2 = Math.pow(p, r);
+        double part3 = Math.pow(1 - p, y - r);
+
+        return part1 * part2 * part3;
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
