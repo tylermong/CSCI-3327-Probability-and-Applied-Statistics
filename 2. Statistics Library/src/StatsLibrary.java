@@ -169,7 +169,6 @@ public class StatsLibrary
      * @param nums  The array of numbers.
      * @return      The variance of the numbers.
      */
-    // TODO: Handle edge case where the array is null or empty.
     public double getVariance(double[] nums)
     {
         // Step 1: Find the sample mean
@@ -192,7 +191,6 @@ public class StatsLibrary
      * @param events    The map of events and their probability.
      * @return          True if the axiom is satisfied, false otherwise.
      */
-    // TODO: Handle edge case where the map is null or empty.
     public boolean checkAxiom1(Map<String, Double> events)
     {
         for (Map.Entry<String, Double> entry : events.entrySet())
@@ -210,7 +208,6 @@ public class StatsLibrary
      * @param events    The map of events and their probability.
      * @return          True if the axiom is satisfied, false otherwise.
      */
-    // TODO: Handle edge case where the map is null or empty.
     public boolean checkAxiom2(Map<String, Double> events)
     {
         double sum = 0;
@@ -226,7 +223,6 @@ public class StatsLibrary
      * @param events    The map of events and their probability.
      * @return          True if the axiom is satisfied, false otherwise.
      */
-    // TODO: Handle edge case where the map is null or empty.
     // TODO: Implement the method.
     public boolean checkAxiom3(Map<String, Double> events)
     {
@@ -244,7 +240,6 @@ public class StatsLibrary
      * @param eventNames    The names of the events to calculate the union of.
      * @return              The probability of the union of the events.
      */
-    // TOOD: Handle edge case where the map is null or empty.
     public double getMutuallyExclusiveEventUnionProbability(Map<String, Double> events, String[] eventNames)
     {
         double sum = 0;
