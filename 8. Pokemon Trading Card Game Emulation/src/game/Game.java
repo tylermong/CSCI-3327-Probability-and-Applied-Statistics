@@ -343,9 +343,9 @@ public class Game
             System.out.print(currentPlayer.getName() + " selection: ");
             int action = in.nextInt();
 
-            while (action < 0 || action > 4)
+            while (action < 0 || action > 5)
             {
-                System.out.print("Invalid selection. Please choose again (0 - 4): ");
+                System.out.print("Invalid selection. Please choose again (0 - 5): ");
                 action = in.nextInt();
             }
             in.nextLine(); // Consume the newline character
