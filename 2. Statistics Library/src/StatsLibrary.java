@@ -521,6 +521,22 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the hypergeometric distribution probability for given parameters.
+     * @param N The population size (total number of items).
+     * @param n The sample size (number of items drawn).
+     * @param r The number of successes in the population.
+     * @param y The number of observed successes in the sample.
+     * @return  The hypergeometric distribution probability.
+     */
+    public double getHyperGeometricProbability(int N, int n, int r, int y)
+    {
+        double numerator = combination(r, y).doubleValue() * combination(N - r, n - y).doubleValue();
+        double denominator = combination(N, n).doubleValue();
+        
+        return numerator / denominator;
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
