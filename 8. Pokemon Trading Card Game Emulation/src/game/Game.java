@@ -60,7 +60,7 @@ public class Game
             Card card = player1.getDeck().drawCard();
             player1.getHand().addCard(card);
         }
-        validateHand(player1);
+        int player1Mulligans = validateHand(player1);
         sleep(1000);
 
         System.out.println("\n" + player2.getName() + " shuffles their deck and draws 7 cards.");
@@ -70,8 +70,19 @@ public class Game
             Card card = player2.getDeck().drawCard();
             player2.getHand().addCard(card);
         }
-        validateHand(player2);
+        int player2Mulligans = validateHand(player2);
         sleep(1000);
+
+        // Handle bonus draws for mulligans
+        if (player1Mulligans > 0)
+        {
+            handleBonusDraws(player2, player1Mulligans);
+        }
+        
+        if (player2Mulligans > 0)
+        {
+            handleBonusDraws(player1, player2Mulligans);
+        }
 
         // Step 5: Put one of your Basic Pokémon face down as your Active Pokémon.
         setActivePokemon(player1);
@@ -122,11 +133,12 @@ public class Game
         return "Tails";
     }
 
-    // TODO: add draw +1 card if opponent has no basic pokemon
-    private void validateHand(Player player)
+    private int validateHand(Player player)
     {
+        int mulliganCounter = 0;
         while (!player.getHand().hasBasicPokemon())
         {
+            mulliganCounter++;
             System.out.println("\n" + player.getName() + " does not have any Basic Pokémon in their hand.");
             sleep(1000);
             System.out.println("Revealing hand...");
@@ -149,6 +161,19 @@ public class Game
                 player.getHand().addCard(card);
             }
         }
+        return mulliganCounter;
+    }
+
+    private void handleBonusDraws(Player currentPlayer, int opponentMulliganCount)
+    {
+        // Handle bonus draws for opponent's mulligans
+        System.out.println("\n" + currentPlayer.getName() + " gets to draw " + opponentMulliganCount + " extra card(s) for their opponent's mulligan.");
+        for (int i = 0; i < opponentMulliganCount; i++)
+        {
+            Card bonusCard = currentPlayer.getDeck().drawCard();
+            currentPlayer.getHand().addCard(bonusCard);
+        }
+        sleep(1000);
     }
 
     private void setActivePokemon(Player player)
