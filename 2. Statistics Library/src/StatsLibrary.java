@@ -415,6 +415,17 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the standard deviation of a binomial distribution.
+     * @param n The number of trials.
+     * @param p The probability of success on each trial.
+     * @return  The standard deviation of the binomial distribution (σ(Y)).
+     */
+    public double getBinomialStandardDeviation(int n, double p)
+    {
+        return Math.sqrt(getBinomialVariance(n, p));
+    }
+
+    /**
      * Calculates the geometric distribution probability for given parameters.
      * @param y The number of trials until the first success.
      * @param p The probability of success on each trial.
