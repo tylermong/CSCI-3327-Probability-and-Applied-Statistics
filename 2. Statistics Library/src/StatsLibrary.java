@@ -473,6 +473,18 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the cumulative distribution function (CDF) for a geometric distribution (P(x <= n)).
+     * This function returns the probability that the first success occurs on or before the n-th trial.
+     * @param n The number of trials until the first success.
+     * @param p The probability of success on each trial.
+     * @return  The cumulative distribution function (CDF) of the geometric distribution (P(x <= n)).
+     */
+    public double getGeometricCDF(int n, double p)
+    {
+        return 1 - Math.pow(1 - p, n);
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
