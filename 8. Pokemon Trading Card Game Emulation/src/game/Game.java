@@ -584,7 +584,7 @@ public class Game
     private void playTrainerCard(Player currentPlayer)
     {
         // Player chooses a Trainer card from their hand to play
-        System.out.println("\n" + currentPlayer.getName() + ", select a Trainer card to play:");
+        System.out.println("\n" + currentPlayer.getName() + ", select a Trainer card to play (0 to skip):");
         currentPlayer.getHand().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int trainerCardIndex = in.nextInt() - 1;
