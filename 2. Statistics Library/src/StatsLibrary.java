@@ -607,12 +607,12 @@ public class StatsLibrary
     }
 
     /**
-     * Calculates the total probability of an event A using the theorem of total probability.
+     * Calculates the total probability of an event A using the law of total probability.
      * @param probabilitiesAGivenBi An array of probabilities of event A given each event Bi (P(A|B_i)).
      * @param probabilitiesBi       An array of probabilities of each event Bi (P(B_i)).
      * @return                      The total probability of event A.
      */
-    public double theoremOfTotalProbability(double[] probabilitiesAGivenBi, double[] probabilitiesBi)
+    public double lawOfTotalProbability(double[] probabilitiesAGivenBi, double[] probabilitiesBi)
     {
         double totalProbability = 0;
 
