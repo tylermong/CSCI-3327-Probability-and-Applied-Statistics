@@ -222,5 +222,7 @@ public class TestStatsLibrary
         // Hypergeometric distribution test
         int N = 20; n = 10; r = 5; y = 5;
         System.out.printf("\nHypergeometric Distribution [P(Y = %d) for N = %d, n = %d, r = %d]: %.5f\n", y, N, n, r, stats.getHypergeometricProbability(N, n, r, y));
+        System.out.printf("Hypergeometric Distribution Expected Value [E(Y) for N = %d, n = %d, r = %d]: %.2f\n", N, n, r, stats.getHypergeometricExpectedValue(N, n, r));
+        System.out.printf("Hypergeometric Distribution Variance [V(Y) for N = %d, n = %d, r = %d]: %.2f\n", N, n, r, stats.getHypergeometricVariance(N, n, r));
     }
 }

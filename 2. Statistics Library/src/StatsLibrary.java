@@ -564,6 +564,18 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the standard deviation of a hypergeometric distribution.
+     * @param N The population size (total number of items).
+     * @param n The sample size (number of items drawn).
+     * @param r The number of successes in the population.
+     * @return  The standard deviation of the hypergeometric distribution (σ(Y)).
+     */
+    public double getHypergeometricStandardDeviation(int N, int n, int r)
+    {
+        return Math.sqrt(getHypergeometricVariance(N, n, r));
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
