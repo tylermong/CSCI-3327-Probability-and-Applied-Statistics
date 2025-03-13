@@ -181,5 +181,10 @@ public class TestStatsLibrary
         // Test multinomial coefficient
         int[] counts = { 2, 3, 5 }; n = 10;
         System.out.println("\nMultinomial Coefficient [n = " + n + ", counts = " + Arrays.toString(counts) + "]: " + stats.getMultinomialCoefficient(n, counts));
+
+        // Test intersection and union probability for independent and dependent events
+        double probabilityOfA = 0.5, probabilityOfB = 0.3, probabilityOfBGivenA = 0.2;
+        System.out.println("\nIndepedent Intersection Probability [P(A) = " + probabilityOfA + ", P(B) = " + probabilityOfB + "]: " + stats.getIndependentIntersectionProbability(probabilityOfA, probabilityOfB));
+        System.out.println("Dependent Intersection Probability [P(A) = " + probabilityOfA + ", P(B|A) = " + probabilityOfBGivenA + "]: " + stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA));
     }
 }
