@@ -317,4 +317,23 @@ public class StatsLibrary
         // At this point, the subsets are a partition of the set, so return true.
         return true;
     }
+
+    /**
+     * Calculates the expected value of a discrete random variable.
+     * @param probabilities The map of outcomes and their probabilities.
+     * @return              The expected value of the random variable.
+     */
+    public double getExpectedValue(Map<Integer, Double> probabilities)
+    {
+        double expectedValue = 0;
+
+        // For each outcome and its probability, multiply the outcome by its probability and add it to the expected value.
+        for (Map.Entry<Integer, Double> entry : probabilities.entrySet())
+        {
+            expectedValue += entry.getKey() * entry.getValue();
+        }
+
+        // Return the expected value.
+        return expectedValue;
+    } 
 }
