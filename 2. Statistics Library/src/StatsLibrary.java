@@ -250,4 +250,15 @@ public class StatsLibrary
         }
         return sum;
     }
+
+    /**
+     * Calculates the conditional probability of event A given event B (P(A|B)).
+     * @param jointProbability  The probability of both events A and B occurring (P(A ∩ B)).
+     * @param probabilityOfB    The probability of event B occurring (P(B)).
+     * @return                  The conditional probability of event A given event B (P(A|B)).
+     */
+    public double getConditionalProbability(double jointProbability, double probabilityOfB)
+    {
+        return jointProbability / probabilityOfB;
+    }
 }
