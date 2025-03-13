@@ -88,5 +88,10 @@ public class TestStatsLibrary
         invalidPartition2.add(new HashSet<>(Arrays.asList(3, 4)));
         invalidPartition2.add(new HashSet<>(Arrays.asList(5, 6)));
         System.out.println("Is Partition? " + invalidPartition2 + ": " + stats.checkPartition(set, invalidPartition2));
+
+        // Test expected values
+        Map<Integer, Double> probabilities = new HashMap<>() {{ put(1, 0.2); put(2, 0.5); put(3, 0.3); }};
+        System.out.println("\nProbabilities: " + probabilities);
+        System.out.println("Expected Value: " + String.format("%.2f", stats.getExpectedValue(probabilities)));
     }
 }
