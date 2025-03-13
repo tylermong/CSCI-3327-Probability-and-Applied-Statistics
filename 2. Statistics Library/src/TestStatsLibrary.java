@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -105,5 +106,67 @@ public class TestStatsLibrary
         double p = 0.8;
         System.out.printf("Binomial Distribution [P(Y = %d) for n = %d, p = %.2f]: %.5f\n", y, n, p, stats.getBinomialProbability(n, y, p));
         System.out.printf("Geometric Distribution [P(Y = %d) for p = %.2f]: %.5f\n", y, p, stats.getGeometricProbability(y, p));
+
+        // Set operations test
+        // [Integer Tests]
+
+        // Initialize and print two lists.
+        ArrayList<Integer> ints1 = new ArrayList<>(Arrays.asList(1, 2, 3, 3, 4, 6));
+        ArrayList<Integer> ints2 = new ArrayList<>(Arrays.asList(3, 4, 5));
+        System.out.println("\nSet 1: " + ints1);
+        System.out.println("Set 2: " + ints2);
+
+        // Test union functionality.
+        ArrayList<Integer> unionInts = new ArrayList<>(stats.union(ints1, ints2));
+        System.out.println("\tUnion: " + unionInts);
+
+        // Test intersect functionality.
+        ArrayList<Integer> intersectInts = new ArrayList<>(stats.intersect(ints1, ints2));
+        System.out.println("\tIntersection: " + intersectInts);
+
+        // Test complement functionality.
+        ArrayList<Integer> complementInts = new ArrayList<>(stats.complement(ints1, ints2));
+        System.out.println("\tComplement: " + complementInts);
+        System.out.println("\t\tSample: " + ints1 + ", Subset: " + ints2);
+
+        // [Double Test]
+        // Initialize and print two lists.
+        ArrayList<Double> doubles1 = new ArrayList<>(Arrays.asList(1.01, 2.02, 3.03, 3.03, 4.04, 6.06));
+        ArrayList<Double> doubles2 = new ArrayList<>(Arrays.asList(3.03, 4.04, 5.05));
+        System.out.println("\nSet 1: " + doubles1);
+        System.out.println("Set 2: " + doubles2);
+
+        // Test union functionality.
+        ArrayList<Double> unionDoubles = new ArrayList<>(stats.union(doubles1, doubles2));
+        System.out.println("\tUnion: " + unionDoubles);
+
+        // Test intersect functionality.
+        ArrayList<Double> intersectDoubles = new ArrayList<>(stats.intersect(doubles1, doubles2));
+        System.out.println("\tIntersection: " + intersectDoubles);
+
+        // Test complement functionality.
+        ArrayList<Double> complementDoubles = new ArrayList<>(stats.complement(doubles1, doubles2));
+        System.out.println("\tComplement: " + complementDoubles);
+        System.out.println("\t\tSample: " + doubles1 + ", Subset: " + doubles2);
+
+        // [String Test]
+        // Initialize and print two lists.
+        ArrayList<String> strings1 = new ArrayList<>(Arrays.asList("aaa", "bbb", "ccc", "ccc", "ddd", "fff"));
+        ArrayList<String> strings2 = new ArrayList<>(Arrays.asList("ccc", "ddd", "eee"));
+        System.out.println("\nSet 1: " + strings1);
+        System.out.println("Set 2: " + strings2);
+
+        // Test union functionality.
+        ArrayList<String> unionStrings = new ArrayList<>(stats.union(strings1, strings2));
+        System.out.println("\tUnion: " + unionStrings);
+
+        // Test intersect functionality.
+        ArrayList<String> intersectStrings = new ArrayList<>(stats.intersect(strings1, strings2));
+        System.out.println("\tIntersection: " + intersectStrings);
+
+        // Test complement functionality.
+        ArrayList<String> complementStrings = new ArrayList<>(stats.complement(strings1, strings2));
+        System.out.println("\tComplement: " + complementStrings);
+        System.out.println("\t\tSample: " + strings1 + ", Subset: " + strings2);
     }
 }
