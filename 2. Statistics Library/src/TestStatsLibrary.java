@@ -168,5 +168,10 @@ public class TestStatsLibrary
         ArrayList<String> complementStrings = new ArrayList<>(stats.complement(strings1, strings2));
         System.out.println("\tComplement: " + complementStrings);
         System.out.println("\t\tSample: " + strings1 + ", Subset: " + strings2);
+
+        // Test permuation and combination
+        int r = 3; n = 5;
+        System.out.println("\nPermutation [n = " + n + ", r = " + r + "]: " + stats.permutation(n, r));
+        System.out.println("Combination [n = " + n + ", r = " + r + "]: " + stats.combination(n, r));
     }
 }
