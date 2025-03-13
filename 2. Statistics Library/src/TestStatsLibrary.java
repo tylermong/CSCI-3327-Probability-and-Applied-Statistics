@@ -98,6 +98,6 @@ public class TestStatsLibrary
 
         // Factorial test
         int n = 5;
-        System.out.println("\nFactorial of " + n + ": " + stats.getFactorial(n));
+        System.out.println("\nFactorial of " + n + ": " + stats.factorial(n));
     }
 }
