@@ -197,10 +197,14 @@ public class TestStatsLibrary
         double dependentUnion = stats.getUnionProbability(probabilityOfA, probabilityOfB, dependentIntersection);
         System.out.printf("Dependent Union Probability [P(A) = %.2f, P(B) = %.2f]: %.2f\n", probabilityOfA, probabilityOfB, dependentUnion);
 
-        // Test law of total probability
+        // Test law of total probability and Bayes' theorem
         double[] probabilitiesAGivenBi = {0.8, 0.6, 0.7};
         double[] probabilitiesBi = {0.5, 0.3, 0.2};
         double totalProbability = stats.lawOfTotalProbability(probabilitiesAGivenBi, probabilitiesBi);
         System.out.printf("\nTotal Probability [P(A)]: %.2f\n", totalProbability);
+        
+        probabilityOfA = 0.01; probabilityOfB = 0.99; probabilityOfBGivenA = 0.99;
+        double bayesProbability = stats.bayesTheorem(probabilityOfA, probabilityOfB, probabilityOfBGivenA);
+        System.out.printf("Bayes' Theorem Result [P(A|B)]: %.2f\n", bayesProbability);
     }
 }
