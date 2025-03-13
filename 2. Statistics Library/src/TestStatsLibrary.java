@@ -50,11 +50,12 @@ public class TestStatsLibrary
 
         // Check probability axioms 1, 2, and 3.
         Map<String, Double> events = new HashMap<>() {{ put("A", 0.5); put("B", 0.3); put("C", 0.2); }};
+        String[] mutuallyExclusiveEvents = { "A", "B" };
         System.out.println("\nEvents: " + events);
         System.out.println("Axiom 1: " + stats.checkAxiom1(events));
         System.out.println("Axiom 2: " + stats.checkAxiom2(events));
         System.out.println("Axiom 3: " + stats.checkAxiom3(events));
-        System.out.println("Mutually Exclusive Event Union Probability: " + stats.getMutuallyExclusiveEventUnionProbability(events, new String[]{"A", "B"}));
+        System.out.println("Mutually Exclusive Event Union Probability " + Arrays.toString(mutuallyExclusiveEvents) + ": " + stats.getMutuallyExclusiveEventUnionProbability(events, mutuallyExclusiveEvents));
         
     }
 }
