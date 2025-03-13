@@ -380,7 +380,7 @@ public class StatsLibrary
      * @param n The number to calculate the factorial of.
      * @return  The factorial of the number.
      */
-    public BigInteger factorial(int n)
+    public BigInteger getFactorial(int n)
     {
         BigInteger result = BigInteger.ONE;
         for (int i = n; i > 1; i--)
