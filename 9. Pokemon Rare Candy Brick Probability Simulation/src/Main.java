@@ -16,7 +16,7 @@ public class Main
     public static void main(String[] args)
     {
         Simulator simulator = new Simulator();
-        int numberOfRounds = 1000000;
+        int numberOfRounds = 100000;
         
         List<String> results = simulator.runSimulation(numberOfRounds);
         results.forEach(System.out::println);
