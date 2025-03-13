@@ -16,7 +16,7 @@ public class Main
      */
     public static void main(String[] args)
     {
-        Simulator simulator = new Simulator();
+        MulliganSimulator simulator = new MulliganSimulator();
         int numberOfRounds = 100000;
         
         List<String> results = simulator.runSimulation(numberOfRounds);

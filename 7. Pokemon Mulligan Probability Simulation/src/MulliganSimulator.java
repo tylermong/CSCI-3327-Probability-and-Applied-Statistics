@@ -10,7 +10,7 @@ import java.util.Random;
  * @author  Tyler Mong
  * @version 1.0
  */
-public class Simulator
+public class MulliganSimulator
 {
     private final int DECK_SIZE = 60;
     private final int HAND_SIZE = 7;
