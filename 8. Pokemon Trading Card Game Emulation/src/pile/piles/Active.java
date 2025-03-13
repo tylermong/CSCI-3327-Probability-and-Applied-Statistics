@@ -25,23 +25,34 @@ public class Active extends Pile
         System.out.println("Defender: " + defender.getName() + " (HP: " + defender.getHP() + ")");
 
         Move selectedMove = selectMove(attacker, defender);
+        if (selectedMove == null)
+        {
+            System.out.println("No move selected. Skipping attack.");
+            return false;
+        }
         applyMoveEffect(selectedMove, attacker, defender);
         int moveDamage = calculateMoveDamage(selectedMove, attacker, defender);
         return applyMoveDamage(moveDamage, attacker, defender);
     }
 
-    // TODO: Allow user to exit (if they can't choose any move)
     private Move selectMove(PokemonCard attacker, PokemonCard defender)
     {
         Move[] moves = attacker.getMoves();
 
-        System.out.println("\nMoves:");
+        System.out.println("\nMoves (0 to skip):");
         for (int i = 0; i < moves.length; i++)
         {
             System.out.println("\t" + (i + 1) + ". " + moves[i].getName() + " - Damage: " + moves[i].getDamage() + " - " + moves[i].getEffect() + " - " + moves[i].getEnergyCost());
         }
         System.out.print("Selection: ");
         int selectedMoveIndex = in.nextInt() - 1;
+
+        // Check if the player wants to skip playing a Trainer card
+        if (selectedMoveIndex == -1)
+        {
+            System.out.println("Move selection skipped.");
+            return null;
+        }
 
         // Validate within range
         while(selectedMoveIndex < 0 || selectedMoveIndex >= moves.length)
