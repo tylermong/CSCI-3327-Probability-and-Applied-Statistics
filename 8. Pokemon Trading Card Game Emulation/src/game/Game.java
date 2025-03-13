@@ -399,6 +399,7 @@ public class Game
                             handleKnockout(currentPlayer, opponent);
                         }
                         System.out.println(currentPlayer.getName() + " ends their turn.");
+                        isTurnOver = true;
                         sleep(1000);
 
                         // Switch players
