@@ -393,6 +393,17 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the expected value of a binomial distribution.
+     * @param n The number of trials.
+     * @param p The probability of success on each trial.
+     * @return  The expected value of the binomial distribution (E(Y)).
+     */
+    public double getBinomialExpectedValue(int n, double p)
+    {
+        return n * p;
+    }
+
+    /**
      * Calculates the geometric distribution probability for given parameters.
      * @param y The number of trials until the first success.
      * @param p The probability of success on each trial.
