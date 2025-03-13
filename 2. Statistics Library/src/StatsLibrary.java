@@ -323,7 +323,7 @@ public class StatsLibrary
      * @param probabilities The map of outcomes and their probabilities.
      * @return              The expected value of the random variable.
      */
-    public double getExpectedValue(Map<Integer, Double> probabilities)
+    public double getExpectedValueOfRandomVariable(Map<Integer, Double> probabilities)
     {
         double expectedValue = 0;
 
@@ -335,5 +335,28 @@ public class StatsLibrary
 
         // Return the expected value.
         return expectedValue;
-    } 
+    }
+
+    /**
+     * Calculates the variance of a discrete random variable.
+     * @param probabilities The map of outcomes and their probabilities.
+     * @return              The variance of the random variable.
+     */
+    public double getVarianceOfRandomVariable(Map<Integer, Double> probabilities)
+    {
+        // Calculate the mean (μ) of the random variable
+        double mean = getExpectedValueOfRandomVariable(probabilities);
+        
+        // Calculate V(Y) = E[(Y - μ)^2]
+        double variance = 0;
+        for (Map.Entry<Integer, Double> entry : probabilities.entrySet())
+        {
+            int outcome = entry.getKey();
+            double probability = entry.getValue();
+            variance += Math.pow(outcome - mean, 2) * probability;
+        }
+
+        // Return the variance of the random variable
+        return variance;
+    }
 }
