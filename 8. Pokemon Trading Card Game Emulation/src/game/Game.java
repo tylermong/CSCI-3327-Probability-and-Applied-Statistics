@@ -3,6 +3,8 @@ package game;
 import card.Card;
 import card.energy.EnergyCard;
 import card.pokemon.PokemonCard;
+import card.trainer.TrainerCard;
+
 import java.util.Scanner;
 
 public class Game
@@ -366,6 +368,7 @@ public class Game
                 
                 // 3. Play Trainer card
                 case 3:
+                    playTrainerCard(currentPlayer);
                     break;
                 
                 // 4. Retreat Active Pokémon
@@ -547,6 +550,40 @@ public class Game
             benchCard.addEnergy(energyCard);
             System.out.println(currentPlayer.getName() + " attached " + energyCard.getName() + " to " + benchCard.getName() + ".");
         }
+        sleep(1000);
+    }
+
+    private void playTrainerCard(Player currentPlayer)
+    {
+        // Player chooses a Trainer card from their hand to play
+        System.out.println("\n" + currentPlayer.getName() + ", select a Trainer card to play:");
+        currentPlayer.getHand().display();
+        System.out.print(currentPlayer.getName() + " selection: ");
+        int trainerCardIndex = in.nextInt() - 1;
+
+        // Validate the selection is within range of the hand size
+        while (trainerCardIndex < 0 || trainerCardIndex >= currentPlayer.getHand().getSize())
+        {
+            System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getHand().getSize()) + "): ");
+            trainerCardIndex = in.nextInt() - 1;
+        }
+
+        // Validate the selected card is a Trainer card
+        Card selectedCard = currentPlayer.getHand().getCardAtIndex(trainerCardIndex);
+        if (!(selectedCard instanceof TrainerCard))
+        {
+            System.out.println("Invalid selection. Please select a Trainer card.");
+            playTrainerCard(currentPlayer);
+            return;
+        }
+
+        // At this point, the selected card is a valid Trainer card, so we can proceed to play it
+        TrainerCard trainerCard = (TrainerCard) currentPlayer.getHand().getCardAtIndex(trainerCardIndex);
+        currentPlayer.getHand().removeCard(trainerCard);
+        System.out.println(currentPlayer.getName() + " played " + trainerCard.getName() + ".");
+        sleep(1000);
+        
+        trainerCard.useEffect(currentPlayer.getDeck(), currentPlayer.getHand(), currentPlayer.getDiscardPile());
         sleep(1000);
     }
 }
