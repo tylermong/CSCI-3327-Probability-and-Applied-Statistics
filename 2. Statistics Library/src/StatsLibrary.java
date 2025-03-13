@@ -423,4 +423,36 @@ public class StatsLibrary
         // Return the geometric distribution probability (q^(y-1) * p).
         return failureProbability * successProbability;
     }
+
+    /**
+     * Creates a set of all distinct values from two lists.
+     *
+     * @param list1 The first list of values.
+     * @param list2 The second list of values.
+     * @return      A list containing all distinct values from list1 and list2.
+     */
+    public <T> ArrayList<T> union(ArrayList<T> list1, ArrayList<T> list2)
+    {
+        ArrayList<T> unionSet = new ArrayList<>();
+
+        // Add all distinct values from list1 into the unionSet.
+        for (T value : list1)
+        {
+            if (!unionSet.contains(value))
+            {
+                unionSet.add(value);
+            }
+        }
+
+        // Now add all distinct values from list2 into the unionSet.
+        for (T value : list2)
+        {
+            if (!unionSet.contains(value))
+            {
+                unionSet.add(value);
+            }
+        }
+
+        return unionSet;
+    }
 }
