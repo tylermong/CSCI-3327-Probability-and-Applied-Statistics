@@ -259,6 +259,10 @@ public class StatsLibrary
      */
     public double getConditionalProbability(double jointProbability, double probabilityOfB)
     {
+        if (probabilityOfB == 0)
+        {
+            return Double.NaN;
+        }
         return jointProbability / probabilityOfB;
     }
 }
