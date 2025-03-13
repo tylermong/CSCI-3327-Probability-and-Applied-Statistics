@@ -12,7 +12,7 @@ public class Game
     private Player player1, player2, currentPlayer, opponent;
     private String coin;
     private static final Scanner in = new Scanner(System.in);
-    private boolean playerHasCompletedAction2ThisTurn, playerHasCompletedAction4ThisTurn;
+    private boolean playerHasCompletedAction2ThisTurn, playerHasCompletedAction4ThisTurn, isTurnOver;
 
     public Game()
     {
@@ -321,7 +321,8 @@ public class Game
             System.out.println(currentPlayer.getName() + " drew a " + drawnCard.getName() + ".");
             sleep(1000);
 
-            playerHasCompletedAction2ThisTurn = false;  // reset action 2 flag
+            playerHasCompletedAction2ThisTurn = false;  // Reset action 2 flag
+            isTurnOver = false;                         // Reset turn over flag.
             /*
              * Step 2: Do any of the following actions in any order:
              * - Put Basic Pokémon cards from your hand onto your Bench (as many times as you want).
@@ -333,76 +334,79 @@ public class Game
              * 
              * Step 3: Attack. Then, end your turn.
              */
-            System.out.println("\n" + currentPlayer.getName() + ", select an action:");
-            System.out.println("\t1. Put Basic Pokémon on Bench");
-            System.out.println("\t2. Attach Energy card");
-            System.out.println("\t3. Play Trainer card");                               // TODO
-            System.out.println("\t4. Retreat Active Pokémon");                          // TODO
-            System.out.println("\t5. Show hand");
-            System.out.println("\t0. Attack, then end turn");
-            System.out.print(currentPlayer.getName() + " selection: ");
-            int action = in.nextInt();
-
-            while (action < 0 || action > 5)
+            while (!isTurnOver)
             {
-                System.out.print("Invalid selection. Please choose again (0 - 5): ");
-                action = in.nextInt();
-            }
-            in.nextLine(); // Consume the newline character
-            switch (action)
-            {
-                // 1. Put Basic Pokémon on Bench
-                case 1:
-                    addBenchPokemon(currentPlayer);
-                    break;
-                
-                // 2. Attach Energy card
-                case 2:
-                    if (playerHasCompletedAction2ThisTurn)
-                    {
-                        System.out.println("You have already attached an Energy card this turn.");
-                        break;
-                    }
-                    attachEnergy(currentPlayer);
-                    playerHasCompletedAction2ThisTurn = true;
-                    break;
-                
-                // 3. Play Trainer card
-                case 3:
-                    playTrainerCard(currentPlayer);
-                    break;
-                
-                // 4. Retreat Active Pokémon
-                case 4:
-                    if (playerHasCompletedAction4ThisTurn)
-                    {
-                        System.out.println("You have already retreated your Active Pokémon this turn.");
-                        break;
-                    }
-                    break;
+                System.out.println("\n" + currentPlayer.getName() + ", select an action:");
+                System.out.println("\t1. Put Basic Pokémon on Bench");
+                System.out.println("\t2. Attach Energy card");
+                System.out.println("\t3. Play Trainer card");                               // TODO
+                System.out.println("\t4. Retreat Active Pokémon");                          // TODO
+                System.out.println("\t5. Show hand");
+                System.out.println("\t0. Attack, then end turn");
+                System.out.print(currentPlayer.getName() + " selection: ");
+                int action = in.nextInt();
 
-                // 5. Show hand
-                case 5:
-                    System.out.println("\n" + currentPlayer.getName() + "'s hand:");
-                    currentPlayer.getHand().display();
-                    break;
-                
-                // 0. Attack, then end turn
-                case 0:
-                    System.out.println("\n" + currentPlayer.getName() + " attacks " + opponent.getName() + "'s Active Pokémon.");
-                    sleep(1000);
-                    boolean knockoutOccurred = currentPlayer.getActive().attack(opponent.getActive());
-                    if (knockoutOccurred)
-                    {
-                        handleKnockout(currentPlayer, opponent);
-                    }
-                    System.out.println(currentPlayer.getName() + " ends their turn.");
-                    sleep(1000);
+                while (action < 0 || action > 5)
+                {
+                    System.out.print("Invalid selection. Please choose again (0 - 5): ");
+                    action = in.nextInt();
+                }
+                in.nextLine(); // Consume the newline character
+                switch (action)
+                {
+                    // 1. Put Basic Pokémon on Bench
+                    case 1:
+                        addBenchPokemon(currentPlayer);
+                        break;
 
-                    // Switch players
-                    currentPlayer = (currentPlayer == player1) ? player2 : player1;
-                    opponent = (opponent == player1) ? player2 : player1;
-                    break;
+                    // 2. Attach Energy card
+                    case 2:
+                        if (playerHasCompletedAction2ThisTurn)
+                        {
+                            System.out.println("You have already attached an Energy card this turn.");
+                            break;
+                        }
+                        attachEnergy(currentPlayer);
+                        playerHasCompletedAction2ThisTurn = true;
+                        break;
+                    
+                    // 3. Play Trainer card
+                    case 3:
+                        playTrainerCard(currentPlayer);
+                        break;
+                    
+                    // 4. Retreat Active Pokémon
+                    case 4:
+                        if (playerHasCompletedAction4ThisTurn)
+                        {
+                            System.out.println("You have already retreated your Active Pokémon this turn.");
+                            break;
+                        }
+                        break;
+
+                    // 5. Show hand
+                    case 5:
+                        System.out.println("\n" + currentPlayer.getName() + "'s hand:");
+                        currentPlayer.getHand().display();
+                        break;
+                    
+                    // 0. Attack, then end turn
+                    case 0:
+                        System.out.println("\n" + currentPlayer.getName() + " attacks " + opponent.getName() + "'s Active Pokémon.");
+                        sleep(1000);
+                        boolean knockoutOccurred = currentPlayer.getActive().attack(opponent.getActive());
+                        if (knockoutOccurred)
+                        {
+                            handleKnockout(currentPlayer, opponent);
+                        }
+                        System.out.println(currentPlayer.getName() + " ends their turn.");
+                        sleep(1000);
+
+                        // Switch players
+                        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+                        opponent = (opponent == player1) ? player2 : player1;
+                        break;
+                }
             }
 
             if (currentPlayer.getActive().getSize() == 0)
