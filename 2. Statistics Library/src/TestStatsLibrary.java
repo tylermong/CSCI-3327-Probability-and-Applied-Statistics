@@ -54,5 +54,7 @@ public class TestStatsLibrary
         System.out.println("Axiom 1: " + stats.checkAxiom1(events));
         System.out.println("Axiom 2: " + stats.checkAxiom2(events));
         System.out.println("Axiom 3: " + stats.checkAxiom3(events));
+        System.out.println("Mutually Exclusive Event Union Probability: " + stats.getMutuallyExclusiveEventUnionProbability(events, new String[]{"A", "B"}));
+        
     }
 }
