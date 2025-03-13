@@ -359,4 +359,18 @@ public class StatsLibrary
         // Return the variance of the random variable
         return variance;
     }
+
+    /**
+     * Calculates the standard deviation of a discrete random variable.
+     * @param probabilities The map of outcomes and their probabilities.
+     * @return              The standard deviation of the random variable.
+     */
+    public double getStandardDeviationOfRandomVariable(Map<Integer, Double> probabilities)
+    {
+        // Calculate the variance of the random variable
+        double variance = getVarianceOfRandomVariable(probabilities);
+
+        // Return the square root of the variance to get the standard deviation
+        return Math.sqrt(variance);
+    }
 }
