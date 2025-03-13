@@ -485,6 +485,18 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the shifted CDF for a geometric distribution (P(x < n)).
+     * This function returns the probability that the first success occurs before the n-th trial.
+     * @param n The number of trials until the first success.
+     * @param p The probability of success on each trial.
+     * @return  The shifted CDF for the geometric distribution (P(x < n)).
+     */
+    public double getGeometricShiftedCDF(int n, double p)
+    {
+        return 1 - Math.pow(1 - p, n - 1);
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
