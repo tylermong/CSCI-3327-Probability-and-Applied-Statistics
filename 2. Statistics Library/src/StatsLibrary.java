@@ -528,13 +528,15 @@ public class StatsLibrary
      * @param y The number of observed successes in the sample.
      * @return  The hypergeometric distribution probability.
      */
-    public double getHyperGeometricProbability(int N, int n, int r, int y)
+    public double getHypergeometricProbability(int N, int n, int r, int y)
     {
         double numerator = combination(r, y).doubleValue() * combination(N - r, n - y).doubleValue();
         double denominator = combination(N, n).doubleValue();
         
         return numerator / denominator;
     }
+
+
 
     /**
      * Creates a set of all distinct values from two lists.
