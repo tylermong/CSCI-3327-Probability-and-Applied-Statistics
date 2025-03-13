@@ -539,9 +539,15 @@ public class StatsLibrary
         return factorial(n).divide(factorial(r).multiply(factorial(n - r)));
     }
 
-    public double getMN(double x, double y)
+    /**
+     * Calculates m * n (mn rule)
+     * @param m The first value to multiply.
+     * @param n The second value to multiply.
+     * @return  The product of m and n.
+     */
+    public double getMN(double m, double n)
     {
-        return x * y;
+        return m * n;
     }
 
     /**
