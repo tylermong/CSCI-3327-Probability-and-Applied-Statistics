@@ -252,17 +252,17 @@ public class StatsLibrary
 
     /**
      * Calculates the conditional probability of event A given event B (P(A|B)).
-     * @param jointProbability  The probability of both events A and B occurring (P(A ∩ B)).
-     * @param probabilityOfB    The probability of event B occurring (P(B)).
-     * @return                  The conditional probability of event A given event B (P(A|B)).
+     * @param jointProbability      The probability of both events A and B occurring (P(A ∩ B)).
+     * @param conditionProbability  The probability of event B occurring (P(B)).
+     * @return                      The conditional probability of event A given event B (P(A|B)).
      */
-    public double getConditionalProbability(double jointProbability, double probabilityOfB)
+    public double getConditionalProbability(double jointProbability, double conditionProbability)
     {
-        if (probabilityOfB == 0)
+        if (conditionProbability == 0)
         {
             return Double.NaN;
         }
-        return jointProbability / probabilityOfB;
+        return jointProbability / conditionProbability;
     }
 
     /**
