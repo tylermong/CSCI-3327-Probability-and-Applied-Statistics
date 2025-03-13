@@ -392,7 +392,7 @@ public class StatsLibrary
      * @param p The probability of success on each trial.
      * @return  The binomial distribution probability.
      */
-    public double getBinomialDistribution(int n, int y, double p)
+    public double getBinomialProbability(int n, int y, double p)
     {
         // Calculate the binomial coefficient (nCy).
         double binomialCoefficient = factorial(n).divide(factorial(y).multiply(factorial(n - y))).doubleValue();
@@ -405,5 +405,16 @@ public class StatsLibrary
 
         // Return the binomial distribution probability (nCy * p^y * q^(n-y)).
         return binomialCoefficient * successProbability * failureProbability;
+    }
+
+    public double getGeometricProbability(int n, int y, double p)
+    {
+        // Calculate the probability of failure raised to the power of y - 1 ((1 - p)^(y-1)).
+        double failureProbability = Math.pow(1 - p, y - 1);
+
+        double successProbability = p;
+        
+        // Return the geometric distribution probability (q^(y-1) * p).
+        return failureProbability * successProbability;
     }
 }
