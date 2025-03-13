@@ -101,12 +101,6 @@ public class TestStatsLibrary
         int value = 5;
         System.out.println("\nFactorial of " + value + ": " + stats.factorial(value));
 
-        // Binomial and geometric probability tests
-        int n = 10, y = 6;
-        double p = 0.8;
-        System.out.printf("Binomial Distribution [P(Y = %d) for n = %d, p = %.2f]: %.5f\n", y, n, p, stats.getBinomialProbability(n, y, p));
-        System.out.printf("Geometric Distribution [P(Y = %d) for p = %.2f]: %.5f\n", y, p, stats.getGeometricProbability(y, p));
-
         // Set operations test
         // [Integer Tests]
 
@@ -169,8 +163,8 @@ public class TestStatsLibrary
         System.out.println("\tComplement: " + complementStrings);
         System.out.println("\t\tSample: " + strings1 + ", Subset: " + strings2);
 
-        // Test permuation and combination
-        int r = 3; n = 5;
+        // Test permutation and combination
+        int r = 3; int n = 5;
         System.out.println("\nPermutation [n = " + n + ", r = " + r + "]: " + stats.permutation(n, r));
         System.out.println("Combination [n = " + n + ", r = " + r + "]: " + stats.combination(n, r));
 
@@ -206,5 +200,18 @@ public class TestStatsLibrary
         probabilityOfA = 0.01; probabilityOfB = 0.99; probabilityOfBGivenA = 0.99;
         double bayesProbability = stats.bayesTheorem(probabilityOfA, probabilityOfB, probabilityOfBGivenA);
         System.out.printf("Bayes' Theorem Result [P(A|B)]: %.2f\n", bayesProbability);
+
+        // Binomial distribution test
+        n = 10; int y = 6; double p = 0.8;
+        System.out.printf("\nBinomial Distribution [P(Y = %d) for n = %d, p = %.2f]: %.5f\n", y, n, p, stats.getBinomialProbability(n, y, p));
+        System.out.printf("Binomial Distribution Expected Value [E(Y) for n = %d, p = %.2f]: %.2f\n", n, p, stats.getBinomialExpectedValue(n, p));
+        System.out.printf("Binomial Distribution Variance [V(Y) for n = %d, p = %.2f]: %.2f\n", n, p, stats.getBinomialVariance(n, p));
+        System.out.printf("Binomial Distribution Standard Deviation [σ(Y) for n = %d, p = %.2f]: %.2f\n", n, p, stats.getBinomialStandardDeviation(n, p));
+
+        // Geometric distribution test
+        System.out.printf("Geometric Distribution [P(Y = %d) for p = %.2f]: %.5f\n", y, p, stats.getGeometricProbability(y, p));
+        System.out.printf("Geometric Distribution Expected Value [E(Y) for p = %.2f]: %.2f\n", p, stats.getGeometricExpectedValue(p));
+        System.out.printf("Geometric Distribution Variance [V(Y) for p = %.2f]: %.2f\n", p, stats.getGeometricVariance(p));
+        System.out.printf("Geometric Distribution Standard Deviation [σ(Y) for p = %.2f]: %.2f\n", p, stats.getGeometricStandardDeviation(p));
     }
 }
