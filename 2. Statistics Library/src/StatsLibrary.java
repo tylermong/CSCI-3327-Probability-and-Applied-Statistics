@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -372,5 +373,20 @@ public class StatsLibrary
 
         // Return the square root of the variance to get the standard deviation
         return Math.sqrt(variance);
+    }
+
+    /**
+     * Calculates the factorial of a number.
+     * @param n The number to calculate the factorial of.
+     * @return  The factorial of the number.
+     */
+    public BigInteger factorial(int n)
+    {
+        BigInteger result = BigInteger.ONE;
+        for (int i = n; i > 1; i--)
+        {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+        return result;
     }
 }
