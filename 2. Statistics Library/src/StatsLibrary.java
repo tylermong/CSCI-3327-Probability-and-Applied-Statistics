@@ -571,4 +571,15 @@ public class StatsLibrary
         // Return the multinomial coefficient
         return numerator.divide(denominator).doubleValue();
     }
+
+    /**
+     * Calculates the probability of the intersection of two independent events.
+     * @param probabilityOfA    The probability of event A occurring (P(A)).
+     * @param probabilityOfB    The probability of event B occurring (P(B)).
+     * @return                  The probability of the intersection of A and B (P(A ∩ B)) for independent events.
+     */
+    public double getIndependentIntersectionProbability(double probabilityOfA, double probabilityOfB)
+    {
+        return probabilityOfA * probabilityOfB;
+    }
 }
