@@ -404,6 +404,17 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the variance of a binomial distribution.
+     * @param n The number of trials.
+     * @param p The probability of success on each trial.
+     * @return  The variance of the binomial distribution (V(Y)).
+     */
+    public double getBinomialVariance(int n, double p)
+    {
+        return n * p * (1 - p);
+    }
+
+    /**
      * Calculates the geometric distribution probability for given parameters.
      * @param y The number of trials until the first success.
      * @param p The probability of success on each trial.
