@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * This class tests the methods in the StatsLibrary class.
@@ -65,5 +67,26 @@ public class TestStatsLibrary
         double P_A2 = 0.5, P_B2 = 0.25, P_A_Union_B2 = 0.25;
         System.out.println("Independence Check [P(A) = " + P_A2 + ", P(B) = " + P_B2 + ", P(A∩B) = " + P_A_Union_B2 + "]: " + stats.checkIndependence(P_A2, P_B2, P_A_Union_B2));
         
+        // Check partition
+        Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        System.out.println("\nSet: " + set);
+        
+        Set<Set<Integer>> validPartition = new HashSet<>();
+        validPartition.add(new HashSet<>(Arrays.asList(1, 2)));
+        validPartition.add(new HashSet<>(Arrays.asList(3, 4)));
+        validPartition.add(new HashSet<>(Arrays.asList(5, 6)));
+        System.out.println("Is Partition? " + validPartition + ": " + stats.checkPartition(set, validPartition));
+
+        Set<Set<Integer>> invalidPartition1 = new HashSet<>();
+        invalidPartition1.add(new HashSet<>(Arrays.asList(1, 2)));
+        invalidPartition1.add(new HashSet<>(Arrays.asList(3, 4)));
+        invalidPartition1.add(new HashSet<>(Arrays.asList(5)));
+        System.out.println("Is Partition? " + invalidPartition1 + ": " + stats.checkPartition(set, invalidPartition1));
+
+        Set<Set<Integer>> invalidPartition2 = new HashSet<>();
+        invalidPartition2.add(new HashSet<>(Arrays.asList(1, 2, 3)));
+        invalidPartition2.add(new HashSet<>(Arrays.asList(3, 4)));
+        invalidPartition2.add(new HashSet<>(Arrays.asList(5, 6)));
+        System.out.println("Is Partition? " + invalidPartition2 + ": " + stats.checkPartition(set, invalidPartition2));
     }
 }
