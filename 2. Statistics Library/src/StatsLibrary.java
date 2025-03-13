@@ -463,6 +463,16 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the standard deviation of a geometric distribution.
+     * @param p The probability of success on each trial.
+     * @return  The standard deviation of the geometric distribution (σ(Y)).
+     */
+    public double getGeometricStandardDeviation(double p)
+    {
+        return Math.sqrt(getGeometricVariance(p));
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
