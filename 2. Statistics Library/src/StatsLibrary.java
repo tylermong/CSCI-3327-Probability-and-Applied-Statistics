@@ -614,6 +614,17 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the standard deviation of a negative binomial distribution.
+     * @param p The probability of success on each trial.
+     * @param r The number of successes.
+     * @return  The standard deviation of the negative binomial distribution (σ(Y)).
+     */
+    public double getNegativeBinomialStandardDeviation(int p, int r)
+    {
+        return Math.sqrt(getNegativeBinomialVariance(p, r));
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
