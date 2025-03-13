@@ -371,21 +371,6 @@ public class StatsLibrary
     }
 
     /**
-     * Calculates the factorial of a number.
-     * @param n The number to calculate the factorial of.
-     * @return  The factorial of the number.
-     */
-    public BigInteger factorial(int n)
-    {
-        BigInteger result = BigInteger.ONE;
-        for (int i = n; i > 1; i--)
-        {
-            result = result.multiply(BigInteger.valueOf(i));
-        }
-        return result;
-    }
-
-    /**
      * Calculates the binomial distribution probability for given parameters.
      * @param n The number of trials.
      * @param k The number of successes.
@@ -636,5 +621,20 @@ public class StatsLibrary
     public double bayesTheorem(double probabilityOfA, double probabilityOfB, double probabilityOfBGivenA)
     {
         return (probabilityOfBGivenA * probabilityOfA) / probabilityOfB;
+    }
+
+    /**
+     * Calculates the factorial of a number.
+     * @param n The number to calculate the factorial of.
+     * @return  The factorial of the number.
+     */
+    public BigInteger factorial(int n)
+    {
+        BigInteger result = BigInteger.ONE;
+        for (int i = n; i > 1; i--)
+        {
+            result = result.multiply(BigInteger.valueOf(i));
+        }
+        return result;
     }
 }
