@@ -603,6 +603,17 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the variance of a negative binomial distribution.
+     * @param p The probability of success on each trial.
+     * @param r The number of successes.
+     * @return  The variance of the negative binomial distribution (V(Y)).
+     */
+    public double getNegativeBinomialVariance(int p, int r)
+    {
+        return (double) r * (1 - p) / (p * p);
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
