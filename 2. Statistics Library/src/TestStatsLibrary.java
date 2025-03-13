@@ -95,5 +95,9 @@ public class TestStatsLibrary
         System.out.println("Expected Value: " + String.format("%.2f", stats.getExpectedValueOfRandomVariable(probabilities)));
         System.out.println("Variance: " + String.format("%.2f", stats.getVarianceOfRandomVariable(probabilities)));
         System.out.println("Standard Deviation: " + String.format("%.2f", stats.getStandardDeviationOfRandomVariable(probabilities)));
+
+        // Factorial test
+        int n = 5;
+        System.out.println("\nFactorial of " + n + ": " + stats.getFactorial(n));
     }
 }
