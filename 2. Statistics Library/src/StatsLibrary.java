@@ -241,7 +241,7 @@ public class StatsLibrary
      * @return              The probability of the union of the events.
      */
     // TOOD: Handle edge case where the map is null or empty.
-    public double calculateMutuallyExclusiveUnionProbability(Map<String, Double> events, String[] eventNames)
+    public double getMutuallyExclusiveEventUnionProbability(Map<String, Double> events, String[] eventNames)
     {
         double sum = 0;
         for (String eventName : eventNames)
