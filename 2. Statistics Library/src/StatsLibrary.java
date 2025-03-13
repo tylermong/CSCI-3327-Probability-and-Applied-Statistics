@@ -592,6 +592,17 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the expected value of a negative binomial distribution.
+     * @param p The probability of success on each trial.
+     * @param r The number of successes.
+     * @return  The expected value of the negative binomial distribution (E(Y)).
+     */
+    public double getNegativeBinomialExpectedValue(int p, int r)
+    {
+        return (double) r / p;
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
