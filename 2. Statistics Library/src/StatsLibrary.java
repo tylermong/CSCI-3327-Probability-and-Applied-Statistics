@@ -549,6 +549,21 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the variance of a hypergeometric distribution.
+     * @param N The population size (total number of items).
+     * @param n The sample size (number of items drawn).
+     * @param r The number of successes in the population.
+     * @return  The variance of the hypergeometric distribution (V(Y)).
+     */
+    public double getHypergeometricVariance(int N, int n, int r)
+    {
+        double part1 = getHypergeometricExpectedValue(N, n, r);
+        double part2 = (double) (N - n) / (N - 1);
+        double part3 = (double) (N - r) / N;
+        return part1 * part2 * part3;
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
