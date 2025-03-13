@@ -407,7 +407,7 @@ public class StatsLibrary
         return binomialCoefficient * successProbability * failureProbability;
     }
 
-    public double getGeometricProbability(int n, int y, double p)
+    public double getGeometricProbability(int y, double p)
     {
         // Calculate the probability of failure raised to the power of y - 1 ((1 - p)^(y-1)).
         double failureProbability = Math.pow(1 - p, y - 1);
