@@ -30,6 +30,7 @@ public class Active extends Pile
         return applyMoveDamage(moveDamage, attacker, defender);
     }
 
+    // TODO: Allow user to exit (if they can't choose any move)
     private Move selectMove(PokemonCard attacker, PokemonCard defender)
     {
         Move[] moves = attacker.getMoves();
