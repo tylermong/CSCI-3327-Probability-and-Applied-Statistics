@@ -582,4 +582,15 @@ public class StatsLibrary
     {
         return probabilityOfA * probabilityOfB;
     }
+
+    /**
+     * Calculates the probability of the intersection of two dependent events.
+     * @param probabilityOfA    The probability of event A occurring (P(A)).
+     * @param probabilityOfB    The conditional probability of event B given A (P(B|A)).
+     * @return                  The probability of the intersection of A and B (P(A ∩ B)) for dependent events.
+     */
+    public double getDependentIntersectionProbability(double probabilityOfA, double probabilityOfB)
+    {
+        return probabilityOfA * getConditionalProbability(probabilityOfB, probabilityOfA);
+    }
 }
