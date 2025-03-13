@@ -321,8 +321,11 @@ public class Game
             System.out.println(currentPlayer.getName() + " drew a " + drawnCard.getName() + ".");
             sleep(1000);
 
-            playerHasCompletedAction2ThisTurn = false;  // Reset action 2 flag
-            isTurnOver = false;                         // Reset turn over flag.
+            // Reset flags
+            playerHasCompletedAction2ThisTurn = false;
+            playerHasCompletedAction4ThisTurn = false;
+            isTurnOver = false;
+
             /*
              * Step 2: Do any of the following actions in any order:
              * - Put Basic Pokémon cards from your hand onto your Bench (as many times as you want).
@@ -381,6 +384,7 @@ public class Game
                             System.out.println("You have already retreated your Active Pokémon this turn.");
                             break;
                         }
+                        playerHasCompletedAction4ThisTurn = retreatActivePokemon(currentPlayer);
                         break;
 
                     // 5. Show hand
