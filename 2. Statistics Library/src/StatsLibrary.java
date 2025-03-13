@@ -265,4 +265,16 @@ public class StatsLibrary
         }
         return jointProbability / probabilityOfB;
     }
+
+    /**
+     * Checks if two events are independent.
+     * @param probabilityOfA    The probability of event A occurring (P(A)).
+     * @param probabilityOfB    The probability of event B occurring (P(B)).
+     * @param jointProbability  The probability of both events A and B occurring (P(A ∩ B)).
+     * @return                  True if the events are independent, false otherwise.
+     */
+    public boolean checkIndependence(double probabilityOfA, double probabilityOfB, double jointProbability)
+    {
+        return probabilityOfA * probabilityOfB == jointProbability;
+    }
 }
