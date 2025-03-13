@@ -380,7 +380,7 @@ public class StatsLibrary
      * @param n The number to calculate the factorial of.
      * @return  The factorial of the number.
      */
-    public BigInteger getFactorial(int n)
+    public BigInteger factorial(int n)
     {
         BigInteger result = BigInteger.ONE;
         for (int i = n; i > 1; i--)
@@ -388,5 +388,27 @@ public class StatsLibrary
             result = result.multiply(BigInteger.valueOf(i));
         }
         return result;
+    }
+
+    /**
+     * Calculates the binomial distribution probability for given parameters.
+     * @param n The number of trials.
+     * @param k The number of successes.
+     * @param p The probability of success on each trial.
+     * @return  The binomial distribution probability.
+     */
+    public double getBinomialDistribution(int n, int y, double p)
+    {
+        // Calculate the binomial coefficient (nCy).
+        double binomialCoefficient = factorial(n).divide(factorial(y).multiply(factorial(n - y))).doubleValue();
+
+        // Calculate the probability of success raised to the power of y (p^y).
+        double successProbability = Math.pow(p, y);
+
+        // Calculate the probability of failure raised to the power of n - y (q^(n-y)).
+        double failureProbability = Math.pow(1 - p, n - y);
+
+        // Return the binomial distribution probability (nCy * p^y * q^(n-y)).
+        return binomialCoefficient * successProbability * failureProbability;
     }
 }
