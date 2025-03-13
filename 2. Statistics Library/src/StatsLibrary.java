@@ -497,6 +497,30 @@ public class StatsLibrary
     }
 
     /**
+     * Calculates the complementary CDF (CCDF) for a geometric distribution (P(x >= n)).
+     * This function returns the probability that the first success occurs on or after the n-th trial.
+     * @param n The number of trials until the first success.
+     * @param p The probability of success on each trial.
+     * @return  The complementary CDF (CCDF) of the geometric distribution (P(x >= n)).
+     */
+    public double getGeometricCCDF(int n, double p)
+    {
+        return Math.pow(1 - p, n - 1);
+    }
+
+    /**
+     * Calculates the shifted CCDF for a geometric distribution (P(x > n)).
+     * This function returns the probability that the first success occurs after the n-th trial.
+     * @param n The number of trials until the first success.
+     * @param p The probability of success on each trial.
+     * @return  The shifted CCDF for the geometric distribution (P(x > n)).
+     */
+    public double getGeometricShiftedCCDF(int n, double p)
+    {
+        return Math.pow(1 - p, n);
+    }
+
+    /**
      * Creates a set of all distinct values from two lists.
      *
      * @param list1 The first list of values.
