@@ -339,7 +339,7 @@ public class Game
                 System.out.println("\n" + currentPlayer.getName() + ", select an action:");
                 System.out.println("\t1. Put Basic Pokémon on Bench");
                 System.out.println("\t2. Attach Energy card");
-                System.out.println("\t3. Play Trainer card");                               // TODO
+                System.out.println("\t3. Play Trainer card");
                 System.out.println("\t4. Retreat Active Pokémon");                          // TODO
                 System.out.println("\t5. Show hand");
                 System.out.println("\t0. Attack, then end turn");
