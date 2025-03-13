@@ -100,9 +100,10 @@ public class TestStatsLibrary
         int value = 5;
         System.out.println("\nFactorial of " + value + ": " + stats.factorial(value));
 
-        // Binomial distribution test
+        // Binomial and geometric probability tests
         int n = 10, y = 6;
         double p = 0.8;
-        System.out.printf("Binomial Distribution [P(Y = %d) for n = %d, p = %.2f]: %.5f\n", y, n, p, stats.getBinomialDistribution(n, y, p));
+        System.out.printf("Binomial Distribution [P(Y = %d) for n = %d, p = %.2f]: %.5f\n", y, n, p, stats.getBinomialProbability(n, y, p));
+        System.out.printf("Geometric Distribution [P(Y = %d) for p = %.2f]: %.5f\n", y, p, stats.getGeometricProbability(y, p));
     }
 }
