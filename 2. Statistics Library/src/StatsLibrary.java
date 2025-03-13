@@ -582,7 +582,7 @@ public class StatsLibrary
      * @param r The number of successes.
      * @return  The negative binomial distribution probability.
      */
-    public double getNegativeBinomialProbability(int p, int y, int r)
+    public double getNegativeBinomialProbability(double p, int y, int r)
     {
         double part1 = combination(y - 1, r - 1).doubleValue();
         double part2 = Math.pow(p, r);
@@ -597,7 +597,7 @@ public class StatsLibrary
      * @param r The number of successes.
      * @return  The expected value of the negative binomial distribution (E(Y)).
      */
-    public double getNegativeBinomialExpectedValue(int p, int r)
+    public double getNegativeBinomialExpectedValue(double p, int r)
     {
         return (double) r / p;
     }
@@ -608,7 +608,7 @@ public class StatsLibrary
      * @param r The number of successes.
      * @return  The variance of the negative binomial distribution (V(Y)).
      */
-    public double getNegativeBinomialVariance(int p, int r)
+    public double getNegativeBinomialVariance(double p, int r)
     {
         return (double) r * (1 - p) / (p * p);
     }
@@ -619,7 +619,7 @@ public class StatsLibrary
      * @param r The number of successes.
      * @return  The standard deviation of the negative binomial distribution (σ(Y)).
      */
-    public double getNegativeBinomialStandardDeviation(int p, int r)
+    public double getNegativeBinomialStandardDeviation(double p, int r)
     {
         return Math.sqrt(getNegativeBinomialVariance(p, r));
     }
