@@ -7,7 +7,7 @@ import java.util.Random;
  * This class computes the probability of bricking with N (1-4) rare candies in a deck, by simulating a deck, hand, and
  * prize pile.
  */
-public class Simulator
+public class RareCandySimulator
 {
     // Constants to represent the size of the deck, hand, prizes, and the maximum number of rare candies.
     private final int DECK_SIZE = 60;
