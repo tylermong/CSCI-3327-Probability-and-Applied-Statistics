@@ -525,4 +525,17 @@ public class StatsLibrary
     {
         return factorial(n).divide(factorial(n - r));
     }
+
+    /**
+     * Computes nCr (number of combinations of n items taken r at a time).
+     * P(n, r) = n! / (r! * (n - r)!).
+     *
+     * @param n The total number of items.
+     * @param r The number of items to choose.
+     * @return  The number of combinations.
+     */
+    public BigInteger combination(int n, int r)
+    {
+        return factorial(n).divide(factorial(r).multiply(factorial(n - r)));
+    }
 }
