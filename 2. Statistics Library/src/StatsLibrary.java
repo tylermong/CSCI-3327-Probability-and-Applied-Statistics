@@ -407,6 +407,12 @@ public class StatsLibrary
         return binomialCoefficient * successProbability * failureProbability;
     }
 
+    /**
+     * Calculates the geometric distribution probability for given parameters.
+     * @param y The number of trials until the first success.
+     * @param p The probability of success on each trial.
+     * @return  The geometric distribution probability of the first success on the y-th trial.
+     */
     public double getGeometricProbability(int y, double p)
     {
         // Calculate the probability of failure raised to the power of y - 1 ((1 - p)^(y-1)).
