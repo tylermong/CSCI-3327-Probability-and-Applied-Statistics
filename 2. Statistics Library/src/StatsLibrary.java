@@ -536,7 +536,17 @@ public class StatsLibrary
         return numerator / denominator;
     }
 
-
+    /** 
+     * Calculates the expected value of a hypergeometric distribution.
+     * @param N The population size (total number of items).
+     * @param n The sample size (number of items drawn).
+     * @param r The number of successes in the population.
+     * @return  The expected value of the hypergeometric distribution (E(Y)).
+     */
+    public double getHypergeometricExpectedValue(int N, int n, int r)
+    {
+        return (double) n * r / N;
+    }
 
     /**
      * Creates a set of all distinct values from two lists.
