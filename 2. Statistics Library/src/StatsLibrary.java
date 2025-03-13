@@ -539,7 +539,7 @@ public class StatsLibrary
         return factorial(n).divide(factorial(r).multiply(factorial(n - r)));
     }
 
-    public double getMxN(double x, double y)
+    public double getMN(double x, double y)
     {
         return x * y;
     }
