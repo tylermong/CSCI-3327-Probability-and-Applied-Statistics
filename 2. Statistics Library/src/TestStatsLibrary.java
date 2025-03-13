@@ -186,6 +186,6 @@ public class TestStatsLibrary
         double probabilityOfA = 0.5, probabilityOfB = 0.3, probabilityOfBGivenA = 0.2;
         System.out.println("\nIndepedent Intersection Probability [P(A) = " + probabilityOfA + ", P(B) = " + probabilityOfB + "]: " + stats.getIndependentIntersectionProbability(probabilityOfA, probabilityOfB));
         System.out.println("Dependent Intersection Probability [P(A) = " + probabilityOfA + ", P(B|A) = " + probabilityOfBGivenA + "]: " + stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA));
-        System.out.println("Dependent Union Probability [P(A) = " + probabilityOfA + ", P(B) = " + probabilityOfB + ", P(A ∩ B) = " + stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA) + "]: " + stats.getUnionProbability(probabilityOfA, probabilityOfB, stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA)));
+        System.out.printf("Union Probability [P(A) = %.2f, P(B) = %.2f, P(A ∩ B) = %.2f]: %.2f\n", probabilityOfA, probabilityOfB, stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA), stats.getUnionProbability(probabilityOfA, probabilityOfB, stats.getDependentIntersectionProbability(probabilityOfA, probabilityOfBGivenA)));
     }
 }
