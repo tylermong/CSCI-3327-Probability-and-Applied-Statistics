@@ -177,5 +177,9 @@ public class TestStatsLibrary
         // Test M * N
         int m = 3; n = 4;
         System.out.println("\nM * N [m = " + m + ", n = " + n + "]: " + stats.getMN(m, n));
+
+        // Test multinomial coefficient
+        int[] counts = { 2, 3, 5 }; n = 10;
+        System.out.println("\nMultinomial Coefficient [n = " + n + ", counts = " + Arrays.toString(counts) + "]: " + stats.getMultinomialCoefficient(n, counts));
     }
 }
