@@ -173,5 +173,9 @@ public class TestStatsLibrary
         int r = 3; n = 5;
         System.out.println("\nPermutation [n = " + n + ", r = " + r + "]: " + stats.permutation(n, r));
         System.out.println("Combination [n = " + n + ", r = " + r + "]: " + stats.combination(n, r));
+
+        // Test M * N
+        int m = 3, n = 4;
+        System.out.println("\nM * N [m = " + m + ", n = " + n + "]: " + stats.getMN(m, n));
     }
 }
