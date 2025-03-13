@@ -175,7 +175,7 @@ public class TestStatsLibrary
         System.out.println("Combination [n = " + n + ", r = " + r + "]: " + stats.combination(n, r));
 
         // Test M * N
-        int m = 3, n = 4;
+        int m = 3; n = 4;
         System.out.println("\nM * N [m = " + m + ", n = " + n + "]: " + stats.getMN(m, n));
     }
 }
