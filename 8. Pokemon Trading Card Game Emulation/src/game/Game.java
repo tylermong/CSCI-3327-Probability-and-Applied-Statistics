@@ -499,6 +499,8 @@ public class Game
         currentPlayer.getBench().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int pokemonIndex = in.nextInt() - 1;
+
+        // Validate the selection is within range of the active and bench Pokémon
         while (pokemonIndex < 0 || pokemonIndex >= currentPlayer.getActive().getSize() + currentPlayer.getBench().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getActive().getSize() + currentPlayer.getBench().getSize()) + "): ");
@@ -506,16 +508,26 @@ public class Game
         }
 
         // Player chooses an Energy card from their hand
-        // TODO: validate the card is an Energy card
         // TODO: validate the pokemon can accept the energy
         System.out.println("\n" + currentPlayer.getName() + ", select an Energy card to attach:");
         currentPlayer.getHand().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int energyIndex = in.nextInt() - 1;
+
+        // Validate the selection is within range of the hand size
         while (energyIndex < 0 || energyIndex >= currentPlayer.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getHand().getSize()) + "): ");
             energyIndex = in.nextInt() - 1;
+        }
+
+        // Validate the selected card is an Energy card
+        Card selectedCard = currentPlayer.getHand().getCardAtIndex(energyIndex);
+        if (!(selectedCard instanceof EnergyCard))
+        {
+            System.out.println("Invalid selection. Please select an Energy card.");
+            attachEnergy(currentPlayer);
+            return;
         }
 
         // Attach the Energy card to the selected Pokémon
