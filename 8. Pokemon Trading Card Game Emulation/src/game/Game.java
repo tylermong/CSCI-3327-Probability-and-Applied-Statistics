@@ -589,19 +589,19 @@ public class Game
         System.out.print(currentPlayer.getName() + " selection: ");
         int trainerCardIndex = in.nextInt() - 1;
 
+        // Check if the player wants to skip playing a Trainer card
+        if (trainerCardIndex == -1)
+        {
+            System.out.println(currentPlayer.getName() + " does not play any Trainer card.");
+            sleep(1000);
+            return;
+        }
+
         // Validate the selection is within range of the hand size
         while (trainerCardIndex < 0 || trainerCardIndex >= currentPlayer.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getHand().getSize()) + ") or '0' to skip: ");
             trainerCardIndex = in.nextInt() - 1;
-
-            // Check if the player wants to skip playing a Trainer card
-            if (trainerCardIndex == -1)
-            {
-                System.out.println(currentPlayer.getName() + " does not play any Trainer card.");
-                sleep(1000);
-                return;
-            }
         }
 
         // Validate the selected card is a Trainer card
