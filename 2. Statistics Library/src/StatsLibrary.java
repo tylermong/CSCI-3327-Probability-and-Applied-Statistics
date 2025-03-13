@@ -593,4 +593,16 @@ public class StatsLibrary
     {
         return probabilityOfA * probabilityOfBGivenA;
     }
+
+    /**
+     * Calculates the probability of the union of two events using the inclusion-exclusion principle.
+     * @param probabilityOfA            The probability of event A occurring (P(A)).
+     * @param probabilityOfB            The probability of event B occurring (P(B)).
+     * @param intersectionProbability   The probability of the intersection of A and B (P(A ∩ B)).
+     * @return                          The probability of the union of A and B (P(A ∪ B)).
+     */
+    public double getUnionProbability(double probabilityOfA, double probabilityOfB, double intersectionProbability)
+    {
+        return probabilityOfA + probabilityOfB - intersectionProbability;
+    }
 }
