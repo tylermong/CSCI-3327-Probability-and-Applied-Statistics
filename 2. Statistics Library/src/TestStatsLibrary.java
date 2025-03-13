@@ -225,5 +225,12 @@ public class TestStatsLibrary
         System.out.printf("Hypergeometric Distribution Expected Value [E(Y) for N = %d, n = %d, r = %d]: %.2f\n", N, n, r, stats.getHypergeometricExpectedValue(N, n, r));
         System.out.printf("Hypergeometric Distribution Variance [V(Y) for N = %d, n = %d, r = %d]: %.2f\n", N, n, r, stats.getHypergeometricVariance(N, n, r));
         System.out.printf("Hypergeometric Distribution Standard Deviation [σ(Y) for N = %d, n = %d, r = %d]: %.2f\n", N, n, r, stats.getHypergeometricStandardDeviation(N, n, r));
+
+        // Negative binomial distribution test
+        p = 0.9; y = 5; r = 3;
+        System.out.printf("\nNegative Binomial Distribution [P(Y = %d) for p = %.2f, r = %d]: %.5f\n", y, p, r, stats.getNegativeBinomialProbability(p, y, r));
+        System.out.printf("Negative Binomial Distribution Expected Value [E(Y) for p = %.2f, r = %d]: %.2f\n", p, r, stats.getNegativeBinomialExpectedValue(p, r));
+        System.out.printf("Negative Binomial Distribution Variance [V(Y) for p = %.2f, r = %d]: %.2f\n", p, r, stats.getNegativeBinomialVariance(p, r));
+        System.out.printf("Negative Binomial Distribution Standard Deviation [σ(Y) for p = %.2f, r = %d]: %.2f\n", p, r, stats.getNegativeBinomialStandardDeviation(p, r));
     }
 }
