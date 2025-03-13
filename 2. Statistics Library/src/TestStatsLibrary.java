@@ -218,5 +218,9 @@ public class TestStatsLibrary
         System.out.printf("Geometric Distribution Shifted CDF [P(X < n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricShiftedCDF(y, p));
         System.out.printf("Geometric Distribution CCDF [P(X >= n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricCCDF(y, p));
         System.out.printf("Geometric Distribution Shifted CCDF [P(X > n) for n = %d, p = %.2f]: %.5f\n", y, p, stats.getGeometricShiftedCCDF(y, p));
+
+        // Hypergeometric distribution test
+        int N = 20; n = 10; r = 5; y = 5;
+        System.out.printf("\nHypergeometric Distribution [P(Y = %d) for N = %d, n = %d, r = %d]: %.5f\n", y, N, n, r, stats.getHypergeometricProbability(N, n, r, y));
     }
 }
