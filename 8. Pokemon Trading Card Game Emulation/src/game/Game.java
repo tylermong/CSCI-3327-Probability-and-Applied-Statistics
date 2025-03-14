@@ -717,7 +717,7 @@ public class Game
         {
             System.out.println("You have " + activePokemon.getTotalEnergy() + " Energy attached to " + activePokemon.getName() + ".");
             System.out.println("Please select " + activePokemon.getRetreatCost() + " Energy cards to discard (comma-separated, e.g. 1, 2, 3): ");
-            activePokemon.displayEnergyInList();
+            List<String> energyList = activePokemon.displayEnergyInList();
             System.out.println("Selection: ");
             String input = in.nextLine().trim();
             String[] selections = input.split(",");
@@ -732,29 +732,31 @@ public class Game
             }
             
             // Remove the selected Energy cards
-            for (int i = 0; i < selectedMoveIndices.size(); i++)
+            for (int index: selectedMoveIndices)
             {
-                int index = selectedMoveIndices.get(i);
-                if (index >= 0 && index < activePokemon.getTotalEnergy())
-                {
-                    activePokemon.removeEnergy(index - i); // Adjust index for removed cards
-                }
+                String energyType = energyList.get(index);
+                activePokemon.removeEnergy(energyType);
+                System.out.println("Discarded " + energyType + " from " + activePokemon.getName() + ".");
             }
+            sleep(1000);
             System.out.println("Removed " + selectedMoveIndices.size() + " Energy cards from " + activePokemon.getName() + ".");
             sleep(1000);
         }
         else
         {
-            // If the total energy is equal to the retreat cost, remove all energy from the Active Pokémon
-            for (int i = 0; i < activePokemon.getTotalEnergy(); i++)
+            List<String> energyList = activePokemon.displayEnergyInList();
+
+            for (String energyType : new ArrayList<>(energyList))
             {
-                activePokemon.removeEnergy(i);
+                activePokemon.removeEnergy(energyType);
+                System.out.println("Discarded " + energyType + " from " + activePokemon.getName() + ".");
             }
+           
             System.out.println("Removed all Energy cards from " + activePokemon.getName() + ".");
             sleep(1000);
         }
 
-        // Swap the Active Pokémon with the selected Bench Pokémon
+        // After discarding Energy for retreat cost, swap the Active Pokémon with the selected Bench Pokémon
         PokemonCard benchPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
         currentPlayer.getActive().addCard(benchPokemon);
         currentPlayer.getBench().removeCard(benchPokemon);
