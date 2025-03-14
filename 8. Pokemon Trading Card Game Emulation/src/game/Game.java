@@ -244,9 +244,10 @@ public class Game
             return;
         }
         // Check if there is enough spots on the bench
+        // TODO: Fix bench size calculation error (selected: 2, 3, 4, 5, 6 with 0 on bench, so should work)
         else if (input.length() > (player.getBench().getMaxSize() - player.getBench().getSize()) * 2 + 1)
         {
-            System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
+            System.out.print("Invalid selection, not enough spots on the bench. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             addBenchPokemon(player);
             return;
         }
