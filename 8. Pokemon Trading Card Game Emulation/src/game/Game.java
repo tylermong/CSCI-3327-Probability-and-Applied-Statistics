@@ -222,25 +222,29 @@ public class Game
         // Get the selections from the player
         String input = in.nextLine().trim();
 
-        if (input.isEmpty())                                                                                // Check if the input is empty
+        // Check if the input is empty
+        if (input.isEmpty())
         {
             System.out.print("Invalid selection. Enter at least one selection or '0' to skip: ");
             addBenchPokemon(player);
             return;
         }
-        else if (input.equals("0"))                                                                         // Check if the player wants to skip
+        // Check if the input is "0" to skip
+        else if (input.equals("0"))
         {
             System.out.println(player.getName() + " does not put any Pokémon on the Bench.");
             sleep(1000);
             return;
         }
-        else if (input.length() > (player.getHand().getSize() * 2 - 1))                                     // check if the input is in range of the hand size
+        // Check if the input is in range of the hand
+        else if (input.length() > (player.getHand().getSize() * 2 - 1))
         {
             System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + player.getHand().getSize() + "): ");
             addBenchPokemon(player);
             return;
         }
-        else if (input.length() > (player.getBench().getMaxSize() - player.getBench().getSize()) * 2 + 1)   // check if theres enough spots on the bench
+        // Check if there is enough spots on the bench
+        else if (input.length() > (player.getBench().getMaxSize() - player.getBench().getSize()) * 2 + 1)
         {
             System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             addBenchPokemon(player);
