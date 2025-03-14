@@ -222,37 +222,46 @@ public class Game
         // Get the selections from the player
         String input = in.nextLine().trim();
 
+        // Put the input in an array for easier parsing
+        String[] rawSelections = input.split(",");
+        String[] selections = new String[rawSelections.length];
+        for (int i = 0; i < rawSelections.length; i++)
+        {
+            selections[i] = rawSelections[i].trim();
+        }
+
         // Check if the input is empty
-        if (input.isEmpty())
+        if (selections.length == 0)
         {
             System.out.print("Invalid selection. Enter at least one selection or '0' to skip: ");
             addBenchPokemon(player);
             return;
         }
         // Check if the input is "0" to skip
-        else if (input.equals("0"))
+        else if (selections[0].equals("0"))
         {
             System.out.println(player.getName() + " does not put any Pokémon on the Bench.");
             sleep(1000);
             return;
         }
         // Check if the input is in range of the hand
-        else if (input.length() > (player.getHand().getSize() * 2 - 1))
+        else if (selections.length > player.getHand().getSize())
         {
-            System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + player.getHand().getSize() + "): ");
+            System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + Math.min(player.getHand().getSize(), player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             addBenchPokemon(player);
             return;
         }
         // Check if there is enough spots on the bench
-        // TODO: Fix bench size calculation error (selected: 2, 3, 4, 5, 6 with 0 on bench, so should work)
-        else if (input.length() > (player.getBench().getMaxSize() - player.getBench().getSize()) * 2 + 1)
+        else if (selections.length > (player.getBench().getMaxSize() - player.getBench().getSize()))
         {
+            System.out.println("DEBUG: " + player.getBench().getMaxSize());
+            System.out.println("DEBUG: " + player.getBench().getSize());
+            System.out.println("DEBUG: " + input.length());
             System.out.print("Invalid selection, not enough spots on the bench. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             addBenchPokemon(player);
             return;
         }
-        // by this point the input is not empty, skip, or too long. so time to filter the input
-        String[] selections = input.split(",");
+
         // now check if the selections are pokemon cards
         for (String selection : selections)
         {
