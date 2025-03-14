@@ -663,6 +663,13 @@ public class Game
             return false;
         }
 
+        // Check if the player has any Pokémon on the Bench
+        if (currentPlayer.getBench().getSize() == 0)
+        {
+            System.out.println(currentPlayer.getName() + " has no Pokémon on the Bench to retreat to.");
+            return false;
+        }
+
         // Check if the player has enough Energy to retreat
         PokemonCard activePokemon = (PokemonCard) currentPlayer.getActive().getCardAtIndex(0);
         if (activePokemon.getRetreatCost() > activePokemon.getTotalEnergy())
