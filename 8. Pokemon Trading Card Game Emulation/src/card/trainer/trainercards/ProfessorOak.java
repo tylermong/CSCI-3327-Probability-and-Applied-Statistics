@@ -6,7 +6,6 @@ import pile.piles.Deck;
 import pile.piles.DiscardPile;
 import pile.piles.Hand;
 
-// TODO: Add deck and hand to support drawing cards
 public class ProfessorOak extends TrainerCard
 {
     public ProfessorOak()
