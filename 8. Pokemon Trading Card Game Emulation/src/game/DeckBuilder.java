@@ -123,7 +123,7 @@ public class DeckBuilder
 
         // Add 20 Pokemon cards
         for (int i = 0; i < 10; i++) energyDeck.addCard(new Diglett());
-        for (int i = 0; i < 10; i++) energyDeck.addCard(new Pikachu());
+        for (int i = 0; i < 10; i++) energyDeck.addCard(new Dratini());
 
         // Add 40 Energy cards
         for (int i = 0; i < 10; i++) energyDeck.addCard(new FightingEnergy());
