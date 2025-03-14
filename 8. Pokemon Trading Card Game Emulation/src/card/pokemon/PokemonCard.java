@@ -69,6 +69,35 @@ public class PokemonCard extends Card
         energyCount.put(energyType, energyCount.getOrDefault(energyType, 0) + 1);
     }
 
+    public void removeEnergy(int retreatCost)
+    {
+       // TODO    
+    }
+
+    public void displayEnergy()
+    {
+        System.out.println("Energy attached to " + getName() + ":");
+
+        // Create a list of energy cards from the map
+        List<String> energyList = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : energyCount.entrySet())
+        {
+            String energyType = entry.getKey();
+            int count = entry.getValue();
+
+            // Add the energy type to the list based on its count
+            for (int i = 0; i < count; i++)
+            {
+                energyList.add(energyType);
+            }
+        }
+
+        for (int i = 0; i < energyCount.size(); i++)
+        {
+            System.out.println((i + 1) + ". " + energyList.get(i));
+        }
+    }
+
     public int getTypeEnergy(String energyType)
     {
         return energyCount.getOrDefault(energyType, 0);
