@@ -26,10 +26,8 @@ public class DeckBuilder
         Deck fireDeck = new Deck();
 
         // Add 21 Pokemon cards
-        for (int i = 0; i < 5; i++) fireDeck.addCard(new Charmander());
-        for (int i = 0; i < 5; i++) fireDeck.addCard(new Growlithe());
-        for (int i = 0; i < 5; i++) fireDeck.addCard(new Magmar());
-        for (int i = 0; i < 6; i++) fireDeck.addCard(new Ponyta());
+        for (int i = 0; i < 11; i++) fireDeck.addCard(new Growlithe());
+        for (int i = 0; i < 10; i++) fireDeck.addCard(new Ponyta());
 
         // Add 11 Trainer cards
         for (int i = 0; i < 7; i++) fireDeck.addCard(new Bill());
