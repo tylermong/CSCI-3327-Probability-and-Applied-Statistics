@@ -819,7 +819,6 @@ public class Game
         }
     }
 
-    // TODO: Validate inputs
     private void showCardStats(Player currentPlayer)
     {
         System.out.println("\n" + currentPlayer.getName() + ", select a pile:");
