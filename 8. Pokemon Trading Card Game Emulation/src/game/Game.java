@@ -548,7 +548,6 @@ public class Game
 
     private boolean attachEnergy(Player currentPlayer)
     {
-        // TODO: Fix bug where indexs overlap (active = 1, bench = 1, 2, ...) -> (active = 1, bench = 2, 3, ...)
         // Player chooses a Pokémon to attach an Energy card to
         System.out.println("\n" + currentPlayer.getName() + ", select a Pokémon to attach an Energy card to (0 to skip):");
         currentPlayer.getActive().display();
