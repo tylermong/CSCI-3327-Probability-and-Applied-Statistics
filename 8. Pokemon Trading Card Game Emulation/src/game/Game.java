@@ -4,6 +4,7 @@ import card.Card;
 import card.energy.EnergyCard;
 import card.pokemon.PokemonCard;
 import card.trainer.TrainerCard;
+import card.pokemon.helper.Move;
 
 import java.util.Scanner;
 
@@ -339,6 +340,7 @@ public class Game
              */
             while (!isTurnOver)
             {
+                // TODO: Add display stats of active and bench Pokémon (HP, energy, moves, weakness, resistance, etc.)
                 System.out.println("\n" + currentPlayer.getName() + ", select an action:");
                 System.out.println("\t1. Put Basic Pokémon on Bench");
                 System.out.println("\t2. Attach Energy card");
@@ -347,6 +349,7 @@ public class Game
                 System.out.println("\t5. Show hand");
                 System.out.println("\t6. Show active Pokémon");
                 System.out.println("\t7. Show bench Pokémon");
+                System.out.println("\t8. Show card stats");
                 System.out.println("\t0. Attack, then end turn");
                 System.out.print(currentPlayer.getName() + " selection: ");
                 int action = in.nextInt();
@@ -405,6 +408,11 @@ public class Game
                     case 7:
                         System.out.println("\n" + currentPlayer.getName() + "'s Bench Pokémon:");
                         currentPlayer.getBench().display();
+                        break;
+                    
+                    // 8. Show card stats
+                    case 8:
+                        showCardStats(currentPlayer);
                         break;
                     
                     // 0. Attack, then end turn
@@ -646,6 +654,7 @@ public class Game
     {
         // Confirm the player wants to retreat their Active Pokémon
         System.out.println("\n" + currentPlayer.getName() + ", do you want to retreat your Active Pokémon? (y/n)");
+        System.out.print(currentPlayer.getName() + " selection: ");
         String response = in.nextLine().trim().toLowerCase();
         if (!response.equals("y") && !response.equals("yes"))
         {
@@ -705,7 +714,7 @@ public class Game
         {
             System.out.println("You have " + activePokemon.getTotalEnergy() + " Energy attached to " + activePokemon.getName() + ".");
             System.out.println("Please select " + activePokemon.getRetreatCost() + " Energy cards to discard (comma-separated, e.g. 1, 2, 3): ");
-            activePokemon.displayEnergy();
+            activePokemon.displayEnergyInList();
             System.out.println("Selection: ");
             String input = in.nextLine().trim();
 
@@ -718,10 +727,71 @@ public class Game
         }
         else
         {
-            // Remove all Energy from the Active Pokémon
-            //activePokemon.removeAllEnergy();
+            // If the total energy is equal to the retreat cost, remove all energy from the Active Pokémon
+            for (int i = 0; i < activePokemon.getTotalEnergy(); i++)
+            {
+                activePokemon.removeEnergy(i);
+            }
         }
 
+        // Swap the Active Pokémon with the selected Bench Pokémon
+        PokemonCard benchPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
+        currentPlayer.getActive().addCard(benchPokemon);
+        currentPlayer.getBench().removeCard(benchPokemon);
+        currentPlayer.getActive().removeCard(activePokemon);
+        currentPlayer.getBench().addCard(activePokemon);
+        System.out.println(currentPlayer.getName() + " retreated " + activePokemon.getName() + " for " + benchPokemon.getName() + ".");
+        sleep(1000);
+
         return true;
+    }
+
+    // TODO: Validate inputs
+    private void showCardStats(Player currentPlayer)
+    {
+        System.out.println("\n" + currentPlayer.getName() + ", select a pile:");
+        System.out.println("\t1. Active Pokémon");
+        System.out.println("\t2. Bench Pokémon");
+        System.out.print(currentPlayer.getName() + " selection: ");
+        int choice = in.nextInt();
+
+        if (choice == 1)
+        {
+            System.out.println("\n" + currentPlayer.getName() + "'s Active Pokémon:");
+            currentPlayer.getActive().display();
+
+            // Display HP, Moves, Weakness, Resistance, and Energy attached to the Active Pokémon
+            PokemonCard selectedPokemon = (PokemonCard) currentPlayer.getActive().getCardAtIndex(0);
+            showCardStatsHelper(selectedPokemon);
+        }
+        else if (choice == 2)
+        {
+            System.out.println("\n" + currentPlayer.getName() + "'s Bench Pokémon:");
+            currentPlayer.getBench().display();
+            System.out.println("Selection: ");
+            int benchIndex = in.nextInt() - 1;
+            while (benchIndex < 0 || benchIndex >= currentPlayer.getBench().getSize())
+            {
+                System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + "): ");
+                benchIndex = in.nextInt() - 1;
+            }
+            PokemonCard selectedPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
+            showCardStatsHelper(selectedPokemon);
+        }
+    }
+
+    private void showCardStatsHelper(PokemonCard selectedPokemon)
+    {
+        System.out.println("HP: " + selectedPokemon.getHP());
+        System.out.println("Moves: ");
+        for (Move move : selectedPokemon.getMoves())
+        {
+            System.out.println("\t" + move.getName() + " - Damage: " + move.getDamage() + " - " + move.getEffect() + " - Energy Cost: " + move.getEnergyCost());
+        }
+        System.out.println("Weakness: " + selectedPokemon.getWeakness());
+        System.out.println("Resistance: " + selectedPokemon.getResistance());
+        System.out.println("Energy attached: " + selectedPokemon.displayEnergyInMap());
+        System.out.println("Retreat Cost: " + selectedPokemon.getRetreatCost());
+        sleep(1000);
     }
 }
