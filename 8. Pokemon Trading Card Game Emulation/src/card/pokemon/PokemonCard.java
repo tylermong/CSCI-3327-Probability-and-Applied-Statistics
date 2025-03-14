@@ -69,17 +69,12 @@ public class PokemonCard extends Card
         energyCount.put(energyType, energyCount.getOrDefault(energyType, 0) + 1);
     }
 
-    public void removeEnergy(int retreatCost)
-    {
-       // TODO    
-    }
-
     public Map<String, Integer> displayEnergyInMap()
     {
         return energyCount;
     }
 
-    public void displayEnergyInList()
+    public List<String> displayEnergyInList()
     {
         System.out.println("Energy attached to " + getName() + ":");
 
@@ -101,6 +96,9 @@ public class PokemonCard extends Card
         {
             System.out.println((i + 1) + ". " + energyList.get(i));
         }
+
+        // Return the list of energy cards
+        return energyList;
     }
 
     public int getTypeEnergy(String energyType)
