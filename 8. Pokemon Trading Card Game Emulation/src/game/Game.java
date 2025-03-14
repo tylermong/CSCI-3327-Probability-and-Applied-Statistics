@@ -741,7 +741,30 @@ public class Game
             String input = in.nextLine().trim();
             String[] selections = input.split(",");
 
-            // TODO: Validate here
+            // Check if the input is empty
+            if (selections.length == 0)
+            {
+                System.out.print("Invalid selection. Enter at least one selection: ");
+                return false;
+            }
+
+            // Check if correct number of selections are made
+            if (selections.length != activePokemon.getRetreatCost())
+            {
+                System.out.print("Invalid selection. Please select " + activePokemon.getRetreatCost() + " Energy cards to discard: ");
+                return false;
+            }
+
+            // Check if within range of the energy list
+            for (String selection : selections)
+            {
+                int index = Integer.parseInt(selection.trim()) - 1;
+                if (index < 0 || index >= energyList.size())
+                {
+                    System.out.print("Invalid selection. Please choose again (1 - " + energyList.size() + "): ");
+                    return false;
+                }
+            }
 
             // Extract the selected indices from the input
             List<Integer> selectedMoveIndices = new ArrayList<>();
