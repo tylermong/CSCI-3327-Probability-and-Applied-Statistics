@@ -2,6 +2,7 @@ package game;
 
 import card.Card;
 import card.energy.EnergyCard;
+import card.energy.energycards.*;
 import card.pokemon.PokemonCard;
 import card.trainer.TrainerCard;
 import card.pokemon.helper.Move;
@@ -377,12 +378,12 @@ public class Game
                         }
                         playerHasCompletedAction2ThisTurn = attachEnergy(currentPlayer);
                         break;
-                    
+
                     // 3. Play Trainer card
                     case 3:
                         playTrainerCard(currentPlayer);
                         break;
-                    
+
                     // 4. Retreat Active Pokémon
                     case 4:
                         if (playerHasCompletedAction4ThisTurn)
@@ -740,8 +741,15 @@ public class Game
             // Remove the selected Energy cards
             for (int index: selectedMoveIndices)
             {
+                // Remove the energy
                 String energyType = energyList.get(index);
                 activePokemon.removeEnergy(energyType);
+
+                // Then add it to the discard pile
+                EnergyCard discardedEnergy = createEnergyCard(energyType);
+                currentPlayer.getDiscardPile().addCard(discardedEnergy);
+
+                // Print the discarded energy
                 System.out.println("Discarded " + energyType + " from " + activePokemon.getName() + ".");
             }
             sleep(1000);
@@ -754,7 +762,14 @@ public class Game
 
             for (String energyType : new ArrayList<>(energyList))
             {
+                // Remove the energy
                 activePokemon.removeEnergy(energyType);
+
+                // Then add it to the discard pile
+                EnergyCard discardedEnergy = createEnergyCard(energyType);
+                currentPlayer.getDiscardPile().addCard(discardedEnergy);
+
+                // Print the discarded energy
                 System.out.println("Discarded " + energyType + " from " + activePokemon.getName() + ".");
             }
            
@@ -772,6 +787,36 @@ public class Game
         sleep(1000);
 
         return true;
+    }
+
+    private EnergyCard createEnergyCard(String energyType)
+    {
+        switch (energyType)
+        {
+            case "Grass":
+                return new GrassEnergy();
+
+            case "Fire":
+                return new FightingEnergy();
+
+            case "Water":
+                return new WaterEnergy();
+
+            case "Lightning":
+                return new LightningEnergy();
+
+            case "Fighting":
+                return new FightingEnergy();
+
+            case "Psychic":
+                return new PsychicEnergy();
+
+            case "Colorless":
+                return new DoubleColorlessEnergy();
+
+            default:
+                return null;
+        }
     }
 
     // TODO: Validate inputs
