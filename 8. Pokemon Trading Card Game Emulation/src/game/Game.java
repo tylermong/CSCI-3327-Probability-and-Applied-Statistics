@@ -717,7 +717,7 @@ public class Game
             System.out.println("You have " + activePokemon.getTotalEnergy() + " Energy attached to " + activePokemon.getName() + ".");
             System.out.println("Please select " + activePokemon.getRetreatCost() + " Energy cards to discard (comma-separated, e.g. 1, 2, 3): ");
             List<String> energyList = activePokemon.displayEnergyInList();
-            System.out.println("Selection: ");
+            System.out.print("Selection: ");
             String input = in.nextLine().trim();
             String[] selections = input.split(",");
 
@@ -789,7 +789,7 @@ public class Game
         {
             System.out.println("\n" + currentPlayer.getName() + "'s Bench Pokémon:");
             currentPlayer.getBench().display();
-            System.out.println("Selection: ");
+            System.out.print("Selection: ");
             int benchIndex = in.nextInt() - 1;
             while (benchIndex < 0 || benchIndex >= currentPlayer.getBench().getSize())
             {
