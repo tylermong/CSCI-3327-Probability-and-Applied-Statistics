@@ -766,6 +766,19 @@ public class Game
                 }
             }
 
+            // Check if the selections are duplicates
+            for (int i = 0; i < selections.length; i++)
+            {
+                for (int j = i + 1; j < selections.length; j++)
+                {
+                    if (selections[i].equals(selections[j]))
+                    {
+                        System.out.print("Invalid selection, duplicate Energy selected. Please choose again: ");
+                        return false;
+                    }
+                }
+            }
+
             // Extract the selected indices from the input
             List<Integer> selectedMoveIndices = new ArrayList<>();
             for (String selection : selections)
