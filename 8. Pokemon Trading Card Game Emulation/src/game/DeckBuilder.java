@@ -16,6 +16,7 @@ public class DeckBuilder
         initializeFireDeck();
         initializeFightingDeck();
         initializeWaterDeck();
+        initializeColorlessDeck();
         
         initializeMulliganDeck();   // High probability of Mulligan-ing (for testing)
         initializeEnergyDeck();     // Some Pokémon, lots of energy, no trainers (for testing)
@@ -77,6 +78,25 @@ public class DeckBuilder
 
         // Add all 60 cards to the deck
         prebuiltDecks.put("Water", waterDeck);
+    }
+
+    private static void initializeColorlessDeck()
+    {
+        Deck colorlessDeck = new Deck();
+
+        // Add 21 Pokemon cards
+        for (int i = 0; i < 11; i++) colorlessDeck.addCard(new Dratini());
+        for (int i = 0; i < 10; i++) colorlessDeck.addCard(new Rattata());
+
+        // Add 11 Trainer cards
+        for (int i = 0; i < 7; i++) colorlessDeck.addCard(new Bill());
+        for (int i = 0; i < 6; i++) colorlessDeck.addCard(new ProfessorOak());
+
+        // Add 28 Energy cards
+        for (int i = 0; i < 28; i++) colorlessDeck.addCard(new WaterEnergy());
+
+        // Add all 60 cards to the deck
+        prebuiltDecks.put("Colorless", colorlessDeck);
     }
 
     private static void initializeMulliganDeck()
