@@ -69,7 +69,6 @@ public class PokemonCard extends Card
         energyCount.put(energyType, energyCount.getOrDefault(energyType, 0) + 1);
     }
 
-    // TODO: Add energy to discard pile
     public void removeEnergy(String energyType)
     {
         int count = energyCount.get(energyType);
