@@ -14,7 +14,6 @@ public class DeckBuilder
     public static void initializePrebuiltDecks()
     {
         initializeFireDeck();
-        initializeLightningDeck();
         initializeFightingDeck();
         
         initializeMulliganDeck();   // High probability of Mulligan-ing (for testing)
@@ -38,26 +37,6 @@ public class DeckBuilder
 
         // Add all 60 cards to the deck
         prebuiltDecks.put("Fire", fireDeck);
-    }
-
-    private static void initializeLightningDeck()
-    {
-        Deck lightningDeck = new Deck();
-
-        // Add 21 Pokemon cards
-        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Pikachu());
-        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Electabuzz());
-        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Zapdos());
-
-        // Add 11 Trainer cards
-        for (int i = 0; i < 7; i++) lightningDeck.addCard(new Bill());
-        for (int i = 0; i < 6; i++) lightningDeck.addCard(new ProfessorOak());
-
-        // Add 28 Energy cards
-        for (int i = 0; i < 28; i++) lightningDeck.addCard(new LightningEnergy());
-
-        // Add all 60 cards to the deck
-        prebuiltDecks.put("Lightning", lightningDeck);
     }
 
     private static void initializeFightingDeck()
