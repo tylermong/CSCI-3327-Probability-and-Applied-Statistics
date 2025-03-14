@@ -104,14 +104,13 @@ public class DeckBuilder
     {
         Deck energyDeck = new Deck();
 
-        // Add 10 Pokemon cards
-        for (int i = 0; i < 5; i++) energyDeck.addCard(new Diglett());
-        for (int i = 0; i < 5; i++) energyDeck.addCard(new Pikachu());
+        // Add 20 Pokemon cards
+        for (int i = 0; i < 10; i++) energyDeck.addCard(new Diglett());
+        for (int i = 0; i < 10; i++) energyDeck.addCard(new Pikachu());
 
-        // Add 50 Energy cards
+        // Add 40 Energy cards
         for (int i = 0; i < 10; i++) energyDeck.addCard(new FightingEnergy());
         for (int i = 0; i < 10; i++) energyDeck.addCard(new FireEnergy());
-        for (int i = 0; i < 10; i++) energyDeck.addCard(new GrassEnergy());
         for (int i = 0; i < 10; i++) energyDeck.addCard(new LightningEnergy());
         for (int i = 0; i < 10; i++) energyDeck.addCard(new DoubleColorlessEnergy());
 
