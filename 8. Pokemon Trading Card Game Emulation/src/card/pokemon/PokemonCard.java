@@ -74,7 +74,12 @@ public class PokemonCard extends Card
        // TODO    
     }
 
-    public void displayEnergy()
+    public Map<String, Integer> displayEnergyInMap()
+    {
+        return energyCount;
+    }
+
+    public void displayEnergyInList()
     {
         System.out.println("Energy attached to " + getName() + ":");
 
