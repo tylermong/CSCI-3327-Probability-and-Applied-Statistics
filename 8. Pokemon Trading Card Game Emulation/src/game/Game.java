@@ -789,6 +789,11 @@ public class Game
         {
             System.out.println("\n" + currentPlayer.getName() + "'s Bench Pokémon:");
             currentPlayer.getBench().display();
+            if (currentPlayer.getBench().getSize() == 0)
+            {
+                System.out.println("No Pokémon on the Bench.");
+                return;
+            }
             System.out.print("Selection: ");
             int benchIndex = in.nextInt() - 1;
             while (benchIndex < 0 || benchIndex >= currentPlayer.getBench().getSize())
