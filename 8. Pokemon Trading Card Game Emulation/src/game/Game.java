@@ -342,12 +342,11 @@ public class Game
              */
             while (!isTurnOver)
             {
-                // TODO: Add display stats of active and bench Pokémon (HP, energy, moves, weakness, resistance, etc.)
                 System.out.println("\n" + currentPlayer.getName() + ", select an action:");
                 System.out.println("\t1. Put Basic Pokémon on Bench");
                 System.out.println("\t2. Attach Energy card");
                 System.out.println("\t3. Play Trainer card");
-                System.out.println("\t4. Retreat Active Pokémon");                          // TODO
+                System.out.println("\t4. Retreat Active Pokémon");
                 System.out.println("\t5. Show hand");
                 System.out.println("\t6. Show active Pokémon");
                 System.out.println("\t7. Show bench Pokémon");
