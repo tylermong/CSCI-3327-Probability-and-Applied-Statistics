@@ -529,7 +529,7 @@ public class Game
         // Player chooses a Pokémon to attach an Energy card to
         System.out.println("\n" + currentPlayer.getName() + ", select a Pokémon to attach an Energy card to (0 to skip):");
         currentPlayer.getActive().display();
-        currentPlayer.getBench().display();
+        currentPlayer.getBench().secondaryDisplay();
         System.out.print(currentPlayer.getName() + " selection: ");
         int pokemonIndex = in.nextInt() - 1;
 
