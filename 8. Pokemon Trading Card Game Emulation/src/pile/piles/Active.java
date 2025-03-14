@@ -64,7 +64,6 @@ public class Active extends Pile
         }
 
         // Validate energy cost
-        // TODO: Allow any energy type to be used for a colorless requirement (e.g., 1 grass + 1 colorless -> 1 grass + 1 any type)
         Map<String, Integer> energyCost = moves[selectedMoveIndex].getEnergyCost();
         Map<String, Integer> usedEnergy = new HashMap<>();
 
