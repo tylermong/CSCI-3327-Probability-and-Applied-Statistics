@@ -62,6 +62,8 @@ public class Active extends Pile
         }
 
         // Validate energy cost
+        // TODO: Allow colorless energy to be used as any type of energy
+        // TOOD: Allow colorless requirement to be met by any energy type
         Map<String, Integer> energyCost = moves[selectedMoveIndex].getEnergyCost();
         for (Map.Entry<String, Integer> entry : energyCost.entrySet())
         {
