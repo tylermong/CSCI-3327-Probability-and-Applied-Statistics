@@ -6,6 +6,8 @@ import card.Card;
 import card.pokemon.PokemonCard;
 import card.pokemon.helper.Move;
 import pile.Pile;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class Active extends Pile
@@ -62,20 +64,56 @@ public class Active extends Pile
         }
 
         // Validate energy cost
-        // TODO: Allow colorless energy to be used as any type of energy
-        // TOOD: Allow colorless requirement to be met by any energy type
+        // TODO: Allow any energy type to be used for a colorless requirement (e.g., 1 grass + 1 colorless -> 1 grass + 1 any type)
         Map<String, Integer> energyCost = moves[selectedMoveIndex].getEnergyCost();
+        Map<String, Integer> usedEnergy = new HashMap<>();
+
+        // Start with checking non-colorless energy requirements
         for (Map.Entry<String, Integer> entry : energyCost.entrySet())
         {
             String energyType = entry.getKey();
             int requiredAmount = entry.getValue();
+
+            // Skip colorless energy for now
+            if (energyType.equals("Colorless"))
+            {
+                continue;
+            }
+
             int availableAmount = attacker.getTypeEnergy(energyType);
             if (availableAmount < requiredAmount)
             {
+                System.out.println("Not enough " + energyType + " energy. Required: " + requiredAmount + ", Available: " + availableAmount);
+                System.out.println("Required energy is not available. Please select a different move or skip the attack.");
+                return selectMove(attacker, defender);
+            }
+
+            // Track used energy for each type
+            usedEnergy.put(energyType, requiredAmount);
+        }
+
+        int colorlessRequired = energyCost.getOrDefault("Colorless", 0);
+        if (colorlessRequired > 0)
+        {
+            int remainingTotalEnergy = 0;
+
+            for (Map.Entry<String, Integer> entry : attacker.displayEnergyInMap().entrySet())
+            {
+                String type = entry.getKey();
+                int availableAmount = entry.getValue();
+                int used = usedEnergy.getOrDefault(type, 0);
+                remainingTotalEnergy += Math.max(0, availableAmount - used);
+            }
+
+            if (remainingTotalEnergy < colorlessRequired)
+            {
+                System.out.println("Not enough remaining energy to meet the colorless requirement.");
+                System.out.println("Required: " + colorlessRequired + ", Available: " + remainingTotalEnergy);
                 System.out.println("Required energy is not available. Please select a different move or skip the attack.");
                 return selectMove(attacker, defender);
             }
         }
+        
         // At this point, the move is valid and the energy cost is met
         return moves[selectedMoveIndex];
     }
