@@ -212,7 +212,6 @@ public class Game
         sleep(1000);
     }
 
-    // TODO: fix duplicating cards bug (occurs when selecting invalid cards i think -- might be fixed, need to test)
     private void addBenchPokemon(Player player)
     {
         System.out.println("\n" + player.getName() + ", select up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
