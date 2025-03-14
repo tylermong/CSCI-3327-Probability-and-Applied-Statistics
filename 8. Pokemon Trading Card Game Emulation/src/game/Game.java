@@ -6,6 +6,8 @@ import card.pokemon.PokemonCard;
 import card.trainer.TrainerCard;
 import card.pokemon.helper.Move;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Game
@@ -696,10 +698,12 @@ public class Game
         // If the retreat cost is 0, swap cards without discarding any energy
         if (activePokemon.getRetreatCost() == 0)
         {
+            // Move the Bench Pokémon to the Active position
             PokemonCard benchPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
             currentPlayer.getActive().addCard(benchPokemon);
             currentPlayer.getBench().removeCard(benchPokemon);
 
+            // Move the Active Pokémon to the Bench
             currentPlayer.getActive().removeCard(activePokemon);
             currentPlayer.getBench().addCard(activePokemon);
             System.out.println(currentPlayer.getName() + " retreated " + activePokemon.getName() + " for " + benchPokemon.getName() + ".");
@@ -707,9 +711,8 @@ public class Game
             return true;
         }
 
-        // If the energy cost > 0, discard retreat cost # Energy from the Active Pokémon.
-        // If # of Energies > retreat cost, prompt the user to select which Energies to remove 
-        // TODO: Check input validation
+        // If the energy cost > 0, discard retreat cost number of Energy from the Active Pokémon.
+        // If number of Energies > retreat cost, prompt the user to select which Energies to remove 
         if (activePokemon.getTotalEnergy() > activePokemon.getRetreatCost())
         {
             System.out.println("You have " + activePokemon.getTotalEnergy() + " Energy attached to " + activePokemon.getName() + ".");
@@ -717,13 +720,28 @@ public class Game
             activePokemon.displayEnergyInList();
             System.out.println("Selection: ");
             String input = in.nextLine().trim();
-
             String[] selections = input.split(",");
+
+            // TODO: Validate here
+
+            // Extract the selected indices from the input
+            List<Integer> selectedMoveIndices = new ArrayList<>();
             for (String selection : selections)
             {
-                int energyIndex = Integer.parseInt(selection.trim()) - 1;
-                activePokemon.removeEnergy(energyIndex);
+                selectedMoveIndices.add(Integer.parseInt(selection.trim()) - 1);
             }
+            
+            // Remove the selected Energy cards
+            for (int i = 0; i < selectedMoveIndices.size(); i++)
+            {
+                int index = selectedMoveIndices.get(i);
+                if (index >= 0 && index < activePokemon.getTotalEnergy())
+                {
+                    activePokemon.removeEnergy(index - i); // Adjust index for removed cards
+                }
+            }
+            System.out.println("Removed " + selectedMoveIndices.size() + " Energy cards from " + activePokemon.getName() + ".");
+            sleep(1000);
         }
         else
         {
@@ -732,6 +750,8 @@ public class Game
             {
                 activePokemon.removeEnergy(i);
             }
+            System.out.println("Removed all Energy cards from " + activePokemon.getName() + ".");
+            sleep(1000);
         }
 
         // Swap the Active Pokémon with the selected Bench Pokémon
