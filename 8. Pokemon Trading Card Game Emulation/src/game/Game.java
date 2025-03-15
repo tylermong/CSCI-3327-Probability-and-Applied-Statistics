@@ -147,7 +147,7 @@ public class Game
             System.out.println("\t" + (i + 1) + ". " + decks[i]);
         }
         System.out.print(player.getName() + " selection: ");
-        int deckChoice = in.nextInt() - 1;  // Subtract 1 to match the array's indexing (0-based) to the player's input (1-based).
+        int deckChoice = in.nextInt() - 1;  // Subtract 1 to match array index (0-based) with user's input (1-based).
 
         // Validate the user's selection is within the range of the available decks. While it's invalid, prompt again.
         while (deckChoice < 0 || deckChoice >= decks.length)
