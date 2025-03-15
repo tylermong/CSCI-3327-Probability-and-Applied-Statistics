@@ -162,12 +162,21 @@ public class Game
         sleep(250);
     }
 
+    /**
+     * Simulates a coin flip.
+     * 
+     * @return  The result of the coin flip, either "Heads" or "Tails".
+     */
     private String flipCoin()
     {
+        // Generate a random number between 0 and 1.
+        // If the number is less than 0.5, return "Heads".
         if (Math.random() < 0.5)
         {
             return "Heads";
         }
+
+        // Otherwise, return "Tails".
         return "Tails";
     }
 
