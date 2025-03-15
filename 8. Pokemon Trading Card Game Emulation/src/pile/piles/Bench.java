@@ -25,6 +25,7 @@ public class Bench extends Pile
 
     /**
      * Returns the maximum number of Pokémon cards that can be placed on the bench.
+     * 
      * @return  The maximum size of the bench, which is a constant value of 5.
      */
     public int getMaxSize()
