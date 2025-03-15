@@ -421,18 +421,6 @@ public class Game
         sleep(1000);
     }
 
-    private void sleep(int ms)
-    {
-        try
-        {
-            Thread.sleep(ms);
-        }
-        catch (InterruptedException event)
-        {
-            System.out.println("Sleep interrupted: " + event.getMessage());
-        }
-    }
-
     public void startGame()
     {
         System.out.println("\nThe battle begins!");
@@ -1029,5 +1017,17 @@ public class Game
         System.out.println("Energy attached: " + selectedPokemon.displayEnergyInMap());
         System.out.println("Retreat Cost: " + selectedPokemon.getRetreatCost());
         sleep(1000);
+    }
+
+    private void sleep(int ms)
+    {
+        try
+        {
+            Thread.sleep(ms);
+        }
+        catch (InterruptedException event)
+        {
+            System.out.println("Sleep interrupted: " + event.getMessage());
+        }
     }
 }
