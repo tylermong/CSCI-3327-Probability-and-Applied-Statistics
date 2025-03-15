@@ -28,6 +28,7 @@ public class Card
 
     /**
      * Returns the name of the card.
+     * 
      * @return  The name of the card.
      */
     public String getName()
@@ -37,6 +38,7 @@ public class Card
 
     /**
      * Returns the type of the card.
+     * 
      * @return  The type of the card (e.g., Pokémon, Energy, Trainer).
      */
     public String getType()
