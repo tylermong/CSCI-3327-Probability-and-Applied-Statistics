@@ -35,6 +35,7 @@ public class Hand extends Pile
     /**
      * Checks if the player's hand contains any basic Pokémon cards.
      * This is used in the game setup to check for a Mulligan.
+     * 
      * @return  True if there are basic Pokémon cards, false otherwise.
      */
     public boolean hasBasicPokemon()
