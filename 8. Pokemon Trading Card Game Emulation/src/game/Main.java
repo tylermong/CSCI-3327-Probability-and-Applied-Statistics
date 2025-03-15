@@ -10,6 +10,7 @@ public class Main
 {
     /**
      * Sets up the game and starts the game loop.
+     * 
      * @param args  Command line arguments.
      */
     public static void main(String[] args)
