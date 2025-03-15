@@ -2,8 +2,17 @@ package game;
 
 import pile.piles.*;
 
+/**
+ * This class represents a player in the Pokémon Trading Card Game.
+ * It contains the player's name, deck, hand, active Pokémon, benched Pokémon, prize cards, and discard pile.
+ * It provides methods to access and modify these attributes.
+ * 
+ * @author  Tyler Mong
+ * @version 1.0
+ */
 public class Player
 {
+    // Variables to store player-specific information.
     private String name;
     private Deck deck;
     private Hand hand;
@@ -12,6 +21,11 @@ public class Player
     private Prize prizeCards;
     private DiscardPile discardPile;
     
+    /**
+     * Constructor to initialize a player with a name and card piles.
+     * 
+     * @param name  The name of the player.
+     */
     public Player(String name)
     {
         this.name = name;
@@ -22,42 +36,82 @@ public class Player
         this.prizeCards = new Prize();
         this.discardPile = new DiscardPile();
     }
-
+    
+    /**
+     * Returns the player's name.
+     * 
+     * @return  The player's name.
+     */
     public String getName()
     {
         return name;
     }
-  
+
+    /**
+     * Returns the player's deck.
+     * 
+     * @return  The player's deck.
+     */
     public Deck getDeck()
     {
         return deck;
     }
 
+    /**
+     * Sets the player's deck.
+     * 
+     * @param deck  The deck to set for the player.
+     */
     public void setDeck(Deck deck)
     {
         this.deck = deck;
     }
-    
+
+    /**
+    * Returns the player's hand.
+     * 
+     * @return  The player's hand.
+     */
     public Hand getHand()
     {
         return hand;
     }
-    
+
+    /**
+     * Returns the player's prize cards.
+     * 
+     * @return  The player's prize cards.
+     */
     public Prize getPrizeCards()
     {
         return prizeCards;
     }
-    
+
+    /**
+     * Returns the player's discard pile.
+     * 
+     * @return  The player's discard pile.
+     */
     public DiscardPile getDiscardPile()
     {
         return discardPile;
     }
 
+    /**
+     * Returns the player's active Pokémon.
+     *  
+     * @return  The player's active Pokémon.
+     */
     public Active getActive()
     {
         return active;
     }
 
+    /**
+     * Returns the player's benched Pokémon.
+     * 
+     * @return  The player's benched Pokémon.
+     */
     public Bench getBench()
     {
         return bench;
