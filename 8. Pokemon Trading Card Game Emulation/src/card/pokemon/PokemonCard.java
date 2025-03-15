@@ -103,6 +103,7 @@ public class PokemonCard extends Card
 
     /**
      * Returns a Pokémon card's moves.
+     * 
      * @return  The list of moves associated with the Pokémon card.
      */
     public Move[] getMoves()
@@ -112,6 +113,7 @@ public class PokemonCard extends Card
 
     /**
      * Attaches an energy card to the Pokémon card.
+     * 
      * @param energyCard    The energy card to attach to the Pokémon card.
      */
     public void addEnergy(EnergyCard energyCard)
@@ -208,7 +210,7 @@ public class PokemonCard extends Card
         {
             total += count;
         }
-        
+
         return total;
     }
 }
