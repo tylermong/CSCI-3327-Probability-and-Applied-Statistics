@@ -38,21 +38,34 @@ public class Game
         selectDeck(player2);
     }
 
-    
+    /**
+     * Sets up the game by following the "Setting up to play" sequence found in the official Pokémon TCG: Sun &
+     * Moon—Celestial Storm rulebook.
+     * 
+     * This setup includes the following steps: (1) shaking hands, (2) flipping a coin to determine who goes first,
+     * (3) shuffling decks and drawing cards, (4) checking for Basic Pokémon in hand, (5) selecting an Active Pokémon,
+     * (6) selecting Bench Pokémon, and (7) placing Prize cards.
+     * 
+     * @see <a href="https://assets.pokemon.com/assets/cms2/pdf/trading-card-game/rulebook/sm7_rulebook_en.pdf">Pokémon
+     *      Trading Card Game Rules</a>
+     */
     public void setupGame()
     {
         // Step 1: Shake hands with your opponent.
         System.out.println("Shaking hands...");
         sleep(1000);
+        
         System.out.println(player1.getName() + " and " + player2.getName() + " have shaken hands.\n");
         sleep(1000);
 
         // Step 2: Flip a coin. The winner of the coin flip decides which player goes first. 
         System.out.println("Flipping a coin to determine who goes first...");
         sleep(1000);
+
         coin = flipCoin();
         System.out.println("Coin flip result: " + coin);
         sleep(1000);
+        
         if (coin.equals("Heads"))
         {
             currentPlayer = player1;
@@ -89,7 +102,7 @@ public class Game
         int player2Mulligans = validateHand(player2);
         sleep(1000);
 
-        // Handle bonus draws for mulligans
+        // Handle bonus draws for each player's mulligans.
         if (player1Mulligans > 0)
         {
             handleBonusDraws(player2, player1Mulligans);
@@ -309,6 +322,7 @@ public class Game
             System.out.println(player.getName() + " put " + benchCard.getName() + " on the Bench.");
         }
         System.out.println(player.getName() + " has " + player.getBench().getSize() + " Pokémon on the Bench.");
+        sleep(1000);
     }
 
     private void addPrizePokemon(Player player)
@@ -326,7 +340,7 @@ public class Game
     {
         try
         {
-            Thread.sleep(ms / 1000);
+            Thread.sleep(ms);
         }
         catch (InterruptedException event)
         {
