@@ -34,6 +34,8 @@ public class Game
         player1 = new Player("Player 1");
         player2 = new Player("Player 2");
         
+        DeckBuilder.initializePrebuiltDecks();
+
         selectDeck(player1);
         selectDeck(player2);
     }
@@ -126,28 +128,35 @@ public class Game
         addPrizePokemon(player2);
     }
 
+    /**
+     * This method handles deck selection for each player.
+     * It displays the prebuilt decks, prompts for selection, validates the selection, and assigns the selected deck to
+     * the player.
+     * 
+     * @param player    The player who is selecting a deck.
+     */
     private void selectDeck(Player player)
     {
-        DeckBuilder.initializePrebuiltDecks();
+        // Store all of the decks in a String array for easy access.
         String[] decks = DeckBuilder.getAllPrebuiltDecks();
 
-        // Get deck selection from the player
+        // Displays the available prebuilt decks and prompts for selection.
         System.out.println("Select a deck for " + player.getName() + ": ");
         for (int i = 0; i < decks.length; i++)
         {
             System.out.println("\t" + (i + 1) + ". " + decks[i]);
         }
         System.out.print(player.getName() + " selection: ");
-        int deckChoice = in.nextInt() - 1;
+        int deckChoice = in.nextInt() - 1;  // Subtract 1 to match the array's indexing (0-based) to the player's input (1-based).
 
-        // Validate the selection
+        // Validate the user's selection is within the range of the available decks. While it's invalid, prompt again.
         while (deckChoice < 0 || deckChoice >= decks.length)
         {
             System.out.print("Invalid selection. Please choose again (1 - " + decks.length + "): ");
             deckChoice = in.nextInt() - 1;
         }
         
-        // Set the selected deck for the player
+        // Set the selected deck for the player and print the chosen deck name.
         System.out.println(player.getName() + " selected " + decks[deckChoice] + " deck.\n");
         player.setDeck(DeckBuilder.getPrebuiltDeck(decks[deckChoice]));
         sleep(250);
