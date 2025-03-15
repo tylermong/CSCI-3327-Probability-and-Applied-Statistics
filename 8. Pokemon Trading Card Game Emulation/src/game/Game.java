@@ -235,10 +235,18 @@ public class Game
         return mulliganCounter;
     }
 
+    /**
+     * Handles the bonus draws for the current player based on the opponent's Mulligan count.
+     * 
+     * @param currentPlayer         The player drawing bonus cards.
+     * @param opponentMulliganCount The player's opponent's Mulligan count.
+     */
     private void handleBonusDraws(Player currentPlayer, int opponentMulliganCount)
     {
-        // Handle bonus draws for opponent's mulligans
+        // Indicate the number of bonus cards the player gets to draw.
         System.out.println("\n" + currentPlayer.getName() + " gets to draw " + opponentMulliganCount + " extra card(s) for their opponent's mulligan.");
+
+        // Draw the bonus cards.
         for (int i = 0; i < opponentMulliganCount; i++)
         {
             Card bonusCard = currentPlayer.getDeck().drawCard();
