@@ -28,6 +28,10 @@ public class Bill extends TrainerCard
     /**
      * Uses the effect of the "Bill" trainer card, which is to draw 2 cards from the player's deck.
      * Prints a message indicating the effect being used and calls the TrainerEffect class to perform the action.
+     * 
+     * @param deck          The player's deck.
+     * @param hand          The player's hand.
+     * @param discardPile   The discard pile where discarded cards will be placed (not used in this effect).
      */
     @Override
     public void useEffect(Deck deck, Hand hand, DiscardPile discardPile)
