@@ -295,16 +295,24 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Sets the player's Benched Pokémon.
+     * Prompts the player to select Basic Pokémon from their hand, validates the selections, and moves the selected
+     * cards to the Bench.
+     * 
+     * @param player    The player selecting Benched Pokémon.
+     */
     private void addBenchPokemon(Player player)
     {
-        System.out.println("\n" + player.getName() + ", select up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + " Basic Pokémon to put on the Bench.");
+        // Prompt the user to select up to the number of available spots on the Bench Basic Pokémon from their hand.
+        System.out.println("\n" + player.getName() + ", select up to "
+                + (player.getBench().getMaxSize() - player.getBench().getSize())
+                + " Basic Pokémon to put on the Bench.");
         player.getHand().display();
         System.out.print(player.getName() + " selection (comma-separated, e.g. 1, 2, 3 or 0 to skip): ");
-
-        // Get the selections from the player
         String input = in.nextLine().trim();
 
-        // Put the input in an array for easier parsing
+        // Put the input in an array for easier parsing.
         String[] rawSelections = input.split(",");
         String[] selections = new String[rawSelections.length];
         for (int i = 0; i < rawSelections.length; i++)
@@ -312,43 +320,45 @@ public class Game
             selections[i] = rawSelections[i].trim();
         }
 
-        // Check if the input is empty
+        // Validate the input is not empty. If it is, prompt again.
         if (selections.length == 0)
         {
             System.out.print("Invalid selection. Enter at least one selection or '0' to skip: ");
             addBenchPokemon(player);
             return;
         }
-        // Check if the input is "0" to skip
+        // Check if the input is "0" to skip. If it is, return now.
         else if (selections[0].equals("0"))
         {
             System.out.println(player.getName() + " does not put any Pokémon on the Bench.");
             sleep(1000);
             return;
         }
-        // Check if the input is in range of the hand
+        // Validate the input is within range of the hand size. If not, prompt again.
         else if (selections.length > player.getHand().getSize())
         {
             System.out.print("Invalid selection, too many Pokémon selected. Please choose again (up to " + Math.min(player.getHand().getSize(), player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             addBenchPokemon(player);
             return;
         }
-        // Check if there is enough spots on the bench
+        // Validate the input is within range of the available spots on the Bench. If not, prompt again.
         else if (selections.length > (player.getBench().getMaxSize() - player.getBench().getSize()))
         {
-            System.out.println("DEBUG: " + player.getBench().getMaxSize());
-            System.out.println("DEBUG: " + player.getBench().getSize());
-            System.out.println("DEBUG: " + input.length());
             System.out.print("Invalid selection, not enough spots on the bench. Please choose again (up to " + (player.getBench().getMaxSize() - player.getBench().getSize()) + "): ");
             addBenchPokemon(player);
             return;
         }
 
-        // now check if the selections are pokemon cards
+        // Validate the selections are all Pokémon cards. If not, prompt again.
         for (String selection : selections)
         {
+            // Get the index of the selected card.
             int index = Integer.parseInt(selection.trim()) - 1;
+
+            // Get the card at the selected index.
             Card card = player.getHand().getCardAtIndex(index);
+
+            // Check if the card is a Pokémon card. If not, prompt again.
             if (!(card instanceof PokemonCard))
             {
                 System.out.print("Invalid selection, not a Basic Pokémon. Please choose again: ");
@@ -356,7 +366,8 @@ public class Game
                 return;
             }
         }
-        // now check if the pokemon cards are duplicates
+
+        // Validate the selections are not duplicates. If they are, prompt again.
         for (int i = 0; i < selections.length; i++)
         {
             for (int j = i + 1; j < selections.length; j++)
@@ -370,15 +381,22 @@ public class Game
             }
         }
 
-        // Finally add the validated cards to the Bench
+        // Finally add the validated cards to the Bench.
         for (int i = 0; i < selections.length; i++)
         {
+            // Get the index of the selected card.
             int index = Integer.parseInt(selections[i].trim()) - 1;
+
+            // Get the card at the selected index and add it to the Bench. Subtract the index by i to account for the
+            // index shifting as cards are being removed.
             Card benchCard = player.getHand().getCardAtIndex(index - i);
             player.getBench().addCard(benchCard);
             player.getHand().removeCard(benchCard);
+
+            // Indicate the card has been added to the Bench.
             System.out.println(player.getName() + " put " + benchCard.getName() + " on the Bench.");
         }
+        // Indicate the number of Pokémon on the Bench.
         System.out.println(player.getName() + " has " + player.getBench().getSize() + " Pokémon on the Bench.");
         sleep(1000);
     }
