@@ -33,6 +33,7 @@ public abstract class TrainerCard extends Card
 
     /**
      * Returns the description of the trainer card.
+     * 
      * @return  The description of the trainer card, explaining its effect.
      */
     public String getDescription()
