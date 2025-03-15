@@ -180,34 +180,58 @@ public class Game
         return "Tails";
     }
 
+    /**
+     * Checks if the player's hand contains any Basic Pokémon cards.
+     * If not, the player must reveal their hand, return all cards to their deck, shuffle it, and draw 7 new cards.
+     * This process is repeated until the player has at least one Basic Pokémon in their hand.
+     * 
+     * @param player    The player whose hand is being validated.
+     * @return          The number of Mulligans (invalid hands) the player had before getting a valid hand.
+     */
     private int validateHand(Player player)
     {
+        // Store the number of mulligans to be used for bonus draws later.
         int mulliganCounter = 0;
+
+        // While the player has no Basic Pokémon in their hand (i.e., the hand is invalid)
         while (!player.getHand().hasBasicPokemon())
         {
+            // Add to the mulligan counter.
             mulliganCounter++;
+
+            // Indicate the hand is invalid.
             System.out.println("\n" + player.getName() + " does not have any Basic Pokémon in their hand.");
             sleep(1000);
+
+            // Reveal the player's hand.
             System.out.println("Revealing hand...");
             sleep(1000);
             player.getHand().display();
             sleep(1000);
+
+            // Indicate the player is returning all cards to their deck, shuffling it, and drawing 7 new cards.
             System.out.println(player.getName() + " adds all cards back to their deck, shuffles it, and draws 7 new cards.");
 
-            // Return all cards in hand to the deck, shuffle, and draw 7 new cards
+            // Return all cards in hand to the deck.
             int handSize = player.getHand().getSize();
             for (int i = 0; i < handSize; i++)
             {
                 Card card = player.getHand().drawCard();
                 player.getDeck().addCard(card);
             }
+            
+            // Shuffle the deck.
             player.getDeck().shuffle();
+
+            // Draw 7 new cards from the deck.
             for (int i = 0; i < 7; i++)
             {
                 Card card = player.getDeck().drawCard();
                 player.getHand().addCard(card);
             }
         }
+
+        // Once the player has a valid hand, return the number of Mulligans they had.
         return mulliganCounter;
     }
 
