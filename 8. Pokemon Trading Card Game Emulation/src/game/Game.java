@@ -11,13 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * This class is responsible for setting up and managing the game flow of the Pokémon Trading Card Game emulation.
+ * It handles the game setup, player actions, turn management, and win conditions.
+ * 
+ * @author  Tyler Mong
+ * @version 1.0
+ */
 public class Game
 {
+    // Initialize the players, coin for coin flip, scanner for user input, and flags for turn management.
     private Player player1, player2, currentPlayer, opponent;
     private String coin;
     private static final Scanner in = new Scanner(System.in);
     private boolean playerHasCompletedAction2ThisTurn, playerHasCompletedAction4ThisTurn, isTurnOver;
 
+    /**
+     * Constructor to initialize the game with two players and their decks.
+     */
     public Game()
     {
         player1 = new Player("Player 1");
@@ -27,6 +38,7 @@ public class Game
         selectDeck(player2);
     }
 
+    
     public void setupGame()
     {
         // Step 1: Shake hands with your opponent.
