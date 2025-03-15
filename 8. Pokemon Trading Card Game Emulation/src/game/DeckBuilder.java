@@ -114,7 +114,7 @@ public class DeckBuilder
         for (int i = 0; i < 37; i++) mulliganDeck.addCard(new FightingEnergy());
 
         // Add all 60 cards to the deck
-        prebuiltDecks.put("[Testing] Mulligan", mulliganDeck);
+        prebuiltDecks.put("[Debug] Mulligan", mulliganDeck);
     }
 
     private static void initializeEnergyDeck()
@@ -132,7 +132,7 @@ public class DeckBuilder
         for (int i = 0; i < 10; i++) energyDeck.addCard(new DoubleColorlessEnergy());
 
         // Add all 60 cards to the deck
-        prebuiltDecks.put("[Testing] Energy", energyDeck);
+        prebuiltDecks.put("[Debug] Energy", energyDeck);
     }
 
     public static String[] getAllPrebuiltDecks()
