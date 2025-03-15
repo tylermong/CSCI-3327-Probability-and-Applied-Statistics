@@ -41,7 +41,7 @@ public class Game
     }
 
     /**
-     * Sets up the game by following the "Setting up to play" sequence found in the official Pokémon TCG: Sun &
+     * Sets up the game by following the "Setting up to Play" sequence found in the official Pokémon TCG: Sun &
      * Moon—Celestial Storm rulebook.
      * 
      * This setup includes the following steps: (1) shaking hands, (2) flipping a coin to determine who goes first,
@@ -421,40 +421,62 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Starts the game by following the "Parts of a Turn" sequence found in the official Pokémon TCG: Sun &
+     * Moon—Celestial Storm rulebook.
+     * 
+     * This includes (1) drawing a card, (2) performing actions (putting Basic Pokémon on Bench, attaching Energy cards,
+     * playing Trainer cards, and retreating Active Pokémon), and (3) attacking and ending the turn.
+     * 
+     * @see <a href="https://assets.pokemon.com/assets/cms2/pdf/trading-card-game/rulebook/sm7_rulebook_en.pdf">Pokémon
+     *      Trading Card Game Rules</a>
+     */
     public void startGame()
     {
+        // Indicate the game is starting
         System.out.println("\nThe battle begins!");
         sleep(1000);
+
+        // Loop until the game is over (i.e., one of the win conditions is met). Win conditions are checked at the end
+        // of each turn.
         while (!isGameOver())
-        {
-            // Step 1: Draw a card.
+        {            
+            // Indicate the current player's turn has begun.
             System.out.println("\n" + currentPlayer.getName() + "'s turn begins.");
             sleep(1000);
+
+             // Reset the turn management flags for the new turn.
+             playerHasCompletedAction2ThisTurn = false;
+             playerHasCompletedAction4ThisTurn = false;
+             isTurnOver = false;
+
+            // Step 1: Draw a card.
             System.out.println(currentPlayer.getName() + " draws a card...");
             sleep(1000);
+
+            // Draw the card.
             Card drawnCard = currentPlayer.getDeck().drawCard();
             currentPlayer.getHand().addCard(drawnCard);
+
+            // Indicate the card drawn.
             System.out.println(currentPlayer.getName() + " drew a " + drawnCard.getName() + ".");
             sleep(1000);
-
-            // Reset flags
-            playerHasCompletedAction2ThisTurn = false;
-            playerHasCompletedAction4ThisTurn = false;
-            isTurnOver = false;
 
             /*
              * Step 2: Do any of the following actions in any order:
              * - Put Basic Pokémon cards from your hand onto your Bench (as many times as you want).
-             * - Evolve your Pokémon (as many times as you want).
-             * - Attach an Energy card from your hand to one of your Pokémon (once per turn)
-             * - Play Trainer cards (as many as you want, but only one Supporter card and one Stadium card per turn).
+             * - Attach an Energy card from your hand to one of your Pokémon (once per turn).
+             * - Play Trainer cards (as many as you want).
              * - Retreat your Active Pokémon (only once per turn).
-             * - Use Abilities (as many as you want).
+             * - Plus other actions added for game emulation (e.g., show hand, show bench Pokémon, show card stats).
              * 
              * Step 3: Attack. Then, end your turn.
              */
+
+            // Loop turn actions until the player has ended their turn by attacking.
             while (!isTurnOver)
             {
+                // Prompt the player to select an action.
                 System.out.println("\n" + currentPlayer.getName() + ", select an action:");
                 System.out.println("\t1. Put Basic Pokémon on Bench");
                 System.out.println("\t2. Attach Energy card");
@@ -468,87 +490,102 @@ public class Game
                 System.out.print(currentPlayer.getName() + " selection: ");
                 int action = in.nextInt();
 
+                // Validate the selection is within range of the available actions. While it's invalid, prompt again.
                 while (action < 0 || action > 8)
                 {
                     System.out.print("Invalid selection. Please choose again (0 - 8): ");
                     action = in.nextInt();
                 }
-                in.nextLine(); // Consume the newline character
+                in.nextLine();  // Consume the newline character
+                
+                // Based on the player's selection, perform the corresponding action.
                 switch (action)
                 {
-                    // 1. Put Basic Pokémon on Bench
+                    // 1. Put Basic Pokémon on Bench.
                     case 1:
                         addBenchPokemon(currentPlayer);
                         break;
 
-                    // 2. Attach Energy card
+                    // 2. Attach Energy card.
                     case 2:
+                        // Check if the player has already completed this action this turn. If so, prompt again.
                         if (playerHasCompletedAction2ThisTurn)
                         {
                             System.out.println("You have already attached an Energy card this turn.");
                             break;
                         }
+                        // Call the attachEnergy method and set the flag to the return value (true if successful).
                         playerHasCompletedAction2ThisTurn = attachEnergy(currentPlayer);
                         break;
 
-                    // 3. Play Trainer card
+                    // 3. Play Trainer card.
                     case 3:
                         playTrainerCard(currentPlayer);
                         break;
 
-                    // 4. Retreat Active Pokémon
+                    // 4. Retreat Active Pokémon.
                     case 4:
+                        // Check if the player has already completed this action this turn. If so, prompt again.
                         if (playerHasCompletedAction4ThisTurn)
                         {
                             System.out.println("You have already retreated your Active Pokémon this turn.");
                             break;
                         }
+                        // Call the retreatActivePokemon method and set the flag to the return value (true if successful).
                         playerHasCompletedAction4ThisTurn = retreatActivePokemon(currentPlayer);
                         break;
 
-                    // 5. Show hand
+                    // 5. Show hand.
                     case 5:
                         System.out.println("\n" + currentPlayer.getName() + "'s hand:");
                         currentPlayer.getHand().display();
                         break;
 
-                    // 6. Show active Pokémon
+                    // 6. Show active Pokémon.
                     case 6:
                         System.out.println("\n" + currentPlayer.getName() + "'s Active Pokémon:");
                         currentPlayer.getActive().display();
                         break;
                     
-                    // 7. Show bench Pokémon
+                    // 7. Show benched Pokémon.
                     case 7:
                         System.out.println("\n" + currentPlayer.getName() + "'s Bench Pokémon:");
                         currentPlayer.getBench().display();
                         break;
                     
-                    // 8. Show card stats
+                    // 8. Show card stats.
                     case 8:
                         showCardStats(currentPlayer);
                         break;
                     
-                    // 0. Attack, then end turn
+                    // 0. Attack, then end turn.
                     case 0:
+                        // Indicate the player is attacking.
                         System.out.println("\n" + currentPlayer.getName() + " attacks " + opponent.getName() + "'s Active Pokémon.");
                         sleep(1000);
+
+                        // Perform the attack. This method will return true if a knockout occurred.
                         boolean knockoutOccurred = currentPlayer.getActive().attack(opponent.getActive());
+
+                        // If a knockout occurred, handle it by calling the helper method.
                         if (knockoutOccurred)
                         {
                             handleKnockout(currentPlayer, opponent);
                         }
+
+                        // Indicate the player has ended their turn and set the flag to true to exit the loop.
                         System.out.println(currentPlayer.getName() + " ends their turn.");
                         isTurnOver = true;
                         sleep(1000);
 
-                        // Switch players
+                        // Switch the current player and opponent for the next turn.
                         currentPlayer = (currentPlayer == player1) ? player2 : player1;
                         opponent = (opponent == player1) ? player2 : player1;
                         break;
                 }
             }
 
+            // If the current player (previously the opponent) has no Active Pokémon, handle it. 
             if (currentPlayer.getActive().getSize() == 0)
             {
                 handleNoActivePokemon(currentPlayer);
