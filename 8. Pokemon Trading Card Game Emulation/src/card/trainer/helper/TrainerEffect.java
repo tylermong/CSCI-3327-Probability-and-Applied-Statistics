@@ -16,6 +16,7 @@ public class TrainerEffect
 {
     /**
      * Draws a specified number of cards from the deck and adds them to the player's hand.
+     * 
      * @param deck      The player's deck.
      * @param hand      The player's hand.
      * @param numCards  The number of cards to draw.
