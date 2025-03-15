@@ -41,6 +41,7 @@ public class TrainerEffect
 
     /**
      * Discards all cards in the player's hand and adds them to the discard pile.
+     * 
      * @param hand          The player's hand.
      * @param discardPile   The player's discard pile.
      */
