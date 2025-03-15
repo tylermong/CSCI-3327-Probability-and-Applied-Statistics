@@ -68,7 +68,7 @@ public class Player
     }
 
     /**
-    * Returns the player's hand.
+     * Returns the player's hand.
      * 
      * @return  The player's hand.
      */
