@@ -1,7 +1,7 @@
 package game;
 
 /**
- * This class runs the Pokémon Trading Card Game emulation. It initializes the game and starts the game loop/
+ * This class runs the Pokémon Trading Card Game emulation. It initializes the game and starts the game loop.
  * 
  * @author  Tyler Mong
  * @version 1.0
