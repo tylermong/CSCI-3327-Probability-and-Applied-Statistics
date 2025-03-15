@@ -88,6 +88,7 @@ public abstract class Pile
 
     /**
      * Returns the list of cards in the pile.
+     * 
      * @return  The list of cards in the pile.
      */
     public List<Card> getCards()
@@ -97,6 +98,7 @@ public abstract class Pile
 
     /**
      * Returns the size of the pile (the number of cards in the pile).
+     * 
      * @return  The size of the pile.
      */
     public int getSize()
