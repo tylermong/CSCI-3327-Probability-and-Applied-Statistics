@@ -31,7 +31,7 @@ public class Bill extends TrainerCard
      * 
      * @param deck          The player's deck.
      * @param hand          The player's hand.
-     * @param discardPile   The discard pile where discarded cards will be placed (not used in this effect).
+     * @param discardPile   The player's discard pile (not used in this effect).
      */
     @Override
     public void useEffect(Deck deck, Hand hand, DiscardPile discardPile)
