@@ -8,7 +8,7 @@ import pile.piles.Hand;
 
 /**
  * This class represents the Trainer card "Bill" in the Pokémon Trading Card Game.
- * It extends the TrainerCard class and provides an overridden method to use the unique effect of the card.
+ * It extends the TrainerCard class and provides an overridden method to use the unique effect of this card.
  * The effect of this card is to draw 2 cards from the player's deck.
  * 
  * @author  Tyler Mong
