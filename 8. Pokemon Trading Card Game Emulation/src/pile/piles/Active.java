@@ -2,7 +2,6 @@ package pile.piles;
 
 import java.util.Scanner;
 
-import card.Card;
 import card.pokemon.PokemonCard;
 import card.pokemon.helper.Move;
 import pile.Pile;
