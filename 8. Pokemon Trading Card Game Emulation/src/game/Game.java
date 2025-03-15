@@ -255,21 +255,29 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Sets the player's Active Pokémon.
+     * Prompts the player to select a Basic Pokémon from their hand, validates the selection, and moves the selected
+     * card to the Active position.
+     * 
+     * @param player    The player selecting an Active Pokémon.
+     */
     private void setActivePokemon(Player player)
     {
+        // Prompt the user to select a Basic Pokémon from their hand.
         System.out.println("\n" + player.getName() + ", please select a Basic Pokémon to put in the Active position.");
         player.getHand().display();
         System.out.print(player.getName() + " selection: ");
-        int activeIndex = in.nextInt() - 1;
+        int activeIndex = in.nextInt() - 1; // Subtract 1 to match array index (0-based) with user's input (1-based).
 
-        // Validate within range
+        // Validate the selection is within range of the hand size. While it's invalid, prompt again.
         while (activeIndex < 0 || activeIndex >= player.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (player.getHand().getSize()) + "): ");
             activeIndex = in.nextInt() - 1;
         }
 
-        // Validate the selected card is a Basic Pokémon
+        // Validate the selected card is a Basic Pokémon. If not, prompt again.
         Card activeCard = player.getHand().getCardAtIndex(activeIndex);
         if (!(activeCard instanceof PokemonCard))
         {
@@ -278,9 +286,9 @@ public class Game
             return;
         }
 
-        in.nextLine(); // Consume the newline character
+        in.nextLine();  // Consume the newline character
         
-        // Add card to active pile and remove from hand
+        // At this point, the selected card is valid, so set it as the Active Pokémon.
         player.getActive().addCard(activeCard);
         player.getHand().removeCard(activeCard);
         System.out.println(player.getName() + " put " + activeCard.getName() + " in the Active position.");
