@@ -401,9 +401,18 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Adds 6 cards to the player's Prize pile.
+     * This method is called during the game setup in order to setup the Prize pile for each player.
+     * 
+     * @param player    The player who is adding cards to their Prize pile.
+     */
     private void addPrizePokemon(Player player)
     {
+        // Indicate the player is adding 6 cards to their Prize pile.
         System.out.println("\n" + player.getName() + " adds 6 cards to their Prize pile.");
+        
+        // Draw 6 cards from the deck and add them to the Prize pile.
         for (int i = 0; i < 6; i++)
         {
             Card prizeCard = player.getDeck().drawCard();
