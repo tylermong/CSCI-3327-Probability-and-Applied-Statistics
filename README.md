@@ -30,8 +30,13 @@ Implements calculations for:
 - Combinations (nCr).
 - Factorial operations (helper method for nPr and nCr).
 
-### 7. Pokemon Mulligan Probability Simulation
+### 7. Pokémon Mulligan Probability Simulation
 Computes the probability of a deck resulting in a mulligan for the initial hand, for each number of Pokemon in the deck (0 to 60), by simulating drawing the hand N times.
 
-### 8. Pokemon Rare Candy Brick Probability Simulation
+### 8. Pokémon Trading Card Game Emulation
+Emulates a simplified version of the Pokémon Trading Card Game (base set), allowing for basic gameplay mechanics and interactions.
+- Simulates drawing cards, playing Pokémon, and using abilities.
+- Includes a basic game loop and player interactions.
+
+### 9. Pokémon Rare Candy Brick Probability Simulation
 Computes the probability of a deck resulting in a Rare Candy brick, for each number of Rare Candies in the deck (1 to 4), by simulating the initial game state N times.
