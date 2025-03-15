@@ -15,6 +15,8 @@ public class Card
 
     /**
      * Constructor to initialize a card with a name and type.
+     * This constructor is called by the subclasses to create a new card.
+     * 
      * @param name  The name of the card.
      * @param type  The type of the card (e.g., Pokémon, Energy, Trainer).
      */
