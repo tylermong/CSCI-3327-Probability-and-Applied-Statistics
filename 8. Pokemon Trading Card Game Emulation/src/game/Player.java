@@ -12,13 +12,39 @@ import pile.piles.*;
  */
 public class Player
 {
-    // Variables to store player-specific information.
+    /**
+     * The name of the player.
+     */
     private String name;
+    
+    /**
+     * The player's deck of cards.
+     */
     private Deck deck;
+    
+    /**
+     * The player's hand of cards.
+     */
     private Hand hand;
+    
+    /**
+     * The player's active Pokémon.
+     */
     private Active active;
+    
+    /**
+     * The player's benched Pokémon.
+     */
     private Bench bench;
+    
+    /**
+     * The player's prize cards.
+     */
     private Prize prizeCards;
+    
+    /**
+     * The player's discard pile.
+     */
     private DiscardPile discardPile;
     
     /**
