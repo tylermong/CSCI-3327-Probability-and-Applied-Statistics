@@ -10,19 +10,34 @@ import java.util.Map;
  */
 public class Move
 {
-    // Stores the name, damage, energy cost, and effect of a move.
+    /**
+     * The name of the move (e.g., "Low Kick").
+     */
     private String name;
+
+    /**
+     * The damage of the move (e.g., 30).
+     */
     private int damage;
+
+    /**
+     * A map of energy types and their required amounts for the move (e.g., {"Fire": 1, "Water": 2}).
+     * The key is the energy type, and the value is the amount of that energy required.
+     */
     private Map<String, Integer> energyCost;
+
+    /**
+     * The effect of the move (e.g., "Paralyze the opponent's Pokémon").
+     */
     private String effect;
 
     /**
      * Constructor to initialize a Move with a name, damage, energy cost, and effect.
      * 
-     * @param name
-     * @param damage
-     * @param energyCost
-     * @param effect
+     * @param name          The name of the move.
+     * @param damage        The damage of the move.
+     * @param energyCost    A map of energy types and their required amounts for the move.
+     * @param effect        The effect of the move (e.g., "Paralyze the opponent's Pokémon").
      */
     public Move(String name, int damage, Map<String, Integer> energyCost, String effect)
     {
