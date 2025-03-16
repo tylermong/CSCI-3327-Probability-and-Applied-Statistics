@@ -1122,14 +1122,23 @@ public class Game
         }
     }
 
+    /**
+     * Displays the stats of a selected Pokémon card.
+     * This method prompts the player to select a pile (Active or Bench), validates the selection, and displays the stats
+     * of the selected Pokémon card, including HP, Moves, Weakness, Resistance, and Energy attached.
+     * 
+     * @param currentPlayer The player selecting a Pokémon card to view stats for.
+     */
     private void showCardStats(Player currentPlayer)
     {
+        // Prompt the player to select a pile (Active or Bench).
         System.out.println("\n" + currentPlayer.getName() + ", select a pile:");
         System.out.println("\t1. Active Pokémon");
         System.out.println("\t2. Bench Pokémon");
         System.out.print(currentPlayer.getName() + " selection: ");
         int choice = in.nextInt();
 
+        // If the player selected 1, display the Active Pokémon's stats.
         if (choice == 1)
         {
             System.out.println("\n" + currentPlayer.getName() + "'s Active Pokémon:");
@@ -1139,10 +1148,15 @@ public class Game
             PokemonCard selectedPokemon = (PokemonCard) currentPlayer.getActive().getCardAtIndex(0);
             showCardStatsHelper(selectedPokemon);
         }
+
+        // Else if the player selected 2, prompt for selecting a Pokémon from the bench.
         else if (choice == 2)
         {
+            // Prompt the player to select a Pokémon from the Bench.
             System.out.println("\n" + currentPlayer.getName() + "'s Bench Pokémon:");
             currentPlayer.getBench().display();
+
+            // If The player has no Pokémon on the Bench, indicate this and return.
             if (currentPlayer.getBench().getSize() == 0)
             {
                 System.out.println("No Pokémon on the Bench.");
@@ -1150,14 +1164,19 @@ public class Game
             }
             System.out.print("Selection: ");
             int benchIndex = in.nextInt() - 1;
+
+            // Validate the selection is within range of the bench size. While it's invalid, prompt again.
             while (benchIndex < 0 || benchIndex >= currentPlayer.getBench().getSize())
             {
                 System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + "): ");
                 benchIndex = in.nextInt() - 1;
             }
+
+            // At this point, the selected card is valid, so we can proceed to display its stats.
             PokemonCard selectedPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
             showCardStatsHelper(selectedPokemon);
         }
+        // If the player selected an invalid option, nothing happens.
     }
 
     private void showCardStatsHelper(PokemonCard selectedPokemon)
