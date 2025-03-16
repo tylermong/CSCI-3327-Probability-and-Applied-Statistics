@@ -6,6 +6,9 @@
  * 
  * Sub-packages include:
  * - {@link pile.piles}: For the specific types of piles, including the deck, discard pile, active pile, and prize pile.
+ * 
+ * @author  Tyler Mong
+ * @version 1.0
  */
 
 package pile;
