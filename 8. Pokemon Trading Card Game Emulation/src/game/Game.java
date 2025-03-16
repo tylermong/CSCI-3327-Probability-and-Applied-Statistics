@@ -437,7 +437,7 @@ public class Game
         System.out.println("\nThe battle begins!");
         sleep(1000);
 
-        // Loop until the game is over (i.e., one of the win conditions is met). Win conditions are checked at the end
+        // Loop until the game is over (i.e., one of the win conditions is met). Win conditions are checked at the start
         // of each turn.
         while (!isGameOver())
         {            
@@ -593,19 +593,24 @@ public class Game
         }
     }
 
+    /**
+     * Checks if the game is over by evaluating the win conditions at the start of each turn.
+     * 
+     * The following win conditions are checked: (1) If the current player has taken all of their Prize cards, (2) if
+     * the opponent has no Pokémon in play (both active and bench), and (3) if the opponent has no cards left in their
+     * deck at the beginning of their turn.
+     * 
+     * @return  True if any of the win conditions are met, false otherwise.
+     */
     private boolean isGameOver()
     {
-        /*
-         * Win conditions: https://assets.pokemon.com/assets/cms2/pdf/trading-card-game/rulebook/sm7_rulebook_en.pdf
-         * 1. Take all of your Prize cards.
-         * 2. Knock Out all of your opponent’s in-play Pokémon.
-         * 3. If your opponent has no cards in their deck at the beginning of their turn
-         */
-
         if (checkWinCondition1() || checkWinCondition2() || checkWinCondition3())
         {
+            // If any of the win conditions are met, return true to end the game.
             return true;
         }
+
+        // Otherwise, return false to continue the game.
         return false;
     }
 
