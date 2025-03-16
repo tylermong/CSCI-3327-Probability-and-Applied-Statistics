@@ -746,16 +746,24 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Handles attaching energy to a Pokémon.
+     * This method prompts for Pokémon selection, validates the selection, prompts for Energy selection, validates the
+     * selection, and attaches the selected Energy card to the selected Pokémon.
+     * 
+     * @param currentPlayer The player who is attaching an Energy card to a Pokémon.
+     * @return              True if an Energy card was attached, false otherwise.
+     */
     private boolean attachEnergy(Player currentPlayer)
     {
-        // Player chooses a Pokémon to attach an Energy card to
+        // Prompt the player to select a Pokémon to attach an Energy card to.
         System.out.println("\n" + currentPlayer.getName() + ", select a Pokémon to attach an Energy card to (0 to skip):");
         currentPlayer.getActive().display();
         currentPlayer.getBench().secondaryDisplay();
         System.out.print(currentPlayer.getName() + " selection: ");
         int pokemonIndex = in.nextInt() - 1;
 
-        // Check if the player wants to skip attaching an Energy card
+        // If the player chooses 0, return false to indicate no Energy card was attached.
         if (pokemonIndex == -1) 
         {
             System.out.println(currentPlayer.getName() + " does not attach any Energy card.");
@@ -763,20 +771,20 @@ public class Game
             return false;
         }
 
-        // Validate the selection is within range of the active and bench Pokémon
+        // Validate the selection is within range of the active and bench Pokémon.
         while (pokemonIndex < 0 || pokemonIndex >= currentPlayer.getActive().getSize() + currentPlayer.getBench().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getActive().getSize() + currentPlayer.getBench().getSize()) + "): ");
             pokemonIndex = in.nextInt() - 1;
         }
 
-        // Player chooses an Energy card from their hand
+        // Prompt the player to select an Energy card to attach to the selected Pokémon.
         System.out.println("\n" + currentPlayer.getName() + ", select an Energy card to attach (0 to skip):");
         currentPlayer.getHand().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int energyIndex = in.nextInt() - 1;
 
-        // Check if the player wants to skip attaching an Energy card
+        // If the player chooses 0, return false to indicate no Energy card was attached.
         if (energyIndex == -1) 
         {
             System.out.println(currentPlayer.getName() + " does not attach any Energy card.");
@@ -784,14 +792,14 @@ public class Game
             return false;
         }
 
-        // Validate the selection is within range of the hand size
+        // Validate the selection is within range of the hand size.
         while (energyIndex < 0 || energyIndex >= currentPlayer.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getHand().getSize()) + "): ");
             energyIndex = in.nextInt() - 1;
         }
 
-        // Validate the selected card is an Energy card
+        // Validate the selected card is an Energy card. If not, prompt again.
         Card selectedCard = currentPlayer.getHand().getCardAtIndex(energyIndex);
         if (!(selectedCard instanceof EnergyCard))
         {
@@ -800,18 +808,17 @@ public class Game
             return false;
         }
 
-        // Attach the Energy card to the selected Pokémon
+        // Attach the Energy card to the selected Pokémon.
         EnergyCard energyCard = (EnergyCard) currentPlayer.getHand().getCardAtIndex(energyIndex);
         currentPlayer.getHand().removeCard(energyCard);
 
-        // Active Pokémon
+        // Check if the selected Pokémon is an Active Pokémon or a Bench Pokémon, and attach the Energy card accordingly.
         if (pokemonIndex < currentPlayer.getActive().getSize())
         {
             PokemonCard activeCard = (PokemonCard) currentPlayer.getActive().getCardAtIndex(pokemonIndex);
             activeCard.addEnergy(energyCard);
             System.out.println(currentPlayer.getName() + " attached " + energyCard.getName() + " to " + activeCard.getName() + ".");
         }
-        // Bench Pokémon
         else
         {
             PokemonCard benchCard = (PokemonCard) currentPlayer.getBench().getCardAtIndex(pokemonIndex - currentPlayer.getActive().getSize());
@@ -819,6 +826,8 @@ public class Game
             System.out.println(currentPlayer.getName() + " attached " + energyCard.getName() + " to " + benchCard.getName() + ".");
         }
         sleep(1000);
+        
+        // Return true to indicate an Energy card was successfully attached.
         return true;
     }
 
