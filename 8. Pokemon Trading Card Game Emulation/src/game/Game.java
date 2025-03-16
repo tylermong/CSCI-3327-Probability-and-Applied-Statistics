@@ -683,13 +683,23 @@ public class Game
         return false;
     }
 
+    /**
+     * Handles the knockout of a Pokémon after an attack.
+     * This method is called when a Pokémon is knocked out by an attack. It moves the knocked out Pokémon to the
+     * discard pile and has current player draw a prize card.
+     * 
+     * @param currentPlayer The attacking player who knocked out the opponent's Pokémon.
+     * @param opponent      The defending player whose Pokémon was knocked out.
+     */
     private void handleKnockout(Player currentPlayer, Player opponent)
     {
+        // Get the knocked out Pokémon, move it to the discard pile, and indicate the action.
         Card knockedOutCard = opponent.getActive().drawCard();
         opponent.getDiscardPile().addCard(knockedOutCard);
         System.out.println("\n" + knockedOutCard.getName() + " was moved to " + opponent.getName() + "'s discard pile.");
         sleep(1000);
 
+        // Draw a prize card and indicate the action.
         Card prizeCard = currentPlayer.getPrizeCards().drawCard();
         currentPlayer.getHand().addCard(prizeCard);
         System.out.println(currentPlayer.getName() + " drew a prize card: " + prizeCard.getName() + ".");
