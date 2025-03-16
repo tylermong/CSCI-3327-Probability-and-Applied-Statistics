@@ -286,7 +286,7 @@ public class Game
             return;
         }
 
-        in.nextLine();  // Consume the newline character
+        in.nextLine();  // Consume the newline character.
         
         // At this point, the selected card is valid, so set it as the Active Pokémon.
         player.getActive().addCard(activeCard);
@@ -496,7 +496,7 @@ public class Game
                     System.out.print("Invalid selection. Please choose again (0 - 8): ");
                     action = in.nextInt();
                 }
-                in.nextLine();  // Consume the newline character
+                in.nextLine();  // Consume the newline character.
                 
                 // Based on the player's selection, perform the corresponding action.
                 switch (action)
@@ -885,26 +885,36 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Handles retreating the Active Pokémon to the Bench.
+     * This method prompts the player for confirmation, validates if they can retreat, and allows them to select a card
+     * to switch with.
+     * 
+     * @param currentPlayer The player who is retreating their Active Pokémon.
+     * @return              True if the retreat was successful, false otherwise.
+     */
     private boolean retreatActivePokemon(Player currentPlayer)
     {
-        // Confirm the player wants to retreat their Active Pokémon
+        // Prompt the player for confirmation to retreat their Active Pokémon.
         System.out.println("\n" + currentPlayer.getName() + ", do you want to retreat your Active Pokémon? (y/n)");
         System.out.print(currentPlayer.getName() + " selection: ");
         String response = in.nextLine().trim().toLowerCase();
+
+        // If they do not want to retreat, return false to indicate the action was not taken.
         if (!response.equals("y") && !response.equals("yes"))
         {
             System.out.println(currentPlayer.getName() + " does not retreat their Active Pokémon.");
             return false;
         }
 
-        // Check if the player has any Pokémon on the Bench
+        // Check if the player has any Pokémon on the Bench. If not, they can not retreat, so return false to indicate the action was not taken.
         if (currentPlayer.getBench().getSize() == 0)
         {
             System.out.println(currentPlayer.getName() + " has no Pokémon on the Bench to retreat to.");
             return false;
         }
 
-        // Check if the player has enough Energy to retreat
+        // Check if the player has enough Energy to retreat. If not, they can not retreat, so return false to indicate the action was not taken.
         PokemonCard activePokemon = (PokemonCard) currentPlayer.getActive().getCardAtIndex(0);
         if (activePokemon.getRetreatCost() > activePokemon.getTotalEnergy())
         {
@@ -912,49 +922,52 @@ public class Game
             return false;
         }
 
-        // At this point the player has confirmed they want to retreat and has enough Energy to do so
+        // At this point the player has confirmed they want to retreat and has enough Energy to do so.
+        // Prompt the player to select a replacement Pokémon from their Bench.
         System.out.println("\n" + currentPlayer.getName() + ", select a replacement Pokémon from your bench (0 to cancel): ");
         currentPlayer.getBench().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int benchIndex = in.nextInt() - 1;
 
-        // Check if the player wants to cancel the retreat
+        // Check again if the player wants to cancel the retreat.
         if (benchIndex == -1)
         {
             System.out.println(currentPlayer.getName() + " cancels the retreat.");
             return false;
         }
 
-        // Validate the selection is within range of the bench size
+        // Validate the selection is within range of the bench size.
         while (benchIndex < 0 || benchIndex >= currentPlayer.getBench().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + ") or '0' to cancel: ");
             benchIndex = in.nextInt() - 1;
         }
 
-        in.nextLine(); // Consume the newline character
+        in.nextLine(); // Consume the newline character.
 
         // At this point the player is ready to retreat their Active Pokémon.
-        // If the retreat cost is 0, swap cards without discarding any energy
+        // If the retreat cost is 0, swap cards without discarding any energy.
         if (activePokemon.getRetreatCost() == 0)
         {
-            // Move the Bench Pokémon to the Active position
+            // Move the Bench Pokémon to the Active position.
             PokemonCard benchPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
             currentPlayer.getActive().addCard(benchPokemon);
             currentPlayer.getBench().removeCard(benchPokemon);
 
-            // Move the Active Pokémon to the Bench
+            // Move the Active Pokémon to the Bench.
             currentPlayer.getActive().removeCard(activePokemon);
             currentPlayer.getBench().addCard(activePokemon);
+
+            // Indicate the action has been taken.
             System.out.println(currentPlayer.getName() + " retreated " + activePokemon.getName() + " for " + benchPokemon.getName() + ".");
             sleep(1000);
             return true;
         }
 
-        // If the energy cost > 0, discard retreat cost number of Energy from the Active Pokémon.
-        // If number of Energies > retreat cost, prompt the user to select which Energies to remove 
-        if (activePokemon.getTotalEnergy() > activePokemon.getRetreatCost())
+        // Else if the Energy attached is greater than the retreat cost, prompt the player to select which Energy they wish to discard.
+        else if (activePokemon.getTotalEnergy() > activePokemon.getRetreatCost())
         {
+            // Prompt the player to select the Energy cards they wish to discard.
             System.out.println("You have " + activePokemon.getTotalEnergy() + " Energy attached to " + activePokemon.getName() + ".");
             System.out.println("Please select " + activePokemon.getRetreatCost() + " Energy cards to discard (comma-separated, e.g. 1, 2, 3): ");
             List<String> energyList = activePokemon.displayEnergyInList();
@@ -962,21 +975,21 @@ public class Game
             String input = in.nextLine().trim();
             String[] selections = input.split(",");
 
-            // Check if the input is empty
+            // Validate the input is not empty. 
             if (selections.length == 0)
             {
                 System.out.print("Invalid selection. Enter at least one selection: ");
                 return false;
             }
 
-            // Check if correct number of selections are made
+            // Validate the correct number of Energy cards were selected.
             if (selections.length != activePokemon.getRetreatCost())
             {
                 System.out.print("Invalid selection. Please select " + activePokemon.getRetreatCost() + " Energy cards to discard: ");
                 return false;
             }
 
-            // Check if within range of the energy list
+            // Validate the selections are within range of the energy list size.
             for (String selection : selections)
             {
                 int index = Integer.parseInt(selection.trim()) - 1;
@@ -987,7 +1000,7 @@ public class Game
                 }
             }
 
-            // Check if the selections are duplicates
+            // Validate the selections are not duplicates.
             for (int i = 0; i < selections.length; i++)
             {
                 for (int j = i + 1; j < selections.length; j++)
@@ -1000,61 +1013,74 @@ public class Game
                 }
             }
 
-            // Extract the selected indices from the input
+            // Extract the selected indices from the input.
             List<Integer> selectedMoveIndices = new ArrayList<>();
             for (String selection : selections)
             {
                 selectedMoveIndices.add(Integer.parseInt(selection.trim()) - 1);
             }
             
-            // Remove the selected Energy cards
+            // Remove the selected Energy cards.
             for (int index: selectedMoveIndices)
             {
-                // Remove the energy
+                // Remove the energy.
                 String energyType = energyList.get(index);
                 activePokemon.removeEnergy(energyType);
 
-                // Then add it to the discard pile
+                // Then add it to the discard pile.
                 EnergyCard discardedEnergy = createEnergyCard(energyType);
                 currentPlayer.getDiscardPile().addCard(discardedEnergy);
 
-                // Print the discarded energy
+                // Print the discarded energy.
                 System.out.println("Discarded " + energyType + " from " + activePokemon.getName() + ".");
             }
             sleep(1000);
+
+            // Indicate the number of Energy cards removed.
             System.out.println("Removed " + selectedMoveIndices.size() + " Energy cards from " + activePokemon.getName() + ".");
             sleep(1000);
         }
+
+        // Else (if the total energy is equal to the retreat cost), remove all Energy cards attached to the Active Pokémon.
         else
         {
+            // Store all of the energy in a list.
             List<String> energyList = activePokemon.displayEnergyInList();
-
+            
+            // For each Energy in the list, remove it from the Active Pokémon and add it to the discard pile.
             for (String energyType : new ArrayList<>(energyList))
             {
-                // Remove the energy
+                // Remove the energy.
                 activePokemon.removeEnergy(energyType);
 
-                // Then add it to the discard pile
+                // Then add it to the discard pile.
                 EnergyCard discardedEnergy = createEnergyCard(energyType);
                 currentPlayer.getDiscardPile().addCard(discardedEnergy);
 
-                // Print the discarded energy
+                // Print the discarded energy.
                 System.out.println("Discarded " + energyType + " from " + activePokemon.getName() + ".");
             }
-           
+
+            // Indicate the number of Energy cards removed.
             System.out.println("Removed all Energy cards from " + activePokemon.getName() + ".");
             sleep(1000);
         }
 
-        // After discarding Energy for retreat cost, swap the Active Pokémon with the selected Bench Pokémon
         PokemonCard benchPokemon = (PokemonCard) currentPlayer.getBench().getCardAtIndex(benchIndex);
+        
+        // Move the Bench Pokémon to the Active position.
         currentPlayer.getActive().addCard(benchPokemon);
         currentPlayer.getBench().removeCard(benchPokemon);
+
+        // Move the Active Pokémon to the Bench.
         currentPlayer.getActive().removeCard(activePokemon);
         currentPlayer.getBench().addCard(activePokemon);
+
+        // Indicate the action has been taken.
         System.out.println(currentPlayer.getName() + " retreated " + activePokemon.getName() + " for " + benchPokemon.getName() + ".");
         sleep(1000);
 
+        // Return true to indicate the retreat was successful.
         return true;
     }
 
