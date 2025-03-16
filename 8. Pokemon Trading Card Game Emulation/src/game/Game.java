@@ -626,7 +626,7 @@ public class Game
     {
         if (opponent.getPrizeCards().getSize() == 0)
         {
-            // Indicate the game is over and the opponent has won.
+            // Indicate the game is over and the opponent has won by taking all of their Prize cards.
             System.out.println("\nGame over, " + opponent.getName() + " wins by taking all of their Prize cards!");
             
             // Return true to end the game.
