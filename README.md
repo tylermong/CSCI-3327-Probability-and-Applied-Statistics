@@ -18,26 +18,32 @@ Implements fundamental set operations including:
 - Intersection.
 - Complement.
 
-### 4. Monty Hall Problem Simulation
+### 4. Pokemon Battler
+A simple console-based Pokémon battle simulator where two Pokémon battle against each other until one faints. It includes:
+- A basic battle loop.
+- Speed comparison to determine turn order.
+- Attacking mechanics.
+
+### 5. Monty Hall Problem Simulation
 Simulates the Monty Hall problem, demonstrating counterintuitive probability concepts through simulation.
 
-### 5. Birthday Problem Simulation
+### 6. Birthday Problem Simulation
 Simulates the birthday probability problem, calculating the probability of shared birthdays in a group of N people.
 
-### 6. Combination and Permutation Solver
+### 7. Combination and Permutation Solver
 Implements calculations for:
 - Permutations (nPr).
 - Combinations (nCr).
 - Factorial operations (helper method for nPr and nCr).
 
-### 7. Pokémon Mulligan Probability Simulation
+### 8. Pokémon Mulligan Probability Simulation
 Computes the probability of a deck resulting in a mulligan for the initial hand, for each number of Pokemon in the deck (0 to 60), by simulating drawing the hand N times.
 
-### 8. Pokémon Trading Card Game Emulation
+### 9. Pokémon Trading Card Game Emulation
 Emulates a simplified version of the Pokémon Trading Card Game (base set), allowing for basic gameplay mechanics and interactions.
 Project documentation is available in the `docs` folder, and can also be viewed online at [TCG Docs](https://tcgdocs.tylermong.dev/).
 - Simulates drawing cards, playing Pokémon, and using abilities.
 - Includes a basic game loop and player interactions.
 
-### 9. Pokémon Rare Candy Brick Probability Simulation
+### 10. Pokémon Rare Candy Brick Probability Simulation
 Computes the probability of a deck resulting in a Rare Candy brick, for each number of Rare Candies in the deck (1 to 4), by simulating the initial game state N times.
