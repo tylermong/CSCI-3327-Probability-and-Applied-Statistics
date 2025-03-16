@@ -2,17 +2,18 @@
 A Java-based emulation of the Pokémon Trading Card Game. This console application allows two players to battle using prebuilt decks, featuring core game mechanics like attacks, energy attachment, and card effects. The game follows the official rules and game procedure from the Pokémon TCG: Sun & Moon—Celestial Storm rulebook.[^1]
 
 ## Summary
-This project implements a functional emulation of the Pokémon Trading Card Game in Java. It adheres to the official game rules from the Pokémon TCG: Sun & Moon—Celestial Storm rulebook, including deck building, game setup, turn management, and win conditions.
+This project implements an emulation of the Pokémon Trading Card Game in Java. It follows the official game rules from the Pokémon TCG: Sun & Moon—Celestial Storm rulebook.
 
 The emulation features:
-- Complete game setup with shuffling, initial draws, and mulligan handling.
+- Complete game setup with deck selection, coin flip to determine first player, and card drawing.
 - Multiple prebuilt decks with different Pokémon types.
 - Core gameplay mechanics including:
   - Drawing cards.
-  - Playing Pokémon on bench.
+  - Setting active and benched Pokémon.
   - Attaching Energy cards.
   - Using Trainer cards.
   - Attacking and retreating.
+  - Viewing card details and effects.
 - Proper turn structure and player interaction.
 - Win condition checks (prize cards, no active Pokémon, empty deck).
 
