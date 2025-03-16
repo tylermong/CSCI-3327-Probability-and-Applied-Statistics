@@ -1179,6 +1179,12 @@ public class Game
         // If the player selected an invalid option, nothing happens.
     }
 
+    /**
+     * Helper method to display the stats of a selected Pokémon card.
+     * This method prints the HP, Moves, Weakness, Resistance, Energy attached, and Retreat Cost of the selected Pokémon card.
+     * 
+     * @param selectedPokemon   The Pokémon to display stats for.
+     */
     private void showCardStatsHelper(PokemonCard selectedPokemon)
     {
         System.out.println("HP: " + selectedPokemon.getHP());
@@ -1194,6 +1200,13 @@ public class Game
         sleep(1000);
     }
 
+    /**
+     * Helper method to call Thread.sleep() and handle the InterruptedException.
+     * Used to pause the game, allowing the player's to more easily read the text output in the console.
+     * 
+     * @param ms                    The number of milliseconds to sleep for.
+     * @throws InterruptedException If the sleep is interrupted.
+     */
     private void sleep(int ms)
     {
         try
