@@ -1,5 +1,5 @@
 /**
- * This package contains classes relatd to Energy cards in the Pokémon Trading Card Game (TCG) emulation.
+ * This package contains classes related to Energy cards in the Pokémon Trading Card Game (TCG) emulation.
  * It includes the EnergyCard class, which represents an Energy card and its attributes such as type and value.
  * The package is designed to manage the functionality and interactions of Energy cards within the game,
  * ensuring that they can be used properly in gameplay for Pokémon moves and retreats.
