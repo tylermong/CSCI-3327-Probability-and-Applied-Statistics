@@ -17,7 +17,9 @@ import pile.piles.Deck;
  */
 public class DeckBuilder
 {
-    // Maps deck name to deck object. Uses a LinkedHashMap to maintain insertion order for consistent deck retrieval.
+    /**
+     * Maps deck name to deck object. Uses a LinkedHashMap to maintain insertion order for consistent deck retrieval.
+     */
     private static final Map<String, Deck> prebuiltDecks = new LinkedHashMap<>();
 
     /**
