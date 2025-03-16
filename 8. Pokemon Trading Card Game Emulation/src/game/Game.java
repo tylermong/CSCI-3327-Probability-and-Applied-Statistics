@@ -706,29 +706,42 @@ public class Game
         sleep(1000);
     }
 
-    // If the current player has no Active Pokémon, they must select a new one from their Bench.
+    /**
+     * Handles the case of the current player having no Active Pokémon, at the end of their opponent's turn.
+     * 
+     * @param currentPlayer The player who has no Active Pokémon.
+     */
     private void handleNoActivePokemon(Player currentPlayer)
     {
-        // Check if the current player has any Pokémon on the Bench
+        // Check if the player has any Pokémon on the Bench.
         if (currentPlayer.getBench().getSize() == 0)
         {
+            // If not, indicate this and return.
             System.out.println(currentPlayer.getName() + " has no Pokémon on the Bench.");
             return;
         }
 
-        // If they do, prompt them to select one and move it to the Active position
+        // If they do, prompt them to select one to put in the Active position.
         System.out.println("\n" + currentPlayer.getName() + " has no Active Pokémon. Please select a new Active Pokémon from your Bench.");
         currentPlayer.getBench().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int activeIndex = in.nextInt() - 1;
+
+        // Validate the selection is within range of the Bench size. While it's invalid, prompt again.
         while (activeIndex < 0 || activeIndex >= currentPlayer.getBench().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getBench().getSize()) + "): ");
             activeIndex = in.nextInt() - 1;
         }
+
+        // At this point, the selected card is valid, so set it as the Active Pokémon.
         Card activeCard = currentPlayer.getBench().getCardAtIndex(activeIndex);
+
+        // Remove the selected card from the Bench and add it to the Active position.
         currentPlayer.getActive().addCard(activeCard);
         currentPlayer.getBench().removeCard(activeCard);
+
+        // Indicate the above action.
         System.out.println(currentPlayer.getName() + " put " + activeCard.getName() + " in the Active position.");
         sleep(1000);
     }
