@@ -17,13 +17,39 @@ import java.util.Map;
  */
 public class PokemonCard extends Card
 {
-    // Stores various attributes of the Pokémon card.
+    /**
+     * The HP of the Pokémon card (e.g., 40).
+     */
     private int HP;
+
+    /**
+     * The weakness of the Pokémon card (e.g., "Fire").
+     * Double damage is dealt to the Pokémon if it is weak to the attacker's type.
+     */
     private String weakness;
+
+    /**
+     * The resistance of the Pokémon card (e.g., "Water").
+     * -30 damage is dealt to the Pokémon if it is resistant to the attacker's type.
+     */
     private String resistance;
+
+    /**
+     * The retreat cost of the Pokémon card (e.g., 2).
+     * This is the number of energy cards required to retreat the Pokémon.
+     */
     private int retreatCost;
+
+    /**
+     * The list of moves associated with the Pokémon card.
+     */
     private List<Move> moves;
-    private Map<String, Integer> energyCount;   // Stores the attached energy cards and their counts.
+
+    /**
+     * A map of energy types and their counts for the Pokémon card (e.g., {"Fire": 2, "Water": 1}).
+     * The key is the energy type, and the value is the count of that energy type attached to the Pokémon card.
+     */
+    private Map<String, Integer> energyCount;
 
     /**
      * Constructor to initialize a Pokémon card with a name, HP, weakness, resistance, retreat cost, moves, and energy count.
