@@ -15,8 +15,14 @@ import java.util.List;
  */
 public abstract class Pile
 {
-    // Variables to store the cards in the pile and the size of the pile.
+    /**
+     * The list of cards in the pile.
+     */
     protected List<Card> cards;
+    
+    /**
+     * The size of the pile (the number of cards in the pile).
+     */
     private int size;
 
     /**
