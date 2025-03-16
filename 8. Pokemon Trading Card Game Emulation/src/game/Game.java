@@ -20,14 +20,58 @@ import java.util.Scanner;
  */
 public class Game
 {
-    // Initialize the players, coin for coin flip, scanner for user input, and flags for turn management.
-    private Player player1, player2, currentPlayer, opponent;
-    private String coin;
-    private static final Scanner in = new Scanner(System.in);
-    private boolean playerHasCompletedAction2ThisTurn, playerHasCompletedAction4ThisTurn, isTurnOver;
+    /**
+     * A reference to the first player in the game.
+     */
+    private Player player1;
 
     /**
-     * Constructor to initialize the game with two players and their decks.
+     * A reference to the second player in the game.
+     */
+    private Player player2;
+
+    /**
+     * A reference to the current player whose turn it is.
+     * This player will take actions during their turn.
+     */
+    private Player currentPlayer;
+
+    /**
+     * A reference to the opponent player, who is not currently taking their turn.
+     * This player will be affected by the current player's actions.
+     */
+    private Player opponent;
+
+    /**
+     * A string used to store the result of the coin flip to determine who goes first.
+     */
+    private String coin;
+
+    /**
+     * A Scanner object used to read user input from the console.
+     */
+    private static final Scanner in = new Scanner(System.in);
+
+    /**
+     * A flag used to indicate if the player has completed the action of attaching an Energy card to a Pokémon this turn.
+     * This is used to prevent multiple Energy attachments in a single turn.
+     */
+    private boolean playerHasCompletedAction2ThisTurn;
+
+    /**
+     * A flag used to indicate if the player has completed the action of retreating their Active Pokémon this turn.
+     * This is used to prevent multiple retreats in a single turn.
+     */
+    private boolean playerHasCompletedAction4ThisTurn;
+    
+    /**
+     * A flag used to indicate if the current player's turn is over.
+     * This is set to true when the player has attacked and ended their turn.
+     */
+    private boolean isTurnOver;
+
+    /**
+     * A constructor to initialize the game with two players and their decks.
      */
     public Game()
     {
@@ -41,7 +85,7 @@ public class Game
     }
 
     /**
-     * Sets up the game by following the "Setting up to Play" sequence found in the official Pokémon TCG: Sun &
+     * Sets up the game by following the "Setting up to Play" sequence found in the official Pokémon TCG: Sun &amp;
      * Moon—Celestial Storm rulebook.
      * 
      * This setup includes the following steps: (1) shaking hands, (2) flipping a coin to determine who goes first,
@@ -422,7 +466,7 @@ public class Game
     }
 
     /**
-     * Starts the game by following the "Parts of a Turn" sequence found in the official Pokémon TCG: Sun &
+     * Starts the game by following the "Parts of a Turn" sequence found in the official Pokémon TCG: Sun &amp;
      * Moon—Celestial Storm rulebook.
      * 
      * This includes (1) drawing a card, (2) performing actions (putting Basic Pokémon on Bench, attaching Energy cards,
