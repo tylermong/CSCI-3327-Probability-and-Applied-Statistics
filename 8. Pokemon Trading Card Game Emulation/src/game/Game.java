@@ -660,14 +660,26 @@ public class Game
         return false;
     }
 
-    // 3. If your opponent has no cards in their deck at the beginning of their turn
+    /**
+     * Checks the following win condition: If the opponent has no cards left in their deck at the beginning of their turn.
+     * 
+     * The opponent is checked as they are the player who just had their turn (since this is checked at the start of a
+     * turn, after the roles have switched).
+     * 
+     * @return  True if the opponent has no cards left in their deck, false otherwise.
+     */
     private boolean checkWinCondition3()
     {
         if (opponent.getDeck().getSize() == 0)
         {
+            // Indicate the game is over and the current player has won by making the opponent run out of cards.
             System.out.println("\nGame over, " + currentPlayer.getName() + " wins by making " + opponent.getName() + " run out of cards!");
+            
+            // Return true to end the game.
             return true;
         }
+
+        // Otherwise, return false to continue the game.
         return false;
     }
 
