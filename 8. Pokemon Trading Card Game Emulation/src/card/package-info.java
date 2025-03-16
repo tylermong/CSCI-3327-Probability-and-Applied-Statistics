@@ -9,6 +9,9 @@
  * - {@link card.pokemon}: For Pokémon cards, including their attributes and behaviors.
  * - {@link card.trainer}: For Trainer cards, including their effects and interactions.
  * - {@link card.energy}: For Energy cards, including their types and values.
+ * 
+ * @author  Tyler Mong
+ * @version 1.0
  */
 
 package card;
