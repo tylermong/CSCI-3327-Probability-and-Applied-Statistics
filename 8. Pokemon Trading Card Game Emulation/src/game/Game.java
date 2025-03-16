@@ -616,6 +616,7 @@ public class Game
 
     /**
      * Checks the following win condition: If the opponent has taken all of their prize cards.
+     * 
      * The opponent is checked as they are the player who just had their turn (since this is checked at the start of a
      * turn, after the roles have switched).
      * 
@@ -636,14 +637,26 @@ public class Game
         return false;
     }
 
-    // 2. Knock Out all of your opponent’s in-play Pokémon.
+    /**
+     * Checks the following win condition: If the current player has no Pokémon in play (both active and bench).
+     * 
+     * The current player is checked as they are the player who just had their turn (since this is checked at the start
+     * of a turn, after the roles have switched).
+     * 
+     * @return  True if the current player has no Pokémon in play, false otherwise.
+     */
     private boolean checkWinCondition2()
     {
         if (currentPlayer.getActive().getSize() == 0 && currentPlayer.getBench().getSize() == 0)
         {
+            // Indicate the game is over and the opponent has won by knocking out all of the current player's Pokémon.
             System.out.println("\nGame over, " + opponent.getName() + " wins by knocking out all of " + currentPlayer.getName() + "'s Pokémon!");
+
+            // Return true to end the game.
             return true;
         }
+
+        // Otherwise, return false to continue the game.
         return false;
     }
 
