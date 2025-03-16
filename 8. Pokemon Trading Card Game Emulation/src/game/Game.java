@@ -614,14 +614,25 @@ public class Game
         return false;
     }
 
-    // 1. Take all of your Prize cards.
+    /**
+     * Checks the following win condition: If the opponent has taken all of their prize cards.
+     * The opponent is checked as they are the player who just had their turn (since this is checked at the start of a
+     * turn, after the roles have switched).
+     * 
+     * @return  True if the opponent has no Prize cards left, false otherwise.
+     */
     private boolean checkWinCondition1()
     {
-        if (currentPlayer.getPrizeCards().getSize() == 0)
+        if (opponent.getPrizeCards().getSize() == 0)
         {
+            // Indicate the game is over and the opponent has won.
             System.out.println("\nGame over, " + opponent.getName() + " wins by taking all of their Prize cards!");
+            
+            // Return true to end the game.
             return true;
         }
+
+        // Otherwise, return false to continue the game.
         return false;
     }
 
