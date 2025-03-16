@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"card"},{"l":"card.energy"},{"l":"card.energy.energycards"},{"l":"card.pokemon"},{"l":"card.pokemon.helper"},{"l":"card.pokemon.pokemoncards"},{"l":"card.trainer"},{"l":"card.trainer.helper"},{"l":"card.trainer.trainercards"},{"l":"game"},{"l":"pile"},{"l":"pile.piles"}];updateSearchResults();
