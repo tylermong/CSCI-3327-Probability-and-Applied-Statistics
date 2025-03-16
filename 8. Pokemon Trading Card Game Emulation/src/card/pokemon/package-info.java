@@ -6,7 +6,7 @@
  * 
  * Sub-packages include:
  * - {@link card.pokemon.pokemoncards}: For specific Pokémon cards like Diglett, Machop, Staryu, and others.
- * - {@link card.pokemon.helper}: For the move helper class that assists in performing actions related to Pokémon moves.
+ * - {@link card.pokemon.helper}: For a move helper class that assists in performing actions related to Pokémon moves.
  * 
  * @author  Tyler Mong
  * @version 1.0
