@@ -6,6 +6,9 @@
  * 
  * Sub-packages include:
  * - {@link card.energy.energycards}: For specific Energy cards like Fire, Water, and Double Colorless Energy.
+ * 
+ * @author  Tyler Mong
+ * @version 1.0
  */
 
 package card.energy;
