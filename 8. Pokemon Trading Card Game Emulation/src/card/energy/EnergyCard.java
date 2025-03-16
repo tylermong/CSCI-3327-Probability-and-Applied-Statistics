@@ -11,8 +11,14 @@ import card.Card;
  */
 public class EnergyCard extends Card
 {
-    // Stores the type and value of the energy card.
+    /**
+     * The type of the Energy card (e.g., "Fire", "Water").
+     */
     private String energyType;
+
+    /**
+     * The value of the Energy card (e.g., 1 for basic energy, 2 for double energy).
+     */
     private int energyValue;
 
     /**
