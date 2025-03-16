@@ -35,6 +35,7 @@ Computes the probability of a deck resulting in a mulligan for the initial hand,
 
 ### 8. Pokémon Trading Card Game Emulation
 Emulates a simplified version of the Pokémon Trading Card Game (base set), allowing for basic gameplay mechanics and interactions.
+Project documentation is available in the `docs` folder, and can also be viewed online at [TCG Docs](https://tcgdocs.tylermong.dev/).
 - Simulates drawing cards, playing Pokémon, and using abilities.
 - Includes a basic game loop and player interactions.
 
