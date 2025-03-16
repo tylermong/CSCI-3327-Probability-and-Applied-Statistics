@@ -831,15 +831,21 @@ public class Game
         return true;
     }
 
+    /**
+     * Handles playing a Trainer card.
+     * This method prompts the player to select a Trainer card, validates the selection, and uses the effect of the card.
+     * 
+     * @param currentPlayer The player playing a Trainer card.
+     */
     private void playTrainerCard(Player currentPlayer)
     {
-        // Player chooses a Trainer card from their hand to play
+        // Prompt the player to select a Trainer card from their hand.
         System.out.println("\n" + currentPlayer.getName() + ", select a Trainer card to play (0 to skip):");
         currentPlayer.getHand().display();
         System.out.print(currentPlayer.getName() + " selection: ");
         int trainerCardIndex = in.nextInt() - 1;
 
-        // Check if the player wants to skip playing a Trainer card
+        // Check if the player wants to skip playing a Trainer card.
         if (trainerCardIndex == -1)
         {
             System.out.println(currentPlayer.getName() + " does not play any Trainer card.");
@@ -847,14 +853,14 @@ public class Game
             return;
         }
 
-        // Validate the selection is within range of the hand size
+        // Validate the selection is within range of the hand size.
         while (trainerCardIndex < 0 || trainerCardIndex >= currentPlayer.getHand().getSize())
         {
             System.out.print("Invalid selection. Please choose again (1 - " + (currentPlayer.getHand().getSize()) + ") or '0' to skip: ");
             trainerCardIndex = in.nextInt() - 1;
         }
 
-        // Validate the selected card is a Trainer card
+        // Validate the selected card is a Trainer card.
         Card selectedCard = currentPlayer.getHand().getCardAtIndex(trainerCardIndex);
         if (!(selectedCard instanceof TrainerCard))
         {
@@ -863,12 +869,18 @@ public class Game
             return;
         }
 
-        // At this point, the selected card is a valid Trainer card, so we can proceed to play it
+        // At this point, the selected card is a valid Trainer card, so we can proceed to play it.
         TrainerCard trainerCard = (TrainerCard) currentPlayer.getHand().getCardAtIndex(trainerCardIndex);
+
+        // Remove the card from the player's hand and add it to the discard pile.
         currentPlayer.getHand().removeCard(trainerCard);
+        currentPlayer.getDiscardPile().addCard(trainerCard);
+
+        // Indicate the card has been played.
         System.out.println(currentPlayer.getName() + " played " + trainerCard.getName() + ".");
         sleep(1000);
 
+        // Use the effect of the Trainer card.
         trainerCard.useEffect(currentPlayer.getDeck(), currentPlayer.getHand(), currentPlayer.getDiscardPile());
         sleep(1000);
     }
