@@ -1084,15 +1084,23 @@ public class Game
         return true;
     }
 
+    /**
+     * Helper method to create an Energy card based on the given type.
+     * This method is used to create an Energy card when discarding energy during a retreat.
+     * 
+     * @param energyType    The type of Energy card to create (e.g., "Grass", "Fire", etc.).
+     * @return              The created Energy card.
+     */
     private EnergyCard createEnergyCard(String energyType)
     {
+        // Based on the type, create the corresponding Energy card and return it.
         switch (energyType)
         {
             case "Grass":
                 return new GrassEnergy();
 
             case "Fire":
-                return new FightingEnergy();
+                return new FireEnergy();
 
             case "Water":
                 return new WaterEnergy();
