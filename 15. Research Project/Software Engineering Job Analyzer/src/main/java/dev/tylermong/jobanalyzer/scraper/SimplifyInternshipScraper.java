@@ -11,6 +11,11 @@ import java.util.regex.Pattern;
 public class SimplifyInternshipScraper
 {
     private static final String RAW_README_URL = "https://raw.githubusercontent.com/SimplifyJobs/Summer2025-Internships/refs/heads/dev/README.md";
+    // title keywords to exclude
+    private static final String[] EXCLUDED_KEYWORDS = {
+            "Data", "Quality", "QA", "Test", "Testing", "Advise", "Advising", "Advisor", "Co-op", "Coop", "Research",
+            "Researcher", "PHD", "Supply Chain", "Analytics", "GIS", "Solutions", "Hardware"
+    };
 
     public List<String> scrapeLinks() throws IOException
     {
@@ -21,22 +26,35 @@ public class SimplifyInternshipScraper
 
         List<String> jobPostingURLs = new ArrayList<>();
 
-        Pattern urlPattern = Pattern.compile("<a href=\"(https?://[^\"]+)\">");
-        Matcher urlMatcher = urlPattern.matcher(readmeContent);
+        Pattern rowPattern = Pattern.compile(
+                "\\|\\s*\\*\\*\\[[^\\]]+\\]\\([^)]*\\)\\*\\*\\s*\\|\\s*([^|]+)\\|[^|]*\\|.*?<a href=\"(https?://[^\"]+)\"");
+        Matcher rowMatcher = rowPattern.matcher(readmeContent);
 
-        for (int i = 0; i < 15 && urlMatcher.find(); i++)
+        int count = 0;
+        while (rowMatcher.find() && count < 50)
         {
-            String jobPostingURL = urlMatcher.group(1);
+            String title = rowMatcher.group(1);
+            String url = rowMatcher.group(2);
 
-            if (jobPostingURL.contains("simplify.jobs"))
+            System.out.println("Title: " + title);
+            System.out.println("URL: " + url);
+
+            // contains any of the excluded keywords
+            if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*"))
+            {
+                System.out.println("[SKIPPED]\n");
+                continue;
+            }
+
+            if (url.contains("simplify.jobs"))
             {
                 continue;
             }
 
-            jobPostingURLs.add(jobPostingURL);
+            jobPostingURLs.add(url);
+            System.out.println("[ADDED]\n");
+            count++;
         }
-
-        jobPostingURLs.remove(0);
 
         return jobPostingURLs;
     }
