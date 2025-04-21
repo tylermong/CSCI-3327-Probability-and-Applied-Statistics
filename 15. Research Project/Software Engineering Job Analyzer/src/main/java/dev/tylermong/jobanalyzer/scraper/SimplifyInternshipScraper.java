@@ -26,12 +26,10 @@ public class SimplifyInternshipScraper
 
         List<String> jobPostingURLs = new ArrayList<>();
 
-        Pattern rowPattern = Pattern.compile(
-                "\\|\\s*\\*\\*\\[[^\\]]+\\]\\([^)]*\\)\\*\\*\\s*\\|\\s*([^|]+)\\|[^|]*\\|.*?<a href=\"(https?://[^\"]+)\"");
+        Pattern rowPattern = Pattern.compile("\\|\\s*\\*\\*\\[[^\\]]+\\]\\([^)]*\\)\\*\\*\\s*\\|\\s*([^|]+)\\|[^|]*\\|.*?<a href=\"(https?://[^\"]+)\"");
         Matcher rowMatcher = rowPattern.matcher(readmeContent);
 
-        int count = 0;
-        while (rowMatcher.find() && count < 50)
+        while (rowMatcher.find())
         {
             String title = rowMatcher.group(1);
             String url = rowMatcher.group(2);
@@ -39,21 +37,12 @@ public class SimplifyInternshipScraper
             System.out.println("Title: " + title);
             System.out.println("URL: " + url);
 
-            // contains any of the excluded keywords
-            if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*"))
-            {
-                System.out.println("[SKIPPED]\n");
-                continue;
-            }
-
-            if (url.contains("simplify.jobs"))
+            if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*") || url.contains("simplify.jobs"))
             {
                 continue;
             }
 
             jobPostingURLs.add(url);
-            System.out.println("[ADDED]\n");
-            count++;
         }
 
         return jobPostingURLs;
