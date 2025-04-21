@@ -34,6 +34,17 @@ public class Main
             {
                 try
                 {
+                    System.out.println("Scraping data from link: " + link);
+                    try
+                    {
+                        Thread.sleep(2000);
+                    }
+                    catch (InterruptedException e)
+                    {
+                        System.err.println("Thread sleep interrupted: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+
                     JobPost jobPost = workdayScraper.scrapeJob(link);
                     System.out.println("Company: " + jobPost.getCompany());
                     System.out.println("Title: " + jobPost.getTitle());
