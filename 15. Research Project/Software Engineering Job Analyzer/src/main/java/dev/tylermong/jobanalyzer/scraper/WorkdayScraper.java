@@ -54,7 +54,7 @@ public class WorkdayScraper
     {
         Document doc = Jsoup.connect(url).get();
 
-        String title = doc.selectFirst("h2[data-automation-id=jobPostingHeader]").text();
+        String title = scrapeTitle(doc);
         String location = doc.selectFirst("dd.css-129m7dg").text();
         String company = scrapeCompany(doc);
         String description = doc.text();
@@ -63,6 +63,23 @@ public class WorkdayScraper
         JobPost job = new JobPost(company, title, location, skills, url);
 
         return job;
+    }
+
+    private String scrapeTitle(Document doc)
+    {
+        Element script = doc.selectFirst("script[type=application/ld+json]");
+
+        if (script != null)
+        {
+            String json = script.html();
+            Pattern pattern = Pattern.compile("\\\"title\\\"\\s*:\\s*\\\"([^\\\"]+)\\\"");
+            Matcher matcher = pattern.matcher(json);
+            if (matcher.find())
+            {
+                return matcher.group(1);
+            }
+        }
+        return "";
     }
     
     private List<String> scrapeSkills(String text)
