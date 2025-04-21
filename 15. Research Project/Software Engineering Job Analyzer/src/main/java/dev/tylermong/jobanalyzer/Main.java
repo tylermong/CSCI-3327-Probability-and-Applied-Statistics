@@ -37,7 +37,7 @@ public class Main
                     System.out.println("Scraping data from link: " + link);
 
                     JobPost jobPost = workdayScraper.scrapeJob(link);
-                    System.out.println("Company: " + jobPost.getCompany());
+                    System.out.println("\nCompany: " + jobPost.getCompany());
                     System.out.println("Title: " + jobPost.getTitle());
                     System.out.println("Location: " + jobPost.getLocation());
                     System.out.println("Skills: " + jobPost.getSkills());
