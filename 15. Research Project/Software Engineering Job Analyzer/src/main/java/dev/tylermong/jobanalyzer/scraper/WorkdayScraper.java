@@ -21,7 +21,6 @@ public class WorkdayScraper
     {
         Document doc = Jsoup.connect(url).get();
 
-        System.out.println(doc.html());
         String company = scrapeCompany(doc);
         String title = scrapeTitle(doc);
         String location = scrapeLocation(doc);
