@@ -116,7 +116,14 @@ public class WorkdayScraper
                     {
                         continue;
                     }
-                    String lowerWord = word.toLowerCase();
+
+                    String cleanedWord = word.replaceAll("[.,!?]+$", ""); // Remove trailing punctuation
+                    if (cleanedWord.isEmpty())
+                    {
+                        continue;
+                    }
+
+                    String lowerWord = cleanedWord.toLowerCase();
                     if (normalizedSkillMap.containsKey(lowerWord))
                     {
                         foundSkills.add(normalizedSkillMap.get(lowerWord));
