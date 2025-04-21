@@ -4,28 +4,43 @@ import java.util.List;
 
 public class JobPost
 {
+    private String company;
     private String title;
-    private String description;
+    private String location;
     private List<String> skills;
-    private boolean degreeRequired;
-    private String experienceYears;
-    private String source;
+    private String url;
 
-    public JobPost(String title, String description, List<String> skills, boolean degreeRequired, String experienceYears, String source)
+    public JobPost(String company, String title, String location, List<String> skills, String url)
     {
+        this.company = company;
         this.title = title;
-        this.description = description;
+        this.location = location;
         this.skills = skills;
-        this.degreeRequired = degreeRequired;
-        this.experienceYears = experienceYears;
-        this.source = source;
+        this.url = url;
+    }
+    
+    public String getCompany()
+    {
+        return company;
     }
 
-    public String toCSV()
+    public String getTitle()
     {
-        return title + "," +
-               String.join(";", skills) + "," +
-               degreeRequired + "," +
-               experienceYears;
+        return title;
+    }
+
+    public String getLocation()
+    {
+        return location;
+    }
+
+    public String getUrl()
+    {
+        return url;
+    }
+
+    public List<String> getSkills()
+    {
+        return skills;
     }
 }
