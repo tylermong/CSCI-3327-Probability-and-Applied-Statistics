@@ -41,7 +41,7 @@ public class Main
                     System.out.println("Title: " + jobPost.getTitle());
                     System.out.println("Location: " + jobPost.getLocation());
                     System.out.println("Skills: " + jobPost.getSkills());
-                    System.out.println("URL" + jobPost.getUrl());
+                    System.out.println("URL: " + jobPost.getUrl());
                     count++;
                 }
                 catch (IOException e)
