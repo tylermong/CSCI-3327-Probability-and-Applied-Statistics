@@ -34,9 +34,6 @@ public class SimplifyInternshipScraper
             String title = rowMatcher.group(1);
             String url = rowMatcher.group(2);
 
-            System.out.println("Title: " + title);
-            System.out.println("URL: " + url);
-
             if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*") || url.contains("simplify.jobs"))
             {
                 continue;
