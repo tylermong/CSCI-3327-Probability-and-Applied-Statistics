@@ -18,6 +18,7 @@ public class SkillAnalyzer
         File input = new File("15. Research Project/Software Engineering Job Analyzer/WorkdayResults.txt");
         File output = new File("15. Research Project/Software Engineering Job Analyzer/SkillFrequency.txt");
 
+        System.out.println("\nWriting skill frequency...");
         try (BufferedReader reader = new BufferedReader(new FileReader(input));
              BufferedWriter writer = new BufferedWriter(new FileWriter(output)))
         {
@@ -69,5 +70,6 @@ public class SkillAnalyzer
             System.err.println("Error reading or writing files: " + e.getMessage());
             throw e;
         }
+        System.out.println("Skill frequency written to " + output.getPath());
     }
 }
