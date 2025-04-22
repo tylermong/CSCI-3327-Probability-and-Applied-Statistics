@@ -15,7 +15,7 @@ public class SkillAnalyzer
 {
     public static void writeSkillFrequencyToFile() throws IOException
     {
-        File input = new File("15. Research Project/Software Engineering Job Analyzer/WorkdayResults.txt");
+        File input = new File("15. Research Project/Software Engineering Job Analyzer/DataResults.txt");
         File output = new File("15. Research Project/Software Engineering Job Analyzer/SkillFrequency.txt");
 
         System.out.println("\nWriting skill frequency...");
