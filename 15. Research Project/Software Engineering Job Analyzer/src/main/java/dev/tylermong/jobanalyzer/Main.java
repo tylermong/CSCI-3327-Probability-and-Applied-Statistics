@@ -3,6 +3,7 @@ package dev.tylermong.jobanalyzer;
 import dev.tylermong.jobanalyzer.scraper.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.WorkdayScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
+import dev.tylermong.jobanalyzer.analyzer.SkillAnalyzer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -14,6 +15,7 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
+        /*
         SimplifyInternshipScraper simplifyScraper = new SimplifyInternshipScraper();
         List<String> links = new ArrayList<>();
         try
@@ -37,11 +39,11 @@ public class Main
                 try
                 {
                     JobPost jobPost = workdayScraper.scrapeJob(link);
-                    System.out.println("\nCompany: " + jobPost.getCompany());
-                    System.out.println("Title: " + jobPost.getTitle());
-                    System.out.println("Location: " + jobPost.getLocation());
-                    System.out.println("Skills: " + jobPost.getSkills());
-                    System.out.println("URL: " + jobPost.getUrl());
+                    //System.out.println("\nCompany: " + jobPost.getCompany());
+                    //System.out.println("Title: " + jobPost.getTitle());
+                    //System.out.println("Location: " + jobPost.getLocation());
+                    //System.out.println("Skills: " + jobPost.getSkills());
+                    //System.out.println("URL: " + jobPost.getUrl());
                     
                     writer.write("Company: " + jobPost.getCompany() + "\n");
                     writer.write("Title: " + jobPost.getTitle() + "\n");
@@ -57,6 +59,9 @@ public class Main
                 }
             }
         }
-        writer.close();
+        writer.close();*/
+
+        // Write skill frequency to file
+        SkillAnalyzer.writeSkillFrequencyToFile();
     }
 }
