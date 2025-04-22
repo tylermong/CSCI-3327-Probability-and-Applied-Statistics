@@ -4,6 +4,8 @@ import dev.tylermong.jobanalyzer.scraper.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.WorkdayScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
@@ -26,11 +28,11 @@ public class Main
         }
 
         WorkdayScraper workdayScraper = new WorkdayScraper();
+        BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/WorkdayResults.txt"));
 
-        int count = 0;
         for (String link : links)
         {
-            if (link.contains("workday") && count < 10)
+            if (link.contains("workday"))
             {
                 try
                 {
@@ -40,7 +42,13 @@ public class Main
                     System.out.println("Location: " + jobPost.getLocation());
                     System.out.println("Skills: " + jobPost.getSkills());
                     System.out.println("URL: " + jobPost.getUrl());
-                    count++;
+                    
+                    writer.write("Company: " + jobPost.getCompany() + "\n");
+                    writer.write("Title: " + jobPost.getTitle() + "\n");
+                    writer.write("Location: " + jobPost.getLocation() + "\n");
+                    writer.write("Skills: " + jobPost.getSkills() + "\n");
+                    writer.write("URL: " + jobPost.getUrl() + "\n\n");
+                    writer.flush();
                 }
                 catch (IOException e)
                 {
@@ -49,29 +57,6 @@ public class Main
                 }
             }
         }
-
-        /*try
-        {
-            List<String> jobPostingURLs = scraper.scrapeLinks();
-
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("results.txt")))
-            {
-                for (String url : jobPostingURLs)
-                {
-                    writer.write(url);
-                    writer.newLine();
-                }
-                System.out.println("Successfully saved " + jobPostingURLs.size() + " URLs to results.txt");
-            }
-            catch (IOException e)
-            {
-                System.err.println("Error writing to results.txt: " + e.getMessage());
-                e.printStackTrace();
-            }
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }*/
+        writer.close();
     }
 }
