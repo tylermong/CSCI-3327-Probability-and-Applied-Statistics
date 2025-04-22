@@ -1,8 +1,8 @@
 package dev.tylermong.jobanalyzer;
 
-import dev.tylermong.jobanalyzer.scraper.SimplifyInternshipScraper;
-import dev.tylermong.jobanalyzer.scraper.WorkdayScraper;
-import dev.tylermong.jobanalyzer.scraper.GreenhouseScraper;
+import dev.tylermong.jobanalyzer.scraper.data.GreenhouseScraper;
+import dev.tylermong.jobanalyzer.scraper.data.WorkdayScraper;
+import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
