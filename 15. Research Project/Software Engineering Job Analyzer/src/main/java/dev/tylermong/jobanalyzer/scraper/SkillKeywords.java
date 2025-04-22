@@ -159,7 +159,7 @@ public class SkillKeywords
         "RubyGems", "Bundler", // Ruby
         "NuGet", // .NET
         "Go Modules", // Go
-        "Make", "CMake", // C/C++
+        "CMake", // C/C++
         // Collaboration & Project Management
         "Jira", "Confluence", "Asana", "Trello", "Monday.com", "Slack", "Microsoft Teams", "Agile", "Scrum", "Kanban", // (Also Methodologies)
 
@@ -289,9 +289,9 @@ public class SkillKeywords
         // Concepts
         "Blockchain", "Distributed Ledger Technology", "DLT", "Smart Contracts", "Cryptography", "Decentralized Applications", "dApps", "Consensus Mechanisms", "Cryptocurrency", "NFTs",
         // Platforms & Languages
-        "Ethereum", "Solidity", "Bitcoin", "Hyperledger Fabric", "Web3.js", "Ethers.js", "Hardhat", "Truffle",
+        "Ethereum", "Solidity", "Bitcoin", "Hyperledger Fabric", "Web3.js", "Ethers.js", "Hardhat", "Truffle"
 
-        // --- Soft Skills & Professional Attributes ---
-        "Communication", "Verbal Communication", "Written Communication", "Teamwork", "Collaboration", "Problem-Solving", "Critical Thinking", "Analytical Skills", "Adaptability", "Flexibility", "Time Management", "Organization", "Leadership", "Mentoring", "Coaching", "Decision Making", "Creativity", "Curiosity", "Attention to Detail", "Empathy", "Conflict Resolution", "Negotiation", "Presentation Skills", "Technical Writing", "Documentation"
+        /*// --- Soft Skills & Professional Attributes ---
+        "Communication", "Verbal Communication", "Written Communication", "Teamwork", "Collaboration", "Problem-Solving", "Critical Thinking", "Analytical Skills", "Adaptability", "Flexibility", "Time Management", "Organization", "Leadership", "Mentoring", "Coaching", "Decision Making", "Creativity", "Curiosity", "Attention to Detail", "Empathy", "Conflict Resolution", "Negotiation", "Presentation Skills", "Technical Writing", "Documentation"*/
     ));
 }
