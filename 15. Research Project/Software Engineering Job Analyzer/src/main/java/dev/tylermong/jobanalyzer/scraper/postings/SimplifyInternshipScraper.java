@@ -1,4 +1,4 @@
-package dev.tylermong.jobanalyzer.scraper;
+package dev.tylermong.jobanalyzer.scraper.postings;
 
 import org.jsoup.Jsoup;
 
