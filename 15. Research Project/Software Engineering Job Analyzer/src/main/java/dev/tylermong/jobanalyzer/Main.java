@@ -30,12 +30,10 @@ public class Main
         int count = 0;
         for (String link : links)
         {
-            if (link.contains("workday") && count < 1)
+            if (link.contains("workday") && count < 10)
             {
                 try
                 {
-                    System.out.println("Scraping data from link: " + link);
-
                     JobPost jobPost = workdayScraper.scrapeJob(link);
                     System.out.println("\nCompany: " + jobPost.getCompany());
                     System.out.println("Title: " + jobPost.getTitle());
