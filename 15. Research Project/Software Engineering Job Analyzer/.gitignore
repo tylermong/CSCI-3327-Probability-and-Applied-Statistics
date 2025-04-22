@@ -38,6 +38,6 @@ build/
 .DS_Store
 
 ### Project Specific ###
-WorkdayResults.txt
+DataResults.txt
 SkillFrequency.txt
 JobBoardFrequency.txt
