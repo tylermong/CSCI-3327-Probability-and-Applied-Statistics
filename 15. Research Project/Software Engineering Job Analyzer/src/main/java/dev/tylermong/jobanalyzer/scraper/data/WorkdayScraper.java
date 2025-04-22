@@ -1,6 +1,8 @@
-package dev.tylermong.jobanalyzer.scraper;
+package dev.tylermong.jobanalyzer.scraper.data;
 
 import dev.tylermong.jobanalyzer.model.JobPost;
+import dev.tylermong.jobanalyzer.util.SkillKeywords;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
