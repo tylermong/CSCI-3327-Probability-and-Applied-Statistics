@@ -2,6 +2,7 @@ package dev.tylermong.jobanalyzer;
 
 import dev.tylermong.jobanalyzer.scraper.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.WorkdayScraper;
+import dev.tylermong.jobanalyzer.scraper.GreenhouseScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
@@ -13,16 +14,19 @@ import java.util.List;
 public class JobScrapingService
 {
     private final SimplifyInternshipScraper linkScraper;
-    private final WorkdayScraper jobScraper;
+    private final WorkdayScraper workdayDataScraper;
+    private final GreenhouseScraper greenhouseDataScraper;
     private final String outputFile;
 
     public JobScrapingService(
             SimplifyInternshipScraper linkScraper,
-            WorkdayScraper jobScraper,
+            WorkdayScraper workdayDataScraper,
+            GreenhouseScraper greenhouseDataScraper,
             String outputFile)
     {
         this.linkScraper = linkScraper;
-        this.jobScraper = jobScraper;
+        this.workdayDataScraper = workdayDataScraper;
+        this.greenhouseDataScraper = greenhouseDataScraper;
         this.outputFile = outputFile;
     }
 
@@ -43,7 +47,20 @@ public class JobScrapingService
                 {
                     try
                     {
-                        JobPost post = jobScraper.scrapeJob(link);
+                        JobPost post = workdayDataScraper.scrapeJob(link);
+                        writePost(writer, post);
+                    }
+                    catch (IOException e)
+                    {
+                        System.err.println("\nError scraping " + link + ": " + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+                else if (link.contains("greenhouse"))
+                {
+                    try
+                    {
+                        JobPost post = greenhouseDataScraper.scrapeJob(link);
                         writePost(writer, post);
                     }
                     catch (IOException e)
