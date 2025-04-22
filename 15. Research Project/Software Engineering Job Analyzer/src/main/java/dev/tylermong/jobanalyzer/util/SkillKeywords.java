@@ -1,4 +1,4 @@
-package dev.tylermong.jobanalyzer.scraper;
+package dev.tylermong.jobanalyzer.util;
 
 import java.util.Arrays;
 import java.util.HashSet;
