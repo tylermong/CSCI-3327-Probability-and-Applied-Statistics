@@ -204,7 +204,7 @@ public class SkillKeywords
         // Security Concepts
         "Cybersecurity", "Application Security", "OWASP Top 10", "Authentication", "Authorization", "Encryption", "Hashing", "TLS/SSL", "Public Key Infrastructure", "PKI", "Security Auditing", "Penetration Testing", "Vulnerability Assessment", "Threat Modeling", "Input Validation", "Secure Coding Practices", "Secrets Management", // (also DevOps)
         // System Design Concepts
-        "System Design", "Scalability", "Availability", "Reliability", "Fault Tolerance", "Performance", "Latency", "Throughput", "Consistency Models", // (e.g., Strong, Eventual)
+        "System Design", "Scalability", "Fault Tolerance", "Latency", "Throughput", "Consistency Models", // (e.g., Strong, Eventual)
 
         // --- Mobile Development ---
         // Platforms
