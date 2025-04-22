@@ -15,8 +15,6 @@ public class Main
                 new WorkdayScraper(),
                 "15. Research Project/Software Engineering Job Analyzer/WorkdayResults.txt").scrapeAndWrite();
 
-        System.out.println("\nWriting skill frequency...");
         SkillAnalyzer.writeSkillFrequencyToFile();
-        System.out.println("Skill frequency written to SkillFrequency.txt.");
     }
 }
