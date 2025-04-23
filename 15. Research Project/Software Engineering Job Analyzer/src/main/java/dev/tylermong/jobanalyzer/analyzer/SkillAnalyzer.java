@@ -70,6 +70,6 @@ public class SkillAnalyzer
             System.err.println("Error reading or writing files: " + e.getMessage());
             throw e;
         }
-        System.out.println("Skill frequency written to " + output.getPath());
+        System.out.println("Skill frequency written to SkillFrequency.txt");
     }
 }
