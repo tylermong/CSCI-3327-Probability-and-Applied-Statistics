@@ -60,7 +60,7 @@ public class JobScrapingService
                 writer.newLine();
             }
         }
-        System.out.println(links.size() + " all links saved to: AllLinks.txt");
+        System.out.println(links.size() + " unique links saved to: AllLinks.txt");
 
         List<String> useableLinks = links.stream()
             .filter(link -> link.contains("workday") || link.contains("greenhouse"))
@@ -80,7 +80,7 @@ public class JobScrapingService
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
             int processed = 0;
-            System.out.println("Scraping data from " + total + " links");
+            System.out.println("\nScraping data from " + total + " links");
             for (String link : useableLinks)
             {
                 processed++;
