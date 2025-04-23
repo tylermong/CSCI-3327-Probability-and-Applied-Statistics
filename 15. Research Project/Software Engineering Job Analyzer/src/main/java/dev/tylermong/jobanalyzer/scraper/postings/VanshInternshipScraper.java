@@ -38,6 +38,7 @@ public class VanshInternshipScraper
                 "\\|[^|]+\\|\\s*([^|]+)\\s*\\|[^|]+\\|\\s*<a href=\"(https?://[^\"]+)\"[^>]*>.*?<\\/a>\\s*\\|[^|]+\\|");
         Matcher rowMatcher = rowPattern.matcher(readmeContent);
 
+        System.out.println("Scraping job postings from Vansh...");
         while (rowMatcher.find())
         {
             String title = rowMatcher.group(1);
@@ -50,6 +51,7 @@ public class VanshInternshipScraper
 
             jobPostingURLs.add(url);
         }
+        System.out.println("Scraping completed. Found " + jobPostingURLs.size() + " job postings from Vansh.\n");
 
         writeFrequenciesToFile(countJobBoardFrequencies(jobPostingURLs),
                 "15. Research Project/Software Engineering Job Analyzer/JobBoardFrequency.txt");
