@@ -60,31 +60,27 @@ public class JobScrapingService
                 writer.newLine();
             }
         }
-        System.out.println(links.size() + " links saved to: AllLinks.txt");
+        System.out.println(links.size() + " all links saved to: AllLinks.txt");
 
         List<String> useableLinks = links.stream()
             .filter(link -> link.contains("workday") || link.contains("greenhouse"))
             .collect(Collectors.toList());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/UseableLinks.txt")))
         {
-            for (String link : links)
+            for (String link : useableLinks)
             {
-                if (link.contains("workday") || link.contains("greenhouse"))
-                {
-                    writer.write(link);
-                    writer.newLine();
-
-                }
+                writer.write(link);
+                writer.newLine();
             }
         }
-        System.out.println(useableLinks.size() + " links saved to: UseableLinks.txt");
+        System.out.println(useableLinks.size() + " useable links saved to: UseableLinks.txt");
                 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile)))
         {
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
             int processed = 0;
-            System.out.println("Scraping job posts from " + total + " links");
+            System.out.println("Scraping data from " + total + " links");
             for (String link : useableLinks)
             {
                 processed++;
@@ -116,7 +112,7 @@ public class JobScrapingService
                     }
                 }
             }
-            System.out.println("\nDone. Results in " + outputFile);
+            System.out.println("\nScraping completed. Data saved to: " + outputFile);
         }
     }
 
