@@ -38,6 +38,7 @@ public class SimplifyInternshipScraper
                 "\\|\\s*\\*\\*\\[[^\\]]+\\]\\([^)]*\\)\\*\\*\\s*\\|\\s*([^|]+)\\|[^|]*\\|.*?<a href=\"(https?://[^\"]+)\"");
         Matcher rowMatcher = rowPattern.matcher(readmeContent);
 
+        System.out.println("Scraping job postings from SimplifyJobs...");
         while (rowMatcher.find())
         {
             String title = rowMatcher.group(1);
@@ -51,6 +52,7 @@ public class SimplifyInternshipScraper
 
             jobPostingURLs.add(url);
         }
+        System.out.println("Scraping completed. Found " + jobPostingURLs.size() + " job postings from SimplifyJobs.\n");
 
         writeFrequenciesToFile(countJobBoardFrequencies(jobPostingURLs),
                 "15. Research Project/Software Engineering Job Analyzer/JobBoardFrequency.txt");
