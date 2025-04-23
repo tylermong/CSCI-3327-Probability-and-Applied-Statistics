@@ -34,10 +34,8 @@ public class VanshInternshipScraper
 
         List<String> jobPostingURLs = new ArrayList<>();
 
-
-        // RESUME HERE:
         Pattern rowPattern = Pattern.compile(
-                "\\|\\s*\\*\\*\\[[^\\]]+\\]\\([^)]*\\)\\*\\*\\s*\\|\\s*([^|]+)\\|[^|]*\\|.*?<a href=\"(https?://[^\"]+)\"");
+                "\\|[^|]+\\|\\s*([^|]+)\\s*\\|[^|]+\\|\\s*<a href=\"(https?://[^\"]+)\"[^>]*>.*?<\\/a>\\s*\\|[^|]+\\|");
         Matcher rowMatcher = rowPattern.matcher(readmeContent);
 
         while (rowMatcher.find())
@@ -45,8 +43,7 @@ public class VanshInternshipScraper
             String title = rowMatcher.group(1);
             String url = rowMatcher.group(2);
 
-            if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*")
-                    || url.contains("simplify.jobs"))
+            if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*"))
             {
                 continue;
             }
