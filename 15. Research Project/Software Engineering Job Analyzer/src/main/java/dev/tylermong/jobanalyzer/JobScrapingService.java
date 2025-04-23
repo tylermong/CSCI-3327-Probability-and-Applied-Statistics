@@ -3,6 +3,7 @@ package dev.tylermong.jobanalyzer;
 import dev.tylermong.jobanalyzer.scraper.data.GreenhouseScraper;
 import dev.tylermong.jobanalyzer.scraper.data.WorkdayScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
+import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
@@ -10,21 +11,26 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class JobScrapingService
 {
-    private final SimplifyInternshipScraper linkScraper;
+    private final SimplifyInternshipScraper simplifyLinkScraper;
+    private final VanshInternshipScraper vanshLinkScraper;
     private final WorkdayScraper workdayDataScraper;
     private final GreenhouseScraper greenhouseDataScraper;
     private final String outputFile;
 
     public JobScrapingService(
-            SimplifyInternshipScraper linkScraper,
+            SimplifyInternshipScraper simplifyLinkScraper,
+            VanshInternshipScraper vanshLinkScraper,
             WorkdayScraper workdayDataScraper,
             GreenhouseScraper greenhouseDataScraper,
             String outputFile)
     {
-        this.linkScraper = linkScraper;
+        this.simplifyLinkScraper = simplifyLinkScraper;
+        this.vanshLinkScraper = vanshLinkScraper;
         this.workdayDataScraper = workdayDataScraper;
         this.greenhouseDataScraper = greenhouseDataScraper;
         this.outputFile = outputFile;
@@ -32,14 +38,54 @@ public class JobScrapingService
 
     public void scrapeAndWrite() throws IOException
     {
-        List<String> links = linkScraper.scrapeLinks();
+        Stream<String> allLinks = Stream.concat(
+            simplifyLinkScraper.scrapeLinks().stream(),
+            vanshLinkScraper.scrapeLinks().stream()
+        );
+
+        List<String> links = allLinks
+            .map(link -> {
+                int queryIndex = link.indexOf('?');
+                return (queryIndex == -1) ? link : link.substring(0, queryIndex);
+            })
+            .distinct()
+            .sorted(String::compareToIgnoreCase)
+            .collect(Collectors.toList());
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/AllLinks.txt")))
+        {
+            for (String link : links)
+            {
+                writer.write(link);
+                writer.newLine();
+            }
+        }
+        System.out.println(links.size() + " links saved to: AllLinks.txt");
+
+        List<String> useableLinks = links.stream()
+            .filter(link -> link.contains("workday") || link.contains("greenhouse"))
+            .collect(Collectors.toList());
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/UseableLinks.txt")))
+        {
+            for (String link : links)
+            {
+                if (link.contains("workday") || link.contains("greenhouse"))
+                {
+                    writer.write(link);
+                    writer.newLine();
+
+                }
+            }
+        }
+        System.out.println(useableLinks.size() + " links saved to: UseableLinks.txt");
+                
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile)))
         {
             ProgressBar bar = new ProgressBar(50);
-            int total = links.size();
+            int total = useableLinks.size();
             int processed = 0;
             System.out.println("Scraping job posts from " + total + " links");
-            for (String link : links)
+            for (String link : useableLinks)
             {
                 processed++;
                 bar.update(processed, total);
