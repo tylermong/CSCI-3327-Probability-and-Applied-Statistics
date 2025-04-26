@@ -10,11 +10,15 @@ import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
 import java.io.BufferedWriter;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -24,6 +28,7 @@ public class JobScrapingService
     private final VanshInternshipScraper vanshLinkScraper;
     private final Map<String, JobScraper> scrapers;
     private final String outputFile;
+    private final String deadLinksFile = "15. Research Project/Software Engineering Job Analyzer/output/DeadLinks.txt";
 
     public JobScrapingService(
             SimplifyInternshipScraper simplifyLinkScraper,
@@ -52,6 +57,10 @@ public class JobScrapingService
             System.out.println("Created output directory: " + outputDirectory.getPath());
         }
 
+        // Load existing dead links
+        Set<String> deadLinks = loadDeadLinks();
+        System.out.println("Loaded " + deadLinks.size() + " known dead links");
+
         Stream<String> allLinks = Stream.concat(
             simplifyLinkScraper.scrapeLinks().stream(),
             vanshLinkScraper.scrapeLinks().stream()
@@ -77,6 +86,7 @@ public class JobScrapingService
         System.out.println(links.size() + " unique links saved to: AllLinks.txt");
 
         List<String> useableLinks = links.stream()
+            .filter(link -> !deadLinks.contains(link))
             .filter(link -> scrapers.keySet().stream().anyMatch(link::contains))
             .collect(Collectors.toList());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
@@ -108,7 +118,7 @@ public class JobScrapingService
                         try
                         {
                             JobPost post = entry.getValue().scrapeJob(link);
-                            writePost(writer, post);
+                            writePost(writer, post, link);
                         }
                         catch (IOException exception1)
                         {
@@ -130,11 +140,12 @@ public class JobScrapingService
         }
     }
 
-    private void writePost(BufferedWriter w, JobPost p) throws IOException
+    private void writePost(BufferedWriter w, JobPost p, String link) throws IOException
     {
-        // If the post is empty (job filled/removed), skip it
+        // If the post is empty (job filled/removed), add to dead links and skip it
         if (p.getCompany().trim().isEmpty() && p.getTitle().trim().isEmpty() && p.getLocation().trim().isEmpty() && p.getSkills().isEmpty())
         {
+            addDeadLink(link);
             return;
         }
 
@@ -150,5 +161,27 @@ public class JobScrapingService
         w.newLine();
         w.newLine();
         w.flush();
+    }
+
+    private void addDeadLink(String link) throws IOException
+    {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(deadLinksFile, true)))
+        {
+            writer.write(link);
+            writer.newLine();
+        }
+    }
+
+    private Set<String> loadDeadLinks() throws IOException
+    {
+        File file = new File(deadLinksFile);
+        if (!file.exists())
+        {
+            return new HashSet<>();
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(file)))
+        {
+            return reader.lines().collect(Collectors.toSet());
+        }
     }
 }
