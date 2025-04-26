@@ -7,5 +7,5 @@ public class Main
 
         Salter salter = new Salter();
         salter.run();
-    }    
+    }
 }
