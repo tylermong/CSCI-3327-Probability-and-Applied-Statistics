@@ -82,8 +82,8 @@ public class JobScrapingService
         System.out.println(links.size() + " unique links saved to: AllLinks.txt");
 
         Set<String> deadLinks = loadDeadLinks();
-        System.out.println("Loaded " + deadLinks.size() + " known dead links");
-        
+        System.out.println("\nLoaded " + deadLinks.size() + " known dead links");
+
         List<String> useableLinks = links.stream()
             .filter(link -> !deadLinks.contains(link))
             .filter(link -> scrapers.keySet().stream().anyMatch(link::contains))
@@ -96,7 +96,7 @@ public class JobScrapingService
                 writer.newLine();
             }
         }
-        System.out.println(useableLinks.size() + " useable links saved to: UseableLinks.txt");
+        System.out.println("\n" + useableLinks.size() + " useable links saved to: UseableLinks.txt");
                 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
              BufferedWriter errorWriter = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/ErrorLog.txt")))
@@ -104,7 +104,7 @@ public class JobScrapingService
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
             int processed = 0;
-            System.out.println("\nScraping data from " + total + " links");
+            System.out.println("Scraping data from " + total + " links\n");
             for (String link : useableLinks)
             {
                 processed++;
