@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class GreenhouseScraper
+public class GreenhouseScraper implements JobScraper
 {
     public JobPost scrapeJob(String url) throws IOException
     {
