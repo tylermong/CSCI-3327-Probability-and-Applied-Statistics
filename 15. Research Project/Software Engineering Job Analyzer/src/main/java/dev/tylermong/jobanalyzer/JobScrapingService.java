@@ -123,6 +123,7 @@ public class JobScrapingService
                         {
                             System.err.println("\nError scraping " + link + ": " + exception1.getMessage());
                             exception1.printStackTrace();
+                            addDeadLink(link);
                             try
                             {
                                 errorWriter.write(link + ": " + exception1.getMessage());
@@ -162,12 +163,17 @@ public class JobScrapingService
         w.flush();
     }
 
-    private void addDeadLink(String link) throws IOException
+    private void addDeadLink(String link)
     {
+        System.out.println("Adding dead link: " + link);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(deadLinksFile, true)))
         {
             writer.write(link);
             writer.newLine();
+        }
+        catch (IOException exception)
+        {
+            System.err.println("Error adding dead link: " + exception.getMessage());
         }
     }
 
