@@ -39,7 +39,7 @@ public class VanshInternshipScraper implements LinkScraper
                 "\\|[^|]+\\|\\s*([^|]+)\\s*\\|[^|]+\\|\\s*<a href=\"(https?://[^\"]+)\"[^>]*>.*?<\\/a>\\s*\\|[^|]+\\|");
         Matcher rowMatcher = rowPattern.matcher(readmeContent);
 
-        System.out.println("\nScraping job postings from Vansh...");
+        System.out.println("Scraping job postings from Vansh...");
         while (rowMatcher.find())
         {
             String title = rowMatcher.group(1);
