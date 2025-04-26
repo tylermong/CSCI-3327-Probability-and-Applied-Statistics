@@ -71,7 +71,7 @@ public class JobScrapingService
         System.out.println(links.size() + " unique links saved to: AllLinks.txt");
 
         Set<String> deadLinks = loadDeadLinks();
-        System.out.println("\nLoaded " + deadLinks.size() + " known dead links");
+        System.out.println("\nLoaded " + deadLinks.size() + " known dead links.");
 
         List<String> useableLinks = links.stream()
             .filter(link -> !deadLinks.contains(link))
@@ -93,7 +93,7 @@ public class JobScrapingService
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
             int processed = 0;
-            System.out.println("Scraping data from " + total + " links\n");
+            System.out.println("Scraping data from " + total + " links...\n");
             for (String link : useableLinks)
             {
                 processed++;
