@@ -127,7 +127,7 @@ public class JobScrapingService
                         }
                     });
             }
-            System.out.println("\n" + deadLinkCount + " dead links found and added to DeadLinks.txt");
+            System.out.println("\n\n" + deadLinkCount + " new dead links found and added to DeadLinks.txt");
             System.out.println("Error log saved to: ErrorLog.txt");
             System.out.println("\nScraping completed. Data saved to: " + outputFile);
         }
@@ -136,7 +136,8 @@ public class JobScrapingService
     private void writePost(BufferedWriter w, JobPost p, String link) throws IOException
     {
         // If the post is empty (job filled/removed), add to dead links and skip it
-        if (p.getCompany().trim().isEmpty() && p.getTitle().trim().isEmpty() && p.getLocation().trim().isEmpty() && p.getSkills().isEmpty())
+        if (p.getCompany().trim().isEmpty() && p.getTitle().trim().isEmpty() && p.getLocation().trim().isEmpty() 
+                    && p.getSkills().isEmpty())
         {
             addDeadLink(link);
             return;
