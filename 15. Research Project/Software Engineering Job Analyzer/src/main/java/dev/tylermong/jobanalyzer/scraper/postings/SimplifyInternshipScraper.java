@@ -55,7 +55,7 @@ public class SimplifyInternshipScraper
         System.out.println("Scraping completed. Found " + jobPostingURLs.size() + " job postings from SimplifyJobs.\n");
 
         writeFrequenciesToFile(countJobBoardFrequencies(jobPostingURLs),
-                "15. Research Project/Software Engineering Job Analyzer/JobBoardFrequency.txt");
+                "15. Research Project/Software Engineering Job Analyzer/output/JobBoardFrequency.txt");
 
         return jobPostingURLs;
     }
