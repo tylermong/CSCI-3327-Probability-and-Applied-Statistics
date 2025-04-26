@@ -17,7 +17,7 @@ public class Main
                 new VanshInternshipScraper(),
                 new WorkdayScraper(),
                 new GreenhouseScraper(),
-                "15. Research Project/Software Engineering Job Analyzer/DataResults.txt").scrapeAndWrite();
+                "15. Research Project/Software Engineering Job Analyzer/output/DataResults.txt").scrapeAndWrite();
 
         SkillAnalyzer.writeSkillFrequencyToFile();
     }

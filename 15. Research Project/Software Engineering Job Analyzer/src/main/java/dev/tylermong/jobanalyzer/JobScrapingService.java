@@ -52,7 +52,7 @@ public class JobScrapingService
             .sorted(String::compareToIgnoreCase)
             .collect(Collectors.toList());
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/AllLinks.txt")))
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/AllLinks.txt")))
         {
             for (String link : links)
             {
@@ -65,7 +65,7 @@ public class JobScrapingService
         List<String> useableLinks = links.stream()
             .filter(link -> link.contains("workday") || link.contains("greenhouse"))
             .collect(Collectors.toList());
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/UseableLinks.txt")))
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
         {
             for (String link : useableLinks)
             {
@@ -76,7 +76,7 @@ public class JobScrapingService
         System.out.println(useableLinks.size() + " useable links saved to: UseableLinks.txt");
                 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
-             BufferedWriter errorWriter = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/ErrorLog.txt")))
+             BufferedWriter errorWriter = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/ErrorLog.txt")))
         {
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
@@ -123,6 +123,12 @@ public class JobScrapingService
 
     private void writePost(BufferedWriter w, JobPost p) throws IOException
     {
+        // If the post is empty (job filled/removed), skip it
+        if (p.getCompany() == null && p.getTitle() == null && p.getLocation() == null && p.getSkills() == null)
+        {
+            return;
+        }
+
         w.write("Company: " + p.getCompany());
         w.newLine();
         w.write("Title: " + p.getTitle());
@@ -136,4 +142,6 @@ public class JobScrapingService
         w.newLine();
         w.flush();
     }
+
+
 }
