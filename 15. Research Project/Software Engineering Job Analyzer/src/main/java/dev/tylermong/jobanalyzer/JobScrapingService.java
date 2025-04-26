@@ -1,6 +1,7 @@
 package dev.tylermong.jobanalyzer;
 
 import dev.tylermong.jobanalyzer.scraper.data.GreenhouseScraper;
+import dev.tylermong.jobanalyzer.scraper.data.LeverScraper;
 import dev.tylermong.jobanalyzer.scraper.data.WorkdayScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
@@ -21,6 +22,7 @@ public class JobScrapingService
     private final VanshInternshipScraper vanshLinkScraper;
     private final WorkdayScraper workdayDataScraper;
     private final GreenhouseScraper greenhouseDataScraper;
+    private final LeverScraper leverDataScraper;
     private final String outputFile;
 
     public JobScrapingService(
@@ -28,12 +30,14 @@ public class JobScrapingService
             VanshInternshipScraper vanshLinkScraper,
             WorkdayScraper workdayDataScraper,
             GreenhouseScraper greenhouseDataScraper,
+            LeverScraper leverDataScraper,
             String outputFile)
     {
         this.simplifyLinkScraper = simplifyLinkScraper;
         this.vanshLinkScraper = vanshLinkScraper;
         this.workdayDataScraper = workdayDataScraper;
         this.greenhouseDataScraper = greenhouseDataScraper;
+        this.leverDataScraper = leverDataScraper;
         this.outputFile = outputFile;
     }
 
@@ -114,6 +118,21 @@ public class JobScrapingService
                     try
                     {
                         JobPost post = greenhouseDataScraper.scrapeJob(link);
+                        writePost(writer, post);
+                    }
+                    catch (IOException e)
+                    {
+                        System.err.println("\nError scraping " + link + ": " + e.getMessage());
+                        e.printStackTrace();
+                        errorWriter.write(link + ": " + e.getMessage());
+                        errorWriter.newLine();
+                    }
+                }
+                else if (link.contains("lever"))
+                {
+                    try
+                    {
+                        JobPost post = leverDataScraper.scrapeJob(link);
                         writePost(writer, post);
                     }
                     catch (IOException e)
