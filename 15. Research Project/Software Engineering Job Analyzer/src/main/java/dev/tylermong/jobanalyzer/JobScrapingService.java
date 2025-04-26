@@ -8,6 +8,7 @@ import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -38,6 +39,13 @@ public class JobScrapingService
 
     public void scrapeAndWrite() throws IOException
     {
+        File outputDirectory = new File("15. Research Project/Software Engineering Job Analyzer/output/");
+        if (!outputDirectory.exists())
+        {
+            outputDirectory.mkdirs();
+            System.out.println("Created output directory: " + outputDirectory.getPath());
+        }
+
         Stream<String> allLinks = Stream.concat(
             simplifyLinkScraper.scrapeLinks().stream(),
             vanshLinkScraper.scrapeLinks().stream()
