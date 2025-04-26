@@ -75,7 +75,8 @@ public class JobScrapingService
         }
         System.out.println(useableLinks.size() + " useable links saved to: UseableLinks.txt");
                 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile)))
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+             BufferedWriter errorWriter = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/ErrorLog.txt")))
         {
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
@@ -96,6 +97,8 @@ public class JobScrapingService
                     {
                         System.err.println("\nError scraping " + link + ": " + e.getMessage());
                         e.printStackTrace();
+                        errorWriter.write(link + ": " + e.getMessage());
+                        errorWriter.newLine();
                     }
                 }
                 else if (link.contains("greenhouse"))
@@ -109,6 +112,8 @@ public class JobScrapingService
                     {
                         System.err.println("\nError scraping " + link + ": " + e.getMessage());
                         e.printStackTrace();
+                        errorWriter.write(link + ": " + e.getMessage());
+                        errorWriter.newLine();
                     }
                 }
             }
