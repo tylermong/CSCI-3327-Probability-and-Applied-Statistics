@@ -111,7 +111,6 @@ public class JobScrapingService
                         }
                         catch (IOException exception1)
                         {
-                            System.err.println("\nError scraping " + link + ": " + exception1.getMessage());
                             addDeadLink(link);
                             try
                             {
