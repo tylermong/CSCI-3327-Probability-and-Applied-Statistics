@@ -11,11 +11,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class JobScrapingService
@@ -93,6 +94,7 @@ public class JobScrapingService
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
             int processed = 0;
+            AtomicInteger deadLinkCount = new AtomicInteger(0);
             System.out.println("Scraping data from " + total + " links...\n");
             for (String link : useableLinks)
             {
@@ -112,6 +114,7 @@ public class JobScrapingService
                         catch (IOException exception1)
                         {
                             addDeadLink(link);
+                            deadLinkCount.incrementAndGet();
                             try
                             {
                                 errorWriter.write(link + ": " + exception1.getMessage());
@@ -124,6 +127,8 @@ public class JobScrapingService
                         }
                     });
             }
+            System.out.println("\n" + deadLinkCount + " dead links found and added to DeadLinks.txt");
+            System.out.println("Error log saved to: ErrorLog.txt");
             System.out.println("\nScraping completed. Data saved to: " + outputFile);
         }
     }
@@ -153,7 +158,6 @@ public class JobScrapingService
 
     private void addDeadLink(String link)
     {
-        System.out.println("\nAdding dead link: " + link);
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(deadLinksFile, true)))
         {
             writer.write(link);
