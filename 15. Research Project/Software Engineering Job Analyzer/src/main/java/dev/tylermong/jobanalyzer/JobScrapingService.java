@@ -1,8 +1,5 @@
 package dev.tylermong.jobanalyzer;
 
-import dev.tylermong.jobanalyzer.scraper.data.GreenhouseScraper;
-import dev.tylermong.jobanalyzer.scraper.data.LeverScraper;
-import dev.tylermong.jobanalyzer.scraper.data.WorkdayScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.data.JobScraper;
@@ -26,25 +23,19 @@ public class JobScrapingService
 {
     private final SimplifyInternshipScraper simplifyLinkScraper;
     private final VanshInternshipScraper vanshLinkScraper;
-    private final Map<String, JobScraper> scrapers;
+    private final Map<String, JobScraper> dataScrapers;
     private final String outputFile;
     private final String deadLinksFile = "15. Research Project/Software Engineering Job Analyzer/output/DeadLinks.txt";
 
     public JobScrapingService(
             SimplifyInternshipScraper simplifyLinkScraper,
             VanshInternshipScraper vanshLinkScraper,
-            WorkdayScraper workdayDataScraper,
-            GreenhouseScraper greenhouseDataScraper,
-            LeverScraper leverDataScraper,
+            Map<String, JobScraper> dataScrapers,
             String outputFile)
     {
         this.simplifyLinkScraper = simplifyLinkScraper;
         this.vanshLinkScraper = vanshLinkScraper;
-        this.scrapers = Map.of(
-            "workday", workdayDataScraper,
-            "greenhouse", greenhouseDataScraper,
-            "lever", leverDataScraper
-        );
+        this.dataScrapers = dataScrapers;
         this.outputFile = outputFile;
     }
 
@@ -86,7 +77,7 @@ public class JobScrapingService
 
         List<String> useableLinks = links.stream()
             .filter(link -> !deadLinks.contains(link))
-            .filter(link -> scrapers.keySet().stream().anyMatch(link::contains))
+            .filter(link -> dataScrapers.keySet().stream().anyMatch(link::contains))
             .collect(Collectors.toList());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
         {
@@ -110,7 +101,7 @@ public class JobScrapingService
                 processed++;
                 bar.update(processed, total);
                 
-                scrapers.entrySet().stream()
+                dataScrapers.entrySet().stream()
                     .filter(entry -> link.contains(entry.getKey()))
                     .findFirst()
                     .ifPresent(entry -> {
