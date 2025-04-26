@@ -54,7 +54,7 @@ public class VanshInternshipScraper
         System.out.println("Scraping completed. Found " + jobPostingURLs.size() + " job postings from Vansh.\n");
 
         writeFrequenciesToFile(countJobBoardFrequencies(jobPostingURLs),
-                "15. Research Project/Software Engineering Job Analyzer/JobBoardFrequency.txt");
+                "15. Research Project/Software Engineering Job Analyzer/output/JobBoardFrequency.txt");
 
         return jobPostingURLs;
     }
