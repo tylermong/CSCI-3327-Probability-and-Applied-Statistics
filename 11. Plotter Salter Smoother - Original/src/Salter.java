@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Salter
@@ -15,13 +14,13 @@ public class Salter
     {
         try
         {
-            BufferedReader br = new BufferedReader(new FileReader("12. Salting\\\\data.csv"));
-            FileWriter writer = new FileWriter("12. Salting\\salted_data.csv");
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("11. Plotter Salter Smoother - Original/output/data.csv"));
+            FileWriter fileWriter = new FileWriter("11. Plotter Salter Smoother - Original/output/salted_data.csv");
             String line;
 
-            line = br.readLine();
-            writer.append("x,y\n");
-            while ((line = br.readLine()) != null)
+            line = bufferedReader.readLine();
+            fileWriter.append("x,y\n");
+            while ((line = bufferedReader.readLine()) != null)
             {
                 String[] values = line.split(",");
                 double x = Double.parseDouble(values[0]);
@@ -29,15 +28,15 @@ public class Salter
 
                 y += random.nextInt(-10, 10);
 
-                writer.append(x + "," + y + "\n");
+                fileWriter.append(x + "," + y + "\n");
             }
 
-            br.close();
-            writer.close();
+            bufferedReader.close();
+            fileWriter.close();
         }
-        catch (Exception e)
+        catch (Exception exception)
         {
-            System.out.println(e);
+            System.out.println(exception);
         }
     }
 }
