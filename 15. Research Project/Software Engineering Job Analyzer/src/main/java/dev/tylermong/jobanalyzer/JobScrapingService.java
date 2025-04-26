@@ -1,7 +1,6 @@
 package dev.tylermong.jobanalyzer;
 
-import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
-import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
+import dev.tylermong.jobanalyzer.scraper.postings.LinkScraper;
 import dev.tylermong.jobanalyzer.scraper.data.DataScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
@@ -16,25 +15,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class JobScrapingService
 {
-    private final SimplifyInternshipScraper simplifyLinkScraper;
-    private final VanshInternshipScraper vanshLinkScraper;
+    private final List<LinkScraper> linkScrapers;
     private final Map<String, DataScraper> dataScrapers;
     private final String outputFile;
     private final String deadLinksFile = "15. Research Project/Software Engineering Job Analyzer/output/DeadLinks.txt";
 
     public JobScrapingService(
-            SimplifyInternshipScraper simplifyLinkScraper,
-            VanshInternshipScraper vanshLinkScraper,
+            List<LinkScraper> linkScrapers,
             Map<String, DataScraper> dataScrapers,
             String outputFile)
     {
-        this.simplifyLinkScraper = simplifyLinkScraper;
-        this.vanshLinkScraper = vanshLinkScraper;
+        this.linkScrapers = linkScrapers;
         this.dataScrapers = dataScrapers;
         this.outputFile = outputFile;
     }
@@ -48,12 +44,14 @@ public class JobScrapingService
             System.out.println("Created output directory: " + outputDirectory.getPath());
         }
 
-        Stream<String> allLinks = Stream.concat(
-            simplifyLinkScraper.scrapeLinks().stream(),
-            vanshLinkScraper.scrapeLinks().stream()
-        );
+        // Collect links from all scrapers
+        List<String> allLinks = new ArrayList<>();
+        for (LinkScraper scraper : linkScrapers)
+        {
+            allLinks.addAll(scraper.scrapeLinks());
+        }
 
-        List<String> links = allLinks
+        List<String> links = allLinks.stream()
             .map(link -> {
                 int queryIndex = link.indexOf('?');
                 return (queryIndex == -1) ? link : link.substring(0, queryIndex);
@@ -104,7 +102,8 @@ public class JobScrapingService
                 dataScrapers.entrySet().stream()
                     .filter(entry -> link.contains(entry.getKey()))
                     .findFirst()
-                    .ifPresent(entry -> {
+                    .ifPresent(entry ->
+                    {
                         try
                         {
                             JobPost post = entry.getValue().scrapeJob(link);
