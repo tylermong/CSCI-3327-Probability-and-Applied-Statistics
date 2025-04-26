@@ -57,10 +57,6 @@ public class JobScrapingService
             System.out.println("Created output directory: " + outputDirectory.getPath());
         }
 
-        // Load existing dead links
-        Set<String> deadLinks = loadDeadLinks();
-        System.out.println("Loaded " + deadLinks.size() + " known dead links");
-
         Stream<String> allLinks = Stream.concat(
             simplifyLinkScraper.scrapeLinks().stream(),
             vanshLinkScraper.scrapeLinks().stream()
@@ -85,6 +81,9 @@ public class JobScrapingService
         }
         System.out.println(links.size() + " unique links saved to: AllLinks.txt");
 
+        Set<String> deadLinks = loadDeadLinks();
+        System.out.println("Loaded " + deadLinks.size() + " known dead links");
+        
         List<String> useableLinks = links.stream()
             .filter(link -> !deadLinks.contains(link))
             .filter(link -> scrapers.keySet().stream().anyMatch(link::contains))
