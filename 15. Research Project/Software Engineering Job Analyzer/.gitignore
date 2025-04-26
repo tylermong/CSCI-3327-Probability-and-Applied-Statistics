@@ -38,9 +38,4 @@ build/
 .DS_Store
 
 ### Project Specific ###
-DataResults.txt
-SkillFrequency.txt
-JobBoardFrequency.txt
-AllLinks.txt
-UseableLinks.txt
-ErrorLog.txt
+/output/
