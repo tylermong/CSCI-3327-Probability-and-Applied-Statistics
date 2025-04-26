@@ -5,6 +5,7 @@ import dev.tylermong.jobanalyzer.scraper.data.LeverScraper;
 import dev.tylermong.jobanalyzer.scraper.data.WorkdayScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
+import dev.tylermong.jobanalyzer.scraper.data.JobScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -20,9 +22,7 @@ public class JobScrapingService
 {
     private final SimplifyInternshipScraper simplifyLinkScraper;
     private final VanshInternshipScraper vanshLinkScraper;
-    private final WorkdayScraper workdayDataScraper;
-    private final GreenhouseScraper greenhouseDataScraper;
-    private final LeverScraper leverDataScraper;
+    private final Map<String, JobScraper> scrapers;
     private final String outputFile;
 
     public JobScrapingService(
@@ -35,9 +35,11 @@ public class JobScrapingService
     {
         this.simplifyLinkScraper = simplifyLinkScraper;
         this.vanshLinkScraper = vanshLinkScraper;
-        this.workdayDataScraper = workdayDataScraper;
-        this.greenhouseDataScraper = greenhouseDataScraper;
-        this.leverDataScraper = leverDataScraper;
+        this.scrapers = Map.of(
+            "workday", workdayDataScraper,
+            "greenhouse", greenhouseDataScraper,
+            "lever", leverDataScraper
+        );
         this.outputFile = outputFile;
     }
 
@@ -75,7 +77,7 @@ public class JobScrapingService
         System.out.println(links.size() + " unique links saved to: AllLinks.txt");
 
         List<String> useableLinks = links.stream()
-            .filter(link -> link.contains("workday") || link.contains("greenhouse"))
+            .filter(link -> scrapers.keySet().stream().anyMatch(link::contains))
             .collect(Collectors.toList());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
         {
@@ -98,51 +100,31 @@ public class JobScrapingService
             {
                 processed++;
                 bar.update(processed, total);
-                if (link.contains("workday"))
-                {
-                    try
-                    {
-                        JobPost post = workdayDataScraper.scrapeJob(link);
-                        writePost(writer, post);
-                    }
-                    catch (IOException e)
-                    {
-                        System.err.println("\nError scraping " + link + ": " + e.getMessage());
-                        e.printStackTrace();
-                        errorWriter.write(link + ": " + e.getMessage());
-                        errorWriter.newLine();
-                    }
-                }
-                else if (link.contains("greenhouse"))
-                {
-                    try
-                    {
-                        JobPost post = greenhouseDataScraper.scrapeJob(link);
-                        writePost(writer, post);
-                    }
-                    catch (IOException e)
-                    {
-                        System.err.println("\nError scraping " + link + ": " + e.getMessage());
-                        e.printStackTrace();
-                        errorWriter.write(link + ": " + e.getMessage());
-                        errorWriter.newLine();
-                    }
-                }
-                else if (link.contains("lever"))
-                {
-                    try
-                    {
-                        JobPost post = leverDataScraper.scrapeJob(link);
-                        writePost(writer, post);
-                    }
-                    catch (IOException e)
-                    {
-                        System.err.println("\nError scraping " + link + ": " + e.getMessage());
-                        e.printStackTrace();
-                        errorWriter.write(link + ": " + e.getMessage());
-                        errorWriter.newLine();
-                    }
-                }
+                
+                scrapers.entrySet().stream()
+                    .filter(entry -> link.contains(entry.getKey()))
+                    .findFirst()
+                    .ifPresent(entry -> {
+                        try
+                        {
+                            JobPost post = entry.getValue().scrapeJob(link);
+                            writePost(writer, post);
+                        }
+                        catch (IOException exception1)
+                        {
+                            System.err.println("\nError scraping " + link + ": " + exception1.getMessage());
+                            exception1.printStackTrace();
+                            try
+                            {
+                                errorWriter.write(link + ": " + exception1.getMessage());
+                                errorWriter.newLine();
+                            }
+                            catch (IOException exception2)
+                            {
+                                System.err.println("Error writing to error log: " + exception2.getMessage());
+                            }
+                        }
+                    });
             }
             System.out.println("\nScraping completed. Data saved to: " + outputFile);
         }
