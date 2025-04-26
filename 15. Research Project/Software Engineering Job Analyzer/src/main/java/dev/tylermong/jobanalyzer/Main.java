@@ -1,8 +1,6 @@
 package dev.tylermong.jobanalyzer;
 
-import dev.tylermong.jobanalyzer.scraper.data.GreenhouseScraper;
-import dev.tylermong.jobanalyzer.scraper.data.LeverScraper;
-import dev.tylermong.jobanalyzer.scraper.data.WorkdayScraper;
+import dev.tylermong.jobanalyzer.scraper.ScraperFactory;
 import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
 import dev.tylermong.jobanalyzer.analyzer.SkillAnalyzer;
@@ -16,9 +14,7 @@ public class Main
         new JobScrapingService(
                 new SimplifyInternshipScraper(),
                 new VanshInternshipScraper(),
-                new WorkdayScraper(),
-                new GreenhouseScraper(),
-                new LeverScraper(),
+                ScraperFactory.createDataScrapers(),
                 "15. Research Project/Software Engineering Job Analyzer/output/DataResults.txt").scrapeAndWrite();
 
         SkillAnalyzer.writeSkillFrequencyToFile();
