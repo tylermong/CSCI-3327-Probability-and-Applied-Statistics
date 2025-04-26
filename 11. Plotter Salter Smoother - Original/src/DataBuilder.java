@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -15,13 +16,22 @@ public class DataBuilder
 
         try
         {
-            FileWriter writer = new FileWriter("data.csv");
+            File outputDirectory = new File("11. Plotter Salter Smoother - Original/output/");
+            if (!outputDirectory.exists())
+            {
+                outputDirectory.mkdirs();
+                System.out.println("Created output directory: " + outputDirectory.getPath());
+            }
+
+            FileWriter writer = new FileWriter("11. Plotter Salter Smoother - Original/output/data.csv");
+            
             writer.append("x,y\n");
             for (int i = 0; i < xValues.size(); i++)
             {
                 writer.append(xValues.get(i) + "," + yValues.get(i) + "\n");
             }
             writer.close();
+            System.out.println("Data successfully written to output/data.csv");
         }
         catch (IOException e)
         {
