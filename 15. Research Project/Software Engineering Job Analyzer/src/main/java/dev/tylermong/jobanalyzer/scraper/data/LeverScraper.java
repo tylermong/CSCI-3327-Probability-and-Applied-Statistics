@@ -17,7 +17,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class LeverScraper implements JobScraper
+public class LeverScraper implements DataScraper
 {
     public JobPost scrapeJob(String url) throws IOException
     {

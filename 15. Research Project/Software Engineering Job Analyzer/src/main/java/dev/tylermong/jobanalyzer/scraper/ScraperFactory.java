@@ -6,14 +6,14 @@ import java.util.Map;
 
 public class ScraperFactory
 {
-    public static Map<String, JobScraper> createDataScrapers()
+    public static Map<String, DataScraper> createDataScrapers()
     {
-        Map<String, JobScraper> scrapers = new HashMap<>();
+        Map<String, DataScraper> dataScrapers = new HashMap<>();
 
-        scrapers.put("Greenhouse", new GreenhouseScraper());
-        scrapers.put("Lever", new LeverScraper());
-        scrapers.put("Workday", new WorkdayScraper());
-        
-        return scrapers;
+        dataScrapers.put("Greenhouse", new GreenhouseScraper());
+        dataScrapers.put("Lever", new LeverScraper());
+        dataScrapers.put("Workday", new WorkdayScraper());
+
+        return dataScrapers;
     }
 }

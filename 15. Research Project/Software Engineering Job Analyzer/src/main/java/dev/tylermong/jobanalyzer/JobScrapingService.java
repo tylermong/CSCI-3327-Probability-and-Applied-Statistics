@@ -2,7 +2,7 @@ package dev.tylermong.jobanalyzer;
 
 import dev.tylermong.jobanalyzer.scraper.postings.SimplifyInternshipScraper;
 import dev.tylermong.jobanalyzer.scraper.postings.VanshInternshipScraper;
-import dev.tylermong.jobanalyzer.scraper.data.JobScraper;
+import dev.tylermong.jobanalyzer.scraper.data.DataScraper;
 import dev.tylermong.jobanalyzer.model.JobPost;
 import dev.tylermong.jobanalyzer.util.ProgressBar;
 
@@ -23,14 +23,14 @@ public class JobScrapingService
 {
     private final SimplifyInternshipScraper simplifyLinkScraper;
     private final VanshInternshipScraper vanshLinkScraper;
-    private final Map<String, JobScraper> dataScrapers;
+    private final Map<String, DataScraper> dataScrapers;
     private final String outputFile;
     private final String deadLinksFile = "15. Research Project/Software Engineering Job Analyzer/output/DeadLinks.txt";
 
     public JobScrapingService(
             SimplifyInternshipScraper simplifyLinkScraper,
             VanshInternshipScraper vanshLinkScraper,
-            Map<String, JobScraper> dataScrapers,
+            Map<String, DataScraper> dataScrapers,
             String outputFile)
     {
         this.simplifyLinkScraper = simplifyLinkScraper;
