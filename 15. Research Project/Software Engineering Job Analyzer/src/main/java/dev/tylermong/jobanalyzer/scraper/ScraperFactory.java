@@ -23,9 +23,9 @@ public class ScraperFactory
     {
         Map<String, DataScraper> dataScrapers = new HashMap<>();
 
-        dataScrapers.put("Greenhouse", new GreenhouseScraper());
-        dataScrapers.put("Lever", new LeverScraper());
-        dataScrapers.put("Workday", new WorkdayScraper());
+        dataScrapers.put("greenhouse", new GreenhouseScraper());
+        dataScrapers.put("lever", new LeverScraper());
+        dataScrapers.put("workday", new WorkdayScraper());
 
         return dataScrapers;
     }
