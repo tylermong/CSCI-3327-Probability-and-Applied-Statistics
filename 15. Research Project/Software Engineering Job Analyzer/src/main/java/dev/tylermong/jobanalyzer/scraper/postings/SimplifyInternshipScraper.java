@@ -16,7 +16,7 @@ import java.nio.file.Path;
 import java.io.BufferedWriter;
 import java.util.Comparator;
 
-public class SimplifyInternshipScraper
+public class SimplifyInternshipScraper implements LinkScraper
 {
     private static final String RAW_README_URL = "https://raw.githubusercontent.com/SimplifyJobs/Summer2025-Internships/refs/heads/dev/README.md";
     // title keywords to exclude
@@ -25,6 +25,7 @@ public class SimplifyInternshipScraper
             "Researcher", "PHD", "Supply Chain", "Analytics", "GIS", "Solutions", "Hardware"
     };
 
+    @Override
     public List<String> scrapeLinks() throws IOException
     {
         String readmeContent = Jsoup.connect(RAW_README_URL)
@@ -60,6 +61,7 @@ public class SimplifyInternshipScraper
         return jobPostingURLs;
     }
 
+    @Override
     public Map<String, Integer> countJobBoardFrequencies(List<String> jobPostingURLs)
     {
         Map<String, Integer> frequencies = new HashMap<>();
@@ -83,6 +85,7 @@ public class SimplifyInternshipScraper
         return frequencies;
     }
 
+    @Override
     public void writeFrequenciesToFile(Map<String, Integer> frequencies, String outputFilePath) throws IOException
     {
         Path path = Paths.get(outputFilePath);
