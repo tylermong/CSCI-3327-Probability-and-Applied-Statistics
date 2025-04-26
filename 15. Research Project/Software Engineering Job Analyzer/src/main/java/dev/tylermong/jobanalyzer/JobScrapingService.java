@@ -75,7 +75,7 @@ public class JobScrapingService
 
         List<String> useableLinks = links.stream()
             .filter(link -> !deadLinks.contains(link))
-            .filter(link -> dataScrapers.keySet().stream().anyMatch(link::contains))
+            .filter(link -> dataScrapers.keySet().stream().anyMatch(key -> link.toLowerCase().contains(key.toLowerCase())))
             .collect(Collectors.toList());
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
         {
