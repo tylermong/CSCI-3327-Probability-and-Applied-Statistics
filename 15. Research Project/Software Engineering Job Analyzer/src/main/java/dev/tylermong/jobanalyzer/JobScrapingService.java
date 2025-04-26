@@ -132,7 +132,7 @@ public class JobScrapingService
     private void writePost(BufferedWriter w, JobPost p) throws IOException
     {
         // If the post is empty (job filled/removed), skip it
-        if (p.getCompany() == null && p.getTitle() == null && p.getLocation() == null && p.getSkills() == null)
+        if (p.getCompany().trim().isEmpty() && p.getTitle().trim().isEmpty() && p.getLocation().trim().isEmpty() && p.getSkills().isEmpty())
         {
             return;
         }
@@ -150,6 +150,4 @@ public class JobScrapingService
         w.newLine();
         w.flush();
     }
-
-
 }
