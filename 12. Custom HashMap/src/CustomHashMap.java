@@ -129,7 +129,8 @@ public class CustomHashMap<K, V>
      * @param key   the key to be hashed
      * @return      the length of the key, used as the index in the buckets array
      */
-    @Deprecated
+    @Deprecated(since = "1.0", forRemoval = false)
+    @SuppressWarnings({"java:S1133", "unused"})
     private int simpleHash(K key)
     {
         if (key == null)
