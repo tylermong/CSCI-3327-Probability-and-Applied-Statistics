@@ -3,12 +3,14 @@ import java.util.ArrayList;
 
 public class Smoother
 {
-    private final int windowValue = 5;
+    private int windowValue;
     private ArrayList<Double> xValues;
     private ArrayList<Double> yValues;
     private ArrayList<Double> smoothedYValues;
 
-    public Smoother() {
+    public Smoother(int windowValue)
+    {
+        this.windowValue = windowValue;
         xValues = new ArrayList<>();
         yValues = new ArrayList<>();
         smoothedYValues = new ArrayList<>();
@@ -42,7 +44,6 @@ public class Smoother
             }
             
             bufferedReader.close();
-            System.out.println("Loaded " + xValues.size() + " data points for smoothing");
         }
         catch (Exception exception)
         {
@@ -52,6 +53,7 @@ public class Smoother
     
     private void smoothData()
     {
+        System.out.println("\nSmoothing data with window value of " + windowValue + "...");
         for (int i = 0; i < yValues.size(); i++)
         {
             // Calculate the window boundaries
@@ -72,8 +74,6 @@ public class Smoother
             double average = sum / count;
             smoothedYValues.add(average);
         }
-        
-        System.out.println("Smoothing completed with window value: " + windowValue);
     }
     
     private void saveSmoothedData()
@@ -89,7 +89,7 @@ public class Smoother
             }
             
             fileWriter.close();
-            System.out.println("Smoothed data saved to output/smoothed_data.csv");
+            System.out.println("Smoothing complete, data data saved to output/smoothed_data.csv");
         }
         catch (Exception exception)
         {
