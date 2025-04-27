@@ -31,7 +31,7 @@ public class DataBuilder
                 writer.append(xValues.get(i) + "," + yValues.get(i) + "\n");
             }
             writer.close();
-            System.out.println("Data successfully written to output/data.csv");
+            System.out.println("\nInitial data written to output/data.csv");
         }
         catch (IOException e)
         {
@@ -45,6 +45,7 @@ public class DataBuilder
         System.out.println("1. f(x) = x + 1");
         System.out.println("2. f(x) = x^2");
         System.out.println("3. f(x) = log(x)");
+        System.out.print("Selection: ");
         int selection = in.nextInt() - 1;
 
         if (selection < 0 || selection > 2)
