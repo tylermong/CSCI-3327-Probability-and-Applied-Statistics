@@ -2,14 +2,17 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * A custom implementation of a {@code HashMap} data structure using an array of linked lists for each bucket. This class handles generic key-value pairs and provides basic public methods such as: {@code put}, {@code get}, {@code contains}, and {@code size}. Internally, it has methods for hashing keys ({@code simpleHash}) and resizing the map when the load factor exceeds a predefined threshold ({@code resize}).
+ * A custom implementation of a {@code HashMap} data structure using an array of linked lists for each bucket. This
+ * class handles generic key-value pairs and provides basic public methods such as: {@code put}, {@code get},
+ * {@code contains}, and {@code size}. Internally, it has methods for hashing keys ({@code simpleHash}) and resizing the
+ * map when the load factor exceeds a predefined threshold ({@code resize}).
  * 
- * @param <K>   the type of keys maintained by this map
- * @param <V>   the type of mapped values
- * @author      Tyler Mong
- * @version     1.0
+ * @param <K> the type of keys maintained by this map
+ * @param <V> the type of mapped values
+ * @author Tyler Mong
+ * @version 1.0
  */
-public class CustomHashMap<K, V> 
+public class CustomHashMap<K, V>
 {
     /**
      * The initial capacity of the HashMap.
@@ -25,20 +28,23 @@ public class CustomHashMap<K, V>
      * Buckets used to store the key-value pairs. Each bucket is a linked list of entries.
      */
     private ArrayList<LinkedList<Entry<K, V>>> buckets;
-    
+
     /**
-     * The capacity of the HashMap. By default, it is set to {@code INITIAL_CAPACITY}, which is 16. The capacity is doubled when the load factor exceeds the threshold.
+     * The capacity of the HashMap. By default, it is set to {@code INITIAL_CAPACITY}, which is 16. The capacity is
+     * doubled when the load factor exceeds the threshold.
      */
     private int capacity;
-    
+
     /**
-     * The size of the {@code HashMap}, which is the number of key-value pairs currently stored in it.
-     * The size is incremented when a new key-value pair is added and decremented when a key-value pair is removed. It is also used to determine when to resize the HashMap.
+     * The size of the {@code HashMap}, which is the number of key-value pairs currently stored in it. The size is
+     * incremented when a new key-value pair is added and decremented when a key-value pair is removed. It is also used
+     * to determine when to resize the HashMap.
      */
     private int size;
 
     /**
-     * Constructs an empty {@code HashMap} with the default initial capacity of 16. The size is initialized to 0, and each bucket is initialized as an empty linked list.
+     * Constructs an empty {@code HashMap} with the default initial capacity of 16. The size is initialized to 0, and
+     * each bucket is initialized as an empty linked list.
      */
     public CustomHashMap()
     {
@@ -48,18 +54,18 @@ public class CustomHashMap<K, V>
 
         for (int i = 0; i < capacity; i++)
         {
-            buckets.add(new LinkedList<>());    // Initialize LinkedList<Entry<K, V>> for each bucket
+            buckets.add(new LinkedList<>()); // Initialize LinkedList<Entry<K, V>> for each bucket
         }
     }
 
     /**
-     * Associates the specified value with the specified key in this {@code HashMap}.
-     * If the {@code HashMap} previously contained a mapping for the key, the old value is replaced.
-     * Resizes the map if the load factor exceeds the threshold.
+     * Associates the specified value with the specified key in this {@code HashMap}. If the {@code HashMap} previously
+     * contained a mapping for the key, the old value is replaced. Resizes the map if the load factor exceeds the
+     * threshold.
      * 
      * @param key   the key to be inserted into the {@code HashMap}
      * @param value the value to be associated with the key
-     * @return      the old value associated with the key, or null if the key was not already present
+     * @return the old value associated with the key, or null if the key was not already present
      */
     public V put(K key, V value)
     {
@@ -68,7 +74,7 @@ public class CustomHashMap<K, V>
         {
             resize();
         }
-        
+
         // Calculate the index and get the corresponding bucket
         int index = hash(key);
         LinkedList<Entry<K, V>> bucket = buckets.get(index);
@@ -92,18 +98,18 @@ public class CustomHashMap<K, V>
     }
 
     /**
-     * Returns the value to which the specified key is mapped, or {@code null} if this map
-     * contains no mapping for the key.
+     * Returns the value to which the specified key is mapped, or {@code null} if this map contains no mapping for the
+     * key.
      * 
-     * @param key   the key whose value is to be returned
-     * @return      the value to which the key is mapped, or {@code null} if the key is not found in the {@code HashMap}
+     * @param key the key whose value is to be returned
+     * @return the value to which the key is mapped, or {@code null} if the key is not found in the {@code HashMap}
      */
     public V get(K key)
     {
         // Calculate the index and get the corresponding bucket
         int index = hash(key);
         LinkedList<Entry<K, V>> bucket = buckets.get(index);
-        
+
         // Check each entry in the bucket for the key
         for (Entry<K, V> entry : bucket)
         {
@@ -113,7 +119,7 @@ public class CustomHashMap<K, V>
                 return entry.getValue();
             }
         }
-        
+
         // Key is not found, so return null
         return null;
     }
@@ -121,29 +127,30 @@ public class CustomHashMap<K, V>
     /**
      * Hashes the specified key to an index in the buckets array.
      * 
-     * @deprecated  This method uses a simple hashing algorithm, based on the length
-     *              of the key, which causes a high number of collisions.
-     *              Use {@link #hash(Object)} instead for a more efficient hashing
-     *              algorithm, which implements Java's standard HashMap hashing algorithm.
+     * @deprecated This method uses a simple hashing algorithm, based on the length of the key, which causes a high
+     *             number of collisions. Use {@link #hash(Object)} instead for a more efficient hashing algorithm, which
+     *             implements Java's standard HashMap hashing algorithm.
      * 
-     * @param key   the key to be hashed
-     * @return      the length of the key, used as the index in the buckets array
+     * @param key the key to be hashed
+     * @return the length of the key, used as the index in the buckets array
      */
     @Deprecated(since = "1.0", forRemoval = false)
-    @SuppressWarnings({"java:S1133", "unused"})
+    @SuppressWarnings(
+    { "java:S1133", "unused" })
     private int simpleHash(K key)
     {
         if (key == null)
         {
             return 0;
         }
-        
+
         return key.toString().length();
     }
 
     /**
-     * Hashes the specified key to an index in the buckets array.
-     * This implementation is based on Java's standard HashMap hashing algorithm, which uses the key's hashCode method and applies a bitwise XOR operation to reduce collisions.
+     * Hashes the specified key to an index in the buckets array. This implementation is based on Java's standard
+     * HashMap hashing algorithm, which uses the key's hashCode method and applies a bitwise XOR operation to reduce
+     * collisions.
      * 
      * @param key
      * @return
@@ -162,15 +169,15 @@ public class CustomHashMap<K, V>
     /**
      * Returns true if this HashMap contains a mapping for the specified key.
      * 
-     * @param key   the key whose presence in this HashMap is to be tested
-     * @return      {@code true} if this map contains a mapping for the specified key, {@code false} otherwise
+     * @param key the key whose presence in this HashMap is to be tested
+     * @return {@code true} if this map contains a mapping for the specified key, {@code false} otherwise
      */
     public boolean contains(K key)
     {
         // Calculate the index and get the corresponding bucket
         int index = hash(key);
         LinkedList<Entry<K, V>> bucket = buckets.get(index);
-        
+
         // Check each entry in the bucket for the key
         for (Entry<K, V> entry : bucket)
         {
@@ -180,7 +187,7 @@ public class CustomHashMap<K, V>
                 return true;
             }
         }
-        
+
         // Key is not found, so return false
         return false;
     }
@@ -200,7 +207,7 @@ public class CustomHashMap<K, V>
         // Initialize each bucket as an empty linked list
         for (int i = 0; i < capacity; i++)
         {
-            buckets.add(new LinkedList<>());    // Initialize LinkedList<Entry<K, V>> for each bucket
+            buckets.add(new LinkedList<>()); // Initialize LinkedList<Entry<K, V>> for each bucket
         }
 
         // Reset size (this will be updated as we re-add entries)
@@ -219,7 +226,7 @@ public class CustomHashMap<K, V>
     /**
      * Returns the number of key-value mappings in this {@code HashMap}.
      * 
-     * @return  the number of key-value mappings in this {@code HashMap}
+     * @return the number of key-value mappings in this {@code HashMap}
      */
     public int size()
     {
