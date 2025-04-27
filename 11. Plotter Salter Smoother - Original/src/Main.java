@@ -5,10 +5,10 @@ public class Main
         DataBuilder dataBuilder = new DataBuilder();
         dataBuilder.run();
 
-        Salter salter = new Salter();
+        Salter salter = new Salter(10);
         salter.run();
         
-        Smoother smoother = new Smoother();
+        Smoother smoother = new Smoother(5);
         smoother.run();
     }
 }
