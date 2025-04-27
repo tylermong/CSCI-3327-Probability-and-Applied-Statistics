@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -23,7 +24,7 @@ public class CustomHashMap<K, V>
     /**
      * Buckets used to store the key-value pairs. Each bucket is a linked list of entries.
      */
-    private LinkedList<Entry<K, V>>[] buckets;
+    private ArrayList<LinkedList<Entry<K, V>>> buckets;
     
     /**
      * The capacity of the HashMap. By default, it is set to {@code INITIAL_CAPACITY}, which is 16. The capacity is doubled when the load factor exceeds the threshold.
@@ -43,11 +44,11 @@ public class CustomHashMap<K, V>
     {
         this.capacity = INITIAL_CAPACITY;
         this.size = 0;
-        this.buckets = new LinkedList[capacity];
+        this.buckets = new ArrayList<>(capacity);
 
         for (int i = 0; i < capacity; i++)
         {
-            buckets[i] = new LinkedList<Entry<K, V>>();
+            buckets.add(new LinkedList<>());    // Initialize LinkedList<Entry<K, V>> for each bucket
         }
     }
 
@@ -70,7 +71,7 @@ public class CustomHashMap<K, V>
         
         // Calculate the index and get the corresponding bucket
         int index = hash(key);
-        LinkedList<Entry<K, V>> bucket = buckets[index];
+        LinkedList<Entry<K, V>> bucket = buckets.get(index);
 
         // Check each entry in the bucket for the key
         for (Entry<K, V> entry : bucket)
@@ -101,7 +102,7 @@ public class CustomHashMap<K, V>
     {
         // Calculate the index and get the corresponding bucket
         int index = hash(key);
-        LinkedList<Entry<K, V>> bucket = buckets[index];
+        LinkedList<Entry<K, V>> bucket = buckets.get(index);
         
         // Check each entry in the bucket for the key
         for (Entry<K, V> entry : bucket)
@@ -167,7 +168,7 @@ public class CustomHashMap<K, V>
     {
         // Calculate the index and get the corresponding bucket
         int index = hash(key);
-        LinkedList<Entry<K, V>> bucket = buckets[index];
+        LinkedList<Entry<K, V>> bucket = buckets.get(index);
         
         // Check each entry in the bucket for the key
         for (Entry<K, V> entry : bucket)
@@ -189,16 +190,16 @@ public class CustomHashMap<K, V>
     private void resize()
     {
         // Create a copy of the old buckets
-        LinkedList<Entry<K, V>>[] oldBuckets = buckets;
+        ArrayList<LinkedList<Entry<K, V>>> oldBuckets = buckets;
 
         // Create a new array with the new (doubled) capacity
         capacity *= 2;
-        buckets = new LinkedList[capacity];
+        buckets = new ArrayList<>(capacity);
 
         // Initialize each bucket as an empty linked list
         for (int i = 0; i < capacity; i++)
         {
-            buckets[i] = new LinkedList<>();
+            buckets.add(new LinkedList<>());    // Initialize LinkedList<Entry<K, V>> for each bucket
         }
 
         // Reset size (this will be updated as we re-add entries)
