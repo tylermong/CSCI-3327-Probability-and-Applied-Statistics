@@ -88,6 +88,7 @@ public class CustomHashMapTester
 		performanceComparisonWithSize(1000);
 		performanceComparisonWithSize(10000);
 		performanceComparisonWithSize(100000);
+		performanceComparisonWithSize(1000000);
 	}
 
 	public void performanceComparisonWithSize(int size)
@@ -165,26 +166,31 @@ public class CustomHashMapTester
 		System.out.printf("\tCustom HashMap Initialization Time: %.2f ms%n", customInitializationTime);
 		System.out.printf("\tJava HashMap Initialization Time: %.2f ms%n", javaInitializationTime);
 		double initializationTimeDifference = (customInitializationTime - javaInitializationTime);
-		System.out.printf("\tInitialization Time Difference: %s%.2f ms%n%n",
-				initializationTimeDifference > 0 ? "+" : "", initializationTimeDifference);
+		double initializationTimeDifferenceMultiplier = (customInitializationTime / javaInitializationTime);
+		System.out.printf("\tInitialization Time Difference: %s%.2f ms (%.2fx) %n%n",
+				initializationTimeDifference > 0 ? "+" : "", initializationTimeDifference,
+				initializationTimeDifferenceMultiplier);
 
 		System.out.printf("\tCustom HashMap Insertion Time: %.2f ms%n", customInsertionTime);
 		System.out.printf("\tJava HashMap Insertion Time: %.2f ms%n", javaInsertionTime);
 		double insertionTimeDifference = (customInsertionTime - javaInsertionTime);
-		System.out.printf("\tInsertion Time Difference: %s%.2f ms%n%n", insertionTimeDifference > 0 ? "+" : "",
-				insertionTimeDifference);
+		double insertionTimeDifferenceMultiplier = (customInsertionTime / javaInsertionTime);
+		System.out.printf("\tInsertion Time Difference: %s%.2f ms (%.2fx) %n%n", insertionTimeDifference > 0 ? "+" : "",
+				insertionTimeDifference, insertionTimeDifferenceMultiplier);
 
 		System.out.printf("\tCustom HashMap Retrieval Time: %.2f ms%n", customRetrievalTime);
 		System.out.printf("\tJava HashMap Retrieval Time: %.2f ms%n", javaRetrievalTime);
 		double retrievalTimeDifference = (customRetrievalTime - javaRetrievalTime);
-		System.out.printf("\tRetrieval Time Difference: %s%.2f ms%n%n", retrievalTimeDifference > 0 ? "+" : "",
-				retrievalTimeDifference);
+		double retrievalTimeDifferenceMultiplier = (customRetrievalTime / javaRetrievalTime);
+		System.out.printf("\tRetrieval Time Difference: %s%.2f ms (%.2fx) %n%n", retrievalTimeDifference > 0 ? "+" : "",
+				retrievalTimeDifference, retrievalTimeDifferenceMultiplier);
 
 		System.out.printf("\tCustom HashMap Deletion Time: %.2f ms%n", customDeletionTime);
 		System.out.printf("\tJava HashMap Deletion Time: %.2f ms%n", javaDeletionTime);
 		double deletionTimeDifference = (customDeletionTime - javaDeletionTime);
-		System.out.printf("\tDeletion Time Difference: %s%.2f ms%n%n", deletionTimeDifference > 0 ? "+" : "",
-				deletionTimeDifference);
+		double deletionTimeDifferenceMultiplier = (customDeletionTime / javaDeletionTime);
+		System.out.printf("\tDeletion Time Difference: %s%.2f ms (%.2fx) %n%n", deletionTimeDifference > 0 ? "+" : "",
+				deletionTimeDifference, deletionTimeDifferenceMultiplier);
 
 		double customTotalTime = (customInitializationTime + customInsertionTime + customRetrievalTime
 				+ customDeletionTime);
@@ -192,8 +198,9 @@ public class CustomHashMapTester
 		System.out.printf("\tCustom HashMap Total Time: %.2f ms%n", customTotalTime);
 		System.out.printf("\tJava HashMap Total Time: %.2f ms%n", javaTotalTime);
 		double totalTimeDifference = (customTotalTime - javaTotalTime);
-		System.out.printf("\tTotal Time Difference: %s%.2f ms%n", totalTimeDifference > 0 ? "+" : "",
-				totalTimeDifference);
+		double totalTimeDifferenceMultiplier = (customTotalTime / javaTotalTime);
+		System.out.printf("\tTotal Time Difference: %s%.2f ms (%.2fx) %n%n", totalTimeDifference > 0 ? "+" : "",
+				totalTimeDifference, totalTimeDifferenceMultiplier);
 
 		System.out.println();
 	}
