@@ -201,7 +201,5 @@ public class CustomHashMapTester
 		double totalTimeDifferenceMultiplier = (customTotalTime / javaTotalTime);
 		System.out.printf("\tTotal Time Difference: %s%.2f ms (%.2fx) %n%n", totalTimeDifference > 0 ? "+" : "",
 				totalTimeDifference, totalTimeDifferenceMultiplier);
-
-		System.out.println();
 	}
 }
