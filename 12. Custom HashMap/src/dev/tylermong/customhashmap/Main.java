@@ -1,3 +1,5 @@
+package dev.tylermong.customhashmap;
+
 public class Main
 {
     // TODO: Abstract logic into a separate class
@@ -19,8 +21,6 @@ public class Main
 
         System.out.println(customHashMap1.size());
 
-
-        
         CustomHashMap<Integer, Double> customHashMap2 = new CustomHashMap<>();
         customHashMap2.put(1, 10.0);
         customHashMap2.put(2, 20.0);
@@ -36,5 +36,5 @@ public class Main
         System.out.println(customHashMap2.contains(4));
 
         System.out.println(customHashMap2.size());
-    }   
+    }
 }
