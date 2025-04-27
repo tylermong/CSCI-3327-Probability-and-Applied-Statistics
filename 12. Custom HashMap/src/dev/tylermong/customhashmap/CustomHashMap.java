@@ -128,6 +128,12 @@ public class CustomHashMap<K, V>
         return null;
     }
 
+    // TODO: Remove method to be implemented
+    public V remove(K key)
+    {
+        return null;
+    }
+
     /**
      * Hashes the specified key to an index in the buckets array.
      * 
