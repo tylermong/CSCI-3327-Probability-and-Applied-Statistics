@@ -128,9 +128,32 @@ public class CustomHashMap<K, V>
         return null;
     }
 
-    // TODO: Remove method to be implemented
+    /**
+     * Removes the mapping for the specified key from this {@code HashMap} if present. If the map contains a mapping for
+     * the key, the value is removed and returned. Otherwise, it returns {@code null}.
+     * 
+     * @param  key the key whose mapping is to be removed
+     * @return     the value to which the key was mapped, or {@code null} if the key is not found
+     */
     public V remove(K key)
     {
+        // Calculate the index and get the corresponding bucket
+        int index = hash(key);
+        LinkedList<Entry<K, V>> bucket = buckets.get(index);
+
+        // Check each entry in the bucket for the key
+        for (Entry<K, V> entry : bucket)
+        {
+            // Key is found, so remove it and return its value
+            if ((key == null && entry.getKey() == null) || (key != null && key.equals(entry.getKey())))
+            {
+                bucket.remove(entry);
+                size--;
+                return entry.getValue();
+            }
+        }
+
+        // Key is not found, so return null
         return null;
     }
 
