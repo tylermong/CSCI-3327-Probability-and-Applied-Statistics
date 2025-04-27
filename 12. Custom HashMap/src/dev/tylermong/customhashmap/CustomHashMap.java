@@ -17,9 +17,11 @@ import java.util.LinkedList;
 public class CustomHashMap<K, V>
 {
     /**
-     * The initial capacity of the HashMap.
+     * The initial capacity of the HashMap. "1 << 4" is "1" (0001) bitwise left shifted 4 times, which is equal to 16
+     * (10000). "1 << 4" is used to signify that the initial capacity is a power of 2, which is important for the
+     * getting the index in the {@code hash} method.
      */
-    private static final int INITIAL_CAPACITY = 16;
+    private static final int INITIAL_CAPACITY = 1 << 4;
 
     /**
      * The load factor threshold for resizing the HashMap.
@@ -150,12 +152,16 @@ public class CustomHashMap<K, V>
     }
 
     /**
-     * Hashes the specified key to an index in the buckets array. This implementation is based on Java's standard
-     * HashMap hashing algorithm, which uses the key's hashCode method and applies a bitwise XOR operation to reduce
-     * collisions.
+     * Hashes the specified key to an index in the buckets array.
      * 
-     * @param  key
-     * @return
+     * This implementation is based on Java's standard HashMap hashing algorithm, which uses the key's hashCode method
+     * and applies a bitwise XOR operation to reduce collisions.
+     * 
+     * It also ensures that the index is within the bounds of the buckets array by applying a bitwise AND operation with
+     * the capacity minus one, also from Java's standard HashMap implementation.
+     * 
+     * @param  key the key to be hashed
+     * @return     the index in the buckets array where the key-value pair should be stored
      */
     private int hash(K key)
     {
@@ -164,8 +170,9 @@ public class CustomHashMap<K, V>
             return 0;
         }
 
-        int hash = key.hashCode();
-        return hash ^ (hash >>> 16);
+        int hash = key.hashCode() ^ (key.hashCode() >>> 16);
+
+        return hash & (capacity - 1);
     }
 
     /**
