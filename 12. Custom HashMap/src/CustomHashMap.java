@@ -69,7 +69,7 @@ public class CustomHashMap<K, V>
         }
         
         // Calculate the index and get the corresponding bucket
-        int index = simpleHash(key);
+        int index = hash(key);
         LinkedList<Entry<K, V>> bucket = buckets[index];
 
         // Check each entry in the bucket for the key
@@ -100,7 +100,7 @@ public class CustomHashMap<K, V>
     public V get(K key)
     {
         // Calculate the index and get the corresponding bucket
-        int index = simpleHash(key);
+        int index = hash(key);
         LinkedList<Entry<K, V>> bucket = buckets[index];
         
         // Check each entry in the bucket for the key
@@ -166,7 +166,7 @@ public class CustomHashMap<K, V>
     public boolean contains(K key)
     {
         // Calculate the index and get the corresponding bucket
-        int index = simpleHash(key);
+        int index = hash(key);
         LinkedList<Entry<K, V>> bucket = buckets[index];
         
         // Check each entry in the bucket for the key
