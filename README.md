@@ -47,3 +47,18 @@ Project documentation is available in the `docs` folder, and can also be viewed 
 
 ### 10. Pokémon Rare Candy Brick Probability Simulation
 Computes the probability of a deck resulting in a Rare Candy brick, for each number of Rare Candies in the deck (1 to 4), by simulating the initial game state N times.
+
+### 11. Plotter, Salter, Smoother - Original
+TODO: Add description.
+
+### 12. Custom HashMap
+TODO: Add description.
+
+### 13. Plotter, Salter, Smoother - Octave
+TODO: Add description.
+
+### 14. Plotter, Salter, Smoother - API
+TODO: Add description.
+
+### 15. Research Project
+TODO: Add description.
