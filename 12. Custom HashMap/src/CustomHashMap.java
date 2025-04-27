@@ -121,7 +121,7 @@ public class CustomHashMap<K, V>
     /**
      * Hashes the specified key to an index in the buckets array.
      * 
-     * @deprecated  This method uses a simple hashing algoritm, based on the length
+     * @deprecated  This method uses a simple hashing algorithm, based on the length
      *              of the key, which causes a high number of collisions.
      *              Use {@link #hash(Object)} instead for a more efficient hashing
      *              algorithm, which implements Java's standard HashMap hashing algorithm.
