@@ -7,10 +7,10 @@ import java.util.LinkedList;
  * {@code contains}, and {@code size}. Internally, it has methods for hashing keys ({@code simpleHash}) and resizing the
  * map when the load factor exceeds a predefined threshold ({@code resize}).
  * 
- * @param <K> the type of keys maintained by this map
- * @param <V> the type of mapped values
- * @author Tyler Mong
- * @version 1.0
+ * @param   <K> the type of keys maintained by this map
+ * @param   <V> the type of mapped values
+ * @author      Tyler Mong
+ * @version     1.0
  */
 public class CustomHashMap<K, V>
 {
@@ -63,9 +63,9 @@ public class CustomHashMap<K, V>
      * contained a mapping for the key, the old value is replaced. Resizes the map if the load factor exceeds the
      * threshold.
      * 
-     * @param key   the key to be inserted into the {@code HashMap}
-     * @param value the value to be associated with the key
-     * @return the old value associated with the key, or null if the key was not already present
+     * @param  key   the key to be inserted into the {@code HashMap}
+     * @param  value the value to be associated with the key
+     * @return       the old value associated with the key, or null if the key was not already present
      */
     public V put(K key, V value)
     {
@@ -101,8 +101,8 @@ public class CustomHashMap<K, V>
      * Returns the value to which the specified key is mapped, or {@code null} if this map contains no mapping for the
      * key.
      * 
-     * @param key the key whose value is to be returned
-     * @return the value to which the key is mapped, or {@code null} if the key is not found in the {@code HashMap}
+     * @param  key the key whose value is to be returned
+     * @return     the value to which the key is mapped, or {@code null} if the key is not found in the {@code HashMap}
      */
     public V get(K key)
     {
@@ -127,12 +127,12 @@ public class CustomHashMap<K, V>
     /**
      * Hashes the specified key to an index in the buckets array.
      * 
-     * @deprecated This method uses a simple hashing algorithm, based on the length of the key, which causes a high
-     *             number of collisions. Use {@link #hash(Object)} instead for a more efficient hashing algorithm, which
-     *             implements Java's standard HashMap hashing algorithm.
+     * @deprecated     This method uses a simple hashing algorithm, based on the length of the key, which causes a high
+     *                 number of collisions. Use {@link #hash(Object)} instead for a more efficient hashing algorithm,
+     *                 which implements Java's standard HashMap hashing algorithm.
      * 
-     * @param key the key to be hashed
-     * @return the length of the key, used as the index in the buckets array
+     * @param      key the key to be hashed
+     * @return         the length of the key, used as the index in the buckets array
      */
     @Deprecated(since = "1.0", forRemoval = false)
     @SuppressWarnings(
@@ -152,7 +152,7 @@ public class CustomHashMap<K, V>
      * HashMap hashing algorithm, which uses the key's hashCode method and applies a bitwise XOR operation to reduce
      * collisions.
      * 
-     * @param key
+     * @param  key
      * @return
      */
     private int hash(K key)
@@ -169,8 +169,8 @@ public class CustomHashMap<K, V>
     /**
      * Returns true if this HashMap contains a mapping for the specified key.
      * 
-     * @param key the key whose presence in this HashMap is to be tested
-     * @return {@code true} if this map contains a mapping for the specified key, {@code false} otherwise
+     * @param  key the key whose presence in this HashMap is to be tested
+     * @return     {@code true} if this map contains a mapping for the specified key, {@code false} otherwise
      */
     public boolean contains(K key)
     {
