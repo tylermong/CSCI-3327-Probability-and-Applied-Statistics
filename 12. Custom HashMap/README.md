@@ -1,4 +1,5 @@
 TODO README
 
 TODO
-- [ ] Abstract testing logic from main into a separate class.
+- [x] Implement better hash function.
+- [ ] Abstract testing from Main class into a separate class.
