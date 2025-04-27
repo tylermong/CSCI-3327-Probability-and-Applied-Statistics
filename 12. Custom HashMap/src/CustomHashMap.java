@@ -117,7 +117,18 @@ public class CustomHashMap<K, V>
         return null;
     }
 
-    // TODO: Update this to use a better hash function
+    /**
+     * Hashes the specified key to an index in the buckets array.
+     * 
+     * @deprecated  This method uses a simple hashing algoritm, based on the length
+     *              of the key, which causes a high number of collisions.
+     *              Use {@link #hash(Object)} instead for a more efficient hashing
+     *              algorithm, which implements Java's standard HashMap hashing algorithm.
+     * 
+     * @param key   the key to be hashed
+     * @return      the length of the key, used as the index in the buckets array
+     */
+    @Deprecated
     private int simpleHash(K key)
     {
         if (key == null)
@@ -126,6 +137,24 @@ public class CustomHashMap<K, V>
         }
         
         return key.toString().length();
+    }
+
+    /**
+     * Hashes the specified key to an index in the buckets array.
+     * This implementation is based on Java's standard HashMap hashing algorithm, which uses the key's hashCode method and applies a bitwise XOR operation to reduce collisions.
+     * 
+     * @param key
+     * @return
+     */
+    private int hash(K key)
+    {
+        if (key == null)
+        {
+            return 0;
+        }
+
+        int hash = key.hashCode();
+        return hash ^ (hash >>> 16);
     }
 
     /**
