@@ -3,6 +3,9 @@
 ## Overview
 This project creates a custom HashMap in Java. It includes a `CustomHashMap` class that implements the basic functionality of a HashMap, including `put`, `get`, and `remove` methods. This class uses an array of linked lists to store the key-value pairs, and handles collisions using chaining. It also includes an `Entry` class that represents an individual key-value pair within the HashMap. Next, it includes a `CustomHashMapTester` class that contains tests to ensure the functionality of the `CustomHashMap` class along with performance tests compared to the built-in `HashMap` class. Finally, it includes a `Main` class that serves as the entry point to the program.
 
+## Javadoc
+The Javadoc for the project is available at the following link: [Custom HashMap Javadoc](https://custom-hashmap-docs.tylermong.dev/)
+
 ## Class Descriptions
 `Main`: This class is the entry point of the program. It initializes the `CustomHashMapTester` class and calls its `runAllTests` method to execute all the tests.
 
