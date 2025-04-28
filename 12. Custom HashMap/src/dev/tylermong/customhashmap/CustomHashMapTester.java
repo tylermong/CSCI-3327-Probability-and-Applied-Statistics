@@ -2,8 +2,18 @@ package dev.tylermong.customhashmap;
 
 import java.util.HashMap;
 
+/**
+ * This class tests the functionality of the CustomHashMap class and compares its performance with the Java HashMap. It
+ * includes tests for different key-value pairs and performance comparisons for various sizes of data
+ * 
+ * @author  Tyler Mong
+ * @version 1.0
+ */
 public class CustomHashMapTester
 {
+	/**
+	 * Runs all the test in this class along with the performance comparison tests.
+	 */
 	public void runAllTests()
 	{
 		testStringIntegerMap();
@@ -13,6 +23,9 @@ public class CustomHashMapTester
 		performanceComparison();
 	}
 
+	/**
+	 * Tests the functionality of the CustomHashMap with String keys and Integer values.
+	 */
 	public void testStringIntegerMap()
 	{
 		System.out.println("[Custom String:Integer Map Tests]");
@@ -37,6 +50,9 @@ public class CustomHashMapTester
 		System.out.println();
 	}
 
+	/**
+	 * Tests the functionality of the CustomHashMap with Integer keys and Double values.
+	 */
 	public void testIntegerDoubleMap()
 	{
 		System.out.println("[Custom Integer:Double Map Tests]");
@@ -60,6 +76,9 @@ public class CustomHashMapTester
 		System.out.println();
 	}
 
+	/**
+	 * Tests the functionality of the CustomHashMap with String keys and String values.
+	 */
 	public void testStringStringMap()
 	{
 		System.out.println("[Custom String:String Map Tests]:");
@@ -83,6 +102,9 @@ public class CustomHashMapTester
 		System.out.println();
 	}
 
+	/**
+	 * Calls the performance comparison method for different sizes of data.
+	 */
 	public void performanceComparison()
 	{
 		performanceComparisonWithSize(1000);
@@ -91,6 +113,12 @@ public class CustomHashMapTester
 		performanceComparisonWithSize(1000000);
 	}
 
+	/**
+	 * Compares the performance of the CustomHashMap to the Java HashMap for a given size of data. It measures the time
+	 * taken for initialization, insertion, retrieval, and deletion operations for both maps and prints the results.
+	 * 
+	 * @param size the size of data to be used for the performance comparison
+	 */
 	public void performanceComparisonWithSize(int size)
 	{
 		long startTime;
@@ -163,6 +191,7 @@ public class CustomHashMapTester
 		endTime = System.nanoTime();
 		double customDeletionTime = (endTime - startTime) / 1000000.0;
 
+		// Print the initialization results
 		System.out.printf("\tCustom HashMap Initialization Time: %.2f ms%n", customInitializationTime);
 		System.out.printf("\tJava HashMap Initialization Time: %.2f ms%n", javaInitializationTime);
 		double initializationTimeDifference = (customInitializationTime - javaInitializationTime);
@@ -171,6 +200,7 @@ public class CustomHashMapTester
 				initializationTimeDifference > 0 ? "+" : "", initializationTimeDifference,
 				initializationTimeDifferenceMultiplier);
 
+		// Print the insertion results
 		System.out.printf("\tCustom HashMap Insertion Time: %.2f ms%n", customInsertionTime);
 		System.out.printf("\tJava HashMap Insertion Time: %.2f ms%n", javaInsertionTime);
 		double insertionTimeDifference = (customInsertionTime - javaInsertionTime);
@@ -178,6 +208,7 @@ public class CustomHashMapTester
 		System.out.printf("\tInsertion Time Difference: %s%.2f ms (%.2fx) %n%n", insertionTimeDifference > 0 ? "+" : "",
 				insertionTimeDifference, insertionTimeDifferenceMultiplier);
 
+		// Print the retrieval results
 		System.out.printf("\tCustom HashMap Retrieval Time: %.2f ms%n", customRetrievalTime);
 		System.out.printf("\tJava HashMap Retrieval Time: %.2f ms%n", javaRetrievalTime);
 		double retrievalTimeDifference = (customRetrievalTime - javaRetrievalTime);
@@ -185,6 +216,7 @@ public class CustomHashMapTester
 		System.out.printf("\tRetrieval Time Difference: %s%.2f ms (%.2fx) %n%n", retrievalTimeDifference > 0 ? "+" : "",
 				retrievalTimeDifference, retrievalTimeDifferenceMultiplier);
 
+		// Print the deletion results
 		System.out.printf("\tCustom HashMap Deletion Time: %.2f ms%n", customDeletionTime);
 		System.out.printf("\tJava HashMap Deletion Time: %.2f ms%n", javaDeletionTime);
 		double deletionTimeDifference = (customDeletionTime - javaDeletionTime);
@@ -192,6 +224,7 @@ public class CustomHashMapTester
 		System.out.printf("\tDeletion Time Difference: %s%.2f ms (%.2fx) %n%n", deletionTimeDifference > 0 ? "+" : "",
 				deletionTimeDifference, deletionTimeDifferenceMultiplier);
 
+		// Print the total time results
 		double customTotalTime = (customInitializationTime + customInsertionTime + customRetrievalTime
 				+ customDeletionTime);
 		double javaTotalTime = (javaInitializationTime + javaInsertionTime + javaRetrievalTime + javaDeletionTime);
