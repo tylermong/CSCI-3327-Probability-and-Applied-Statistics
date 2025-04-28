@@ -5,4 +5,4 @@ TODO
 - [x] Abstract testing from Main class into a separate class.
 - [x] Comment all code.
 - [ ] Generate and host JavaDocs.
-- [ ] Write submission document.
+- [x] Write submission document.
