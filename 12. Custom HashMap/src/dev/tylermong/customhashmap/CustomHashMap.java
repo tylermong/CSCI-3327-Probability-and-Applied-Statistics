@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- * A custom implementation of a {@code HashMap} data structure using an array of linked lists for each bucket. This
+ * This class is a custom implementation of a {@code HashMap} data structure using an array of linked lists for each bucket. This
  * class handles generic key-value pairs and provides basic public methods such as: {@code put}, {@code get},
  * {@code contains}, and {@code size}. Internally, it has methods for hashing keys ({@code simpleHash}) and resizing the
  * map when the load factor exceeds a predefined threshold ({@code resize}).

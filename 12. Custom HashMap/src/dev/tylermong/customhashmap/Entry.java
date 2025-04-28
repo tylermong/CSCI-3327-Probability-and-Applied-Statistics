@@ -1,7 +1,7 @@
 package dev.tylermong.customhashmap;
 
 /**
- * Represents an entry in the custom hash map. It uses generics to allow for any type of key and value.
+ * This class represents an entry in the custom hash map. It uses generics to allow for any type of key and value.
  * 
  * @param <K> the type of the key
  * @param <V> the type of the value
