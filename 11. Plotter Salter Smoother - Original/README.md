@@ -15,10 +15,13 @@ This project implements functionality for plotting, salting, and smoothing data.
 ## How to Run
 1. Navigate to the `/src` directory.
 2. Run the `Main.java` file.
-3. Follow the prompts to select a function, enter x values, and specify the `variability` and `windowValue` parameters.
-4. The program will generate the data, salt it, and smooth it, writing the results to the respective CSV files, in the `/output` directory.
+3. Follow the prompts to select a function and enter x values.
+4. The program will generate the data, salt it, and smooth it, writing the results to the respective CSV files, in the `/output` directory. (An example of the output is provided in the `example_output` directory.)
 
-### Images
+### Plotted Data
+Three data sets were generated using the same function but with varying parameters, in order to visualize the differences in the results. Each sheet contains the original data, salted data, and smoothed data. These tables are plotted both individually (on their own graphs) and collectively (on a combined graph) for an easy visual analysis. Additionally, a comparison sheet displays overlaid plots from all three data sets, showing how different parameter choices can affect the results. Finally, the comparison sheet also compares the differences with individual parameters, such as `variability` = `10` vs. `variability` = `30`. This sheet can be found in the current directory, labeled as `11. Plotter Salter Smoother - Original.xlsx`, or can be viewed in the images below.
+
+## Images
 #### Console output:
 ![Console Output](./images/console_output.png)
 
@@ -30,6 +33,12 @@ This project implements functionality for plotting, salting, and smoothing data.
 
 #### Smoothed_data.csv:
 ![Smoothed_data.csv](./images/smoothed_data_csv.png)
+
+#### Original_Salted_Smoothed.png:
+![Original_Salted_Smoothed](./images/Original_Salted_Smoothed.png)
+
+### Comparison.png:
+![Comparison](./images/Comparison.png)
 
 TODO:
 - [x] Modify `variability` and `windowValue` to be user inputs, rather than values set in the source code.
