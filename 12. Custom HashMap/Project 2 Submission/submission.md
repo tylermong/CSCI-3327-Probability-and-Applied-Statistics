@@ -13,7 +13,7 @@ The Javadoc for the project is available at the following link: [Custom HashMap 
 
 `Entry`: This class represents an individual key-value pair within the HashMap. It contains a key and value, and uses generic types to allow for any type of key and value. The `getKey` and `getValue` methods return the key and value, respectively, and the `setValue` method allows for updating the value associated with a key.
 
-`CustomHashMapTester`: This class contains tests to ensure the functionality of the `CustomHashMap` class. It includes tests for initializing the HashMap, putting, getting, and removing key-value pairs, checking if a key is present, and implicitly testing the hashing and resizing functionality. It also includes performance tests that compare the performance of the `CustomHashMap` class with the built-in `HashMap` class.
+`CustomHashMapTester`: This class contains tests to ensure the functionality of the `CustomHashMap` class. It includes tests for initializing the HashMap, putting, getting, and removing key-value pairs, checking if a key is present, and implicitly testing the hashing and resizing functionality. It also includes performance tests that compare the performance of the `CustomHashMap` class with the built-in `HashMap` class. It times the aforementioned operations for both classes for different sizes of data (1k, 10k, 100k, and 1M) over 10 iterations and prints the results to the console. The `performanceComparisonWithSize` method is used to run these tests and can be publicly called with `size` and `runs` parameters, if the user wants to run the performance tests with different parameters.
 
 ## How to Run
 1. Navigate to the `/src` directory.
