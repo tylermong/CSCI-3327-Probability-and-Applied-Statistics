@@ -34,4 +34,4 @@ This project implements functionality for plotting, salting, and smoothing data.
 TODO:
 - [x] Modify `variability` and `windowValue` to be user inputs, rather than values set in the source code.
 - [x] Update the README to reflect the changes made above.
-- [ ] Add a screenshot of the plotted data to the submission document.
+- [x] Add a screenshot of the plotted data to the submission document.
