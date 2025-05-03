@@ -8,7 +8,7 @@ public class Main
         Salter salter = new Salter();
         salter.run();
         
-        Smoother smoother = new Smoother(5);
+        Smoother smoother = new Smoother();
         smoother.run();
     }
 }
