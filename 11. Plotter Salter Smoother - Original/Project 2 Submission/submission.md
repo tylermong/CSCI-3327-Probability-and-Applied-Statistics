@@ -16,7 +16,7 @@ This project implements functionality for plotting, salting, and smoothing data.
 1. Navigate to the `/src` directory.
 2. Run the `Main.java` file.
 3. Follow the prompts to select a function and enter x values.
-4. The program will generate the data, salt it, and smooth it, writing the results to the respective CSV files, in the `/output` directory.
+4. The program will generate the data, salt it, and smooth it, writing the results to the respective CSV files, in the `/output` directory. (An example of the output is provided in the `example_output` directory.)
 
 ### Images
 #### Console output:
