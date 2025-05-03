@@ -18,7 +18,7 @@ This project implements functionality for plotting, salting, and smoothing data.
 3. Follow the prompts to select a function and enter x values.
 4. The program will generate the data, salt it, and smooth it, writing the results to the respective CSV files, in the `/output` directory. (An example of the output is provided in the `example_output` directory.)
 
-### Plotted Data
+## Plotted Data
 Three data sets were generated using the same function but with varying parameters, in order to visualize the differences in the results. Each sheet contains the original data, salted data, and smoothed data. These tables are plotted both individually (on their own graphs) and collectively (on a combined graph) for an easy visual analysis. Additionally, a comparison sheet displays overlaid plots from all three data sets, showing how different parameter choices can affect the results. Finally, the comparison sheet also compares the differences with individual parameters, such as `variability` = `10` vs. `variability` = `30`. This sheet can be found in the current directory, labeled as `11. Plotter Salter Smoother - Original.xlsx`, or can be viewed in the images below.
 
 ## Images
