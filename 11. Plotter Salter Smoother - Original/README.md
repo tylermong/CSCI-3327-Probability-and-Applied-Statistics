@@ -21,6 +21,9 @@ This project implements functionality for plotting, salting, and smoothing data.
 ## Plotted Data
 Three data sets were generated using the same function but with varying parameters, in order to visualize the differences in the results. Each sheet contains the original data, salted data, and smoothed data. These tables are plotted both individually (on their own graphs) and collectively (on a combined graph) for an easy visual analysis. Additionally, a comparison sheet displays overlaid plots from all three data sets, showing how different parameter choices can affect the results. Finally, the comparison sheet also compares the differences with individual parameters, such as `variability` = `10` vs. `variability` = `30`. This sheet can be found in the current directory, labeled as `11. Plotter Salter Smoother - Original.xlsx`, or can be viewed in the images below.
 
+## Plotted Data Takeaways
+Each of the graphs provide some unique insight into the data and how the different parameters affect the results. For instance, as expected a larger `variability` value results in a more noisy graph, where the y values are less accurate to the original y values. The `windowValue` parameter also influences the smoothed data, where a larger `windowValue` results in a smoother graph, as the average is less affected by any particular y value. The same conclusions could have been drawn from the tables themselves, however, the graphs provided an easier to grasp visual representation of the data.
+
 ## Images
 #### Console output:
 ![Console Output](./images/console_output.png)
