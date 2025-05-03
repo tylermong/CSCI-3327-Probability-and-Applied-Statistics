@@ -1,16 +1,37 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Smoother
 {
+    private static final Scanner scanner = new Scanner(System.in);
     private int windowValue;
     private ArrayList<Double> xValues;
     private ArrayList<Double> yValues;
     private ArrayList<Double> smoothedYValues;
 
-    public Smoother(int windowValue)
+    public Smoother()
     {
-        this.windowValue = windowValue;
+        System.out.print("Enter window value (or press Enter for default value of 5): ");
+        String input = scanner.nextLine().trim();
+        
+        if (input.isEmpty())
+        {
+            this.windowValue = 5;
+            System.out.println("Using default window value: 5");
+        }
+        else
+        {
+            try
+            {
+                this.windowValue = Integer.parseInt(input);
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Invalid input. Using default window value: 5");
+                this.windowValue = 5;
+            }
+        }
         xValues = new ArrayList<>();
         yValues = new ArrayList<>();
         smoothedYValues = new ArrayList<>();
