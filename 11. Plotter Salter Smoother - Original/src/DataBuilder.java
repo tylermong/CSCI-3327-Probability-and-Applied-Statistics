@@ -8,14 +8,16 @@ public class DataBuilder
 {
     private final static Scanner in = new Scanner(System.in);
 
+    // Main method to run the DataBuilder. Prompts the user to select a function and input x values.
     public void run()
     {
         int selectedFunction = selectFunction();
         ArrayList<Double> xValues = getXValues();
-        ArrayList<Double> yValues = getYValues(selectedFunction, xValues);
+        ArrayList<Double> yValues = getYValues(selectedFunction, xValues); // Based on user selected function and x values
 
         try
         {
+            // Create output directory if it doesn't exist
             File outputDirectory = new File("11. Plotter Salter Smoother - Original/output/");
             if (!outputDirectory.exists())
             {
@@ -25,6 +27,7 @@ public class DataBuilder
 
             FileWriter writer = new FileWriter("11. Plotter Salter Smoother - Original/output/data.csv");
             
+            // Header of "x,y", followed by the x and y values
             writer.append("x,y\n");
             for (int i = 0; i < xValues.size(); i++)
             {
@@ -39,6 +42,7 @@ public class DataBuilder
         }
     }
 
+    // Prompts the user to select a function, that will be used to generate the y values.
     private int selectFunction()
     {
         System.out.println("Select a function to plot:");
@@ -48,6 +52,7 @@ public class DataBuilder
         System.out.print("Selection: ");
         int selection = in.nextInt() - 1;
 
+        // Validate the selection
         if (selection < 0 || selection > 2)
         {
             System.out.println("Invalid selection. Please try again.");
@@ -57,6 +62,7 @@ public class DataBuilder
         return selection;
     }
 
+    // Prompts the user to input x values, which will be used to generate the y values.
     private ArrayList<Double> getXValues()
     {
         ArrayList<Double> xValues = new ArrayList<>();
@@ -82,6 +88,7 @@ public class DataBuilder
         return xValues;
     }
 
+    // Based on the user selected function and x values, this method generates the y values.
     private ArrayList<Double> getYValues(int selectedFunction, ArrayList<Double> xValues)
     {
         switch (selectedFunction)
@@ -97,6 +104,7 @@ public class DataBuilder
         }
     }
 
+    // f(x) = x + 1
     private ArrayList<Double> function1(ArrayList<Double> xValues)
     {
         ArrayList<Double> yValues = new ArrayList<>();
@@ -108,6 +116,7 @@ public class DataBuilder
         return yValues;
     }
 
+    // f(x) = x^2
     private ArrayList<Double> function2(ArrayList<Double> xValues)
     {
         ArrayList<Double> yValues = new ArrayList<>();
@@ -119,6 +128,7 @@ public class DataBuilder
         return yValues;
     }
 
+    // f(x) = log(x)
     private ArrayList<Double> function3(ArrayList<Double> xValues)
     {
         ArrayList<Double> yValues = new ArrayList<>();
