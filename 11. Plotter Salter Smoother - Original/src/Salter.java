@@ -1,14 +1,35 @@
 import java.io.*;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Salter
 {
     private static final Random random = new Random();
+    private static final Scanner scanner = new Scanner(System.in);
     private int variability;
 
-    public Salter(int variability)
+    public Salter()
     {
-        this.variability = variability;
+        System.out.print("Enter variability (or press Enter for default value of 10): ");
+        String input = scanner.nextLine().trim();
+        
+        if (input.isEmpty())
+        {
+            this.variability = 10;
+            System.out.println("Using default variability: 10");
+        }
+        else
+        {
+            try
+            {
+                this.variability = Integer.parseInt(input);
+            }
+            catch (NumberFormatException e)
+            {
+                System.out.println("Invalid input. Using default variability: 10");
+                this.variability = 10;
+            }
+        }
     }
 
     public void run()
