@@ -9,7 +9,7 @@ public class Salter
     private int variability;
 
     // Constructor to initialize variability with user input or default value
-    // If the input is invalid, it will use the default value of 10
+    // If the input is invalid or none is provided, it will use the default value of 10
     public Salter()
     {
         System.out.print("\nEnter variability (or press Enter for default value of 10): ");
