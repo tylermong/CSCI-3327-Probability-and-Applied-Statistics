@@ -35,10 +35,10 @@ Three data sets were generated using the same function but with varying paramete
 ![Smoothed_data.csv](./images/smoothed_data_csv.png)
 
 #### Original_Salted_Smoothed.png:
-![Original_Salted_Smoothed](./images/Original_Salted_Smoothed.png)
+![Original_Salted_Smoothed](./images/original_salted_smoothed.png)
 
 ### Comparison.png:
-![Comparison](./images/Comparison.png)
+![Comparison](./images/comparison.png)
 
 TODO:
 - [x] Modify `variability` and `windowValue` to be user inputs, rather than values set in the source code.
