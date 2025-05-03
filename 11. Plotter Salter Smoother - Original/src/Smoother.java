@@ -10,6 +10,8 @@ public class Smoother
     private ArrayList<Double> yValues;
     private ArrayList<Double> smoothedYValues;
 
+    // Constructor to initialize window value with user input or default value
+    //If the input is invalid or none is provided, it will use the default value of 5
     public Smoother()
     {
         System.out.print("\nEnter window value (or press Enter for default value of 5): ");
@@ -37,13 +39,15 @@ public class Smoother
         smoothedYValues = new ArrayList<>();
     }
 
+    // Main method to run the Smoother
     public void run()
     {
         loadData();
         smoothData();
         saveSmoothedData();
     }
-    
+
+    // Reads the salted data from a CSV file and stores it in two ArrayLists, one for x-values and one for y-values
     private void loadData()
     {
         try
@@ -56,6 +60,7 @@ public class Smoother
             
             while ((line = bufferedReader.readLine()) != null)
             {
+                // Given the data is in the format "x,y", we split the line by the comma and parse the values
                 String[] values = line.split(",");
                 double x = Double.parseDouble(values[0]);
                 double y = Double.parseDouble(values[1]);
@@ -71,15 +76,16 @@ public class Smoother
             System.out.println("Error loading data: " + exception);
         }
     }
-    
+
+    // Smooths the y-values using a moving average with the specified window value
     private void smoothData()
     {
         System.out.println("Smoothing data with window value of " + windowValue + "...");
         for (int i = 0; i < yValues.size(); i++)
         {
             // Calculate the window boundaries
-            int leftBound = Math.max(0, i - windowValue);
-            int rightBound = Math.min(yValues.size() - 1, i + windowValue);
+            int leftBound = Math.max(0, i - windowValue); // Ensure left bound is not negative
+            int rightBound = Math.min(yValues.size() - 1, i + windowValue); // Ensure right bound is not out of bounds
             
             double sum = 0;
             int count = 0;
@@ -96,7 +102,8 @@ public class Smoother
             smoothedYValues.add(average);
         }
     }
-    
+
+    // Saves the smoothed data to a new CSV file
     private void saveSmoothedData()
     {
         try
@@ -104,13 +111,14 @@ public class Smoother
             FileWriter fileWriter = new FileWriter("11. Plotter Salter Smoother - Original/output/smoothed_data.csv");
             fileWriter.append("x,y\n");
             
+            // Write the smoothed data to the new CSV file
             for (int i = 0; i < xValues.size(); i++)
             {
                 fileWriter.append(xValues.get(i) + "," + smoothedYValues.get(i) + "\n");
             }
             
             fileWriter.close();
-            System.out.println("Smoothing complete, data data saved to output/smoothed_data.csv");
+            System.out.println("Smoothing complete, data saved to output/smoothed_data.csv");
         }
         catch (Exception exception)
         {
