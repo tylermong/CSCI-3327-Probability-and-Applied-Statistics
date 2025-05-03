@@ -12,7 +12,7 @@ public class Smoother
 
     public Smoother()
     {
-        System.out.print("Enter window value (or press Enter for default value of 5): ");
+        System.out.print("\nEnter window value (or press Enter for default value of 5): ");
         String input = scanner.nextLine().trim();
         
         if (input.isEmpty())
@@ -74,7 +74,7 @@ public class Smoother
     
     private void smoothData()
     {
-        System.out.println("\nSmoothing data with window value of " + windowValue + "...");
+        System.out.println("Smoothing data with window value of " + windowValue + "...");
         for (int i = 0; i < yValues.size(); i++)
         {
             // Calculate the window boundaries

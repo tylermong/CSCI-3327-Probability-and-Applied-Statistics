@@ -10,7 +10,7 @@ public class Salter
 
     public Salter()
     {
-        System.out.print("Enter variability (or press Enter for default value of 10): ");
+        System.out.print("\nEnter variability (or press Enter for default value of 10): ");
         String input = scanner.nextLine().trim();
         
         if (input.isEmpty())
@@ -44,7 +44,7 @@ public class Salter
             BufferedReader bufferedReader = new BufferedReader(new FileReader("11. Plotter Salter Smoother - Original/output/data.csv"));
             FileWriter fileWriter = new FileWriter("11. Plotter Salter Smoother - Original/output/salted_data.csv");
             String line = bufferedReader.readLine();
-            System.out.println("\nSalting data with variability of " + variability + "...");
+            System.out.println("Salting data with variability of " + variability + "...");
 
             fileWriter.append("x,y\n");
             while ((line = bufferedReader.readLine()) != null)

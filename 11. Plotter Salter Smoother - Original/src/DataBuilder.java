@@ -31,7 +31,7 @@ public class DataBuilder
                 writer.append(xValues.get(i) + "," + yValues.get(i) + "\n");
             }
             writer.close();
-            System.out.println("\nInitial data written to output/data.csv");
+            System.out.println("Initial data written to output/data.csv");
         }
         catch (IOException e)
         {
