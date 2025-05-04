@@ -30,6 +30,7 @@ In order to learn Octave's syntax, I read through the official [documentation](h
 - [1.3.3 Printing Notation](https://docs.octave.org/latest/Printing-Notation.html)
 - [3.3 Object Sizes](https://docs.octave.org/latest/Object-Sizes.html)
 - [4.2 Ranges](https://docs.octave.org/latest/Ranges.html)
+- [5.4.2 Numerical Data and Strings](https://docs.octave.org/latest/Numerical-Data-and-Strings.html)
 - [6.4 Comma-Separated Lists](https://docs.octave.org/latest/Comma_002dSeparated-Lists.html)
 - [8.3 Arithmetic Operators](https://docs.octave.org/latest/Arithmetic-Ops.html)
 - [10.1 The if Statement](https://docs.octave.org/latest/The-if-Statement.html)
