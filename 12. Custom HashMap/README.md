@@ -35,28 +35,27 @@ The two graphs provide some interesting insight into how both the `CustomHashMap
 ## Images
 
 #### Custom HashMap Tests:
-
-![Custom HashMap Tests](Project 2 Submission/images/CustomHashMapTests.png)
+![Custom HashMap Tests](./Project%202%20Submission/images/CustomHashMapTests.png)
 
 #### HashMap Comparison 1k:
 
-![HashMap Comparison 1k](Project 2 Submission/images/HashMapComparison1k.png)
+![HashMap Comparison 1k](./Project%202%20Submission/images/HashMapComparison1k.png)
 
 #### HashMap Comparison 10k:
 
-![HashMap Comparison 10k](Project 2 Submission/images/HashMapComparison10k.png)
+![HashMap Comparison 10k](./Project%202%20Submission/images/HashMapComparison10k.png)
 
 #### HashMap Comparison 100k:
 
-![HashMap Comparison 100k](Project 2 Submission/images/HashMapComparison100k.png)
+![HashMap Comparison 100k](./Project%202%20Submission/images/HashMapComparison100k.png)
 
 #### HashMap Comparison 1M:
 
-![HashMap Comparison 1M](Project 2 Submission/images/HashMapComparison1M.png)
+![HashMap Comparison 1M](./Project%202%20Submission/images/HashMapComparison1M.png)
 
 ### Graphed Data
 
-![Graphed Data](Project 2 Submission/images/GraphedData.png)
+![Graphed Data](./Project%202%20Submission/images/GraphedData.png)
 
 TODO
 
