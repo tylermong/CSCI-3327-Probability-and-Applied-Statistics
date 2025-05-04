@@ -13,4 +13,5 @@ function smoothedYValues = smoother(xValues, saltedYValues)
         window = saltedYValues(leftBound:rightBound);
         smoothedYValues(i) = mean(window);
     end
+    printf('Smoothing complete\n');
 end
