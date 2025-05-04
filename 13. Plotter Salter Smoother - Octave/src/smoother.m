@@ -1,6 +1,6 @@
 function smoothedYValues = smoother(xValues, saltedYValues)
     windowValue = 2;
-    fprintf('\nWindow value = 2\n');
+    printf('\nWindow value = 2\n');
 
     % Initialize the smoothed y values array
     smoothedYValues = zeros(size(saltedYValues));
