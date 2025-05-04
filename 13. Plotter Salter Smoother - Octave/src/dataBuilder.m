@@ -12,4 +12,5 @@ function [xValues, yValues] = dataBuilder()
     end
 
     yValues = power(xValues, 2);
+    printf('Data building complete\n')
 end
