@@ -1,7 +1,7 @@
 % Main script for Plotter Salter Smoother
 
 % Build the initial data
-[xValues, yValues] = dataBuilder();
+[xValues, yValues] = databuilder();
 
 % Salt the data
 saltedYValues = salter(xValues, yValues);
@@ -10,4 +10,4 @@ saltedYValues = salter(xValues, yValues);
 smoothedYValues = smoother(xValues, saltedYValues);
 
 % Plot all datasets together for comparison
-plotAllData(xValues, yValues, saltedYValues, smoothedYValues);
+plotalldata(xValues, yValues, saltedYValues, smoothedYValues);
