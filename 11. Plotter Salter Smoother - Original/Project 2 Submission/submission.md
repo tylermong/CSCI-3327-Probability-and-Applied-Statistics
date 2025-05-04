@@ -40,5 +40,5 @@ Each of the graphs provide some unique insight into the data and how the differe
 #### Original_Salted_Smoothed.png:
 ![Original_Salted_Smoothed](./images/original_salted_smoothed.png)
 
-### Comparison.png:
+#### Comparison.png:
 ![Comparison](./images/comparison.png)
