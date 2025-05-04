@@ -33,30 +33,29 @@ Each of the graphs provide some unique insight into the data and how the differe
 
 #### Console output:
 
-![Console Output](Project 2 Submission/images/console_output.png)
+![Console Output](./Project%202%20Submission/images/console_output.png)
 
 #### Data.csv:
 
-![Data.csv](Project 2 Submission/images/data_csv.png)
+![Data.csv](./Project%202%20Submission/images/data_csv.png)
 
 #### Salted_data.csv:
 
-![Salted_data.csv](Project 2 Submission/images/salted_data_csv.png)
+![Salted_data.csv](./Project%202%20Submission/images/salted_data_csv.png)
 
 #### Smoothed_data.csv:
 
-![Smoothed_data.csv](Project 2 Submission/images/smoothed_data_csv.png)
+![Smoothed_data.csv](./Project%202%20Submission/images/smoothed_data_csv.png)
 
 #### Original_Salted_Smoothed.png:
 
-![Original_Salted_Smoothed](Project 2 Submission/images/original_salted_smoothed.png)
+![Original_Salted_Smoothed](./Project%202%20Submission/images/original_salted_smoothed.png)
 
-### Comparison.png:
+#### Comparison.png:
 
-![Comparison](Project 2 Submission/images/comparison.png)
+![Comparison](./Project%202%20Submission/images/comparison.png)
 
-TODO:
-
+## TODO:
 - [X] Modify `variability` and `windowValue` to be user inputs, rather than values set in the source code.
 - [X] Update the README to reflect the changes made above.
 - [X] Add a screenshot of the plotted data to the submission document.
