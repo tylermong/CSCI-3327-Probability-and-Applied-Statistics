@@ -35,6 +35,7 @@ The two graphs provide some interesting insight into how both the `CustomHashMap
 ## Images
 
 #### Custom HashMap Tests:
+
 ![Custom HashMap Tests](./Project%202%20Submission/images/CustomHashMapTests.png)
 
 #### HashMap Comparison 1k:
@@ -53,15 +54,15 @@ The two graphs provide some interesting insight into how both the `CustomHashMap
 
 ![HashMap Comparison 1M](./Project%202%20Submission/images/HashMapComparison1M.png)
 
-### Graphed Data
+#### Graphed Data
 
 ![Graphed Data](./Project%202%20Submission/images/GraphedData.png)
 
-TODO
+## TODO
 
-- [X] Implement better hash function.
-- [X] Abstract testing from Main class into a separate class.
-- [X] Comment all code.
-- [X] Generate and host JavaDocs.
-- [X] Write submission document.
-- [X] Implement runs parameter for performance tests.
+- [x] Implement better hash function.
+- [x] Abstract testing from Main class into a separate class.
+- [x] Comment all code.
+- [x] Generate and host JavaDocs.
+- [x] Write submission document.
+- [x] Implement runs parameter for performance tests.
