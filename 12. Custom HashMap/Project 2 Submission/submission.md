@@ -20,7 +20,13 @@ The Javadoc for the project is available at the following link: [Custom HashMap 
 2. Run the `Main.java` file.
 3. The program will run all the tests and print the results to the console.
 
-### Images
+## Graphed Data
+The results of the performance tests along with some additional comparisons are stored in the `12. Custom HashMap.xlsx` file, which can be found in the current directory, or viewed in the images below. Specifically, these insights are focused around two graphs: "Total Execution Time vs Input Size" and "Custom vs Java Total Time Ratio by Input Size". The first graph shows the total execution time for both the `CustomHashMap` and Java's `HashMap` for various input sizes (1k, 10k, 100k, and 1M). The second graph shows the ratio of the total execution time of the `CustomHashMap` to that of Java's `HashMap` for the same input sizes. These graphs provide a visual representation of the performance of the `CustomHashMap` compared to Java's built-in `HashMap`.
+
+## Graphed Data Takeaways
+The two graphs provide some interesting insight into how both the `CustomHashMap` and Java's `HashMap` scale with growing input sizes. The first graph shows that the `CustomHashMap` has a higher total execution time compared to Java's `HashMap` for all input sizes, which is to be expected given the lack of optimizations the `CustomHashMap` has compared to Java's `HashMap`. However, the second graph shows that the ratio of the total execution time of the `CustomHashMap` to that of Java's `HashMap` decreases as the input size increases. This alone indicates that the `CustomHashMap` is able to scale more efficiently than Java's `HashMap` as the input size increases. With this being said, taking the data at face value would be misleading, for a number of reasons, including the size of the input data and the small number of runs. Overall, while the `CustomHashMap` is overall slower than Java's `HashMap`, the scaling of the `CustomHashMap` looks promising, and with further optimizations, it could come close to 1:1 performance with Java's `HashMap`.
+
+## Images
 #### Custom HashMap Tests:
 ![Custom HashMap Tests](./images/CustomHashMapTests.png)
 
@@ -35,3 +41,6 @@ The Javadoc for the project is available at the following link: [Custom HashMap 
 
 #### HashMap Comparison 1M:
 ![HashMap Comparison 1M](./images/HashMapComparison1M.png)
+
+### Graphed Data
+![Graphed Data](./images/GraphedData.png)
