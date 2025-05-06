@@ -1,1 +1,3 @@
-TOOD
+[createXYLineChart](https://www.jfree.org/jfreechart/api/javadoc/org/jfree/chart/ChartFactory.html#createXYLineChart-java.lang.String-java.lang.String-java.lang.String-org.jfree.data.xy.XYDataset-org.jfree.chart.plot.PlotOrientation-boolean-boolean-boolean-)
+[XYSeriesCollection](https://www.jfree.org/jfreechart/api/javadoc/org/jfree/data/xy/XYSeriesCollection.html#XYSeriesCollection--)
+[XYSeries](https://www.jfree.org/jfreechart/api/javadoc/org/jfree/data/xy/XYSeries.html#XYSeries-java.lang.Comparable-)
