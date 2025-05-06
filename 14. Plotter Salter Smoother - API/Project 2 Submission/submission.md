@@ -34,7 +34,7 @@ In order to learn JFreeChart's API, I read through the official [documentation](
 ## Images
 
 #### Console Output:
-![Console Output](.images/console_output.png)
+![Console Output](./images/console_output.png)
 
 #### Plotted Data:
 ![Plotted Data](./images/plotted_data.png)
