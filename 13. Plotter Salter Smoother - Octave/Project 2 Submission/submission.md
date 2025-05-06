@@ -1,4 +1,4 @@
-# Plotter Salter Smoother - Octave
+# Plotter Salter Smoother - Octave: Submission
 
 ## Overview
 
