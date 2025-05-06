@@ -1,0 +1,864 @@
+Company: 1010 Analog Devices Inc.
+Title: Central Applications Engineering Intern
+Location: US, CA, San Jose, Rio Robles
+Skills: [Go]
+URL: https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/US-CA-San-Jose-Rio-Robles/Central-Applications-Engineering-Intern_R243701
+
+Company: Arrowstreet Capital, Limited Partnership
+Title: Compute Platform Software Engineer Intern, Summer 2025
+Location: Boston
+Skills: [Docker, Observability, AWS, Python, Kubernetes]
+URL: https://arrowstreetcapital.wd5.myworkdayjobs.com/en-US/Arrowstreet/job/Boston/Compute-Platform-Software-Engineer-Intern--Summer-2025_R1286
+
+Company: Arrowstreet Capital, Limited Partnership
+Title: Frameworks Software Engineer Intern, Summer 2025
+Location: Boston
+Skills: [Java, Docker, Scala, Containers, API, AWS, Python, SQL]
+URL: https://arrowstreetcapital.wd5.myworkdayjobs.com/en-US/Arrowstreet/job/Boston/Frameworks-Software-Engineer-Intern--Summer-2025_R1273
+
+Company: AssetMark Financial Holdings, Inc.
+Title: Software Engineer Intern
+Location: Austin
+Skills: [C#, Java, JavaScript, Python]
+URL: https://assetmark.wd5.myworkdayjobs.com/en-US/AssetMark_Careers/job/Austin-TX/Software-Engineer-Intern_Req-002962
+
+Company: 00001 HILL-ROM COMPANY, INC. USA
+Title: 2025 Summer Intern - DevOps Software Engineer
+Location: NC0308 - Raleigh, NC
+Skills: [C#, Azure, C++, Retrospectives, Git, Docker, GitHub, .NET, Pulumi, Python]
+URL: https://baxter.wd1.myworkdayjobs.com/en-US/baxter/job/Raleigh-North-Carolina/XMLNAME-2025-Summer-Intern---DevOps-Software-Engineer_JR-169268-1
+
+Company: 00001 HILL-ROM COMPANY, INC. USA
+Title: 2025 Summer Intern - Software Engineer
+Location: NC0308 - Raleigh, NC
+Skills: [C#, NUnit, Retrospectives, .NET, React, Angular]
+URL: https://baxter.wd1.myworkdayjobs.com/en-US/baxter/job/Raleigh-North-Carolina/XMLNAME-2025-Summer-Intern---Software-Engineer_JR-169273-1
+
+Company: 0101 CareFusion 303, Inc.
+Title: Intern - Project Coordinator - Software Engineering Project and Program Management Internship
+Location: USA CA - San Diego Bldg A&amp;B
+Skills: [Metrics, HTTPS, Agile]
+URL: https://bdx.wd1.myworkdayjobs.com/EXTERNAL_CAREER_SITE_USA/job/USA-CA---San-Diego-Bldg-AB/Intern-Project-Coordinator---Software-Engineering-Project-and-Program-Management_R-513602
+
+Company: alamarbiosciences
+Title: Software Engineering Intern
+Location: Fremont, California
+Skills: [C#, Java, Git, Throughput, Jira, Python]
+URL: https://boards.greenhouse.io/alamarbiosciences/jobs/5479996004
+
+Company: alarmcom
+Title: Software Engineer Internship - Tysons, VA
+Location: Tysons, VA
+Skills: [C#, JavaScript, AI, Node.js, iOS, Android, SQL]
+URL: https://boards.greenhouse.io/alarmcom/jobs/7843271002
+
+Company: alarmcom
+Title: Software Engineering Intern - Denver, CO
+Location: Denver, CO
+Skills: [C#, JavaScript, AI, Node.js, iOS, Android, SQL]
+URL: https://boards.greenhouse.io/alarmcom/jobs/7889233002
+
+Company: apptronik
+Title: Software Engineer Autonomy - Intern 2025
+Location: Austin, TX
+Skills: [Trees, C++, Algorithms, Git, PyTorch, Linux, AI, Firmware, Kernel, Python, TensorFlow]
+URL: https://boards.greenhouse.io/apptronik/jobs/5379005004
+
+Company: dvtrading
+Title: 2025 Summer Internship - Software Developer (DV Commodities)
+Location: New York
+Skills: [Java, C++, Cryptocurrency, Latency, Python]
+URL: https://boards.greenhouse.io/dvtrading/jobs/4443921005
+
+Company: energyhub
+Title: Engineering Intern
+Location: Brooklyn, NY
+Skills: [Java, SaaS, API, Spring, React, Monitoring, Angular, IoT]
+URL: https://boards.greenhouse.io/energyhub/jobs/7884007002
+
+Company: fortrobotics
+Title: Co-Op & Internship Resume Submissions
+Location: Philadelphia, PA
+Skills: [AI, SAFe]
+URL: https://boards.greenhouse.io/fortrobotics/jobs/4293779005
+
+Company: neuralink
+Title: Software Engineer Intern, Robotics
+Location: Fremont, California, United States
+Skills: [C++, C, Rust, Linux, SAFe, Sensors, Reliability]
+URL: https://boards.greenhouse.io/neuralink/jobs/5469305003
+
+Company: neuralink
+Title: Software Engineer Intern, Lab Systems
+Location: Fremont, California, United States
+Skills: [Rails, C++, C, Rust, Django, JavaScript, Prototyping, Ruby, Python]
+URL: https://boards.greenhouse.io/neuralink/jobs/6083322003
+
+Company: neuralink
+Title: Embedded Software Engineer Intern
+Location: Fremont, California, United States
+Skills: [C++, C, Metal, Latency, Algorithms, Agile, Stacks, Firmware, Reliability, Cryptography, Kernel, MCU, Python]
+URL: https://boards.greenhouse.io/neuralink/jobs/6283663003
+
+Company: neuralink
+Title: Software Engineer Intern, Robotics
+Location: Austin, Texas, United States
+Skills: [C++, C, Rust, Linux, SAFe, Sensors, Reliability]
+URL: https://boards.greenhouse.io/neuralink/jobs/6326531003
+
+Company: rsinternboard
+Title: Software Engineer Intern - Summer/Fall 2025 (Stennis)
+Location: Stennis Space Center, Mississippi
+Skills: [R, C++, C, Foundation, Rocket, Reliability, Latency, Python]
+URL: https://boards.greenhouse.io/rsinternboard/jobs/7855756002
+
+Company: scm
+Title: Developer Internship
+Location: Radnor, PA
+Skills: [Java, C++, Shell, Linux, Perl, Bash, SQL]
+URL: https://boards.greenhouse.io/scm/jobs/721888
+
+Company: spacex
+Title: Summer 2025 Software Engineering Internship/Co-op
+Location: Flexible - Any SpaceX Site
+Skills: [C#, Java, Cargo, C++, C, Algorithms, Networking, JavaScript, Throughput, Firmware, Abstraction, Python]
+URL: https://boards.greenhouse.io/spacex/jobs/7623213002
+
+Company: BorgWarner Transmission Products LLC
+Title: Engineering Intern
+Location: Auburn Hills PTC - USA
+Skills: [MATLAB]
+URL: https://borgwarner.wd5.myworkdayjobs.com/BorgWarner_Careers/job/Auburn-Hills---Michigan---USA/Engineering-Intern_R2025-1323
+
+Company: 
+Title: 
+Location: 
+Skills: [Throughput, Reliability]
+URL: https://brooksauto.wd1.myworkdayjobs.com/Brooks_External_Site/job/US---Fremont-CA/Software-Computer-Vision-Intern_R2529
+
+Company: Brunswick Corporation
+Title: Computer Graphics Software Developer Intern
+Location: BI Design Lab
+Skills: [C++, Unity, HTTPS, Sensors, Tracing, Spring, Python]
+URL: https://brunswick.wd1.myworkdayjobs.com/en-US/search/job/Champaign-IL/Computer-Graphics-Software-Developer-Intern_JR-046195
+
+Company: 
+Title: Software Architect Internship (Summer 2025)
+Location: AUSTIN 03
+Skills: [TypeScript, CSS, Git, Caching, JavaScript, HTML, React, Indexing]
+URL: https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers/job/AUSTIN/Software-Architect-Internship--Summer-2025-_R49719-2
+
+Company: 
+Title: Software Development Internship, SDA (Summer 2025)
+Location: BURLINGTON 01
+Skills: [Java, C++, Python]
+URL: https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers/job/Burlington-MA/Software-Development-Internship--SDA--Summer-2025-_R49173-3
+
+Company: 
+Title: SVG Software Intern (Summer 2025)
+Location: BURLINGTON 01
+Skills: [C++, C, Algorithms, Prototyping, Python]
+URL: https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers/job/Burlington-MA/SVG-Software-Intern--Summer-2025-_R48488
+
+Company: 
+Title: Software Intern
+Location: SAN JOSE 10
+Skills: [Unix, Java, C++, Algorithms, Linux, Containers, Python]
+URL: https://cadence.wd1.myworkdayjobs.com/en-US/External_Careers/job/SAN-JOSE/Software-Intern_R49164-1
+
+Company: 
+Title: 
+Location: Nellie
+Skills: []
+URL: https://columbiasportswearcompany.wd5.myworkdayjobs.com/en-US/CSC_Careers/job/Portland-Oregon-United-States-of-America/Software-Engineer-Intern---Platform-Engineering_R-018084-2
+
+Company: 
+Title: 
+Location: Nellie
+Skills: []
+URL: https://columbiasportswearcompany.wd5.myworkdayjobs.com/en-US/CSC_Careers/job/Portland-Oregon-United-States-of-America/Software-Engineer-Intern_R-018157
+
+Company: 
+Title: 
+Location: Remote Oregon
+Skills: []
+URL: https://columbiasportswearcompany.wd5.myworkdayjobs.com/en-US/CSC_Careers/job/Salem-Oregon-United-States-of-America/Software-Integration-Engineer-Intern_R-018161-2
+
+Company: Copart, Inc
+Title: Software Engineering Intern
+Location: US TX IT Enterprise 727
+Skills: [Unix, Express, MariaDB, Triggers, HTML, NumPy, SQL, REST, Shell, Algorithms, Git, Linux, Django, MySQL, Pandas, JavaScript, Python, Flask]
+URL: https://copart.wd12.myworkdayjobs.com/copart/job/Dallas-TX---Headquarters/Software-Engineering-Intern_JR102187
+
+Company: Copart, Inc
+Title: Mobile Developer Intern (AI / ML)
+Location: US TX IT Product Dev 728
+Skills: [Algorithms, JavaScript, AI, Node.js, React, ML]
+URL: https://copart.wd12.myworkdayjobs.com/en-US/copart/job/Dallas-TX---Headquarters/Mobile-Developer-Intern--AI---ML-_JR101849
+
+Company: 9005 CVS Pharmacy, Inc.
+Title: InnoTech Summer Undergraduate Internship 2025 – Aetna Tech – Aetna Medicaid Tech
+Location: Scottsdale-9501 East Shea Blvd
+Skills: [Networking, AI, Foundation]
+URL: https://cvshealth.wd1.myworkdayjobs.com/CVS_Health_Careers/job/AZ---Scottsdale/InnoTech-Summer-Undergraduate-Internship-2025---Aetna-Tech---Aetna-Medicaid-Tech_R0520545
+
+Company: DriveTime Sales and Finance Company, LLC
+Title: Full Stack Software Engineering Intern (Summer 2025)
+Location: Home Office
+Skills: [C#, Java, Azure, CSS, Node.js, HTML, Angular, TypeScript, REST, JavaScript, Agile, .NET, Phoenix, Ionic, Python]
+URL: https://drivetime.wd1.myworkdayjobs.com/DriveTime/job/1720-W-Rio-Salado-Pkwy-Tempe-AZ-85281/Software-Engineering-Intern--Summer-2025-_R9725
+
+Company: The Elevance Health Companies, Inc.
+Title: Technical Intern- Summer 2025
+Location: GA-ATLANTA, 740 W PEACHTREE ST NW
+Skills: [Java, C++, Algorithms, Hadoop, Snowflake, AI, Statistics, AWS, Python, SQL, ML]
+URL: https://elevancehealth.wd1.myworkdayjobs.com/en-US/ANT/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Technical-Intern--Summer-2025_JR139652
+
+Company: Teledyne LeCroy, Inc.
+Title: Software Engineer Co-Op
+Location: US - Chestnut Ridge, NY
+Skills: [C++, C, Firmware, Reliability, Spring, Monitoring, Python]
+URL: https://flir.wd1.myworkdayjobs.com/en-US/flircareers/job/US---Chestnut-Ridge-NY/Software-Engineer--Co-Op_REQ27425-1
+
+Company: Teledyne LeCroy, Inc.
+Title: Software Engineer Co-Op
+Location: US - Chestnut Ridge, NY
+Skills: [C++, Algorithms, Reliability, MATLAB, Monitoring, Python]
+URL: https://flir.wd1.myworkdayjobs.com/en-US/flircareers/job/US---Chestnut-Ridge-NY/Software-Engineer-Co-Op_REQ27924
+
+Company: 1000 Gen Digital Inc.
+Title: Software Engineering Intern
+Location: USA - California, Mountain View
+Skills: [C#, C++, Retrospectives, JavaScript, Agile, Cybersecurity, Swift, SAFe, Kotlin, Python]
+URL: https://gen.wd1.myworkdayjobs.com/careers/job/USA---California-Mountain-View/Software-Engineering-Intern_53912
+
+Company: 1000 Gen Digital Inc.
+Title: Software Engineering Intern
+Location: USA - California, Mountain View
+Skills: [C#, C++, Retrospectives, JavaScript, Agile, Cybersecurity, Swift, SAFe, Kotlin, Python]
+URL: https://gen.wd1.myworkdayjobs.com/en-US/careers/job/USA---California-Mountain-View/Software-Engineering-Intern_53912
+
+Company: USA MOT Motion Industries, Inc.
+Title: Web Developer Intern
+Location: USA MOT Alton Rd Campus AL00
+Skills: [Java, Shell, Git, Linux, Agile, Next.js, Windows, React, Angular]
+URL: https://genpt.wd1.myworkdayjobs.com/Careers/job/Birmingham-AL-USA/Web-Developer-Intern_R25_0000004586
+
+Company: USA MOT Motion Industries, Inc.
+Title: Cloud Developer Intern
+Location: USA MOT Alton Rd Campus AL00
+Skills: [Java, Shell, Git, Linux, Agile, Windows]
+URL: https://genpt.wd1.myworkdayjobs.com/en-US/Careers/job/Birmingham-AL-USA/Cloud-Developer-Intern_R25_0000004600
+
+Company: USA MOT Motion Industries, Inc.
+Title: Web Developer Intern
+Location: USA MOT Alton Rd Campus AL00
+Skills: [Java, Shell, Git, Linux, Agile, Next.js, Windows, React, Angular]
+URL: https://genpt.wd1.myworkdayjobs.com/en-US/Careers/job/Birmingham-AL-USA/Web-Developer-Intern_R25_0000004598
+
+Company: GLOBALFOUNDRIES US Inc.
+Title: End Markets Intern, Aerospace &amp; Defense (Summer 2025)
+Location: USA - California - Santa Clara
+Skills: []
+URL: https://globalfoundries.wd1.myworkdayjobs.com/External/job/USA---California---Santa-Clara/End-Markets-Intern--Aerospace---Defense--Summer-2025-_JR-2403092
+
+Company: 4001US00 DUAL North America Inc
+Title: Programmer Intern
+Location: DUAL - Dallas Office
+Skills: [Java, Kanban, XML, JavaScript, Agile, Scrum, HTML, SQL]
+URL: https://hyperiongrp.wd3.myworkdayjobs.com/Hyperion_External/job/DUAL---Dallas-Office/Programmer-Intern_R0011193
+
+Company: 
+Title: 
+Location: USA - CA - Santa Clara
+Skills: []
+URL: https://intel.wd1.myworkdayjobs.com/en-us/external/job/US-California-Santa-Clara/Undergraduate-Intern-Software-Engineer_JR0268959
+
+Company: Jabil Inc.
+Title: Software Engineer Intern
+Location: USA - Austin
+Skills: [REST, Networking, Docker, Linux, Accessibility, Ansible, Angular]
+URL: https://jabil.wd5.myworkdayjobs.com/en-US/Jabil_Careers/job/Austin-TX/Software-Engineer-Intern_J2415238
+
+Company: alarmcom
+Title: Software Engineer Internship - Lawrence, KS
+Location: Lawrence, Kansas, United States
+Skills: [C#, JavaScript, AI, Node.js, iOS, Android, SQL]
+URL: https://job-boards.greenhouse.io/alarmcom/jobs/7934338002
+
+Company: aloyoga
+Title: Retail Engineering Intern
+Location: Beverly Hills, California, United States
+Skills: [S3, RDS, Java, MySQL, DynamoDB, API, AWS, Microservices, Python]
+URL: https://job-boards.greenhouse.io/aloyoga/jobs/5490748004
+
+Company: astranis
+Title: Flight Software Intern (Summer 2025)
+Location: San Francisco
+Skills: [C++, C, Metal]
+URL: https://job-boards.greenhouse.io/astranis/jobs/4394960006
+
+Company: astranis
+Title: Full Stack Developer, Network Software - Intern (Summer 2025)
+Location: San Francisco
+Skills: [Django, Postgres, Prototyping, SQL]
+URL: https://job-boards.greenhouse.io/astranis/jobs/4400092006
+
+Company: astranis
+Title: DevOps Engineer (Flight Software) - Intern (Summer 2025)
+Location: San Francisco
+Skills: [Metrics, Git, GitHub, Reliability, Monitoring, Python]
+URL: https://job-boards.greenhouse.io/astranis/jobs/4408495006
+
+Company: astranis
+Title: Ground Software Engineer — Intern (Summer 2025)
+Location: San Francisco
+Skills: [Docker, Python, SQL]
+URL: https://job-boards.greenhouse.io/astranis/jobs/4422551006
+
+Company: bridgewatercampusrecruiting
+Title: Campus Investment Engineer Intern - 2026
+Location: New York City
+Skills: [Algorithms, LESS]
+URL: https://job-boards.greenhouse.io/bridgewatercampusrecruiting/jobs/7950103002
+
+Company: capstoneinvestmentadvisors
+Title: 2025 Summer Internship - Quantitative Analyst - Boston
+Location: Boston, Massachusetts
+Skills: [Java, Statistics, Python]
+URL: https://job-boards.greenhouse.io/capstoneinvestmentadvisors/jobs/7948765002
+
+Company: energyhub
+Title: Engineering Intern - Client Connections
+Location: Brooklyn, NY
+Skills: [Java, Snowflake, SaaS, Spring, Python, IoT]
+URL: https://job-boards.greenhouse.io/energyhub/jobs/7944582002
+
+Company: figureai
+Title: Intern, TeleOp Controls
+Location: San Jose, CA
+Skills: [C++, Algorithms, AI, Graphs, SAFe, Sensors, Python, ML]
+URL: https://job-boards.greenhouse.io/figureai/jobs/4452489006
+
+Company: forbes
+Title: Summer 2025 Business Intelligence/Insights Intern
+Location: Jersey City, NJ
+Skills: []
+URL: https://job-boards.greenhouse.io/forbes/jobs/5485136004
+
+Company: genies
+Title: Backend Engineer Intern (LLM) - 2025 Summer
+Location: San Mateo, California, United States
+Skills: [Java, C++, Scalability, AI, Windows, NLP, Algorithms, Docker, API, Helm, AWS, Kubernetes, Python, ML]
+URL: https://job-boards.greenhouse.io/genies/jobs/6506648003
+
+Company: genies
+Title: Full Stack Web Developer Intern
+Location: Los Angeles, California, United States
+Skills: [Logging, R, GitHub, AI, Foundation, API, Windows, Datadog, Helm, React, Monitoring, Python]
+URL: https://job-boards.greenhouse.io/genies/jobs/6524202003
+
+Company: intradiem
+Title: AI/ML Intern
+Location: Remote US
+Skills: [Authorization, Java, C++, R, Algorithms, Docker, AI, Spring, Statistics, ML, Python, Kubernetes]
+URL: https://job-boards.greenhouse.io/intradiem/jobs/4408361006
+
+Company: logicgate
+Title: Software Engineer Intern
+Location: Chicago - United States
+Skills: [C#, SAFe, Angular, TypeScript, Neo4j, Terraform, Docker, JUnit, JavaScript, Selenium, Ruby, AWS, GitLab, Python, Java, C++, Sass, Redis, Spring, Jira, Kotlin, RabbitMQ, Slack, Ansible, Webpack]
+URL: https://job-boards.greenhouse.io/logicgate/jobs/4554724005
+
+Company: rocketlawyer
+Title: AI/ML Intern (Remote in Colorado)
+Location: Colorado
+Skills: [Java, AI, Rocket, Statistics, Microservices, Kotlin, SQL, Algorithms, PyTorch, Django, API, FastAPI, Monitoring, ML, Python, TensorFlow, Flask]
+URL: https://job-boards.greenhouse.io/rocketlawyer/jobs/4582609008
+
+Company: rocketlawyer
+Title: Software Engineering Intern (Remote in Arizona)
+Location: Arizona
+Skills: [CSS, GitHub, Sass, HTML, Rocket, Jira, React, Angular, TypeScript, Retrospectives, JavaScript, Agile, LESS]
+URL: https://job-boards.greenhouse.io/rocketlawyer/jobs/4585830008
+
+Company: rocketlawyer
+Title: Software Engineering Intern (Remote in North Carolina)
+Location: North Carolina
+Skills: [CSS, GitHub, Sass, HTML, Rocket, Jira, React, Angular, TypeScript, Retrospectives, JavaScript, Agile, LESS]
+URL: https://job-boards.greenhouse.io/rocketlawyer/jobs/4593263008
+
+Company: rocketlawyer
+Title: Software Engineering Intern (Remote in California)
+Location: California
+Skills: [CSS, GitHub, Sass, HTML, Rocket, Jira, React, Angular, TypeScript, Retrospectives, JavaScript, Agile, LESS]
+URL: https://job-boards.greenhouse.io/rocketlawyer/jobs/4593265008
+
+Company: rocketlawyer
+Title: AI/ML Intern (Remote in Utah)
+Location: Utah
+Skills: [Java, AI, Rocket, Statistics, Microservices, Kotlin, SQL, Algorithms, PyTorch, Django, API, FastAPI, Monitoring, ML, Python, TensorFlow, Flask]
+URL: https://job-boards.greenhouse.io/rocketlawyer/jobs/4593270008
+
+Company: samsungsemiconductor
+Title: Intern, Machine Learning Engineer - PEFT
+Location: San Jose, California, United States
+Skills: [Algorithms, PyTorch, HTTPS, AI, Foundation, SAFe, IoT, Python, ML]
+URL: https://job-boards.greenhouse.io/samsungsemiconductor/jobs/6331707003
+
+Company: sigmacomputing
+Title: Software Engineering Intern (Summer 2025)
+Location: San Francisco, CA
+Skills: [Authorization, Java, Metrics, Algorithms, C, JavaScript, Snowflake, Promises, AI, Python]
+URL: https://job-boards.greenhouse.io/sigmacomputing/jobs/6086991003
+
+Company: verkada
+Title: Software Engineering Intern, Mobile - Fall 2025
+Location: San Mateo, CA United States
+Skills: [Scalability, Swift, Sensors, iOS, Android, Kotlin]
+URL: https://job-boards.greenhouse.io/verkada/jobs/4634987007
+
+Company: xometry
+Title: Software Engineer - Intern
+Location: North Bethesda, Maryland
+Skills: [Authorization, Agile]
+URL: https://job-boards.greenhouse.io/xometry/jobs/4605574007
+
+Company: xometry
+Title: Software Engineer - Intern
+Location: Lexington, Kentucky
+Skills: [Authorization, Agile]
+URL: https://job-boards.greenhouse.io/xometry/jobs/4605589007
+
+Company: xometry
+Title: Machine Learning Platform Intern
+Location: North Bethesda, Maryland
+Skills: [Azure, Go, Authorization, REST, Algorithms, PyTorch, GCP, API, FastAPI, AWS, Python, ML, TensorFlow]
+URL: https://job-boards.greenhouse.io/xometry/jobs/4658355007
+
+Company: xometry
+Title: Machine Learning Platform Intern
+Location: Boston, MA
+Skills: [Azure, Go, Authorization, REST, Algorithms, PyTorch, GCP, API, FastAPI, AWS, Python, ML, TensorFlow]
+URL: https://job-boards.greenhouse.io/xometry/jobs/4678988007
+
+Company: zetasummerinternship
+Title: Software Engineer Intern
+Location: San Francisco, CA
+Skills: [Java, CSS, Algorithms, Git, HTTPS, JavaScript, AI, Agile, Foundation, HTML, React, Python]
+URL: https://job-boards.greenhouse.io/zetasummerinternship/jobs/5368707004
+
+Company: Actian Corporation
+Title: Engineering Intern
+Location: US-Remote
+Skills: []
+URL: https://jobs.lever.co/actian/d7e063da-d994-46bc-b0d1-f001b7e48988
+
+Company: Ambrook
+Title: Software Engineering Intern
+Location: New York, NY
+Skills: []
+URL: https://jobs.lever.co/ambrook/df4de9bc-5786-40c5-9055-1cfcaa93a236
+
+Company: Favor
+Title: Software Engineering Intern
+Location: Austin, TX
+Skills: [Java, Git, Agile, Go, Kotlin]
+URL: https://jobs.lever.co/askfavor/3540e7d0-dd72-4583-94a6-176854b38bdf
+
+Company: HRL Laboratories
+Title: Quantum Technology Intern - Masters
+Location: Malibu, CA
+Skills: []
+URL: https://jobs.lever.co/dodmg/7dce176a-5852-4ae8-a3c5-74eb88c02681
+
+Company: e.l.f. Beauty
+Title: Summer Intern, IT Project Delivery
+Location: Oakland, CA
+Skills: []
+URL: https://jobs.lever.co/elfbeauty/6fd1e545-6599-4970-bb24-a0f0e7b0c238
+
+Company: Empire State Realty Trust
+Title: AI Engineering Summer Intern
+Location: New York, New York, United States
+Skills: []
+URL: https://jobs.lever.co/esrtreit/b7714a39-f17c-421d-8ff1-2823b889b82b
+
+Company: Electric Mind
+Title: Software Developer Intern
+Location: Downtown Toronto
+Skills: [REST, Agile]
+URL: https://jobs.lever.co/intelliware/24345432-7189-4849-a389-3bad4abde843
+
+Company: Kodiak
+Title: Summer 2025 Intern, Artificial Intelligence/Machine Learning
+Location: Mountain View, CA
+Skills: []
+URL: https://jobs.lever.co/kodiak/894854a7-8cbe-45bf-a09b-c0543c142e46
+
+Company: Kodiak
+Title: Summer 2025 Intern, Motion Planning
+Location: Mountain View, CA
+Skills: []
+URL: https://jobs.lever.co/kodiak/9402afdd-6682-4d9c-9116-cf9fd472742d
+
+Company: Kodiak
+Title: Summer 2025 Intern, Perception
+Location: Mountain View, CA
+Skills: []
+URL: https://jobs.lever.co/kodiak/c731a8b1-5efd-4c91-82fc-764a24dfd44b
+
+Company: Nominal
+Title: Software Engineer - Internship (Summer 2025)
+Location: Los Angeles, CA
+Skills: []
+URL: https://jobs.lever.co/nominal/e0922dce-30a1-41cf-bee3-80833a714cbd
+
+Company: Omnidian
+Title: Software Engineer Internship
+Location: Seattle, Washington
+Skills: []
+URL: https://jobs.lever.co/omnidian/4d20aa4f-b634-45a0-8c6c-035cf6d87726
+
+Company: Palantir Technologies
+Title: Forward Deployed Software Engineer, Internship
+Location: New York, NY
+Skills: []
+URL: https://jobs.lever.co/palantir/c8d45e31-cf15-411e-b085-87d52f602d3c
+
+Company: Palantir Technologies
+Title: Forward Deployed Software Engineer, Internship - US Government
+Location: Washington, D.C.
+Skills: []
+URL: https://jobs.lever.co/palantir/e6ff8bf2-135e-474d-ad37-24f490ae1dd2
+
+Company: Pison Technology
+Title: Firmware Engineering Intern-Spring 2025
+Location: Boston MA
+Skills: []
+URL: https://jobs.lever.co/pison/469a672e-4f79-415c-aecb-1f44fca25260
+
+Company: Pison Technology
+Title: Software Engineering Intern- Spring 2025
+Location: Boston MA
+Skills: []
+URL: https://jobs.lever.co/pison/669d53e5-f701-4121-8cd0-ced6e1f720e4
+
+Company: PlusAI
+Title: Systems Engineer Intern - Automotive/Robotics
+Location: Santa Clara, CA
+Skills: [Ubuntu, C++, Linux, Python]
+URL: https://jobs.lever.co/plus-2/1b771d13-caa1-4eac-9a15-f321a647d8a3
+
+Company: PlusAI
+Title: Software Engineer Intern- Runtime, Compute Platform
+Location: Fremont, CA
+Skills: []
+URL: https://jobs.lever.co/plus-2/3181e5b7-db89-40ac-baa6-3e0cf73a2327
+
+Company: PlusAI
+Title: Software Engineer Intern- Simulation
+Location: Santa Clara, CA
+Skills: []
+URL: https://jobs.lever.co/plus-2/44419d66-fd8b-4f7d-aa15-5755d3c92080
+
+Company: PlusAI
+Title: Software Engineer Intern - Mapping &amp; Localization
+Location: Santa Clara, CA
+Skills: [C++, Algorithms, Sensors]
+URL: https://jobs.lever.co/plus-2/6e607f1e-044f-4f5d-919b-37728b98ad7e
+
+Company: PlusAI
+Title: Software Engineer Intern- Controls
+Location: Santa Clara, CA
+Skills: []
+URL: https://jobs.lever.co/plus-2/9c3a6fd9-a30c-4a6e-9345-426a1bf68e3c
+
+Company: PlusAI
+Title: Software Engineer Intern - ML Simulation
+Location: Santa Clara, CA
+Skills: [NLP, PyTorch, Unity, AI, ML, Python, TensorFlow]
+URL: https://jobs.lever.co/plus-2/f22cbeb8-a291-4e7f-8430-620e6adbdcfa
+
+Company: QuantCo
+Title: Deep Learning Engineering for Medical Imaging Intern
+Location: Europe
+Skills: []
+URL: https://jobs.lever.co/quantco-/91732d59-8a88-479d-beb8-8464ad600d15
+
+Company: Quest Analytics
+Title: Software Engineer Intern - C#, ASP.NET - Summer 2025 in Kansas City
+Location: Overland Park, KS
+Skills: []
+URL: https://jobs.lever.co/questanalytics/fb5754f5-3f51-4f2b-8184-18278b87dd5a
+
+Company: Saronic
+Title: Software Engineer Intern
+Location: Austin, Texas
+Skills: []
+URL: https://jobs.lever.co/saronic/8e547d4b-9495-48b5-a1e1-08eac4403a92
+
+Company: Sayari
+Title: Application Team Software Intern
+Location: United States
+Skills: [TypeScript, Elasticsearch, Cassandra, Postgres, Kubernetes]
+URL: https://jobs.lever.co/sayari/8666c495-441a-4514-8b20-bcad58f0b4df
+
+Company: Solar Landscape
+Title: Software Engineer Intern
+Location: Asbury Park
+Skills: []
+URL: https://jobs.lever.co/solarlandscape/76615ad3-751a-41ac-a2a8-01fc370967be
+
+Company: Spotify
+Title: 2025 Summer Internship, Product &amp; Technology (New York City)
+Location: New York, NY
+Skills: [Java, C++, Networking, Scala, Go, iOS, Statistics, Android, Kotlin, SQL, TypeScript, Authorization, R, Agile, Swift, Prototyping, Python, ML]
+URL: https://jobs.lever.co/spotify/13601176-f41a-4782-9935-70e9b1d36bd7
+
+Company: Wealth.com
+Title: Wealth.com Technology Internship Program: Applied Scientist (AI/ML)
+Location: Remote, United States
+Skills: []
+URL: https://jobs.lever.co/WealthFinancialTechnologies/84c7ccc3-774c-47e3-a0e6-696a5e99f537
+
+Company: WeRide.ai
+Title: 2025 Summer Intern - Software Engineer
+Location: San Jose, CA
+Skills: [SAFe]
+URL: https://jobs.lever.co/weride/d935a87c-c332-4a6f-bab8-86fc41910b67
+
+Company: Woven by Toyota
+Title: Machine Learning Intern, Perception
+Location: Palo Alto, CA
+Skills: []
+URL: https://jobs.lever.co/woven-by-toyota/3ef2af82-cc04-487c-817b-71281b12d676
+
+Company: 1805 KBR Wyle Services, LLC
+Title: National Security Solutions (NSS) Software Engineering Internship
+Location: USA, Chantilly, 15020 Conference Center Drive, Suite 100, Virginia
+Skills: [C++, Algorithms, C, Networking, Cybersecurity, Calculus, SAFe, MATLAB]
+URL: https://kbr.wd5.myworkdayjobs.com/KBR_Careers/job/Chantilly-Virginia/National-Security-Solutions--NSS--Software-Engineering-Internship_R2095307
+
+Company: C0035 LiveRamp, Inc.
+Title: Intern, Software Engineering
+Location: San Francisco
+Skills: [BigQuery, Hadoop, Probability, SAFe, Bash, Statistics, NumPy, SQL, R, Git, GCP, Pandas, Agile, Stacks, Prototyping, AWS, ML, Python]
+URL: https://liveramp.wd5.myworkdayjobs.com/en-US/LiveRampCareers/job/San-Francisco/Intern--Software-Engineering_JR011519
+
+Company: 
+Title: 
+Location: 
+Skills: [AI]
+URL: https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Comprehensive-Simulator-Framework-Developer-Intern--Bachelors-_2500104
+
+Company: 
+Title: 
+Location: 
+Skills: [AI]
+URL: https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Field-Application-Engineering-Intern---Bachelor-s-degree_2401847
+
+Company: 
+Title: 
+Location: 
+Skills: [AI]
+URL: https://marvell.wd1.myworkdayjobs.com/en-US/MarvellCareers2/job/Santa-Clara-CA/Product-Engineer-Intern---Bachelors_2401896
+
+Company: 
+Title: 
+Location: Irving-Irving Corporate Office-3939 West John Carpenter Freeway
+Skills: []
+URL: https://michaels.wd5.myworkdayjobs.com/External/job/Irving-Irving-Corporate-Office-3939-West-John-Carpenter-Freeway/Intern---Infrastructure-Engineering_R00270974
+
+Company: 
+Title: 
+Location: Irving-Irving Corporate Office-3939 West John Carpenter Freeway
+Skills: []
+URL: https://michaels.wd5.myworkdayjobs.com/External/job/Irving-Irving-Corporate-Office-3939-West-John-Carpenter-Freeway/Intern---Software-Operations_R00270894
+
+Company: Legrand AV Inc
+Title: Intern - Engineering Firmware
+Location: Fairfield
+Skills: [C++, Git, Linux, Waterfall, Agile, Firmware, Python]
+URL: https://milestone.wd1.myworkdayjobs.com/Milestone_External/job/NJ-Fairfield/Intern---Engineering-Firmware_R03366
+
+Company: 
+Title: 
+Location: California Southern, US Offsite
+Skills: []
+URL: https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/California-Southern-Remote-Work/Software-Engineering-Intern--JavaScript-Nodejs----2025-Summer-Internship_R53314
+
+Company: 
+Title: 
+Location: Chicago, IL
+Skills: []
+URL: https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Chicago-IL/Presale-Systems-Engineer--Summer-2025-Internship-_R53715
+
+Company: 
+Title: 
+Location: Chicago, IL
+Skills: []
+URL: https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Chicago-IL/Software-Engineering---2025-Summer-Internship_R51702
+
+Company: 
+Title: 
+Location: Linthicum, MD
+Skills: []
+URL: https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Linthicum-MD/Federal-Systems-Engineering-Intern--2025-Summer-Internship-_R51031-1
+
+Company: 
+Title: 
+Location: Schaumburg, IL
+Skills: []
+URL: https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/Schaumburg-IL/Mobile-Development-Intern--Summer-2025-_R51669
+
+Company: 
+Title: 
+Location: West Valley City, UT
+Skills: []
+URL: https://motorolasolutions.wd5.myworkdayjobs.com/Careers/job/West-Valley-City-UT/Software-Engineering-Intern---2025--Summer-Internship_R51673
+
+Company: Nextracker LLC, USA
+Title: Application Engineer Intern
+Location: Fremont, North Bldg, California - USA
+Skills: [R, Monitoring]
+URL: https://nextracker.wd5.myworkdayjobs.com/nextracker_careers/job/Fremont-North-Bldg-California---USA/Application-Engineer-Intern_NX-1611-1
+
+Company: 06F Federal Reserve Bank of Atlanta
+Title: 2025 Summer Internship Program - BTS Innovation Analyst Intern
+Location: Atlanta, GA
+Skills: [Shell, Networking, HTTPS, Python]
+URL: https://rb.wd5.myworkdayjobs.com/en-US/FRS/job/Atlanta-GA/XMLNAME-2025-Summer-Internship-Program---BTS-Innovation-Analyst-Intern_R-0000026950-1
+
+Company: 102 ResMed Digital Health Inc.
+Title: Machine Learning Ops Intern
+Location: US San Diego Corporate
+Skills: [Terraform, Docker, GitHub, Pandas, AI, AWS, ML, Kubernetes, Python, SQL]
+URL: https://resmed.wd3.myworkdayjobs.com/en-US/ResMed_External_Careers/job/San-Diego-CA-United-States/Machine-Learning-Ops-Intern_JR_039220
+
+Company: 1001 Sabre GLBL Inc.
+Title: Cloud Engineer - 2025 Summer Intern
+Location: United States of America - HDQ-Bldg A
+Skills: [Azure, BigQuery, GCP, Snowflake, DBT, AI, ETL, ELT, AWS, Redshift, ML]
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Cloud-Engineer---2025-Summer-Intern_JR105700
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Product-Management---2025-Summer-Intern_JR105412
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Site-Reliability-Engineer---2025-Summer-Intern_JR105468
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Site-Reliability-Engineer---2025-Summer-Intern_JR105469
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Site-Reliability-Engineer---2025-Summer-Intern_JR105524
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Software-Engineer---2025-Summer-Intern_JR105409
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Software-Engineer---2025-Summer-Intern_JR105435
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Software-Engineering---2025-Summer-Intern_JR105329
+
+Company: 
+Title: 
+Location: United States of America - HDQ-Bldg A
+Skills: []
+URL: https://sabre.wd1.myworkdayjobs.com/en-US/SabreJobs/job/Dallas-Fort-Worth-Metroplex/Web-Development---2025-Summer-Intern_JR105445
+
+Company: Las Vegas Sands Corp.
+Title: Intern - Las Vegas Sands Corp.
+Location: Las Vegas (LVSC)
+Skills: [SAFe]
+URL: https://sands.wd1.myworkdayjobs.com/en-US/sands_careers/job/Intern---Las-Vegas-Sands-Corp_R24_0521
+
+Company: SOLV Energy, LLC
+Title: OTI Systems/DevOps Intern
+Location: San Diego CA Renewable Group
+Skills: [PowerShell, Terraform, Networking, Ansible, Agile, IaC, Bash, Python]
+URL: https://solvenergy.wd1.myworkdayjobs.com/en-US/SOLV_External_Career/job/San-Diego-CA-Renewable-Group/OTI-Systems-DevOps-Intern_J11055
+
+Company: TGSNOPEC TGS-NOPEC Geophysical Company
+Title: Software API Development Intern
+Location: Houston Operational Headquarters - 77041
+Skills: [GKE, REST, Throughput, API, Python]
+URL: https://tgs.wd1.myworkdayjobs.com/en-US/TGS_External/job/Houston-Operational-Headquarters---77041/Software-API-Development-Intern_R630
+
+Company: TGSNOPEC TGS-NOPEC Geophysical Company
+Title: Software API Infrastructure Intern
+Location: Houston Operational Headquarters - 77041
+Skills: [REST, API, Python, SQL]
+URL: https://tgs.wd1.myworkdayjobs.com/en-US/TGS_External/job/Houston-Operational-Headquarters---77041/Software-API-Infrastructure-Intern_R629
+
+Company: 101 X Corp.
+Title: Engineering Intern
+Location: US - CA - Palo Alto
+Skills: [Java, Algorithms, Scala, Python]
+URL: https://twitter.wd5.myworkdayjobs.com/en-US/X/job/Palo-Alto-CA/Engineering-Intern_R100794
+
+Company: 101 X Corp.
+Title: Engineering Intern
+Location: US - CA - Palo Alto
+Skills: [Java, Algorithms, Scala, Python]
+URL: https://twitter.wd5.myworkdayjobs.com/X/job/Palo-Alto-CA/Engineering-Intern_R100794
+
+Company: Ventas Inc
+Title: Intern, Software Engineering (Summer 2025)
+Location: IL - Chicago
+Skills: [Java, C++, Algorithms, JUnit, TestNG, Selenium, Python]
+URL: https://ventas.wd1.myworkdayjobs.com/en-US/ventas_careers/job/IL---Chicago/Intern--Software-Engineering--Summer-2025-_R0001113
+
+Company: Viavi Solutions Inc.
+Title: Software development intern
+Location: Morrisville, NC USA
+Skills: [C++, C, Linux, Fiber, Python]
+URL: https://viavisolutions.wd1.myworkdayjobs.com/en-US/careers/job/Morrisville-NC-USA/Software-development-intern_240003078-1
+
+Company: Magna Services of America, Inc.
+Title: Robotics Controls Intern
+Location: 750 TOWER DR, TROY, MI 48098, USA
+Skills: [R, C++, Algorithms, Unity, Python]
+URL: https://wd3.myworkdaysite.com/en-US/recruiting/magna/Magna/job/Troy-Michigan-US/Robotics-Controls-Intern_R00173677
+
+Company: Magna Services of America, Inc.
+Title: Embedded Software Intern
+Location: 750 TOWER DR, TROY, MI 48098, USA
+Skills: [C++, Microcontrollers, Algorithms, C, Unity, Firmware]
+URL: https://wd3.myworkdaysite.com/recruiting/magna/Magna/job/Troy-Michigan-US/Embedded-Software-Intern_R00178311
+
+Company: Wood Mackenzie Inc.
+Title: Power &amp; Renewables Co-Op (July - December)
+Location: US-MA-Boston-Office
+Skills: [Statistics, Python]
+URL: https://woodmac.wd3.myworkdayjobs.com/woodmaccareers/job/Boston-US/Power---Renewables-Co-Op_JR1828
+
+Company: Carl Zeiss Meditec, Inc.
+Title: Intern-Systems Engineering
+Location: Dublin, CA (ZICC)
+Skills: [Foundation, LESS]
+URL: https://zeissgroup.wd3.myworkdayjobs.com/External/job/Dublin-CA/Intern-Systems-Engineering_JR_1007742
+
