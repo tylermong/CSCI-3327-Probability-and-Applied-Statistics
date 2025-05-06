@@ -9,8 +9,6 @@ public class Main
         // Create the data builder and generate initial data
         APIDataBuilder dataBuilder = new APIDataBuilder();
         dataBuilder.run();
-        
-        // Get the data from the data builder
         ArrayList<Double> xValues = dataBuilder.getXValues();
         ArrayList<Double> yValues = dataBuilder.getYValues();
         
