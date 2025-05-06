@@ -1,30 +1,44 @@
 package dev.tylermong.jobanalyzer.util;
 
+/**
+ * Utility class for displaying a progress bar in the console.
+ */
 public class ProgressBar
 {
     private final int width;
 
+    /**
+     * Constructor for ProgressBar object.
+     * 
+     * @param width the width of the progress bar
+     */
     public ProgressBar(int width)
     {
         this.width = width;
     }
 
+    /**
+     * Updates the progress bar with the current progress and total.
+     * 
+     * @param processed the number of processed items
+     * @param total     the total number of items
+     */
     public void update(int processed, int total)
     {
         double percent = (double) processed / total;
         int done = (int) (width * percent), left = width - done;
-        StringBuilder b = new StringBuilder("\r");
-        
+        StringBuilder builder = new StringBuilder("\r");
+
         for (int i = 0; i < done; i++)
         {
-            b.append('█');
+            builder.append('█');
         }
         for (int i = 0; i < left; i++)
         {
-            b.append('▒');
+            builder.append('▒');
         }
-        b.append(String.format(" %.1f%% (%d/%d)", percent * 100, processed, total));
-        
-        System.out.print(b);
+        builder.append(String.format(" %.1f%% (%d/%d)", percent * 100, processed, total));
+
+        System.out.print(builder);
     }
 }

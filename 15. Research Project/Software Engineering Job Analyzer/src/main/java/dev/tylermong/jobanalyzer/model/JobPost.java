@@ -2,6 +2,9 @@ package dev.tylermong.jobanalyzer.model;
 
 import java.util.List;
 
+/**
+ * Represents a job post.
+ */
 public class JobPost
 {
     private String company;

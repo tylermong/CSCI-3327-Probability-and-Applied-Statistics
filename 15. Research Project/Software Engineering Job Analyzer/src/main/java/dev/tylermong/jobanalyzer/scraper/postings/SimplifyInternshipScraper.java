@@ -16,25 +16,31 @@ import java.nio.file.Path;
 import java.io.BufferedWriter;
 import java.util.Comparator;
 
+/**
+ * Scraper for job postings from the SimplifyJobs GitHub repository.
+ */
 public class SimplifyInternshipScraper implements LinkScraper
 {
     private static final String RAW_README_URL = "https://raw.githubusercontent.com/SimplifyJobs/Summer2025-Internships/refs/heads/dev/README.md";
     // title keywords to exclude
-    private static final String[] EXCLUDED_KEYWORDS = {
-            "Data", "Quality", "QA", "Test", "Testing", "Advise", "Advising", "Advisor", "Co-op", "Coop", "Research",
-            "Researcher", "PHD", "Supply Chain", "Analytics", "GIS", "Solutions", "Hardware"
-    };
+    private static final String[] EXCLUDED_KEYWORDS =
+    { "Data", "Quality", "QA", "Test", "Testing", "Advise", "Advising", "Advisor", "Co-op", "Coop", "Research",
+            "Researcher", "PHD", "Supply Chain", "Analytics", "GIS", "Solutions", "Hardware" };
 
+    /**
+     * Scrapes the job postings from the README file on the SimplifyJobs GitHub repository.
+     * 
+     * @return             a list of job posting URLs
+     * @throws IOException if an error occurs while connecting to the URL
+     */
     @Override
     public List<String> scrapeLinks() throws IOException
     {
-        String readmeContent = Jsoup.connect(RAW_README_URL)
-                .ignoreContentType(true)
-                .execute()
-                .body();
+        String readmeContent = Jsoup.connect(RAW_README_URL).ignoreContentType(true).execute().body();
 
         List<String> jobPostingURLs = new ArrayList<>();
 
+        // Regex pattern to match the job posting rows in the README file
         Pattern rowPattern = Pattern.compile(
                 "\\|\\s*\\*\\*\\[[^\\]]+\\]\\([^)]*\\)\\*\\*\\s*\\|\\s*([^|]+)\\|[^|]*\\|.*?<a href=\"(https?://[^\"]+)\"");
         Matcher rowMatcher = rowPattern.matcher(readmeContent);
@@ -45,6 +51,7 @@ public class SimplifyInternshipScraper implements LinkScraper
             String title = rowMatcher.group(1);
             String url = rowMatcher.group(2);
 
+            // Exclude job postings with certain keywords in the title or URLs containing "simplify.jobs"
             if (title.matches(".*\\b(" + String.join("|", EXCLUDED_KEYWORDS) + ")\\b.*")
                     || url.contains("simplify.jobs"))
             {
@@ -61,6 +68,12 @@ public class SimplifyInternshipScraper implements LinkScraper
         return jobPostingURLs;
     }
 
+    /**
+     * Counts the frequency of job boards in the list of job posting URLs.
+     * 
+     * @param  jobPostingURLs the list of job posting URLs
+     * @return                a map containing the frequency of each job board
+     */
     @Override
     public Map<String, Integer> countJobBoardFrequencies(List<String> jobPostingURLs)
     {
@@ -72,9 +85,7 @@ public class SimplifyInternshipScraper implements LinkScraper
                 URI uri = URI.create(urlString);
                 String host = uri.getHost();
                 String[] parts = host.split("\\.");
-                String domain = parts.length >= 2
-                        ? parts[parts.length - 2] + "." + parts[parts.length - 1]
-                        : host;
+                String domain = parts.length >= 2 ? parts[parts.length - 2] + "." + parts[parts.length - 1] : host;
                 frequencies.put(domain, frequencies.getOrDefault(domain, 0) + 1);
             }
             catch (IllegalArgumentException e)
@@ -85,6 +96,13 @@ public class SimplifyInternshipScraper implements LinkScraper
         return frequencies;
     }
 
+    /**
+     * Writes the job board frequencies to a file.
+     * 
+     * @param  frequencies    the map containing the frequency of each job board
+     * @param  outputFilePath the path to the output file
+     * @throws IOException    if an error occurs while writing to the file
+     */
     @Override
     public void writeFrequenciesToFile(Map<String, Integer> frequencies, String outputFilePath) throws IOException
     {
@@ -92,8 +110,7 @@ public class SimplifyInternshipScraper implements LinkScraper
         try (BufferedWriter writer = Files.newBufferedWriter(path))
         {
             frequencies.entrySet().stream()
-                    .sorted(Map.Entry.<String, Integer>comparingByValue(Comparator.reverseOrder()))
-                    .forEach(entry ->
+                    .sorted(Map.Entry.<String, Integer> comparingByValue(Comparator.reverseOrder())).forEach(entry ->
                     {
                         try
                         {

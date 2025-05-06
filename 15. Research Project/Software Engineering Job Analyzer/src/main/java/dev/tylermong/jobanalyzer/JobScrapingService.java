@@ -19,6 +19,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/**
+ * Service class for scraping links and data. It collects links from different GitHub repositories, filters them, and
+ * then scrapes data from them. This class also handles the creation of output files for scraped data and error logging.
+ */
 public class JobScrapingService
 {
     private final List<LinkScraper> linkScrapers;
@@ -26,16 +30,25 @@ public class JobScrapingService
     private final String outputFile;
     private final String deadLinksFile = "15. Research Project/Software Engineering Job Analyzer/output/DeadLinks.txt";
 
-    public JobScrapingService(
-            List<LinkScraper> linkScrapers,
-            Map<String, DataScraper> dataScrapers,
-            String outputFile)
+    /**
+     * Constructor for JobScrapingService.
+     * 
+     * @param linkScrapers list of link scrapers to collect links from
+     * @param dataScrapers map of data scrapers to scrape data from the links
+     * @param outputFile   path to the output file where scraped data will be saved
+     */
+    public JobScrapingService(List<LinkScraper> linkScrapers, Map<String, DataScraper> dataScrapers, String outputFile)
     {
         this.linkScrapers = linkScrapers;
         this.dataScrapers = dataScrapers;
         this.outputFile = outputFile;
     }
 
+    /**
+     * Scrapes links from the provided link scrapers, filters them, and then scrapes data from the useable links.
+     * 
+     * @throws IOException if an I/O error occurs during file operations
+     */
     public void scrapeAndWrite() throws IOException
     {
         File outputDirectory = new File("15. Research Project/Software Engineering Job Analyzer/output/");
@@ -52,16 +65,15 @@ public class JobScrapingService
             allLinks.addAll(scraper.scrapeLinks());
         }
 
-        List<String> links = allLinks.stream()
-            .map(link -> {
-                int queryIndex = link.indexOf('?');
-                return (queryIndex == -1) ? link : link.substring(0, queryIndex);
-            })
-            .distinct()
-            .sorted(String::compareToIgnoreCase)
-            .collect(Collectors.toList());
+        // Remove duplicates and sort links
+        List<String> links = allLinks.stream().map(link ->
+        {
+            int queryIndex = link.indexOf('?');
+            return (queryIndex == -1) ? link : link.substring(0, queryIndex);
+        }).distinct().sorted(String::compareToIgnoreCase).collect(Collectors.toList());
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/AllLinks.txt")))
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/AllLinks.txt")))
         {
             for (String link : links)
             {
@@ -74,11 +86,12 @@ public class JobScrapingService
         Set<String> deadLinks = loadDeadLinks();
         System.out.println("\nLoaded " + deadLinks.size() + " known dead links.");
 
-        List<String> useableLinks = links.stream()
-            .filter(link -> !deadLinks.contains(link))
-            .filter(link -> dataScrapers.keySet().stream().anyMatch(key -> link.toLowerCase().contains(key.toLowerCase())))
-            .collect(Collectors.toList());
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
+        // Filter out dead links and links that don't match any data scraper
+        List<String> useableLinks = links.stream().filter(link -> !deadLinks.contains(link)).filter(
+                link -> dataScrapers.keySet().stream().anyMatch(key -> link.toLowerCase().contains(key.toLowerCase())))
+                .collect(Collectors.toList());
+        try (BufferedWriter writer = new BufferedWriter(
+                new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/UseableLinks.txt")))
         {
             for (String link : useableLinks)
             {
@@ -87,45 +100,45 @@ public class JobScrapingService
             }
         }
         System.out.println("\n" + useableLinks.size() + " useable links saved to: UseableLinks.txt");
-                
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
-             BufferedWriter errorWriter = new BufferedWriter(new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/ErrorLog.txt")))
+                BufferedWriter errorWriter = new BufferedWriter(
+                        new FileWriter("15. Research Project/Software Engineering Job Analyzer/output/ErrorLog.txt")))
         {
             ProgressBar bar = new ProgressBar(50);
             int total = useableLinks.size();
             int processed = 0;
-            AtomicInteger deadLinkCount = new AtomicInteger(0);
+            AtomicInteger deadLinkCount = new AtomicInteger(0); // Must use in lambda expressions
             System.out.println("Scraping data from " + total + " links...\n");
             for (String link : useableLinks)
             {
                 processed++;
                 bar.update(processed, total);
-                
-                dataScrapers.entrySet().stream()
-                    .filter(entry -> link.contains(entry.getKey()))
-                    .findFirst()
-                    .ifPresent(entry ->
-                    {
-                        try
+
+                // Try to scrape data from the link. If it fails, add the link to dead links and log the error.
+                dataScrapers.entrySet().stream().filter(entry -> link.contains(entry.getKey())).findFirst()
+                        .ifPresent(entry ->
                         {
-                            JobPost post = entry.getValue().scrapeJob(link);
-                            writePost(writer, post, link);
-                        }
-                        catch (IOException exception1)
-                        {
-                            addDeadLink(link);
-                            deadLinkCount.incrementAndGet();
                             try
                             {
-                                errorWriter.write(link + ": " + exception1.getMessage());
-                                errorWriter.newLine();
+                                JobPost post = entry.getValue().scrapeJob(link);
+                                writePost(writer, post, link);
                             }
-                            catch (IOException exception2)
+                            catch (IOException exception1)
                             {
-                                System.err.println("Error writing to error log: " + exception2.getMessage());
+                                addDeadLink(link);
+                                deadLinkCount.incrementAndGet();
+                                try
+                                {
+                                    errorWriter.write(link + ": " + exception1.getMessage());
+                                    errorWriter.newLine();
+                                }
+                                catch (IOException exception2)
+                                {
+                                    System.err.println("Error writing to error log: " + exception2.getMessage());
+                                }
                             }
-                        }
-                    });
+                        });
             }
             System.out.println("\n\n" + deadLinkCount + " new dead links found and added to DeadLinks.txt");
             System.out.println("Error log saved to: ErrorLog.txt");
@@ -133,11 +146,20 @@ public class JobScrapingService
         }
     }
 
+    /**
+     * Writes a job post to the output file. If the post is empty (job filled/removed), it adds the link to dead links
+     * and skips writing it.
+     * 
+     * @param  w           BufferedWriter to write the job post to
+     * @param  p           JobPost object containing the job post data
+     * @param  link        URL of the job post
+     * @throws IOException if an I/O error occurs during writing
+     */
     private void writePost(BufferedWriter w, JobPost p, String link) throws IOException
     {
         // If the post is empty (job filled/removed), add to dead links and skip it
-        if (p.getCompany().trim().isEmpty() && p.getTitle().trim().isEmpty() && p.getLocation().trim().isEmpty() 
-                    && p.getSkills().isEmpty())
+        if (p.getCompany().trim().isEmpty() && p.getTitle().trim().isEmpty() && p.getLocation().trim().isEmpty()
+                && p.getSkills().isEmpty())
         {
             addDeadLink(link);
             return;
@@ -157,6 +179,11 @@ public class JobScrapingService
         w.flush();
     }
 
+    /**
+     * Adds a dead link to the dead links file. If the file does not exist, it creates it.
+     * 
+     * @param link the URL of the dead link to be added
+     */
     private void addDeadLink(String link)
     {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(deadLinksFile, true)))
@@ -170,6 +197,12 @@ public class JobScrapingService
         }
     }
 
+    /**
+     * Loads dead links from the dead links file. If the file does not exist, it returns an empty set.
+     * 
+     * @return             a set of dead links
+     * @throws IOException if an I/O error occurs during reading
+     */
     private Set<String> loadDeadLinks() throws IOException
     {
         File file = new File(deadLinksFile);
