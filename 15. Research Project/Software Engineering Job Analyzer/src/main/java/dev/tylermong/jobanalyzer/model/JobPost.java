@@ -10,6 +10,15 @@ public class JobPost
     private List<String> skills;
     private String url;
 
+    /**
+     * Constructor for JobPost object.
+     * 
+     * @param company  name of the company
+     * @param title    title of the job post
+     * @param location location of the job
+     * @param skills   list of skills from the job description
+     * @param url      url for the posting
+     */
     public JobPost(String company, String title, String location, List<String> skills, String url)
     {
         this.company = company;
@@ -18,7 +27,7 @@ public class JobPost
         this.skills = skills;
         this.url = url;
     }
-    
+
     public String getCompany()
     {
         return company;
