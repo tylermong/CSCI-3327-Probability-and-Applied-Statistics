@@ -17,8 +17,18 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
+/**
+ * Data scraping functionality for job posts on Lever.co.
+ */
 public class LeverScraper implements DataScraper
 {
+    /**
+     * Scrapes the job post from the given URL.
+     * 
+     * @param  url         the URL of the job post
+     * @return             a JobPost object containing the scraped data
+     * @throws IOException if an error occurs while connecting to the URL
+     */
     public JobPost scrapeJob(String url) throws IOException
     {
         Document doc = Jsoup.connect(url).get();
@@ -33,14 +43,21 @@ public class LeverScraper implements DataScraper
         return job;
     }
 
+    /**
+     * Scrapes the company name from the URL
+     * 
+     * @param  doc the document to scrape
+     * @return     the company name
+     */
     private String scrapeCompany(Document doc)
     {
         Element script = doc.selectFirst("script[type=application/ld+json]");
-        
+
         if (script != null)
         {
             String json = script.html();
-            Pattern pattern = Pattern.compile("\\\"hiringOrganization\\\"\\s*:\\s*\\{[^}]*?\\\"name\\\"\\s*:\\s*\\\"([^\\\"]+)\\\"");
+            Pattern pattern = Pattern
+                    .compile("\\\"hiringOrganization\\\"\\s*:\\s*\\{[^}]*?\\\"name\\\"\\s*:\\s*\\\"([^\\\"]+)\\\"");
             Matcher matcher = pattern.matcher(json);
             if (matcher.find())
             {
@@ -50,6 +67,12 @@ public class LeverScraper implements DataScraper
         return "";
     }
 
+    /**
+     * Scrapes the job title from the document
+     * 
+     * @param  doc the document to scrape
+     * @return     the job title
+     */
     private String scrapeTitle(Document doc)
     {
         Element script = doc.selectFirst("script[type=application/ld+json]");
@@ -67,6 +90,12 @@ public class LeverScraper implements DataScraper
         return "";
     }
 
+    /**
+     * Scrapes the job location from the document
+     * 
+     * @param  doc the document to scrape
+     * @return     the job location
+     */
     private String scrapeLocation(Document doc)
     {
         Element script = doc.selectFirst("script[type=application/ld+json]");
@@ -83,7 +112,13 @@ public class LeverScraper implements DataScraper
         }
         return "";
     }
-    
+
+    /**
+     * Scrapes the skills from the job description
+     * 
+     * @param  doc the document to scrape
+     * @return     a list of skills found in the job description
+     */
     private List<String> scrapeSkills(Document doc)
     {
         Element script = doc.selectFirst("script[type=application/ld+json]");

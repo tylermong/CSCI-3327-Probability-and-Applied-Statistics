@@ -17,8 +17,18 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
+/**
+ * Data scraping functionality for job posts on Greenhouse.io.
+ */
 public class GreenhouseScraper implements DataScraper
 {
+    /**
+     * Scrapes the job post from the given URL.
+     * 
+     * @param  url         the URL of the job post
+     * @return             a JobPost object containing the scraped data
+     * @throws IOException if an error occurs while connecting to the URL
+     */
     public JobPost scrapeJob(String url) throws IOException
     {
         Document doc = Jsoup.connect(url).get();
@@ -33,6 +43,12 @@ public class GreenhouseScraper implements DataScraper
         return job;
     }
 
+    /**
+     * Scrapes the company name from the URL
+     * 
+     * @param  doc the document to scrape
+     * @return     the company name
+     */
     private String scrapeCompany(Document doc)
     {
         String url = doc.baseUri();
@@ -45,6 +61,12 @@ public class GreenhouseScraper implements DataScraper
         return "";
     }
 
+    /**
+     * Scrapes the job title from the document
+     * 
+     * @param  doc the document to scrape
+     * @return     the job title
+     */
     private String scrapeTitle(Document doc)
     {
         Element header = doc.selectFirst("h1.section-header.section-header--large.font-primary");
@@ -55,6 +77,12 @@ public class GreenhouseScraper implements DataScraper
         return "";
     }
 
+    /**
+     * Scrapes the job location from the document
+     * 
+     * @param  doc the document to scrape
+     * @return     the job location
+     */
     private String scrapeLocation(Document doc)
     {
         Element locDiv = doc.selectFirst("div.job__location > div");
@@ -66,6 +94,12 @@ public class GreenhouseScraper implements DataScraper
         return "";
     }
 
+    /**
+     * Scrapes the skills from the job description
+     * 
+     * @param  doc the document to scrape
+     * @return     a list of skills found in the job description
+     */
     private List<String> scrapeSkills(Document doc)
     {
         Element descDiv = doc.selectFirst("div.job__description.body");
@@ -84,6 +118,7 @@ public class GreenhouseScraper implements DataScraper
             // Split the description into words/tokens, keeping +, #, and .
             String[] words = descriptionText.split("[^a-zA-Z0-9+#.]+");
 
+            // Iterate through the words and check if they are in the VALID_SKILLS list
             for (String word : words)
             {
                 if (word.isEmpty())
@@ -91,11 +126,14 @@ public class GreenhouseScraper implements DataScraper
                     continue;
                 }
 
+                // Remove trailing punctuation (.,!?)
                 String cleanedWord = word.replaceAll("[.,!?]+$", "");
-                if (cleanedWord.isEmpty()) {
+                if (cleanedWord.isEmpty())
+                {
                     continue;
                 }
 
+                // Use lowercase for consistency
                 String lowerWord = cleanedWord.toLowerCase();
                 if (normalizedSkillMap.containsKey(lowerWord))
                 {
