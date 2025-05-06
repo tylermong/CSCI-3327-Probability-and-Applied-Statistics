@@ -9,6 +9,8 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
+        // Initialize the job scraping service with link scrapers and data scrapers, and call the scrapeAndWrite method
+        // to start the scraping process. The output file is specified for saving the scraped data.
         new JobScrapingService(
                 ScraperFactory.createLinkScrapers(),
                 ScraperFactory.createDataScrapers(),
