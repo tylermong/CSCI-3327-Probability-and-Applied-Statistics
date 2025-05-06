@@ -1,4 +1,4 @@
-# Custom HashMap: Submission
+# Custom HashMap
 
 ## Overview
 
